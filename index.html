@@ -505,6 +505,7 @@ td.id{color:var(--fg);font-weight:600;font-size:12.5px;white-space:nowrap}
 .rq-prev pre{margin:0;white-space:pre-wrap;background:var(--sunk);border:1px dashed var(--line2);border-radius:10px;padding:10px 12px;font:13px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--fg);text-align:left}
 .rq-acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .rq-acts .off{opacity:.45}
+.del-btn{color:#b3261e;border-color:#e8b4b0}.del-btn.arm{background:#b3261e;color:#fff;border-color:#b3261e}
 .igbox{display:inline-flex;gap:4px;align-items:center}
 .igbox input{width:150px;background:var(--surface);border:1px solid var(--line2);border-radius:7px;padding:3px 7px;font-size:12px}
 .br-hero{margin-inline:-16px;padding:22px 16px 18px;background:linear-gradient(160deg,var(--ink) 0%,var(--navy) 100%);color:var(--on-navy);display:flex;flex-direction:column;gap:12px}
@@ -757,6 +758,7 @@ td.id{color:var(--fg);font-weight:600;font-size:12.5px;white-space:nowrap}
           <div class="full" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
             <button class="btn primary" id="s-save" type="submit"></button>
             <button class="btn" id="s-new" type="button" data-i="f.newOne"></button>
+            <button class="btn del-btn" id="s-del" type="button" hidden></button>
             <label class="calopt"><input type="checkbox" id="calOpt" checked><span id="calOptT"></span></label>
             <span class="msg" id="s-msg" role="status"></span>
           </div>
@@ -1440,6 +1442,7 @@ function setFormMode(){
   $("#mgTitle").textContent=editing?t("mg.edit"):t("mg.add");
   $("#mgNote").textContent=editing?t("mg.noteEdit"):t("mg.noteAdd");
   $("#s-save").textContent=editing?t("f.saveEdit"):t("f.saveNew"); if(!editing&&$("#calOpt")&&$("#calOpt").checked) $("#s-save").textContent=wt("ضيف للشيت والكالندر","Add to sheet + calendar");
+  { const d=$("#s-del"); if(d){ d.hidden=!editing; d.classList.remove("arm"); d.textContent=wt("🗑️ احذف التصوير","🗑️ Delete shoot"); } }
   $("#mgId").textContent=editing?(editing.id+" · "+(LANG==="ar"?"صف ":"row ")+editing.row):($("#s-id").value||nextId());
 }
 function newShoot(){
@@ -1450,10 +1453,24 @@ function startEdit(s){
   editing={row:s.row,id:s.id,st:s.status};
   $("#s-date").value=s.date?ymd(s.date):""; $("#s-time").value=hhmm(s.time); $("#s-status").value=STATUS_OPTS.find(x=>x.toLowerCase()===s.status.toLowerCase())||"Scheduled";
   $("#s-rep").value=s.repRaw; $("#s-clinic").value=s.clinicRaw; $("#s-prod").value=s.prod; $("#s-doc").value=s.doc; $("#s-em").value=s.emRaw; $("#s-id").value=s.id;
-  editing.origTime=s.time; editing.origTimeH=hhmm(s.time); $("#calOpt").checked=false; WA_MODEL="";
+  editing.origTime=s.time; editing.origTimeH=hhmm(s.time); $("#calOpt").checked=!!(CALMAP[s.id]&&CALMAP[s.id].id); WA_MODEL="";
   $("#doneBox").hidden=true; $("#s-msg").textContent=""; setFormMode(); renderPick();
 }
 $("#s-new").addEventListener("click",newShoot);
+let delTimer=null;
+$("#s-del").addEventListener("click",async()=>{ if(!isMgr||!editing) return; const b=$("#s-del");
+  if(!b.classList.contains("arm")){ b.classList.add("arm"); b.textContent=wt("متأكد؟ اكبس كمان مرة لتحذف "+editing.id,"Sure? Click again to delete "+editing.id); clearTimeout(delTimer); delTimer=setTimeout(()=>{ b.classList.remove("arm"); b.textContent=wt("🗑️ احذف التصوير","🗑️ Delete shoot"); },5000); return; }
+  clearTimeout(delTimer); b.disabled=true; const id=editing.id, row=editing.row;
+  try{
+    if((CFG.sheetTab||DEFAULT_TAB)!==DEFAULT_TAB) throw new Error(wt("الحذف بيشتغل بس على التاب الأساسي","Delete only works on the main tab"));
+    const cur=await sheetCall("get_values",{range:A1(`A${row}`)}); const got=String(((cur.values||[])[0]||[])[0]||"").trim();
+    if(got!==id){ smsg(t("f.moved"),"err"); b.disabled=false; await pullSheet(); return; }
+    let calNote=""; try{ if(await calRemove(id)) calNote=wt(" والموعد من الكالندر"," and its calendar event"); }catch(ce){ calNote=wt(" (الموعد بالكالندر ما انمسح، امسحو بإيدك)"," (calendar event not removed — delete it by hand)"); }
+    await sheetCall("update_spreadsheet",{requests:[{deleteDimension:{range:{sheetId:0,dimension:"ROWS",startIndex:row-1,endIndex:row}}}]});
+    newShoot(); smsg(wt("✓ انحذف "+id+" من الشيت","✓ Deleted "+id+" from the sheet")+calNote,"ok"); toast(wt("انحذف "+id,"Deleted "+id));
+    await pullSheet();
+  }catch(err){ smsg(t("f.err")+((err&&err.message)||errCode(err)),"err"); }
+  b.disabled=false; });
 $("#s-id").addEventListener("input",setFormMode);
 function rowFormulas(r,v){
   const [y,m,d]=v.date.split("-").map(Number);
@@ -1466,6 +1483,41 @@ function rowFormulas(r,v){
     `=IF(H${r}="","",HYPERLINK("https://www.google.com/maps/search/?api=1&query="&SUBSTITUTE(H${r}," ","+"),"📍Google Maps"))`,
     `=IF(A${r}="","",A${r}&"_"&TEXT(B${r},"dd-mm-yyyy")&"."&H${r}&"."&J${r}&"."&I${r})`];
 }
+
+/* ---------- Google Calendar sync (create / update / delete the shoot's event) ---------- */
+const CAL_SRV="Google Calendar"; let CALMAP={}, calMapVer=0, calTools=null; const calSchema={};
+async function calMapLoad(){ if(!db) return; try{ const x=await db.doc("cal/events").get(); CALMAP=x.exists?(x.data().map||{}):{}; }catch(e){} }
+async function calMapSave(){ if(!db) return; try{ await db.doc("cal/events").set({map:CALMAP,updatedAt:new Date().toISOString()}); }catch(e){} }
+async function calHas(tool){ if(!calTools){ try{ const r=await mcp.listTools(CAL_SRV); const sv=(r.servers||[]).find(x=>x.server===CAL_SRV)||(r.servers||[])[0]; calTools=new Set(((sv&&sv.tools)||[]).map(t=>t.name)); }catch(e){ calTools=new Set(); } } return calTools.size?calTools.has(tool):true; }
+async function calProps(tool){ if(tool in calSchema) return calSchema[tool]; let p=null; try{ const d=await mcp.describeTool(CAL_SRV,tool); p=(d&&d.inputSchema&&d.inputSchema.properties)||null; }catch(e){} calSchema[tool]=p; return p; }
+function calFindId(o,depth){ if(!o||typeof o!=="object"||depth>4) return ""; for(const k of ["eventId","event_id","id"]) if(typeof o[k]==="string"&&o[k]) return o[k]; for(const v of Object.values(o)){ const r=calFindId(v,(depth||0)+1); if(r) return r; } return ""; }
+function calTimes(s){ const D=s.date, p=n=>String(n).padStart(2,"0"), dstr=x=>`${x.getFullYear()}-${p(x.getMonth()+1)}-${p(x.getDate())}`; const tm=hhmm(s.time);
+  if(tm){ const [h,m]=tm.split(":").map(Number), st=new Date(D.getFullYear(),D.getMonth(),D.getDate(),h,m), en=new Date(st.getTime()+(CFG.eventMinutes||120)*6e4);
+    const iso=x=>`${dstr(x)}T${p(x.getHours())}:${p(x.getMinutes())}:00+04:00`; return {allDay:false,start:iso(st),end:iso(en),sd:dstr(st),ed:dstr(en)}; }
+  const n=new Date(D.getTime()+864e5); return {allDay:true,start:dstr(D),end:dstr(n),sd:dstr(D),ed:dstr(n)}; }
+function calBody(s){ const em=s.em||s.emRaw||"", rep=s.repRaw||s.rep||"";
+  return {title:[s.clinic,rep,em].filter(Boolean).join(" - "), loc:`${s.clinic} ${em} Clinic`.replace(/\s+/g," ").trim(),
+    desc:[s.prod&&"Product: "+s.prod,s.doc&&"Doctor/Therapist: "+s.doc,s.model&&"Model: "+s.model,s.id&&"ID: "+s.id].filter(Boolean).join("\n"), t:calTimes(s)}; }
+function calArgs(props,b,extra){ const cal=(CFG.calendarId||"").trim()||"primary", T=b.t, a={};
+  if(!props){ Object.assign(a,{calendarId:cal,summary:b.title,description:b.desc,location:b.loc,
+      start:T.allDay?{date:T.sd}:{dateTime:T.start,timeZone:"Asia/Dubai"},end:T.allDay?{date:T.ed}:{dateTime:T.end,timeZone:"Asia/Dubai"}}); if(extra.eventId) a.eventId=extra.eventId; return a; }
+  const keys=Object.keys(props), find=re=>keys.find(k=>re.test(k));
+  const kCal=find(/^calendar_?id$/i)||find(/calendar/i), kEv=find(/^event_?id$/i)||(extra.eventId&&find(/^id$/i)), kTitle=find(/^(summary|title)$/i)||find(/summary|title|name/i),
+    kDesc=find(/description|details|notes/i), kLoc=find(/location/i), kStart=find(/^start/i), kEnd=find(/^end/i), kTz=find(/time_?zone/i), kAll=find(/all_?day/i);
+  if(kCal) a[kCal]=cal; if(kEv&&extra.eventId) a[kEv]=extra.eventId; if(kTitle) a[kTitle]=b.title; if(kDesc) a[kDesc]=b.desc; if(kLoc) a[kLoc]=b.loc; if(kTz) a[kTz]="Asia/Dubai"; if(kAll) a[kAll]=T.allDay;
+  const setT=(k,iso,date)=>{ if(!k) return; const sp=props[k]||{}; const isObj=sp.type==="object"||sp.properties;
+    if(isObj){ const pp=sp.properties||{}; a[k]=T.allDay&&("date" in pp||!("dateTime" in pp)&&!pp.date_time)?{date}:("dateTime" in pp||!Object.keys(pp).length?{dateTime:iso,timeZone:"Asia/Dubai"}:{date_time:iso,time_zone:"Asia/Dubai"}); }
+    else a[k]=T.allDay?date:iso; };
+  setT(kStart,T.start,T.sd); setT(kEnd,T.end,T.ed); return a; }
+async function calCall(tool,s,eventId){ const props=await calProps(tool); const a=tool==="delete_event"?(()=>{ const x=calArgs(props,{title:"",desc:"",loc:"",t:{}},{eventId}); const keep={}; Object.keys(x).forEach(k=>{ if(/cal|event|^id$/i.test(k)) keep[k]=x[k]; }); return keep; })():calArgs(props,calBody(s),{eventId});
+  const r=await mcp.callTool(CAL_SRV,tool,a,{cache:false}); return r&&(r.payload!==undefined?r.payload:r); }
+async function calUpsert(s,oldId){ if(!mcp) throw {code:"capability_disabled"}; await calMapLoad();
+  const key=oldId||s.id, cur=CALMAP[key];
+  if(cur&&cur.id){ let done=false; if(await calHas("update_event")){ try{ await calCall("update_event",s,cur.id); done=true; }catch(e){ if(e&&e.code==="tool_error"&&!/unknown tool|not found tool|no such tool/i.test(e.message||"")) throw e; } }
+    if(!done){ try{ await calCall("delete_event",s,cur.id); }catch(e){} const p=await calCall("create_event",s); cur.id=calFindId(p)||""; } }
+  const ent=cur&&cur.id?cur:{id:calFindId(await calCall("create_event",s))};
+  if(key!==s.id) delete CALMAP[key]; if(ent.id) CALMAP[s.id]={id:ent.id,at:new Date().toISOString()}; await calMapSave(); return !!ent.id; }
+async function calRemove(id){ await calMapLoad(); const cur=CALMAP[id]; if(!cur||!cur.id) return false; try{ await calCall("delete_event",{},cur.id); }catch(e){ if(!/not.?found|404|410|deleted/i.test(JSON.stringify(e||{}))) throw e; } delete CALMAP[id]; await calMapSave(); return true; }
 function smsg(txt,cls){const m=$("#s-msg"); m.textContent=txt; m.className="msg "+(cls||""); if($("#waDlg")&&$("#waDlg").open) waMsg(txt,cls);}
 $("#shootForm").addEventListener("submit",async e=>{
   e.preventDefault(); if(!isMgr) return;
@@ -1477,8 +1529,8 @@ $("#shootForm").addEventListener("submit",async e=>{
   if(cl.length&&!clashOk){ const bx=$("#clashBox"); bx.innerHTML=`<b>${t("cl.title")}</b>${cl.map(x=>`<span>• ${esc(x)}</span>`).join("")}<span style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px"><button class="btn sm primary" type="button" id="clashGo">${t("cl.save")}</button><button class="btn sm" type="button" id="clashFix">${t("cl.fix")}</button></span>`;
     bx.hidden=false; $("#clashGo").onclick=()=>{ clashOk=true; $("#shootForm").requestSubmit(); }; $("#clashFix").onclick=()=>{ bx.hidden=true; $("#s-date").focus(); }; return; }
   clashOk=false; $("#clashBox").hidden=true;
-  let calWin=null; if($("#calOpt").checked&&v.date){ try{ calWin=window.open("about:blank","_blank"); if(calWin) calWin.document.write('<p style="font:16px system-ui;padding:24px;color:#2E4162">Value Shoots… Google Calendar</p>'); }catch(_){ } }
-  const closeCal=()=>{ try{ calWin&&calWin.close(); }catch(_){ } calWin=null; };
+  const wantCal=$("#calOpt").checked&&!!v.date, oldId=editing?editing.id:null;
+  const closeCal=()=>{};
   const btn=$("#s-save"); btn.disabled=true; smsg(t("f.saving")); $("#doneBox").hidden=true;
   try{
     const col=await sheetCall("get_values",{range:A1("A1:H")}); const rows=col.values||[];
@@ -1494,9 +1546,11 @@ $("#shootForm").addEventListener("submit",async e=>{
     await sheetCall("update_formulas",{range:A1(`A${row}:M${row}`),formulas:[rowFormulas(row,v)]});
     const wasEdit=!!editing;
     const sObj={id:v.id,date:new Date(v.date+"T00:00"),time:v.time,clinic:v.clinic,repRaw:v.rep,rep:normRep(v.rep),em:normEm(v.em)||v.em,emRaw:v.em,prod:v.prod,doc:v.doc,model:WA_MODEL};
-    smsg(""); $("#doneText").textContent=wasEdit?t("f.updated",{id:v.id}):t("f.added",{id:v.id,row});
+    if(!wantCal) smsg(""); $("#doneText").textContent=wasEdit?t("f.updated",{id:v.id}):t("f.added",{id:v.id,row});
     $("#calLink").href=gcalUrl(sObj); $("#sheetLink").href=sheetUrl(); $("#doneBox").hidden=false;
-    if(calWin){ try{ calWin.location.href=gcalUrl(sObj); }catch(_){ } calWin=null; }
+    if(wantCal){ try{ smsg(wt("عم يحدّث الكالندر…","Updating the calendar…")); const ok=await calUpsert(sObj,oldId); smsg(ok?wt("✓ انحفظ بالشيت والكالندر","✓ Saved to sheet and calendar"):wt("انحفظ بالشيت، بس ما قدرت أتأكد من الكالندر","Saved to the sheet; calendar not confirmed"),ok?"ok":"err"); }
+      catch(ce){ smsg(wt("انحفظ بالشيت، بس الكالندر ما زبط: ","Saved to the sheet, but the calendar failed: ")+((ce&&(ce.message||ce.code))||""),"err"); } }
+    else if(oldId&&oldId!==v.id){ try{ await calMapLoad(); if(CALMAP[oldId]){ CALMAP[v.id]=CALMAP[oldId]; delete CALMAP[oldId]; await calMapSave(); } }catch(_){ } }
     if(!wasEdit){ $("#waText").value=""; $("#waOut").hidden=true; waMsg(""); }
     editing={row,id:v.id,st:v.status,origTime:v.time,origTimeH:v.time}; setFormMode();
     await pullSheet();
@@ -1516,7 +1570,7 @@ $("#pick").addEventListener("click",e=>{const b=e.target.closest("[data-row]"); 
 
 /* ---------- WhatsApp message → shoot ---------- */
 function waLabels(){ waDlgLabels(); if(typeof renderTasks==="function"&&TASKS) try{ renderTasks(); }catch(e){} $("#waT").textContent=wt("لصق رسالة واتساب","Paste a WhatsApp message"); $("#waText").placeholder=wt("الصق الرسالة هون… (Clinic Name: … / Date: … / Time: …)","Paste the message here… (Clinic Name: … / Date: … / Time: …)");
-  $("#waGo").textContent=wt("اقرا الرسالة","Read message"); $("#waClear").textContent=wt("مسح","Clear"); const c=$("#calOptT"); if(c) c.textContent=wt("افتح Google Calendar بعد الحفظ","Open Google Calendar after saving"); }
+  $("#waGo").textContent=wt("اقرا الرسالة","Read message"); $("#waClear").textContent=wt("مسح","Clear"); const c=$("#calOptT"); if(c) c.textContent=wt("حطّو / حدّثو بالكالندر","Add / update in Calendar"); }
 const WA_KEYS=[
   ["clinic",["clinic name","clinic","العيادة","اسم العيادة","عيادة","المركز"]],
   ["doc",["doctor name","doctor","dr name","dr","dr.","doc","therapist","injector","الدكتور","الدكتورة","الطبيب","الطبيبة","دكتور","دكتورة"]],
@@ -2336,6 +2390,7 @@ let syncTimer=null;
   route();
   if(!db){ setSync("signin"); applyLang(); return; }
   if(isMgr&&mcp) setTimeout(pushTeam,12000);
+  if(isMgr) calMapLoad();
   let langPicked=false; try{ langPicked=!!localStorage.getItem("vs-lang"); }catch(e){}
   let cfgSeen=false;
   db.doc("config/settings").onSnapshot(snap=>{
