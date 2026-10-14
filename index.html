@@ -856,7 +856,7 @@ td.id{color:var(--fg);font-weight:600;font-size:12.5px;white-space:nowrap}
 const __noCap=async()=>null;
 const MODE="public", PUBLIC_URL="https://ronysaad007.github.io/value-shoots/", PUSH_TASK="trig_01C6b7iBuELfEWB5TMW8srAd";
 let pushTimer=null;
-const TEAM_TAB="🌐 Team data", TEAM_CSV="";
+const TEAM_TAB="🌐 Team data", TEAM_CSV="https://docs.google.com/spreadsheets/d/e/2PACX-1vT-yslEg9Y0PHOD7a7aHwcsD8jgKYpx28Mm9RNujZQimQDznW8RiKa1lh45M0l7KcEsnbqTt2z7vzzT/pub?gid=1994752409&single=true&output=csv";
 function pushTeam(){ if(!mcp||!isMgr||!db) return; clearTimeout(pushTimer); pushTimer=setTimeout(async()=>{ try{
   const g=async p=>{ try{ const x=await db.doc(p).get(); return x.exists?x.data():null; }catch(e){ return null; } };
   const sh=await g("sheet/latest"); if(!sh||!sh.json) return;
@@ -2335,6 +2335,7 @@ let syncTimer=null;
   if(isMgr){ mcp=await __noCap("mcp"); assets=await __noCap("assets"); downloads=await __noCap("downloads"); }
   route();
   if(!db){ setSync("signin"); applyLang(); return; }
+  if(isMgr&&mcp) setTimeout(pushTeam,12000);
   let langPicked=false; try{ langPicked=!!localStorage.getItem("vs-lang"); }catch(e){}
   let cfgSeen=false;
   db.doc("config/settings").onSnapshot(snap=>{
