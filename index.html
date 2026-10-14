@@ -856,7 +856,16 @@ td.id{color:var(--fg);font-weight:600;font-size:12.5px;white-space:nowrap}
 const __noCap=async()=>null;
 const MODE="public", PUBLIC_URL="https://ronysaad007.github.io/value-shoots/", PUSH_TASK="trig_01C6b7iBuELfEWB5TMW8srAd";
 let pushTimer=null;
-function pushTeam(){ if(!mcp||!isMgr) return; clearTimeout(pushTimer); pushTimer=setTimeout(async()=>{ try{ await mcp.callTool("Claude Code Remote","fire_trigger",{trigger_id:PUSH_TASK},{cache:false}); $("#pushNote").hidden=false; }catch(e){} },1500); }
+const TEAM_TAB="🌐 Team data", TEAM_CSV="";
+function pushTeam(){ if(!mcp||!isMgr||!db) return; clearTimeout(pushTimer); pushTimer=setTimeout(async()=>{ try{
+  const g=async p=>{ try{ const x=await db.doc(p).get(); return x.exists?x.data():null; }catch(e){ return null; } };
+  const sh=await g("sheet/latest"); if(!sh||!sh.json) return;
+  const vi=await g("public/videos"), co=await g("public/consents");
+  const cfg=JSON.parse(JSON.stringify(CFG)); ["calendarId","driveFolderId","videoFolderId","fileId"].forEach(k=>delete cfg[k]);
+  const s=JSON.stringify({syncedAt:sh.syncedAt,rows:JSON.parse(sh.json),config:cfg,consents:(co&&co.ids)||[],videos:vi&&vi.json?JSON.parse(vi.json):{}});
+  const cells=[]; for(let i=0;i<s.length;i+=40000) cells.push(["~"+s.slice(i,i+40000)]); if(cells.length>12) throw new Error("team data too big"); while(cells.length<12) cells.push([""]);
+  await sheetCall("update_formulas",{range:`'${TEAM_TAB}'!A1:A12`,formulas:cells});
+  $("#pushNote").hidden=false; }catch(e){ console.warn("team push",e); } },2000); }
 const DEFAULT_FILE="1XILc9AKhjyfPf0zT-2bwy1ues1MBmyOuzU-KjUBizJ0", DEFAULT_TAB="📋 Value Shoots", SHEETS="Google Sheets";
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -2292,6 +2301,11 @@ $("#c-save").addEventListener("click",async()=>{ const b=$("#c-save"); b.disable
   catch(e){ $("#c-msg").textContent=t("set.err"); $("#c-msg").className="msg err"; b.disabled=false; }});
 
 /* ---------- boot ---------- */
+function csvCol(t){ const out=[]; let i=0,f="",q=false,first=true,col=0; for(;i<t.length;i++){ const c=t[i];
+    if(q){ if(c==='"'){ if(t[i+1]==='"'){ f+='"'; i++; } else q=false; } else f+=c; }
+    else if(c==='"') q=true; else if(c===','){ if(col===0) out.push(f); f=""; col++; } else if(c==='\n'){ if(col===0) out.push(f); f=""; col=0; } else if(c!=='\r') f+=c; }
+  if(f||col===0) { if(col===0&&f) out.push(f); } return out.filter(Boolean); }
+
 try{ const l=localStorage.getItem("vs-lang"); if(l) LANG=l; }catch(e){}
 applyLang(); route(); setSync("loading");
 let syncTimer=null;
@@ -2300,8 +2314,9 @@ let syncTimer=null;
   if(MODE==="public"){
     let langPicked=false; try{ langPicked=!!localStorage.getItem("vs-lang"); }catch(e){}
     try{
-      const r=await fetch("data.json",{cache:"no-store"}); if(!r.ok) throw new Error(r.status);
-      const d=await r.json();
+      let d=null;
+      if(TEAM_CSV){ try{ const r=await fetch(TEAM_CSV+(TEAM_CSV.includes("?")?"&":"?")+"t="+Date.now(),{cache:"no-store"}); if(r.ok) d=JSON.parse(csvCol(await r.text()).map(x=>x.replace(/^~/,"")).join("")); }catch(e){ d=null; } }
+      if(!d){ const r=await fetch("data.json",{cache:"no-store"}); if(!r.ok) throw new Error(r.status); d=await r.json(); }
       if(d.config) CFG=Object.assign(JSON.parse(JSON.stringify(DEF)),d.config);
       if(!langPicked&&CFG.defaultLang) LANG=CFG.defaultLang;
       S=toSessions(d.rows||[]); consentIds=new Set(d.consents||[]); syncedAt=d.syncedAt; setSync("ok");
