@@ -853,7 +853,7 @@ td.id{color:var(--fg);font-weight:600;font-size:12.5px;white-space:nowrap}
 (function(){
 "use strict";
 const __noCap=async()=>null;
-const MODE="public", PUBLIC_URL="https://claude.ai/artifact/DmsoWTBCk3YpkkkHRMzfV7", PUSH_TASK="trig_01C6b7iBuELfEWB5TMW8srAd";
+const MODE="public", PUBLIC_URL="https://ronysaad007.github.io/value-shoots/", PUSH_TASK="trig_01C6b7iBuELfEWB5TMW8srAd";
 let pushTimer=null;
 function pushTeam(){ if(!mcp||!isMgr) return; clearTimeout(pushTimer); pushTimer=setTimeout(async()=>{ try{ await mcp.callTool("Claude Code Remote","fire_trigger",{trigger_id:PUSH_TASK},{cache:false}); $("#pushNote").hidden=false; }catch(e){} },1500); }
 const DEFAULT_FILE="1XILc9AKhjyfPf0zT-2bwy1ues1MBmyOuzU-KjUBizJ0", DEFAULT_TAB="📋 Value Shoots", SHEETS="Google Sheets";
