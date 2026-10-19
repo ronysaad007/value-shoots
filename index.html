@@ -188,6 +188,12 @@ a.map:hover{text-decoration:underline}
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;align-items:center}
 .filters input,.filters select,.form input,.form select,.set input,.set select{background:var(--surface);border:1px solid var(--line2);border-radius:9px;padding:7px 10px;min-width:0}
 .filters input[type=search]{flex:1 1 220px}
+.filters.fx{display:grid;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px}
+.fx-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+.fx-grid label{display:grid;gap:4px;font-size:12px;font-weight:600;color:var(--muted)}
+.fx-grid select{width:100%;font-size:13.5px;color:var(--fg)}
+.fx-grid select.on{border-color:var(--blush);background:var(--blush-soft);font-weight:600}
+.fx-foot{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .tbl{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
 table{border-collapse:collapse;width:100%;min-width:860px;font-size:13.5px}
 th{background:var(--sunk);text-align:start;font-weight:600;color:var(--muted);font-size:12.5px;padding:9px 10px;border-bottom:1px solid var(--line)}
@@ -505,6 +511,78 @@ td.id{color:var(--fg);font-weight:600;font-size:12.5px;white-space:nowrap}
 .rq-prev pre{margin:0;white-space:pre-wrap;background:var(--sunk);border:1px dashed var(--line2);border-radius:10px;padding:10px 12px;font:13px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--fg);text-align:left}
 .rq-acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .rq-acts .off{opacity:.45}
+/* ---------- dashboard v2 ---------- */
+.dx-filter{display:flex;gap:8px;flex-wrap:wrap;align-items:center;min-height:8px;margin-bottom:12px;font-size:13px;color:var(--muted)}
+.dx-filter .fchip{display:inline-flex;align-items:center;gap:6px;background:var(--navy);color:var(--on-navy);border-radius:999px;padding:5px 12px;font-weight:600;border:0;cursor:pointer}
+.dx-filter .fchip:hover{opacity:.85}
+.dx-hero{position:relative;overflow:hidden;border-radius:20px;padding:26px 26px 22px;background:linear-gradient(135deg,var(--navy),#1b2740);color:var(--on-navy);display:grid;gap:14px}
+.dx-hero:before{content:"";position:absolute;inset:auto -80px -120px auto;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(227,184,174,.45),transparent 65%);pointer-events:none}
+.dx-hero .eb{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;opacity:.75;font-weight:600}
+.dx-hero h2{margin:0;font-family:var(--f-display);font-size:clamp(26px,4.2vw,44px);line-height:1.15;font-weight:600}
+.dx-hero h2 b{color:var(--blush);font-weight:700}
+.dx-hero .delta{display:inline-flex;align-items:center;gap:4px;font-size:.45em;vertical-align:middle;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.12);margin-inline-start:8px}
+.dx-hero .delta.up{color:#8fe3b0}.dx-hero .delta.down{color:#ffb4ad}
+.dx-facts{display:flex;flex-wrap:wrap;gap:10px;position:relative}
+.dx-facts button{all:unset;cursor:pointer;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:9px 13px;display:grid;gap:1px;min-width:120px}
+.dx-facts button:hover{background:rgba(255,255,255,.16)}
+.dx-facts small{font-size:11.5px;opacity:.7}.dx-facts b{font-family:var(--f-display);font-size:18px;font-weight:600}
+.dx-pipe-p{margin-top:16px}
+.dx-pipe{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.dx-st{all:unset;cursor:pointer;position:relative;border-radius:14px;padding:14px 14px 12px;background:var(--sunk);display:grid;gap:4px;min-width:0;transition:transform .15s}
+.dx-st:hover{transform:translateY(-2px)}
+.dx-st:not(:last-child):after{content:"";position:absolute;top:50%;inset-inline-end:-9px;width:10px;height:10px;transform:translateY(-50%) rotate(45deg);border-top:2px solid var(--line2);border-inline-end:2px solid var(--line2);z-index:1}
+[dir=rtl] .dx-st:not(:last-child):after{transform:translateY(-50%) rotate(-135deg)}
+.dx-st small{font-size:12px;color:var(--muted);font-weight:600;display:flex;align-items:center;gap:6px}.dx-st small i{width:8px;height:8px;border-radius:50%}
+.dx-st b{font-family:var(--f-display);font-size:30px;line-height:1;font-weight:600}
+.dx-st .bar{height:5px;border-radius:9px;background:var(--line);overflow:hidden}.dx-st .bar i{display:block;height:100%;border-radius:9px}
+.dx-st em{font-style:normal;font-size:11.5px;color:var(--faint)}
+@media (max-width:760px){.dx-pipe{grid-template-columns:repeat(2,minmax(0,1fr))}.dx-st:after{display:none}}
+.dx-stuck{margin-top:12px;display:grid;gap:6px}
+.dx-stuck .row{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:13px}
+.dx-stuck .lab{font-weight:600;color:var(--g-off)}.dx-stuck .lab.warn{color:var(--g-wait)}
+.dx-stuck button{all:unset;cursor:pointer;border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:12.5px;background:var(--surface)}
+.dx-stuck button:hover{border-color:var(--vblue)}
+.dx-stuck .ok{color:var(--g-done);font-size:13px;font-weight:600}
+.dx-heat-w{overflow-x:auto;padding-bottom:4px}
+.dx-heat{display:grid;grid-auto-flow:column;grid-template-rows:repeat(7,12px);grid-auto-columns:12px;gap:3px;width:max-content}
+.dx-heat i{width:12px;height:12px;border-radius:3px;background:var(--sunk);cursor:pointer;display:block}
+.dx-heat i.l1{background:color-mix(in srgb,var(--g-up) 35%,var(--sunk))}.dx-heat i.l2{background:color-mix(in srgb,var(--g-up) 60%,var(--sunk))}
+.dx-heat i.l3{background:var(--g-up)}.dx-heat i.l4{background:var(--navy)}
+.dx-heat i.fut{outline:1.5px dashed var(--blush);outline-offset:-1.5px}.dx-heat i.tod{outline:2px solid var(--blush);outline-offset:-2px}.dx-heat i.sel{outline:2px solid var(--fg);outline-offset:-2px}
+.dx-heat i.pad{visibility:hidden}
+.dx-legend{display:flex;gap:3px;align-items:center;font-size:11px;color:var(--faint)}.dx-legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
+.dx-day{margin-top:10px;font-size:13px;display:grid;gap:4px}
+.dx-day .it{display:flex;gap:8px;align-items:center}
+.dx-map svg{width:100%;height:auto;display:block}
+.dx-map .land{fill:var(--sunk);stroke:var(--line2);stroke-width:1.2}
+.dx-map g.em{cursor:pointer}.dx-map g.em circle{fill:var(--blush);fill-opacity:.75;stroke:var(--navy);stroke-width:1.5;transition:fill-opacity .2s}
+.dx-map g.em:hover circle,.dx-map g.em.on circle{fill-opacity:1;fill:var(--g-up)}
+.dx-map text{font-size:11px;fill:var(--fg);font-weight:600;paint-order:stroke;stroke:var(--surface);stroke-width:3px}
+.dx-map text.n{font-size:12px;font-family:var(--f-display)}
+.dx-emlist{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.dx-emlist button{all:unset;cursor:pointer;border:1px solid var(--line);border-radius:999px;padding:4px 10px;font-size:12.5px}.dx-emlist button b{font-family:var(--f-display);margin-inline-start:4px}.dx-emlist button:hover,.dx-emlist button.on{border-color:var(--blush);background:var(--blush-soft)}
+.dx-bars{display:grid;gap:7px}
+.dx-bars button{all:unset;cursor:pointer;display:grid;grid-template-columns:minmax(90px,38%) 1fr 32px;gap:8px;align-items:center;font-size:13px}
+.dx-bars button span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dx-bars button .tr{height:10px;border-radius:9px;background:var(--sunk);overflow:hidden}.dx-bars button .tr i{display:block;height:100%;border-radius:9px;background:var(--navy);transition:width .5s}
+.dx-bars button:hover .tr i,.dx-bars button.on .tr i{background:var(--blush)}
+.dx-bars button b{font-family:var(--f-display);text-align:end}
+.dx-reps{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px}
+.dx-rep{all:unset;cursor:pointer;border:1px solid var(--line);border-radius:14px;padding:12px;display:grid;gap:6px;background:var(--surface);transition:border-color .2s,transform .15s}
+.dx-rep:hover{transform:translateY(-2px);border-color:var(--vblue)}.dx-rep.on{border-color:var(--blush);box-shadow:0 0 0 2px var(--blush) inset}
+.dx-rep .dx-rtop{display:flex;align-items:center;gap:8px}.dx-rep .av{width:32px;height:32px;border-radius:50%;background:var(--navy);color:var(--on-navy);display:grid;place-items:center;font-weight:700;font-size:13px;flex:none}
+.dx-rep .nm{font-weight:600;font-size:13.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dx-rep .nums{display:flex;justify-content:space-between;align-items:end}.dx-rep .nums b{font-family:var(--f-display);font-size:26px;line-height:1}
+.dx-rep .nums small{font-size:11.5px;color:var(--muted)}
+.dx-rep svg{width:100%;height:30px}.dx-rep svg polyline{fill:none;stroke:var(--g-up);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}.dx-rep svg path{fill:color-mix(in srgb,var(--g-up) 14%,transparent)}
+.dx-rep .pc{height:5px;border-radius:9px;background:var(--sunk);overflow:hidden}.dx-rep .pc i{display:block;height:100%;background:var(--g-done)}
+.dx-rep .nx{font-size:11.5px;color:var(--faint)}
+.dx-fol{display:grid;gap:6px}
+.dx-fol button{all:unset;cursor:pointer;display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;padding:8px 10px;border-radius:10px;background:var(--sunk);font-size:13px}
+.dx-fol button:hover{outline:1px solid var(--vblue)}
+.dx-fol .nm{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.dx-fol .ag{color:var(--g-wait);font-weight:600;white-space:nowrap}.dx-fol .mt{color:var(--faint);font-size:12px;white-space:nowrap}
+.dx-empty{color:var(--faint);font-size:13px;padding:6px 0}
+@media (max-width:600px){.dx-fol button{grid-template-columns:1fr auto}.dx-fol .mt{grid-column:1/-1;grid-row:2}.dx-hero{padding:20px 16px}.dx-facts button{min-width:0;flex:1 1 40%}}
+
 .del-btn{color:#b3261e;border-color:#e8b4b0}.del-btn.arm{background:#b3261e;color:#fff;border-color:#b3261e}
 .igbox{display:inline-flex;gap:4px;align-items:center}
 .igbox input{width:150px;background:var(--surface);border:1px solid var(--line2);border-radius:7px;padding:3px 7px;font-size:12px}
@@ -562,14 +640,12 @@ td.id{color:var(--fg);font-weight:600;font-size:12.5px;white-space:nowrap}
 </style>
 </head>
 <body>
-
-
 <div class="app" id="app" dir="rtl" lang="ar">
   <header class="top">
     <button class="brand" id="brand" type="button"><i aria-hidden="true"></i>Value <span>Shoots</span></button>
     <nav class="nav" id="nav">
       <a href="#home" data-v="home" data-mgr data-pub hidden data-i="nav.home"></a>
-      <a href="#browse" data-v="browse" data-pub hidden data-i="nav.browse"></a>
+      <a href="#browse" data-v="browse" data-pub data-mgr hidden data-i="nav.browse"></a>
       <a href="#dashboard" data-v="dashboard" data-mgr hidden data-i="nav.dash"></a>
       <a href="#videos" data-v="videos" class="adm" data-mgr hidden><span data-i="nav.videos"></span><span class="nb" id="vidNav" hidden></span></a>
       <a href="#alerts" data-v="alerts" class="adm" data-mgr hidden><span data-i="nav.alerts"></span><span class="nb" id="alNav" hidden></span></a>
@@ -695,34 +771,41 @@ td.id{color:var(--fg);font-weight:600;font-size:12.5px;white-space:nowrap}
   </section>
 
   <section id="v-dashboard" class="view" hidden>
-    <div class="kpis" id="kpis"></div>
+    <div class="dx-filter" id="dxFilter"></div>
+    <div class="dx-hero" id="dxHero"></div>
+    <div class="panel dx-pipe-p"><div class="ph"><h2><span id="dxPipeT"></span><small id="dxPipeS"></small></h2></div><div class="dx-pipe" id="dxPipe"></div><div class="dx-stuck" id="dxStuck"></div></div>
     <div class="dash">
+      <div class="panel w6"><div class="ph"><h2><span id="dxHeatT"></span><small id="dxHeatS"></small></h2><div class="dx-legend" id="dxHeatL"></div></div><div class="dx-heat-w"><div class="dx-heat" id="dxHeat"></div></div><div class="dx-day" id="dxDay"></div></div>
       <div class="panel w6">
         <div class="ph"><h2><span data-i="ch.month"></span><small data-i="ch.monthSub"></small></h2>
           <div class="seg" id="rangeSeg"><button type="button" data-r="6">6M</button><button type="button" data-r="12" aria-pressed="true">12M</button><button type="button" data-r="all" data-i="ch.all"></button></div></div>
         <div class="cbox tall"><canvas id="chMonth"></canvas></div>
-        <div class="hint" data-i="ch.clickHint"></div>
       </div>
-      <div class="panel w2"><div class="ph"><h2 data-i="ch.status"></h2></div><div class="cbox"><canvas id="chStatus"></canvas></div></div>
-      <div class="panel w4"><div class="ph"><h2 data-i="ch.rep"></h2></div><div class="cbox"><canvas id="chRep"></canvas></div></div>
-      <div class="panel w3"><div class="ph"><h2 data-i="ch.em"></h2></div><div class="cbox short"><canvas id="chEm"></canvas></div></div>
-      <div class="panel w3"><div class="ph"><h2 data-i="ch.prod"></h2></div><div class="cbox short"><canvas id="chProd"></canvas></div></div>
-      <div class="panel w3"><div class="ph"><h2><span data-i="ch.wday"></span><small data-i="ch.wdaySub"></small></h2></div><div class="cbox short"><canvas id="chWday"></canvas></div></div>
-      <div class="panel w3"><div class="ph"><h2><span data-i="ch.clinics"></span><small data-i="ch.clinicsSub"></small></h2></div><div class="cbox short"><canvas id="chClinic"></canvas></div></div>
+      <div class="panel w3"><div class="ph"><h2><span id="dxMapT"></span><small id="dxMapS"></small></h2></div><div class="dx-map" id="dxMap"></div></div>
+      <div class="panel w3"><div class="ph"><h2><span id="dxProdT"></span><small id="dxProdS"></small></h2></div><div class="dx-bars" id="dxProd"></div></div>
+      <div class="panel w6"><div class="ph"><h2><span id="dxRepT"></span><small id="dxRepS"></small></h2></div><div class="dx-reps" id="dxReps"></div></div>
+      <div class="panel w6"><div class="ph"><h2><span id="dxFolT"></span><small id="dxFolS"></small></h2></div><div class="dx-fol" id="dxFollow"></div></div>
     </div>
   </section>
-
   <section id="v-sessions" class="view" hidden>
-    <div class="filters">
+    <div class="filters fx">
       <input id="q" type="search" aria-label="search">
-      <select id="fGroup" aria-label="status"></select>
-      <select id="fRep" aria-label="rep"></select>
-      <select id="fEm" aria-label="emirate"></select>
-      <select id="fProd" aria-label="procedure"></select>
-      <select id="fMonth" aria-label="month"></select>
-      <button class="btn sm" id="fClear" type="button" data-i="f.clear"></button>
+      <div class="fx-grid">
+        <label><span id="fxL-st"></span><select id="fGroup"></select></label>
+        <label><span id="fxL-rep"></span><select id="fRep"></select></label>
+        <label><span id="fxL-cl"></span><select id="fClinic"></select></label>
+        <label><span id="fxL-doc"></span><select id="fDoc"></select></label>
+        <label><span id="fxL-prod"></span><select id="fProd"></select></label>
+        <label><span id="fxL-em"></span><select id="fEm"></select></label>
+        <label><span id="fxL-yr"></span><select id="fYear"></select></label>
+        <label><span id="fxL-mo"></span><select id="fMonth"></select></label>
+        <label data-mgr hidden><span id="fxL-vid"></span><select id="fVid"></select></label>
+        <label data-mgr hidden><span id="fxL-ig"></span><select id="fIg"></select></label>
+        <label data-mgr hidden><span id="fxL-form"></span><select id="fForm"></select></label>
+      </div>
+      <div class="fx-foot"><button class="btn sm" id="fClear" type="button" data-i="f.clear"></button>
       <a class="btn sm" id="sheetBtn" target="_blank" rel="noopener" data-mgr hidden>📊 Google Sheet ↗</a>
-      <span class="count" id="fCount"></span>
+      <span class="count" id="fCount"></span></div>
     </div>
     <div class="tbl"><table>
       <thead><tr id="thead"></tr></thead>
@@ -994,7 +1077,7 @@ function toSessions(rows){
 /* ---------- state ---------- */
 let VIEW_INIT=true; let S=[], isMgr=false, myId=null, syncedAt=null, db=null, mcp=null, shown=60, VIEW="home", rawSig="";
 let calM=new Date(today.getFullYear(),today.getMonth(),1), selDay=null, range="12", editing=null, DRAFT=null;
-const F={q:"",g:"",rep:"",em:"",month:"",prod:""};
+const F={q:"",g:"",st:"",rep:"",clinic:"",doc:"",em:"",year:"",month:"",prod:"",vid:"",ig:"",form:""};
 const wt=(ar,en)=>LANG==="ar"?ar:en;
 let WA_MODEL="", sampleFn=null, TASKS=[];
 
@@ -1279,7 +1362,7 @@ $("#calNext").addEventListener("click",()=>{calM=new Date(calM.getFullYear(),cal
 $("#calToday").addEventListener("click",()=>{calM=new Date(today.getFullYear(),today.getMonth(),1); selDay=ymd(today); renderCal();});
 
 /* ---------- dashboard ---------- */
-function renderKpis(){
+function renderKpis(){ if(!$("#kpis")) return;
   const c=g=>S.filter(s=>s.g===g).length, rate=S.length?Math.round(c("off")/S.length*100):0;
   const mNow=S.filter(s=>s.date&&ym(s.date)===ym(today)&&s.g!=="off").length;
   const K=[[t("k.up"),upcoming().length,t("k.upSub"),"var(--g-up)",{g:"up"}],[t("k.wait"),c("wait"),"Pending · Unconfirmed","var(--g-wait)",{g:"wait"}],
@@ -1304,8 +1387,10 @@ function countBy(arr,fn){const m=new Map(); arr.forEach(s=>fn(s).forEach(k=>{if(
 function renderCharts(){
   if(!window.Chart){ document.querySelectorAll(".cbox").forEach(b=>b.innerHTML=`<div class="nolib">Charts library didn't load.</div>`); return; }
   if(!S.length) return;
+  renderDash();
+  const SD=DS();
   Chart.defaults.font.family='"IBM Plex Sans Arabic","Readex Pro",system-ui,sans-serif';
-  const dated=S.filter(s=>s.date), rtl=LANG==="ar";
+  const dated=SD.filter(s=>s.date), rtl=LANG==="ar";
   let start; const endM=new Date(today.getFullYear(),today.getMonth()+1,1);
   if(range==="all"){ const min=dated.reduce((a,s)=>s.date<a?s.date:a,today); start=new Date(min.getFullYear(),min.getMonth(),1); }
   else start=new Date(today.getFullYear(),today.getMonth()-(+range-1),1);
@@ -1316,27 +1401,111 @@ function renderCharts(){
   o1.scales.x.stacked=true; o1.scales.y.stacked=true; o1.onClick=(e,els)=>{ if(els.length) openSessions({month:months[els[0].index]}); };
   mk("chMonth",{type:"bar",data:{labels,datasets:GROUPS.map(g=>({label:t("g."+g),data:months.map(k=>dated.filter(s=>s.g===g&&ym(s.date)===k).length),backgroundColor:gColor(g),
     borderColor:css("--surface"),borderWidth:{top:2},borderRadius:4,borderSkipped:"bottom",stack:"s",maxBarThickness:34}))},options:o1});
-  const o2=baseOpts(); o2.scales={}; o2.cutout="62%"; o2.plugins.legend.display=true; o2.plugins.legend.position="bottom";
-  o2.plugins.tooltip.callbacks={label:c=>` ${c.label}: ${c.raw} (${Math.round(c.raw/S.length*100)}%)`}; o2.onClick=(e,els)=>{ if(els.length) openSessions({g:GROUPS[els[0].index]}); };
-  mk("chStatus",{type:"doughnut",data:{labels:GROUPS.map(g=>t("g."+g)),datasets:[{data:GROUPS.map(g=>S.filter(s=>s.g===g).length),backgroundColor:GROUPS.map(gColor),borderColor:css("--surface"),borderWidth:2,hoverOffset:6}]},options:o2,
-    plugins:[{id:"center",afterDraw(ch){const {ctx,chartArea:a}=ch; const cx=(a.left+a.right)/2, cy=(a.top+a.bottom)/2; ctx.save(); ctx.textAlign="center"; ctx.textBaseline="middle";
-      ctx.fillStyle=css("--fg"); ctx.font="600 26px Readex Pro, sans-serif"; ctx.fillText(S.length,cx,cy-6); ctx.font="12px IBM Plex Sans Arabic, sans-serif"; ctx.fillStyle=css("--muted"); ctx.fillText(t("sessions"),cx,cy+16); ctx.restore();}}]});
-  const reps=countBy(S.filter(s=>s.rep),s=>[s.rep]).slice(0,10).map(x=>x[0]);
-  const o3=baseOpts(); o3.indexAxis="y"; o3.plugins.legend.display=true; o3.plugins.legend.position="top"; o3.plugins.legend.align="start";
-  Object.assign(o3.plugins.tooltip,{mode:"index",intersect:false,filter:i=>i.raw>0});
-  o3.scales={x:Object.assign(baseOpts().scales.y,{stacked:true,reverse:rtl}),y:Object.assign(baseOpts().scales.x,{stacked:true,position:rtl?"right":"left"})};
-  o3.onClick=(e,els)=>{ if(els.length) openSessions({rep:reps[els[0].index]}); };
-  mk("chRep",{type:"bar",data:{labels:reps,datasets:GROUPS.map(g=>({label:t("g."+g),data:reps.map(r=>S.filter(s=>s.rep===r&&s.g===g).length),backgroundColor:gColor(g),
-    borderColor:css("--surface"),borderWidth:{right:2,left:2},borderRadius:3,borderSkipped:false,stack:"s",maxBarThickness:20}))},options:o3});
-  const single=(id,data,lab,onPick,horizontal)=>{ const o=baseOpts(); o.onClick=(e,els)=>{ if(els.length&&onPick) onPick(data[els[0].index][0]); };
-    if(horizontal){ o.indexAxis="y"; o.scales={x:Object.assign(baseOpts().scales.y,{reverse:rtl}),y:Object.assign(baseOpts().scales.x,{position:rtl?"right":"left"})}; }
-    mk(id,{type:"bar",data:{labels:data.map(x=>lab(x[0])),datasets:[{data:data.map(x=>x[1]),backgroundColor:css("--navy"),hoverBackgroundColor:css("--blush"),borderRadius:4,maxBarThickness:22}]},options:o}); };
-  const live=S.filter(s=>s.g!=="off");
-  single("chEm",countBy(live.filter(s=>s.em),s=>[s.em]),emName,em=>openSessions({em}),true);
-  single("chProd",countBy(live,s=>prodTokens(s.prod)).slice(0,8),x=>x,p=>openSessions({prod:p}),true);
-  single("chWday",[1,2,3,4,5,6,0].map(d=>[d,live.filter(s=>s.date&&s.date.getDay()===d).length]),d=>DSHORT[LANG][d],null,false);
-  single("chClinic",countBy(live.filter(s=>s.clinic),s=>[s.clinic]).slice(0,8),x=>x.length>22?x.slice(0,21)+"…":x,c=>openSessions({q:c}),true);
 }
+
+/* ---------- dashboard v2: cross-filter, story, pipeline, heatmap, map, products, reps, follow-ups ---------- */
+const DF={rep:"",em:"",prod:""};
+const DS=()=>S.filter(s=>(!DF.rep||s.rep===DF.rep)&&(!DF.em||s.em===DF.em)&&(!DF.prod||prodTokens(s.prod).includes(DF.prod)));
+function dfToggle(k,v){ DF[k]=DF[k]===v?"":v; renderCharts(); }
+const stOf=s=>(s.status||"").trim().toLowerCase();
+const EM_XY={"Abu Dhabi":[54.37,24.45],"Dubai":[55.27,25.2],"Sharjah":[55.42,25.33],"Ajman":[55.5,25.42],"Umm Al Quwain":[55.6,25.55],"Ras Al Khaimah":[55.95,25.79],"Fujairah":[56.33,25.12],"Al Ain":[55.76,24.21]};
+const UAE_SHAPE=[[51.58,24.25],[51.8,24.02],[52.3,24.1],[52.6,24.2],[53.2,24.12],[53.6,24.08],[54.2,24.3],[54.5,24.55],[54.75,24.8],[55.05,25.02],[55.25,25.22],[55.42,25.38],[55.6,25.55],[55.8,25.68],[55.98,25.85],[56.08,26.05],[56.18,25.9],[56.1,25.62],[56.27,25.45],[56.37,25.2],[56.36,24.95],[56.2,24.85],[56.0,24.6],[55.98,24.35],[55.82,24.2],[55.78,24.0],[55.98,23.65],[55.6,23.1],[55.22,22.7],[53.9,22.75],[52.6,22.94],[51.6,24.12]];
+function renderDash(){
+  const D=DS(), live=D.filter(s=>s.g!=="off"), rtl=LANG==="ar";
+  // filter chips
+  const fc=[["rep",DF.rep,DF.rep],["em",DF.em,emName(DF.em)],["prod",DF.prod,DF.prod]].filter(x=>x[1]);
+  $("#dxFilter").innerHTML=fc.length?`<span>${wt("مفلتر على:","Filtered by:")}</span>`+fc.map(([k,v,l])=>`<button type="button" class="fchip" data-dfk="${k}" data-dfv="${esc(v)}">${esc(l)} ✕</button>`).join("")+`<button type="button" class="linkbtn" id="dxClear">${wt("مسح الكل","Clear all")}</button>`
+    :`<span>💡 ${wt("اكبس على أي مندوب، إمارة أو منتج لتفلتر كل الداشبورد","Click any rep, emirate or product to filter the whole dashboard")}</span>`;
+  // hero story
+  const mk1=d=>ym(d), cur=mk1(today), prevD=new Date(today.getFullYear(),today.getMonth()-1,1), prev=mk1(prevD);
+  const inM=k=>live.filter(s=>s.date&&ym(s.date)===k), nCur=inM(cur).length, nPrev=inM(prev).length, dlt=nCur-nPrev;
+  const pool=inM(cur).length?inM(cur):live.filter(s=>s.date&&s.date>=new Date(today.getTime()-90*864e5)&&s.date<=today);
+  const topP=countBy(pool,s=>prodTokens(s.prod))[0], topR=countBy(pool.filter(s=>s.rep),s=>[s.rep])[0], topE=countBy(pool.filter(s=>s.em),s=>[s.em])[0];
+  const up=D.filter(s=>s.date&&s.date>=today&&s.g!=="off").length, yr=live.filter(s=>s.date&&s.date.getFullYear()===today.getFullYear()&&s.date<=today).length;
+  const postedY=D.filter(s=>s.g==="done"&&s.date&&s.date.getFullYear()===today.getFullYear()).length, cancel=D.length?Math.round(D.filter(s=>s.g==="off").length/D.length*100):0;
+  const dTxt=dlt===0?wt("متل","same as")+" "+MONTHS[LANG][prevD.getMonth()]:(dlt>0?"↑ "+dlt:"↓ "+(-dlt))+" "+wt("عن","vs")+" "+MONTHS[LANG][prevD.getMonth()];
+  $("#dxHero").innerHTML=`<span class="eb">${MONTHS[LANG][today.getMonth()]} ${today.getFullYear()}${fc.length?" · "+fc.map(x=>esc(x[2])).join(" · "):""}</span>
+    <h2><b data-count="${nCur}" data-key="dxN">${nCur}</b> ${wt(nCur===1?"تصوير هالشهر":"تصويرات هالشهر",nCur===1?"shoot this month":"shoots this month")}<span class="delta ${dlt>0?"up":dlt<0?"down":""}">${esc(dTxt)}</span></h2>
+    <div class="dx-facts">
+      ${topP?`<button type="button" data-dfk="prod" data-dfv="${esc(topP[0])}"><small>${wt("أكتر منتج","Top product")}</small><b>${esc(topP[0])}</b></button>`:""}
+      ${topR?`<button type="button" data-dfk="rep" data-dfv="${esc(topR[0])}"><small>${wt("أنشط مندوب","Most active rep")}</small><b>${esc(topR[0])}</b></button>`:""}
+      ${topE?`<button type="button" data-dfk="em" data-dfv="${esc(topE[0])}"><small>${wt("أكتر إمارة","Top emirate")}</small><b>${esc(emName(topE[0]))}</b></button>`:""}
+      <button type="button" data-go="up"><small>${wt("جايين","Upcoming")}</small><b data-count="${up}" data-key="dxUp">${up}</b></button>
+      <button type="button" data-go="yr"><small>${wt("تصويرات "+today.getFullYear(),"Shoots in "+today.getFullYear())}</small><b data-count="${yr}" data-key="dxYr">${yr}</b></button>
+      <button type="button" data-go="done"><small>${wt("انشرو هالسنة","Posted this year")}</small><b data-count="${postedY}" data-key="dxPo">${postedY}</b></button>
+      <button type="button" data-go="off"><small>${wt("نسبة الإلغاء","Cancel rate")}</small><b>${cancel}%</b></button>
+    </div>`;
+  // pipeline
+  const yAgo=new Date(today.getTime()-365*864e5);
+  const ST=[["wait",wt("بانتظار تأكيد","Awaiting"),D.filter(s=>s.g==="wait"&&(!s.date||s.date>=new Date(today.getTime()-90*864e5))),"var(--g-wait)",wt("آخر 90 يوم","last 90 days")],
+    ["up",wt("مجدول","Scheduled"),D.filter(s=>stOf(s)==="scheduled"),"var(--g-up)",wt("جاي","to come")],
+    ["prod",wt("انصوّر","Captured"),D.filter(s=>stOf(s)==="captured"),"var(--g-prod)",wt("بانتظار المونتاج","in editing")],
+    ["prod",wt("انسلّم","Delivered"),D.filter(s=>stOf(s)==="delivered"),"#7c4fb0",wt("بانتظار النشر","waiting to post")],
+    ["done",wt("انشر","Posted"),D.filter(s=>s.g==="done"&&s.date&&s.date>=yAgo),"var(--g-done)",wt("آخر 12 شهر","last 12 months")]];
+  const mx=Math.max(1,...ST.map(x=>x[2].length));
+  $("#dxPipeT").textContent=wt("مسار الشغل","Pipeline"); $("#dxPipeS").textContent=wt("من الحجز للنشر — اكبس على أي مرحلة","From booking to posting — click a stage");
+  $("#dxPipe").innerHTML=ST.map(([g,l,arr,c,sub],i)=>`<button type="button" class="dx-st" data-pg="${g}"><small><i style="background:${c}"></i>${esc(l)}</small><b data-count="${arr.length}" data-key="dxP${i}">${arr.length}</b><span class="bar"><i style="width:${Math.round(arr.length/mx*100)}%;background:${c}"></i></span><em>${esc(sub)}</em></button>`).join("");
+  const ago=s=>Math.round((today-s.date)/864e5);
+  const stuck=[[wt("انصوّر وما انسلّم من +21 يوم","Captured 21+ days, not delivered"),D.filter(s=>stOf(s)==="captured"&&s.date&&ago(s)>21),""],
+    [wt("انسلّم وما انشر من +30 يوم","Delivered 30+ days, not posted"),D.filter(s=>stOf(s)==="delivered"&&s.date&&ago(s)>30),""],
+    [wt("مجدول وتاريخو مضى — حدّث الحالة","Scheduled but date passed — update status"),D.filter(s=>stOf(s)==="scheduled"&&s.date&&ago(s)>0),"warn"]].filter(x=>x[1].length);
+  $("#dxStuck").innerHTML=stuck.length?stuck.map(([l,arr,c])=>`<div class="row"><span class="lab ${c}">⚠ ${esc(l)}:</span>${arr.sort((a,b)=>a.date-b.date).slice(0,10).map(s=>`<button type="button" data-sid="${esc(s.id)}" title="${esc(s.clinic)}">${esc(s.id||"—")} · ${esc((s.clinic||"").slice(0,18))} · ${ago(s)}${wt("ي","d")}</button>`).join("")}${arr.length>10?`<span class="when">+${arr.length-10}</span>`:""}</div>`).join("")
+    :`<span class="ok">✓ ${wt("ما في شي عالق","Nothing stuck")}</span>`;
+  // heatmap
+  $("#dxHeatT").textContent=wt("سنة التصوير","Shooting year"); $("#dxHeatS").textContent=wt("كل مربع يوم — اكبس لتشوف شو انصوّر","Each square is a day — click to see it");
+  const byDay=new Map(); live.forEach(s=>{ if(s.date){ const k=ymd(s.date); byDay.set(k,(byDay.get(k)||[]).concat(s)); } });
+  const end=new Date(today.getTime()+28*864e5), st0=new Date(today.getTime()-364*864e5); st0.setDate(st0.getDate()-st0.getDay());
+  let cells=""; for(let d=new Date(st0); d<=end; d=new Date(d.getFullYear(),d.getMonth(),d.getDate()+1)){ const k=ymd(d), n=(byDay.get(k)||[]).length, lv=n>=4?4:n;
+    cells+=`<i class="${n?"l"+lv:""} ${d>today?"fut":""} ${k===ymd(today)?"tod":""} ${dxSel===k?"sel":""}" data-day="${k}" title="${esc(fmtDate(d)+" · "+n)}"></i>`; }
+  $("#dxHeat").innerHTML=cells;
+  $("#dxHeatL").innerHTML=`${wt("أقل","Less")} <i style="background:var(--sunk)"></i><i class="l1" style="background:color-mix(in srgb,var(--g-up) 35%,var(--sunk))"></i><i style="background:color-mix(in srgb,var(--g-up) 60%,var(--sunk))"></i><i style="background:var(--g-up)"></i><i style="background:var(--navy)"></i> ${wt("أكتر","More")}`;
+  const sw=$("#dxHeat").parentElement; if(sw&&!sw.dataset.scrolled){ sw.dataset.scrolled=1; requestAnimationFrame(()=>{ sw.scrollLeft=rtl?-sw.scrollWidth:sw.scrollWidth; }); }
+  dxDayRender(byDay);
+  // map
+  $("#dxMapT").textContent=wt("الإمارات","Emirates"); $("#dxMapS").textContent=wt("حجم الدائرة = عدد التصويرات","Bubble size = shoots");
+  const emC=new Map(countBy(live.filter(s=>s.em),s=>[s.em])), P=([x,y])=>[((x-51.4)*100).toFixed(1),((26.25-y)*100).toFixed(1)];
+  const mxE=Math.max(1,...emC.values());
+  const LBL={"Abu Dhabi":[0,1,"middle"],"Dubai":[-1,0.6,"end"],"Sharjah":[-1,-0.2,"end"],"Ajman":[-1,-0.9,"end"],"Umm Al Quwain":[-1,-1.6,"end"],"Ras Al Khaimah":[-1,-0.6,"end"],"Fujairah":[1,0,"start"],"Al Ain":[1,0,"start"]};
+  const ents=Object.entries(EM_XY).map(([e,c])=>{ const n=emC.get(e)||0; return {e,c,n,r:n?6+Math.sqrt(n/mxE)*20:3.5}; }).sort((a,b)=>b.n-a.n);
+  $("#dxMap").innerHTML=`<svg viewBox="0 0 520 370" role="img" aria-label="UAE"><path class="land" d="M${UAE_SHAPE.map(P).map(p=>p.join(",")).join("L")}Z"/>${ents.map(({e,c,n,r})=>{ const [x,y]=P(c);
+    return `<g class="em ${DF.em===e?"on":""}" data-dfk="em" data-dfv="${esc(e)}"><title>${esc(emName(e))}: ${n}</title><circle cx="${x}" cy="${y}" r="${r.toFixed(1)}"/>${n&&r>9?`<text class="n" x="${x}" y="${(+y+4).toFixed(1)}" text-anchor="middle">${n}</text>`:""}</g>`; }).join("")}</svg><div class="dx-emlist">${ents.filter(x=>x.n).map(({e,n})=>`<button type="button" class="${DF.em===e?"on":""}" data-dfk="em" data-dfv="${esc(e)}">${esc(emName(e))} <b>${n}</b></button>`).join("")}</div>`;
+  // products
+  $("#dxProdT").textContent=wt("المنتجات","Products"); $("#dxProdS").textContent=wt("اكبس لتفلتر","Click to filter");
+  const pr=countBy(live,s=>prodTokens(s.prod)).slice(0,9), mxP=Math.max(1,...pr.map(x=>x[1]));
+  $("#dxProd").innerHTML=pr.length?pr.map(([p,n])=>`<button type="button" class="${DF.prod===p?"on":""}" data-dfk="prod" data-dfv="${esc(p)}"><span>${esc(p)}</span><span class="tr"><i style="width:${Math.round(n/mxP*100)}%"></i></span><b>${n}</b></button>`).join(""):`<div class="dx-empty">—</div>`;
+  // reps
+  $("#dxRepT").textContent=wt("المندوبين","Medical reps"); $("#dxRepS").textContent=wt("آخر 12 شهر · الخط = آخر 6 أشهر · الأخضر = نسبة يلي انشر","Last 12 months · line = last 6 months · green = share posted");
+  const base=S.filter(s=>(!DF.em||s.em===DF.em)&&(!DF.prod||prodTokens(s.prod).includes(DF.prod))&&s.g!=="off"&&s.rep&&s.date);
+  const repN=countBy(base.filter(s=>s.date>=yAgo&&s.date<=new Date(today.getTime()+60*864e5)),s=>[s.rep]).filter(([r])=>!/^rony/i.test(r));
+  const m6=[]; for(let i=5;i>=0;i--) m6.push(ym(new Date(today.getFullYear(),today.getMonth()-i,1)));
+  $("#dxReps").innerHTML=repN.length?repN.map(([r,n])=>{ const mine=base.filter(s=>s.rep===r), ser=m6.map(k=>mine.filter(s=>ym(s.date)===k).length), mxs=Math.max(1,...ser);
+    const pts=ser.map((v,i)=>`${(i*(100/5)).toFixed(1)},${(28-v/mxs*24).toFixed(1)}`), shot=mine.filter(s=>s.date<=today&&s.date>=yAgo), posted=shot.filter(s=>s.g==="done").length, pct=shot.length?Math.round(posted/shot.length*100):0;
+    const nx=mine.filter(s=>s.date>=today).sort((a,b)=>a.date-b.date)[0], ini=r.split(/\s+/).map(w=>w[0]).slice(0,2).join("").toUpperCase();
+    return `<button type="button" class="dx-rep ${DF.rep===r?"on":""}" data-dfk="rep" data-dfv="${esc(r)}"><span class="dx-rtop"><span class="av">${esc(ini)}</span><span class="nm">${esc(r)}</span></span>
+      <span class="nums"><b>${n}</b><small>${wt("تصوير","shoots")} · ${pct}% ${wt("انشر","posted")}</small></span>
+      <svg viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true" ${rtl?'style="transform:scaleX(-1)"':""}><path d="M0,30 L${pts.join(" L")} L100,30Z"/><polyline points="${pts.join(" ")}"/></svg>
+      <span class="pc"><i style="width:${pct}%"></i></span><span class="nx">${nx?wt("الجاي: ","Next: ")+esc(nx.clinic)+" · "+esc(whenTxt(nx.date)):wt("ما في شي جاي","Nothing scheduled")}</span></button>`; }).join(""):`<div class="dx-empty">—</div>`;
+  // follow-ups
+  $("#dxFolT").textContent=wt("عيادات بدها متابعة","Clinics to follow up"); $("#dxFolS").textContent=wt("آخر تصوير من أكتر من 90 يوم وما في شي جاي","Last shoot 90+ days ago, nothing booked");
+  const cl=new Map(); live.forEach(s=>{ if(!s.clinic||!s.date) return; const k=norm(s.clinic); const o=cl.get(k)||{name:s.clinic,n:0,last:null,next:null,rep:""}; o.n++;
+    if(s.date<=today){ if(!o.last||s.date>o.last){ o.last=s.date; o.rep=s.rep; o.name=s.clinic; } } else o.next=s.date; cl.set(k,o); });
+  const fol=[...cl.values()].filter(o=>o.last&&!o.next&&(today-o.last)/864e5>90&&!/workshop|event|world trade/i.test(o.name)).sort((a,b)=>b.n-a.n||b.last-a.last).slice(0,12);
+  $("#dxFollow").innerHTML=fol.length?fol.map(o=>`<button type="button" data-cq="${esc(o.name)}"><span class="nm">${esc(o.name)}</span><span class="mt">${o.n} ${wt("تصوير","shoots")}${o.rep?" · "+esc(o.rep):""}</span><span class="ag">${wt("قبل","")} ${Math.round((today-o.last)/864e5)} ${wt("يوم","days ago")}</span></button>`).join(""):`<div class="dx-empty">✓ ${wt("كل العيادات متابعة","All clinics are active")}</div>`;
+  countUp($("#v-dashboard"));
+}
+let dxSel=null;
+function dxDayRender(byDay){ const el=$("#dxDay"); if(!dxSel){ el.innerHTML=""; return; } const arr=(byDay||new Map()).get(dxSel)||[]; const d=new Date(dxSel+"T00:00");
+  el.innerHTML=`<b>${esc(fmtDate(d))}</b>`+(arr.length?arr.map(s=>`<div class="it">${chip(s)}<span class="idtag" dir="ltr">${esc(s.id||"—")}</span><span>${esc(s.clinic)}</span><span class="when">${esc(s.prod||"")}${s.rep?" · "+esc(s.rep):""}</span></div>`).join(""):`<span class="when">${wt("ما في تصوير","No shoots")}</span>`); }
+$("#v-dashboard").addEventListener("click",e=>{
+  const f=e.target.closest("[data-dfk]"); if(f){ dfToggle(f.dataset.dfk,f.dataset.dfv); return; }
+  if(e.target.closest("#dxClear")){ Object.assign(DF,{rep:"",em:"",prod:""}); renderCharts(); return; }
+  const day=e.target.closest("[data-day]"); if(day){ dxSel=dxSel===day.dataset.day?null:day.dataset.day; renderCharts(); return; }
+  const pg=e.target.closest("[data-pg]"); if(pg){ openSessions(Object.assign({g:pg.dataset.pg},DF.rep?{rep:DF.rep}:{},DF.em?{em:DF.em}:{},DF.prod?{prod:DF.prod}:{})); return; }
+  const sid=e.target.closest("[data-sid]"); if(sid){ openSessions({q:sid.dataset.sid}); return; }
+  const cq=e.target.closest("[data-cq]"); if(cq){ openSessions({q:cq.dataset.cq}); return; }
+  const g=e.target.closest("[data-go]"); if(g){ const k=g.dataset.go, f2=Object.assign({},DF.rep?{rep:DF.rep}:{},DF.em?{em:DF.em}:{},DF.prod?{prod:DF.prod}:{});
+    if(k==="up") f2.g="up"; else if(k==="done") f2.g="done"; else if(k==="off") f2.g="off"; openSessions(f2); }
+});
 $("#rangeSeg").addEventListener("click",e=>{const b=e.target.closest("[data-r]"); if(!b) return; range=b.dataset.r;
   $("#rangeSeg").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",String(x===b))); renderCharts();});
 const reTheme=()=>{ if(VIEW==="dashboard") setTimeout(renderCharts,30); };
@@ -1344,16 +1513,29 @@ try{ matchMedia("(prefers-color-scheme: dark)").addEventListener("change",reThem
 new MutationObserver(reTheme).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
 
 /* ---------- table ---------- */
-function openSessions(f){ Object.assign(F,{q:"",g:"",rep:"",em:"",month:"",prod:""},f); shown=60; syncFilterInputs(); renderTable(); go("sessions"); }
-function syncFilterInputs(){ $("#q").value=F.q; $("#fGroup").value=F.g; $("#fRep").value=F.rep; $("#fEm").value=F.em; $("#fMonth").value=F.month; $("#fProd").value=F.prod; }
+function openSessions(f){ Object.assign(F,{q:"",g:"",st:"",rep:"",clinic:"",doc:"",em:"",year:"",month:"",prod:"",vid:"",ig:"",form:""},f); shown=60; syncFilterInputs(); renderTable(); go("sessions"); }
+function syncFilterInputs(){ $("#q").value=F.q; $("#fGroup").value=F.st?"s:"+F.st:F.g?"g:"+F.g:""; const m={fRep:"rep",fClinic:"clinic",fDoc:"doc",fEm:"em",fYear:"year",fMonth:"month",fProd:"prod",fVid:"vid",fIg:"ig",fForm:"form"};
+  Object.entries(m).forEach(([id,k])=>{ const el=document.getElementById(id); if(!el) return; if(F[k]&&![...el.options].some(o=>o.value===F[k])) el.insertAdjacentHTML("beforeend",`<option value="${esc(F[k])}">${esc(F[k])}</option>`); el.value=F[k]; el.classList.toggle("on",!!F[k]); });
+  $("#fGroup").classList.toggle("on",!!(F.g||F.st)); }
 function fillFilters(){
-  const opt=(v,l)=>`<option value="${esc(v)}">${esc(l)}</option>`;
-  $("#fGroup").innerHTML=opt("",t("f.allStatus"))+GROUPS.map(g=>opt(g,t("g."+g))).join("");
-  $("#fRep").innerHTML=opt("",t("f.allRep"))+uniq(S.map(s=>s.rep)).sort().map(r=>opt(r,r)).join("");
-  $("#fEm").innerHTML=opt("",t("f.allEm"))+uniq(S.map(s=>s.em)).map(e=>opt(e,emName(e))).join("");
-  $("#fMonth").innerHTML=opt("",t("f.allMonth"))+uniq(S.filter(s=>s.date).sort((a,b)=>b.date-a.date).map(s=>ym(s.date))).map(k=>{const [y,m]=k.split("-");return opt(k,MONTHS[LANG][+m-1]+" "+y);}).join("");
-  const pc=countBy(S,s=>prodTokens(s.prod));
-  $("#fProd").innerHTML=opt("",wt("كل الإجراءات","All procedures"))+pc.map(([k,n])=>opt(k,`${k} (${n})`)).join("");
+  const opt=(v,l)=>`<option value="${esc(v)}">${esc(l)}</option>`, cnt=(arr,fn)=>{ const m=new Map(); arr.forEach(x=>{ const k=fn(x); if(k) m.set(k,(m.get(k)||0)+1); }); return m; };
+  const L=[["fxL-st","الحالة","Status"],["fxL-rep","المندوب","Medical rep"],["fxL-cl","العيادة","Clinic"],["fxL-doc","الدكتور / المعالج","Doctor / therapist"],["fxL-prod","المنتج","Product"],["fxL-em","الإمارة","Emirate"],["fxL-yr","السنة","Year"],["fxL-mo","الشهر","Month"],["fxL-vid","الفيديو","Video"],["fxL-ig","انستغرام","Instagram"],["fxL-form","فورم الموافقة","Consent form"]];
+  L.forEach(([id,ar,en])=>{ const el=document.getElementById(id); if(el) el.textContent=wt(ar,en); });
+  const all=wt("الكل","All");
+  const stC=cnt(S,s=>s.status&&(STATUS[s.status.toLowerCase()]?STATUS[s.status.toLowerCase()][2]:s.status));
+  $("#fGroup").innerHTML=opt("",all)+`<optgroup label="${esc(wt("حسب المرحلة","By stage"))}">`+GROUPS.map(g=>opt("g:"+g,t("g."+g)+" ("+S.filter(s=>s.g===g).length+")")).join("")+`</optgroup><optgroup label="${esc(wt("الحالة بالزبط","Exact status"))}">`+[...stC].sort((x,y)=>y[1]-x[1]).map(([k,n])=>opt("s:"+k,(LANG==="ar"&&STATUS[k.toLowerCase()]?STATUS[k.toLowerCase()][1]+" · "+k:k)+" ("+n+")")).join("")+`</optgroup>`;
+  const sortC=m=>[...m].sort((x,y)=>x[0].localeCompare(y[0]));
+  $("#fRep").innerHTML=opt("",all)+sortC(cnt(S,s=>s.rep)).map(([k,n])=>opt(k,`${k} (${n})`)).join("");
+  const clN=new Map(); S.forEach(s=>{ if(s.clinic){ const k=norm(s.clinic); if(!clN.has(k)) clN.set(k,s.clinic); } });
+  $("#fClinic").innerHTML=opt("",all)+[...cnt(S,s=>s.clinic&&norm(s.clinic))].map(([k,n])=>[clN.get(k),n,k]).sort((x,y)=>x[0].localeCompare(y[0])).map(([l,n,k])=>opt(k,`${l} (${n})`)).join("");
+  const dN=new Map(); S.forEach(s=>{ if(s.doc&&!/from (her|our)|side/i.test(s.doc)){ const k=norm(s.doc); if(k&&!dN.has(k)) dN.set(k,s.doc); } });
+  $("#fDoc").innerHTML=opt("",all)+[...cnt(S,s=>s.doc&&!/from (her|our)|side/i.test(s.doc)&&norm(s.doc))].map(([k,n])=>[dN.get(k),n,k]).sort((x,y)=>x[0].localeCompare(y[0])).map(([l,n,k])=>opt(k,`${l} (${n})`)).join("");
+  $("#fProd").innerHTML=opt("",all)+countBy(S,s=>prodTokens(s.prod)).map(([k,n])=>opt(k,`${k} (${n})`)).join("");
+  $("#fEm").innerHTML=opt("",all)+[...cnt(S,s=>s.em)].sort((x,y)=>y[1]-x[1]).map(([k,n])=>opt(k,`${emName(k)} (${n})`)).join("");
+  $("#fYear").innerHTML=opt("",all)+[...cnt(S,s=>s.date&&String(s.date.getFullYear()))].sort((x,y)=>y[0]-x[0]).map(([k,n])=>opt(k,`${k} (${n})`)).join("");
+  $("#fMonth").innerHTML=opt("",all)+[...cnt(S.filter(s=>s.date&&(!F.year||String(s.date.getFullYear())===F.year)),s=>ym(s.date))].sort((x,y)=>y[0].localeCompare(x[0])).map(([k,n])=>{const [y,m]=k.split("-");return opt(k,`${MONTHS[LANG][+m-1]} ${y} (${n})`);}).join("");
+  const yn=[["yes",wt("فيه","Has it")],["no",wt("ما فيه","Missing")]];
+  ["fVid","fIg","fForm"].forEach(id=>{ $("#"+id).innerHTML=opt("",all)+yn.map(([v,l])=>opt(v,l)).join(""); });
   syncFilterInputs();
   const th=k=>`<th>${t("th."+k)}</th>`;
   $("#thead").innerHTML=["code","date","time","clinic","product","doctor"].map(th).join("")+(isMgr?`<th>${wt("الفيديو","Video")}</th><th>${wt("انستغرام","Instagram")}</th>`:"")+["rep","em","status"].map(th).join("")+(isMgr?`<th>${t("th.form")}</th><th></th>`:"");
@@ -1378,7 +1560,9 @@ document.addEventListener("click",e=>{ const b=e.target.closest("[data-igsave]")
 document.addEventListener("keydown",e=>{ const i=e.target.closest&&e.target.closest("[data-igrow]"); if(i&&e.key==="Enter"){ e.preventDefault(); igSave(+i.dataset.igrow,i); } });
 function renderTable(){
   const q=F.q.trim().toLowerCase();
-  const rows=S.filter(s=>(!F.g||s.g===F.g)&&(!F.rep||s.rep===F.rep)&&(!F.em||s.em===F.em)&&(!F.month||(s.date&&ym(s.date)===F.month))&&(!F.prod||prodTokens(s.prod).includes(F.prod))&&
+  const hasV=s=>(LINKS.get(shootKey(s))||[]).length>0, yn=(v,b)=>!v||(v==="yes"?b:!b), stEn=s=>STATUS[(s.status||"").toLowerCase()]?STATUS[(s.status||"").toLowerCase()][2]:s.status;
+  const rows=S.filter(s=>(!F.g||s.g===F.g)&&(!F.st||stEn(s)===F.st)&&(!F.rep||s.rep===F.rep)&&(!F.clinic||norm(s.clinic)===F.clinic)&&(!F.doc||norm(s.doc)===F.doc)&&(!F.em||s.em===F.em)&&(!F.year||(s.date&&String(s.date.getFullYear())===F.year))&&(!F.month||(s.date&&ym(s.date)===F.month))&&(!F.prod||prodTokens(s.prod).includes(F.prod))&&
+    yn(F.vid,hasV(s))&&yn(F.ig,!!s.ig)&&yn(F.form,consentIds.has(s.id))&&
     (!q||[s.clinic,s.prod,s.doc,s.rep,s.code,s.id].join(" ").toLowerCase().includes(q))).sort((a,b)=>(b.date||0)-(a.date||0));
   $("#fCount").textContent=t("f.count",{n:rows.length});
   $("#tb").innerHTML=rows.slice(0,shown).map(s=>`<tr class="${s.date&&s.date>=today?"future":""}">
@@ -1390,8 +1574,10 @@ function renderTable(){
   $("#moreBtn").hidden=rows.length<=shown;
 }
 $("#q").addEventListener("input",e=>{F.q=e.target.value;shown=60;renderTable();});
-[["#fGroup","g"],["#fRep","rep"],["#fEm","em"],["#fMonth","month"],["#fProd","prod"]].forEach(([s,k])=>$(s).addEventListener("change",e=>{F[k]=e.target.value;shown=60;renderTable();}));
-$("#fClear").addEventListener("click",()=>{Object.assign(F,{q:"",g:"",rep:"",em:"",month:"",prod:""});syncFilterInputs();renderTable();});
+$("#fGroup").addEventListener("change",e=>{ const v=e.target.value; F.g=v.startsWith("g:")?v.slice(2):""; F.st=v.startsWith("s:")?v.slice(2):""; shown=60; syncFilterInputs(); renderTable(); });
+[["#fRep","rep"],["#fClinic","clinic"],["#fDoc","doc"],["#fEm","em"],["#fMonth","month"],["#fProd","prod"],["#fVid","vid"],["#fIg","ig"],["#fForm","form"]].forEach(([s,k])=>$(s).addEventListener("change",e=>{F[k]=e.target.value;shown=60;syncFilterInputs();renderTable();}));
+$("#fYear").addEventListener("change",e=>{ F.year=e.target.value; if(F.year&&F.month&&!F.month.startsWith(F.year)) F.month=""; shown=60; fillFilters(); renderTable(); });
+$("#fClear").addEventListener("click",()=>{Object.assign(F,{q:"",g:"",st:"",rep:"",clinic:"",doc:"",em:"",year:"",month:"",prod:"",vid:"",ig:"",form:""});syncFilterInputs();renderTable();});
 $("#moreBtn").addEventListener("click",()=>{shown+=100;renderTable();});
 
 /* ---------- Google Sheets ---------- */
@@ -2100,8 +2286,18 @@ if($("#rqForm")){
 }
 /* admin → publishes only the video links (no personal data) for the team page */
 let pubVidSig=null, pubVidT=null;
+/* writes each shoot's Drive video links into column O of the sheet ("Drive Videos"), only when they change */
+let sheetVidSig=null, sheetVidT=null;
+function syncSheetVideos(){ if(MODE!=="admin"||!isMgr||!mcp||!S.length||!VLIB.files.length) return; clearTimeout(sheetVidT); sheetVidT=setTimeout(async()=>{ try{
+  if((CFG.sheetTab||DEFAULT_TAB)!==DEFAULT_TAB) return;
+  const maxRow=Math.max(...S.map(s=>s.row)), byRow=new Map(S.map(s=>[s.row,s])), col=[["Drive Videos"]];
+  for(let r=2;r<=maxRow;r++){ const x=byRow.get(r), l=x?(LINKS.get(shootKey(x))||[]):[]; col.push([[...new Set(l.map(f=>f.u))].join("\n")]); }
+  const sig=JSON.stringify(col); if(sig===sheetVidSig) return;
+  if(sheetVidSig===null){ try{ const cur=await sheetCall("get_values",{range:A1(`O1:O${maxRow}`)}); const v=cur.values||[]; if(JSON.stringify(col.map((x,i)=>[String((v[i]||[])[0]||"")]))===sig){ sheetVidSig=sig; return; } }catch(e){} }
+  await sheetCall("update_formulas",{range:A1(`O1:O${maxRow}`),formulas:col}); sheetVidSig=sig; }catch(e){ console.warn("sheet videos",e); } },4000); }
 function publishVideoLinks(){
   if(MODE!=="admin"||!isMgr||!db||!VLIB.files.length) return;
+  syncSheetVideos();
   const k={}; [...LINKS.keys()].sort().forEach(x=>k[x]=LINKS.get(x).map(f=>isStar(f.id)?[f.t,f.u,1]:[f.t,f.u]));
   const vc={}; VRES.forEach(x=>{ const m=/^(VC\d{3})/i.exec(x.f.t||""); if(!m) return; const c=m[1].toUpperCase(); (vc[c]=vc[c]||[]).push([x.f.t,x.f.u]); });
   const vcl=Object.keys({...vc,...VCD}).sort().map(c=>{ const D=VCD[c]||{}; return {c,d:D.d||"",ty:D.ty||"",ti:D.ti||"",cl:D.cl||"",v:(vc[c]||[]).sort((a,b)=>a[0].localeCompare(b[0]))}; }).filter(x=>x.v.length);
