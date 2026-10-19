@@ -1753,7 +1753,7 @@ function rowFormulas(r,v){
   const txt=x=>{x=String(x||""); return /^[=+\-@]/.test(x)?"'"+x:x;};
   return [txt(v.id),`=DATE(${y},${m},${d})`,`=TEXT(B${r},"dddd")`,`=IF(B${r}="","",TODAY()-B${r})`,time,v.status,txt(v.rep),txt(v.clinic),txt(v.prod),txt(v.doc),txt(v.em),
     `=IF(H${r}="","",HYPERLINK("https://www.google.com/maps/search/?api=1&query="&SUBSTITUTE(H${r}," ","+"),"📍Google Maps"))`,
-    `=IF(A${r}="","",A${r}&"_"&TEXT(B${r},"dd-mm-yyyy")&"."&H${r}&"."&J${r}&"."&I${r})`];
+    `=IF(A${r}="","",A${r}&"_"&TEXT(B${r},"dd-mm-yyyy")&"."&TEXTJOIN(".",TRUE,REGEXREPLACE(REGEXREPLACE(REGEXREPLACE(H${r}&"","[/:\\\\]+","+"),"[\\s\\x{00A0}]+"," "),"^[ .,]+|[ .,]+$",""),IF(REGEXMATCH(LOWER(J${r}&""),"from (her|our)|our side|her side"),"",REGEXREPLACE(REGEXREPLACE(REGEXREPLACE(J${r}&"","[/:\\\\]+","+"),"[\\s\\x{00A0}]+"," "),"^[ .,]+|[ .,]+$","")),REGEXREPLACE(REGEXREPLACE(REGEXREPLACE(I${r}&"","[/:\\\\]+","+"),"[\\s\\x{00A0}]+"," "),"^[ .,]+|[ .,]+$","")))`];
 }
 
 /* ---------- Google Calendar sync (create / update / delete the shoot's event) ---------- */
