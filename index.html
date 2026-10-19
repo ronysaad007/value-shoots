@@ -188,11 +188,36 @@ a.map:hover{text-decoration:underline}
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;align-items:center}
 .filters input,.filters select,.form input,.form select,.set input,.set select{background:var(--surface);border:1px solid var(--line2);border-radius:9px;padding:7px 10px;min-width:0}
 .filters input[type=search]{flex:1 1 220px}
-.filters.fx{display:grid;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px}
-.fx-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
-.fx-grid label{display:grid;gap:4px;font-size:12px;font-weight:600;color:var(--muted)}
-.fx-grid select{width:100%;font-size:13.5px;color:var(--fg)}
-.fx-grid select.on{border-color:var(--blush);background:var(--blush-soft);font-weight:600}
+.filters.fx{display:grid;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:12px 14px}
+.xchips{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.xchips:empty{display:none}
+.xchip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--blush);background:var(--blush-soft);color:var(--fg);border-radius:999px;padding:4px 6px 4px 11px;font-size:12.5px;cursor:pointer;max-width:100%}
+.xchip b{font-weight:600}.xchip span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:240px}
+.xchip i{font-style:normal;display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--surface);font-size:11px}
+.xhint{font-size:12px;color:var(--muted)}
+th.xth{cursor:pointer;user-select:none;white-space:nowrap;position:relative}
+th.xth:hover{background:var(--line)}
+.thx{display:inline-flex;align-items:center;gap:6px}
+.xbtn{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:5px;border:1px solid var(--line2);background:var(--surface);font-size:10px;color:var(--muted);line-height:1}
+th.xth.on .xbtn{background:var(--blush);border-color:var(--blush);color:#fff}
+th.xth.on{color:var(--fg)}
+.xsort{font-size:11px;color:var(--fg)}
+.xf{position:absolute;z-index:80;width:290px;max-width:calc(100vw - 16px);background:var(--surface);border:1px solid var(--line2);border-radius:12px;box-shadow:0 14px 40px rgba(0,0,0,.18);padding:6px;display:grid;gap:2px;font-size:13.5px;color:var(--fg)}
+.xf>button.xi{display:flex;align-items:center;gap:8px;text-align:start;background:none;border:0;border-radius:7px;padding:7px 9px;color:var(--fg);font:inherit;cursor:pointer}
+.xf>button.xi:hover:not(:disabled){background:var(--sunk)}
+.xf>button.xi:disabled{opacity:.4;cursor:default}
+.xf>button.xi.cur{font-weight:700}
+.xf hr{border:0;border-top:1px solid var(--line);margin:4px 2px}
+.xf input[type=search]{width:100%;background:var(--surface);border:1px solid var(--line2);border-radius:8px;padding:7px 9px;margin:2px 0 4px;font:inherit}
+.xl{max-height:270px;overflow:auto;border:1px solid var(--line);border-radius:8px;padding:4px}
+.xl label,.xf label.xall{display:flex;align-items:center;gap:8px;padding:5px 6px;border-radius:6px;cursor:pointer}
+.xl label:hover{background:var(--sunk)}
+.xl label span{flex:1;min-width:0;overflow-wrap:anywhere}
+.xl label em{font-style:normal;color:var(--muted);font-size:12px}
+.xl input,.xf label.xall input{width:16px;height:16px;accent-color:var(--blush);flex:none}
+.xf label.xall{font-weight:600}
+.xf-foot{display:flex;gap:6px;justify-content:flex-end;padding-top:6px}
+@media (max-width:600px){.xf{position:fixed;left:8px!important;right:8px;top:auto!important;bottom:8px;width:auto;max-width:none}.xl{max-height:40vh}}
 .fx-foot{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .tbl{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
 table{border-collapse:collapse;width:100%;min-width:860px;font-size:13.5px}
@@ -790,22 +815,10 @@ td.id{color:var(--fg);font-weight:600;font-size:12.5px;white-space:nowrap}
   <section id="v-sessions" class="view" hidden>
     <div class="filters fx">
       <input id="q" type="search" aria-label="search">
-      <div class="fx-grid">
-        <label><span id="fxL-st"></span><select id="fGroup"></select></label>
-        <label><span id="fxL-rep"></span><select id="fRep"></select></label>
-        <label><span id="fxL-cl"></span><select id="fClinic"></select></label>
-        <label><span id="fxL-doc"></span><select id="fDoc"></select></label>
-        <label><span id="fxL-prod"></span><select id="fProd"></select></label>
-        <label><span id="fxL-em"></span><select id="fEm"></select></label>
-        <label><span id="fxL-yr"></span><select id="fYear"></select></label>
-        <label><span id="fxL-mo"></span><select id="fMonth"></select></label>
-        <label data-mgr hidden><span id="fxL-vid"></span><select id="fVid"></select></label>
-        <label data-mgr hidden><span id="fxL-ig"></span><select id="fIg"></select></label>
-        <label data-mgr hidden><span id="fxL-form"></span><select id="fForm"></select></label>
-      </div>
+      <div class="xchips" id="xChips"></div>
       <div class="fx-foot"><button class="btn sm" id="fClear" type="button" data-i="f.clear"></button>
       <a class="btn sm" id="sheetBtn" target="_blank" rel="noopener" data-mgr hidden>📊 Google Sheet ↗</a>
-      <span class="count" id="fCount"></span></div>
+      <span class="count" id="fCount"></span><span class="xhint" id="xHint"></span></div>
     </div>
     <div class="tbl"><table>
       <thead><tr id="thead"></tr></thead>
@@ -1513,34 +1526,111 @@ try{ matchMedia("(prefers-color-scheme: dark)").addEventListener("change",reThem
 new MutationObserver(reTheme).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
 
 /* ---------- table ---------- */
-function openSessions(f){ Object.assign(F,{q:"",g:"",st:"",rep:"",clinic:"",doc:"",em:"",year:"",month:"",prod:"",vid:"",ig:"",form:""},f); shown=60; syncFilterInputs(); renderTable(); go("sessions"); }
-function syncFilterInputs(){ $("#q").value=F.q; $("#fGroup").value=F.st?"s:"+F.st:F.g?"g:"+F.g:""; const m={fRep:"rep",fClinic:"clinic",fDoc:"doc",fEm:"em",fYear:"year",fMonth:"month",fProd:"prod",fVid:"vid",fIg:"ig",fForm:"form"};
-  Object.entries(m).forEach(([id,k])=>{ const el=document.getElementById(id); if(!el) return; if(F[k]&&![...el.options].some(o=>o.value===F[k])) el.insertAdjacentHTML("beforeend",`<option value="${esc(F[k])}">${esc(F[k])}</option>`); el.value=F[k]; el.classList.toggle("on",!!F[k]); });
-  $("#fGroup").classList.toggle("on",!!(F.g||F.st)); }
+let CF={}, SORT={c:"date",d:-1}, XLBL={};
+const stEn=s=>STATUS[(s.status||"").toLowerCase()]?STATUS[(s.status||"").toLowerCase()][2]:(s.status||"");
+const tMin=v=>{ const m=String(v||"").match(/(\d{1,2})(?::(\d{2}))?\s*(am|pm)?/i); if(!m) return 9999; let h=+m[1]%12; if(/pm/i.test(m[3]||"")) h+=12; else if(!m[3]&&+m[1]<8) h+=12; return h*60+(+m[2]||0); };
+const hasVid=s=>(LINKS.get(shootKey(s))||[]).length>0;
+const YN=b=>[b?"yes":"no"];
+const XC={
+  id:{l:()=>t("th.code"),v:s=>[s.id||""],sv:s=>s.id||""},
+  date:{l:()=>t("th.date"),v:s=>[s.date?ym(s.date):""],sv:s=>s.date?+s.date:0,dt:1},
+  time:{l:()=>t("th.time"),v:s=>[s.time||""],sv:s=>tMin(s.time),num:1},
+  clinic:{l:()=>t("th.clinic"),v:s=>[norm(s.clinic||"")],sv:s=>s.clinic||""},
+  prod:{l:()=>t("th.product"),v:s=>{ const a=prodTokens(s.prod); return a.length?a:[""]; },sv:s=>s.prod||""},
+  doc:{l:()=>t("th.doctor"),v:s=>[norm(s.doc||"")],sv:s=>s.doc||""},
+  vid:{l:()=>wt("الفيديو","Video"),v:s=>YN(hasVid(s)),sv:s=>hasVid(s)?1:0,mgr:1,yn:1},
+  ig:{l:()=>wt("انستغرام","Instagram"),v:s=>YN(!!s.ig),sv:s=>s.ig?1:0,mgr:1,yn:1},
+  rep:{l:()=>t("th.rep"),v:s=>[s.rep||""],sv:s=>s.rep||""},
+  em:{l:()=>t("th.em"),v:s=>[s.em||""],sv:s=>emName(s.em)||""},
+  status:{l:()=>t("th.status"),v:s=>[stEn(s)],sv:s=>GROUPS.indexOf(s.g)*1000+(stEn(s)||"").charCodeAt(0)||0},
+  form:{l:()=>t("th.form"),v:s=>YN(consentIds.has(s.id)),sv:s=>consentIds.has(s.id)?1:0,mgr:1,yn:1}
+};
+const XORDER=["id","date","time","clinic","prod","doc","vid","ig","rep","em","status","form"];
+const xCols=()=>XORDER.filter(c=>!XC[c].mgr||isMgr);
+function xLabel(c,k){ if(k==="") return wt("(فاضي)","(Blanks)");
+  if(XC[c].yn) return k==="yes"?wt("فيه","Has it"):wt("ما فيه","Missing");
+  if(c==="date"){ const [y,m]=k.split("-"); return `${MONTHS[LANG][+m-1]} ${y}`; }
+  if(c==="em") return emName(k)||k;
+  if(c==="status") return LANG==="ar"&&STATUS[k.toLowerCase()]?STATUS[k.toLowerCase()][1]+" · "+k:k;
+  return (XLBL[c]&&XLBL[c].get(k))||k; }
+function xPass(s,except){ const q=F.q.trim().toLowerCase();
+  if(F.g&&s.g!==F.g) return false;
+  if(q&&![s.clinic,s.prod,s.doc,s.rep,s.code,s.id,s.em].join(" ").toLowerCase().includes(q)) return false;
+  for(const c in CF){ if(c===except||!XC[c]) continue; if(!XC[c].v(s).some(k=>CF[c].has(k))) return false; }
+  return true; }
+function openSessions(f){ F.q=""; F.g=""; CF={}; f=f||{};
+  if(f.q) F.q=f.q; if(f.g) F.g=f.g;
+  const one=(c,v)=>{ if(v) CF[c]=new Set([v]); };
+  one("status",f.st); one("rep",f.rep); one("em",f.em); one("prod",f.prod); one("clinic",f.clinic); one("doc",f.doc); one("vid",f.vid); one("ig",f.ig); one("form",f.form);
+  if(f.month) one("date",f.month); else if(f.year) CF.date=new Set(S.filter(s=>s.date&&String(s.date.getFullYear())===String(f.year)).map(s=>ym(s.date)));
+  shown=60; syncFilterInputs(); renderTable(); go("sessions"); }
+function syncFilterInputs(){ $("#q").value=F.q; }
 function fillFilters(){
-  const opt=(v,l)=>`<option value="${esc(v)}">${esc(l)}</option>`, cnt=(arr,fn)=>{ const m=new Map(); arr.forEach(x=>{ const k=fn(x); if(k) m.set(k,(m.get(k)||0)+1); }); return m; };
-  const L=[["fxL-st","الحالة","Status"],["fxL-rep","المندوب","Medical rep"],["fxL-cl","العيادة","Clinic"],["fxL-doc","الدكتور / المعالج","Doctor / therapist"],["fxL-prod","المنتج","Product"],["fxL-em","الإمارة","Emirate"],["fxL-yr","السنة","Year"],["fxL-mo","الشهر","Month"],["fxL-vid","الفيديو","Video"],["fxL-ig","انستغرام","Instagram"],["fxL-form","فورم الموافقة","Consent form"]];
-  L.forEach(([id,ar,en])=>{ const el=document.getElementById(id); if(el) el.textContent=wt(ar,en); });
-  const all=wt("الكل","All");
-  const stC=cnt(S,s=>s.status&&(STATUS[s.status.toLowerCase()]?STATUS[s.status.toLowerCase()][2]:s.status));
-  $("#fGroup").innerHTML=opt("",all)+`<optgroup label="${esc(wt("حسب المرحلة","By stage"))}">`+GROUPS.map(g=>opt("g:"+g,t("g."+g)+" ("+S.filter(s=>s.g===g).length+")")).join("")+`</optgroup><optgroup label="${esc(wt("الحالة بالزبط","Exact status"))}">`+[...stC].sort((x,y)=>y[1]-x[1]).map(([k,n])=>opt("s:"+k,(LANG==="ar"&&STATUS[k.toLowerCase()]?STATUS[k.toLowerCase()][1]+" · "+k:k)+" ("+n+")")).join("")+`</optgroup>`;
-  const sortC=m=>[...m].sort((x,y)=>x[0].localeCompare(y[0]));
-  $("#fRep").innerHTML=opt("",all)+sortC(cnt(S,s=>s.rep)).map(([k,n])=>opt(k,`${k} (${n})`)).join("");
-  const clN=new Map(); S.forEach(s=>{ if(s.clinic){ const k=norm(s.clinic); if(!clN.has(k)) clN.set(k,s.clinic); } });
-  $("#fClinic").innerHTML=opt("",all)+[...cnt(S,s=>s.clinic&&norm(s.clinic))].map(([k,n])=>[clN.get(k),n,k]).sort((x,y)=>x[0].localeCompare(y[0])).map(([l,n,k])=>opt(k,`${l} (${n})`)).join("");
-  const dN=new Map(); S.forEach(s=>{ if(s.doc&&!/from (her|our)|side/i.test(s.doc)){ const k=norm(s.doc); if(k&&!dN.has(k)) dN.set(k,s.doc); } });
-  $("#fDoc").innerHTML=opt("",all)+[...cnt(S,s=>s.doc&&!/from (her|our)|side/i.test(s.doc)&&norm(s.doc))].map(([k,n])=>[dN.get(k),n,k]).sort((x,y)=>x[0].localeCompare(y[0])).map(([l,n,k])=>opt(k,`${l} (${n})`)).join("");
-  $("#fProd").innerHTML=opt("",all)+countBy(S,s=>prodTokens(s.prod)).map(([k,n])=>opt(k,`${k} (${n})`)).join("");
-  $("#fEm").innerHTML=opt("",all)+[...cnt(S,s=>s.em)].sort((x,y)=>y[1]-x[1]).map(([k,n])=>opt(k,`${emName(k)} (${n})`)).join("");
-  $("#fYear").innerHTML=opt("",all)+[...cnt(S,s=>s.date&&String(s.date.getFullYear()))].sort((x,y)=>y[0]-x[0]).map(([k,n])=>opt(k,`${k} (${n})`)).join("");
-  $("#fMonth").innerHTML=opt("",all)+[...cnt(S.filter(s=>s.date&&(!F.year||String(s.date.getFullYear())===F.year)),s=>ym(s.date))].sort((x,y)=>y[0].localeCompare(x[0])).map(([k,n])=>{const [y,m]=k.split("-");return opt(k,`${MONTHS[LANG][+m-1]} ${y} (${n})`);}).join("");
-  const yn=[["yes",wt("فيه","Has it")],["no",wt("ما فيه","Missing")]];
-  ["fVid","fIg","fForm"].forEach(id=>{ $("#"+id).innerHTML=opt("",all)+yn.map(([v,l])=>opt(v,l)).join(""); });
-  syncFilterInputs();
-  const th=k=>`<th>${t("th."+k)}</th>`;
-  $("#thead").innerHTML=["code","date","time","clinic","product","doctor"].map(th).join("")+(isMgr?`<th>${wt("الفيديو","Video")}</th><th>${wt("انستغرام","Instagram")}</th>`:"")+["rep","em","status"].map(th).join("")+(isMgr?`<th>${t("th.form")}</th><th></th>`:"");
+  XLBL={clinic:new Map(),doc:new Map()};
+  S.forEach(s=>{ [["clinic",s.clinic],["doc",s.doc]].forEach(([c,v])=>{ if(v){ const k=norm(v); if(k&&!XLBL[c].has(k)) XLBL[c].set(k,v); } }); });
+  $("#xHint").textContent=wt("💡 اكبس على عنوان أي عمود لتفلتر أو ترتّب، وفيك تفلتر أكتر من عمود سوا","💡 Tap any column header to filter or sort; combine as many columns as you like");
+  syncFilterInputs(); renderHead();
   $("#sheetBtn").href=sheetUrl();
 }
+function renderHead(){
+  $("#thead").innerHTML=xCols().map(c=>{ const on=!!CF[c], so=SORT.c===c?`<span class="xsort">${SORT.d>0?"▲":"▼"}</span>`:"";
+    return `<th class="xth ${on?"on":""}" data-xf="${c}"><span class="thx">${esc(XC[c].l())}${so}<span class="xbtn" aria-hidden="true">${on?"⏷":"▾"}</span></span></th>`; }).join("")+(isMgr?`<th></th>`:"");
+}
+function renderChips(){
+  const ch=[]; if(F.g) ch.push(`<button type="button" class="xchip" data-xchip="__g"><b>${esc(t("th.status"))}:</b><span>${esc(t("g."+F.g))}</span><i>✕</i></button>`);
+  xCols().forEach(c=>{ if(!CF[c]) return; const ks=[...CF[c]], first=ks.slice(0,2).map(k=>xLabel(c,k)).join("، ");
+    ch.push(`<button type="button" class="xchip" data-xchip="${c}" title="${esc(ks.map(k=>xLabel(c,k)).join(" · "))}"><b>${esc(XC[c].l())}:</b><span>${esc(first)}${ks.length>2?` +${ks.length-2}`:""}</span><i>✕</i></button>`); });
+  $("#xChips").innerHTML=ch.join("");
+  $("#fClear").hidden=!ch.length&&!F.q;
+}
+document.addEventListener("click",e=>{ const b=e.target.closest("[data-xchip]"); if(!b) return; const c=b.dataset.xchip; if(c==="__g") F.g=""; else delete CF[c]; shown=60; renderTable(); });
+
+/* ---- Excel-style column menu ---- */
+let XF=null;
+function xClose(){ if(XF){ XF.el.remove(); XF=null; } }
+function xOpen(c,th){
+  xClose(); const col=XC[c];
+  const base=S.filter(s=>xPass(s,c)), cnt=new Map();
+  base.forEach(s=>new Set(col.v(s)).forEach(k=>cnt.set(k,(cnt.get(k)||0)+1)));
+  if(CF[c]) CF[c].forEach(k=>{ if(!cnt.has(k)) cnt.set(k,0); });
+  let keys=[...cnt.keys()];
+  if(col.yn) keys.sort((a,b)=>(a==="yes"?0:1)-(b==="yes"?0:1));
+  else if(col.dt) keys.sort((a,b)=>b.localeCompare(a));
+  else if(col.num) keys.sort((a,b)=>tMin(a)-tMin(b));
+  else keys.sort((a,b)=>xLabel(c,a).localeCompare(xLabel(c,b),undefined,{numeric:true,sensitivity:"base"}));
+  keys.sort((a,b)=>(a===""?1:0)-(b===""?1:0));
+  const sel=new Set(CF[c]?[...CF[c]]:keys);
+  const asc=col.dt?wt("الأقدم أولاً","Oldest first"):col.num?wt("من الأبكر للأخر","Earliest first"):col.yn?wt("ما فيه أولاً","Missing first"):wt("ترتيب تصاعدي A → Z","Sort A → Z");
+  const desc=col.dt?wt("الأحدث أولاً","Newest first"):col.num?wt("من الأخر للأبكر","Latest first"):col.yn?wt("فيه أولاً","Has it first"):wt("ترتيب تنازلي Z → A","Sort Z → A");
+  const el=document.createElement("div"); el.className="xf"; el.setAttribute("role","dialog"); el.dir=document.documentElement.dir;
+  el.innerHTML=`<button type="button" class="xi ${SORT.c===c&&SORT.d>0?"cur":""}" data-xs="1">▲ ${esc(asc)}</button>
+    <button type="button" class="xi ${SORT.c===c&&SORT.d<0?"cur":""}" data-xs="-1">▼ ${esc(desc)}</button><hr>
+    <button type="button" class="xi" data-xclr ${CF[c]?"":"disabled"}>✕ ${esc(wt(`مسح فلتر «${col.l()}»`,`Clear filter from “${col.l()}”`))}</button><hr>
+    ${keys.length>7?`<input type="search" placeholder="${esc(wt("ابحث بالقائمة…","Search the list…"))}">`:""}
+    <label class="xall"><input type="checkbox" data-xall> ${esc(wt("(تحديد الكل)","(Select all)"))}</label>
+    <div class="xl">${keys.map(k=>`<label data-k="${esc(k)}" data-lb="${esc(xLabel(c,k).toLowerCase())}"><input type="checkbox" ${sel.has(k)?"checked":""}><span>${esc(xLabel(c,k))}</span><em>${cnt.get(k)}</em></label>`).join("")||`<div class="xhint" style="padding:6px">—</div>`}</div>
+    <div class="xf-foot"><button type="button" class="btn sm" data-xno>${esc(wt("إلغاء","Cancel"))}</button><button type="button" class="btn primary sm" data-xok>${esc(wt("تمام","OK"))}</button></div>`;
+  document.body.appendChild(el); XF={el,c,keys};
+  const r=th.getBoundingClientRect(), w=el.offsetWidth; let x=document.documentElement.dir==="rtl"?r.right-w:r.left; x=Math.max(8,Math.min(x,innerWidth-w-8));
+  el.style.left=(x+scrollX)+"px"; el.style.top=(r.bottom+scrollY+4)+"px";
+  const boxes=()=>[...el.querySelectorAll(".xl label")].filter(l=>!l.hidden).map(l=>l.querySelector("input"));
+  const syncAll=()=>{ const b=boxes(), a=el.querySelector("[data-xall]"), n=b.filter(x=>x.checked).length; a.checked=b.length>0&&n===b.length; a.indeterminate=n>0&&n<b.length; el.querySelector("[data-xok]").disabled=!n; };
+  syncAll();
+  el.addEventListener("change",e=>{ if(e.target.matches("[data-xall]")) boxes().forEach(x=>x.checked=e.target.checked); syncAll(); });
+  const srch=el.querySelector("input[type=search]"); if(srch){ srch.addEventListener("input",()=>{ const v=srch.value.trim().toLowerCase(); el.querySelectorAll(".xl label").forEach(l=>{ l.hidden=!!v&&!l.dataset.lb.includes(v); }); if(v) boxes().forEach(x=>x.checked=true); syncAll(); }); if(matchMedia("(min-width:601px)").matches) srch.focus(); }
+  el.addEventListener("click",e=>{
+    const s2=e.target.closest("[data-xs]"); if(s2){ SORT={c,d:+s2.dataset.xs}; xClose(); shown=60; renderTable(); return; }
+    if(e.target.closest("[data-xclr]")){ delete CF[c]; xClose(); shown=60; renderTable(); return; }
+    if(e.target.closest("[data-xno]")){ xClose(); return; }
+    if(e.target.closest("[data-xok]")){ const vis=[...el.querySelectorAll(".xl label")].filter(l=>!l.hidden), on=vis.filter(l=>l.querySelector("input").checked).map(l=>l.dataset.k);
+      const filtered=srch&&srch.value.trim(); if(!filtered&&on.length===keys.length) delete CF[c]; else CF[c]=new Set(on);
+      xClose(); shown=60; renderTable(); }
+  });
+}
+document.addEventListener("click",e=>{ const th=e.target.closest("th[data-xf]"); if(th){ e.stopPropagation(); if(XF&&XF.c===th.dataset.xf){ xClose(); return; } xOpen(th.dataset.xf,th); return; }
+  if(XF&&!XF.el.contains(e.target)) xClose(); },true);
+document.addEventListener("keydown",e=>{ if(e.key==="Escape") xClose(); if(e.key==="Enter"&&XF&&XF.el.contains(e.target)){ const ok=XF.el.querySelector("[data-xok]"); if(ok&&!ok.disabled) ok.click(); } });
+addEventListener("resize",()=>{ if(XF&&matchMedia("(min-width:601px)").matches) xClose(); });
 function formLinks(s){
   const list=(typeof CONSENTS!=="undefined"?CONSENTS:[]).filter(c=>c.sid===s.id&&c.assetId);
   if(!list.length) return `<button class="linkbtn" type="button" data-consent="${s.row}">${t("cf.btn")}</button>`;
@@ -1559,25 +1649,21 @@ async function igSave(row,inp){ const s=S.find(x=>x.row===row); if(!s) return; l
 document.addEventListener("click",e=>{ const b=e.target.closest("[data-igsave]"); if(!b) return; igSave(+b.dataset.igsave,b.parentElement.querySelector("input")); });
 document.addEventListener("keydown",e=>{ const i=e.target.closest&&e.target.closest("[data-igrow]"); if(i&&e.key==="Enter"){ e.preventDefault(); igSave(+i.dataset.igrow,i); } });
 function renderTable(){
-  const q=F.q.trim().toLowerCase();
-  const hasV=s=>(LINKS.get(shootKey(s))||[]).length>0, yn=(v,b)=>!v||(v==="yes"?b:!b), stEn=s=>STATUS[(s.status||"").toLowerCase()]?STATUS[(s.status||"").toLowerCase()][2]:s.status;
-  const rows=S.filter(s=>(!F.g||s.g===F.g)&&(!F.st||stEn(s)===F.st)&&(!F.rep||s.rep===F.rep)&&(!F.clinic||norm(s.clinic)===F.clinic)&&(!F.doc||norm(s.doc)===F.doc)&&(!F.em||s.em===F.em)&&(!F.year||(s.date&&String(s.date.getFullYear())===F.year))&&(!F.month||(s.date&&ym(s.date)===F.month))&&(!F.prod||prodTokens(s.prod).includes(F.prod))&&
-    yn(F.vid,hasV(s))&&yn(F.ig,!!s.ig)&&yn(F.form,consentIds.has(s.id))&&
-    (!q||[s.clinic,s.prod,s.doc,s.rep,s.code,s.id].join(" ").toLowerCase().includes(q))).sort((a,b)=>(b.date||0)-(a.date||0));
-  $("#fCount").textContent=t("f.count",{n:rows.length});
+  const col=XC[SORT.c]||XC.date, cmp=(a,b)=>{ const x=col.sv(a), y=col.sv(b); const r=typeof x==="number"&&typeof y==="number"?x-y:String(x).localeCompare(String(y),undefined,{numeric:true,sensitivity:"base"});
+    return r*SORT.d||((b.date||0)-(a.date||0)); };
+  const rows=S.filter(s=>xPass(s)).sort(cmp);
+  renderHead(); renderChips();
+  $("#fCount").textContent=t("f.count",{n:rows.length})+(rows.length!==S.length?` / ${S.length}`:"");
   $("#tb").innerHTML=rows.slice(0,shown).map(s=>`<tr class="${s.date&&s.date>=today?"future":""}">
     <td class="id" dir="ltr">${esc(s.id)}</td><td class="t">${s.date?ymd(s.date)+"<br><span class='when'>"+DSHORT[LANG][s.date.getDay()]+"</span>":"—"}</td><td class="t">${esc(s.time||"—")}</td>
     <td><strong>${esc(s.clinic)}</strong><br><a class="map" href="${mapUrl(s.clinic,s.em)}" target="_blank" rel="noopener">${t("map")}</a></td>
     <td>${esc(s.prod||"—")}</td><td>${esc(s.doc||"—")}</td>${isMgr?`<td>${vidLinks(s)}</td><td>${igCell(s)}</td>`:""}<td>${esc(s.rep||"—")}</td><td>${esc(emName(s.em)||"—")}</td><td>${chip(s)}</td>
     ${isMgr?`<td>${formLinks(s)}</td><td><button class="btn sm" type="button" data-edit="${s.row}">${t("edit")}</button></td>`:""}</tr>`).join("")
-    ||`<tr><td colspan="12"><div class="empty">${t("f.none")}</div></td></tr>`;
+    ||`<tr><td colspan="13"><div class="empty">${t("f.none")}</div></td></tr>`;
   $("#moreBtn").hidden=rows.length<=shown;
 }
 $("#q").addEventListener("input",e=>{F.q=e.target.value;shown=60;renderTable();});
-$("#fGroup").addEventListener("change",e=>{ const v=e.target.value; F.g=v.startsWith("g:")?v.slice(2):""; F.st=v.startsWith("s:")?v.slice(2):""; shown=60; syncFilterInputs(); renderTable(); });
-[["#fRep","rep"],["#fClinic","clinic"],["#fDoc","doc"],["#fEm","em"],["#fMonth","month"],["#fProd","prod"],["#fVid","vid"],["#fIg","ig"],["#fForm","form"]].forEach(([s,k])=>$(s).addEventListener("change",e=>{F[k]=e.target.value;shown=60;syncFilterInputs();renderTable();}));
-$("#fYear").addEventListener("change",e=>{ F.year=e.target.value; if(F.year&&F.month&&!F.month.startsWith(F.year)) F.month=""; shown=60; fillFilters(); renderTable(); });
-$("#fClear").addEventListener("click",()=>{Object.assign(F,{q:"",g:"",st:"",rep:"",clinic:"",doc:"",em:"",year:"",month:"",prod:"",vid:"",ig:"",form:""});syncFilterInputs();renderTable();});
+$("#fClear").addEventListener("click",()=>{ F.q=""; F.g=""; CF={}; SORT={c:"date",d:-1}; syncFilterInputs(); shown=60; renderTable(); });
 $("#moreBtn").addEventListener("click",()=>{shown+=100;renderTable();});
 
 /* ---------- Google Sheets ---------- */
