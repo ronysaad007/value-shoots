@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><script>window.__MOVES=[];</script><title>Derma Finder</title><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Derma Finder"></head><body>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><title>Derma Finder</title><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Derma Finder"></head><body>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -414,7 +414,7 @@ $('pdOv').addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.id==='pdPw
 function setPendLabel(){const b=$('pendBtn');b.textContent=t().pend.btn+(PENDING.length?` (${PENDING.length})`:'')}
 // --- connect ---
 (async()=>{try{
-  if(!window.claude||!claude.use){if(window.__MOVES&&__MOVES.length)applyMoves(__MOVES);return;}
+  if(!window.claude||!claude.use)return;
   const [db,user]=await Promise.all([claude.use('db'),claude.use('user')]);
   ME=user;DB=db;UID=user?await user.id():null;
   if(!db)return;
@@ -428,4 +428,5 @@ function setPendLabel(){const b=$('pendBtn');b.textContent=t().pend.btn+(PENDING
 setCity('d');applyLang();
 </script>
 
+<script>window.DERMA_API="";</script><script src="team.js?v=1792587438"></script>
 </body></html>
