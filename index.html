@@ -116,6 +116,11 @@ h2 small{font-family:var(--f-body);font-weight:400;color:var(--muted);font-size:
 .cal-d .n{font-size:10.5px;background:var(--g-up);color:#fff;border-radius:9px;padding:0 6px;font-weight:700}
 .cal-e{font-size:11px;line-height:1.3;border-radius:5px;padding:1px 5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background:var(--surface);border-inline-start:3px solid var(--g-up)}
 .cal-e.wait{border-color:var(--g-wait)} .cal-e.prod{border-color:var(--g-prod)} .cal-e.done{border-color:var(--g-done)}
+.cal-e.ap{border-color:var(--blush);background:var(--blush-soft)}
+.cal-c.hasap:not(.busy){background:color-mix(in srgb,var(--blush-soft) 55%,var(--surface))}
+.ap-it{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:center;border:1px solid var(--line);border-inline-start:4px solid var(--blush);border-radius:12px;padding:9px 12px;background:var(--surface);margin-bottom:8px}
+.ap-it .tm{font-weight:700;font-variant-numeric:tabular-nums;min-width:54px}.ap-it b{font-weight:700;overflow-wrap:anywhere}.ap-it small{display:block;color:var(--muted);font-size:12.5px}
+.up.ap{border-inline-start:4px solid var(--blush)}.up.ap .up-date{background:var(--blush-soft)}
 .cal-free{font-size:10.5px;color:var(--g-done);font-weight:600;margin-top:auto}
 @media (max-width:600px){.cal-c{min-height:52px;padding:4px}.cal-e,.cal-free{display:none}.cal-d{flex-direction:column;align-items:flex-start;gap:2px}}
 .legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12.5px;color:var(--muted);margin-top:10px}
@@ -791,6 +796,17 @@ td.id{color:var(--fg);font-weight:600;font-size:12.5px;white-space:nowrap}
     <div class="br-grid" id="bList"></div>
     <div class="more"><button class="btn sm" id="bMore" type="button" hidden></button></div>
   </section>
+  <dialog id="apDlg" class="wa-dlg"><div class="wa-dlg-h"><b id="apT"></b><button class="btn sm" type="button" data-close aria-label="close">✕</button></div>
+    <form id="apForm" class="form" novalidate>
+      <label class="full"><span id="apL1"></span><input id="ap-title" autocomplete="off"></label>
+      <label><span id="apL2"></span><input id="ap-date" type="date"></label>
+      <label><span id="apL3"></span><input id="ap-time" type="time"></label>
+      <label><span id="apL4"></span><select id="ap-min"></select></label>
+      <label><span id="apL5"></span><input id="ap-place" list="ap-places" autocomplete="off"></label>
+      <label class="full"><span id="apL6"></span><textarea id="ap-note" rows="2"></textarea></label>
+      <label class="calopt full"><input type="checkbox" id="ap-cal" checked><span id="apL7"></span></label>
+      <div class="full" style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><button class="btn primary" type="submit" id="ap-save"></button><button class="btn" type="button" id="ap-del" hidden></button><span class="msg" id="ap-msg"></span></div>
+    </form><datalist id="ap-places"></datalist></dialog>
   <dialog id="clDlg" class="wa-dlg"><div class="wa-dlg-h"><b id="clT"></b><button class="btn sm" type="button" data-close aria-label="close">✕</button></div><div id="clBody"></div></dialog>
   <dialog id="shDlg" class="wa-dlg sh-dlg"><div class="wa-dlg-h"><b id="shT"></b><button class="btn sm" type="button" data-close aria-label="close">✕</button></div><div id="shBody"></div></dialog>
   <dialog id="rqDlg" class="wa-dlg"><div class="wa-dlg-h"><b id="rqT"></b><button class="btn sm" type="button" data-close aria-label="close">✕</button></div>
@@ -1384,7 +1400,9 @@ function renderHome(){
   if(n){ $("#nextClinic").textContent=(n.id?n.id+" · ":"")+n.clinic;
     $("#nextMeta").innerHTML=`<span class="in">${esc(whenTxt(n.date))}</span> · ${esc(fmtDate(n.date))}${n.time?" · "+esc(n.time):""}<br>${esc([n.prod,n.rep,emName(n.em)].filter(Boolean).join(" · "))}`; }
   else { $("#nextClinic").textContent=S.length?t("home.noNext"):"…"; $("#nextMeta").textContent=S.length?t("home.noNextSub"):""; }
-  $("#upList").innerHTML=up.length?up.slice(0,12).map((s,i)=>upCard(s,i)).join(""):(S.length?`<div class="empty">${t("home.noNext")}</div>`:(syncState==="loading"||syncState==="reading"?`<div class="skel"></div><div class="skel"></div><div class="skel"></div>`:`<div class="empty">${t("loading")}</div>`));
+  const apUp=isMgr&&AP?AP.filter(a=>a.d>=today&&a.d<=new Date(today.getTime()+14*864e5)):[];
+  const mix=[...up.map(s=>({k:+shootStart(s),s})),...apUp.map(a=>({k:+apStart(a),a}))].sort((x,y)=>x.k-y.k).slice(0,12);
+  $("#upList").innerHTML=mix.length?mix.map((x,i)=>x.s?upCard(x.s,i):apCard(x.a,i)).join(""):(S.length?`<div class="empty">${t("home.noNext")}</div>`:(syncState==="loading"||syncState==="reading"?`<div class="skel"></div><div class="skel"></div><div class="skel"></div>`:`<div class="empty">${t("loading")}</div>`));
   $("#upCount").textContent=up.length?t("up.count",{n:up.length}):"";
   lastNextKey=n?n.row+"|"+n.id:""; cdTarget=n?shootStart(n):null; tickCountdown(); if(!cdTimer) cdTimer=setInterval(tickCountdown,15000);
   markFresh();
@@ -1402,13 +1420,13 @@ function renderCal(){
   for(let i=0;i<first;i++) h+=`<div class="cal-c out" aria-hidden="true"></div>`;
   let busy=0, freeLeft=0, cnt=0;
   for(let d=1;d<=days;d++){
-    const dt=new Date(y,mo,d), k=ymd(dt), ev=m.get(k)||[], wk=CFG.weekend.includes(dt.getDay()), past=dt<today;
+    const dt=new Date(y,mo,d), k=ymd(dt), ev=m.get(k)||[], aps=apOn(k), wk=CFG.weekend.includes(dt.getDay()), past=dt<today;
     cnt+=ev.length; if(ev.length) busy++; else if(!wk&&!past) freeLeft++;
     const cls=["cal-c"]; if(ev.length) cls.push("busy"); else if(wk) cls.push("wkend"); else if(!past) cls.push("free");
-    if(past) cls.push("past"); if(+dt===+today) cls.push("today"); if(selDay===k) cls.push("sel");
+    if(aps.length) cls.push("hasap"); if(past) cls.push("past"); if(+dt===+today) cls.push("today"); if(selDay===k) cls.push("sel");
     h+=`<button type="button" class="${cls.join(" ")}" data-day="${k}" aria-label="${esc(fmtDate(dt))}: ${ev.length}">
-      <span class="cal-d"><span>${d}</span>${ev.length?`<span class="n">${ev.length}</span>`:""}</span>${ev.slice(0,2).map(e=>`<span class="cal-e ${e.g}" dir="auto">${esc(e.clinic)}</span>`).join("")}${ev.length>2?`<span class="when">+${ev.length-2}</span>`:""}
-      ${!ev.length&&!wk&&!past?`<span class="cal-free">${t("cal.free")}</span>`:""}</button>`;
+      <span class="cal-d"><span>${d}</span>${ev.length?`<span class="n">${ev.length}</span>`:""}</span>${[...ev.map(e=>`<span class="cal-e ${e.g}" dir="auto">${esc(e.clinic)}</span>`),...aps.map(a=>`<span class="cal-e ap" dir="auto">📅 ${esc(a.title)}</span>`)].slice(0,2).join("")}${ev.length+aps.length>2?`<span class="when">+${ev.length+aps.length-2}</span>`:""}
+      ${!ev.length&&!aps.length&&!wk&&!past?`<span class="cal-free">${t("cal.free")}</span>`:""}</button>`;
   }
   $("#cal").innerHTML=h;
   const cur=y>today.getFullYear()||(y===today.getFullYear()&&mo>=today.getMonth());
@@ -1418,8 +1436,8 @@ function renderCal(){
 function renderDay(k,m){
   const ev=(m||dayMap()).get(k)||[], dt=new Date(k+"T00:00"), box=$("#dayDetail"); box.hidden=false;
   box.innerHTML=`<h3>${esc(fmtDate(dt))} · <span class="when">${esc(whenTxt(dt))}</span></h3>
-    <div class="list">${ev.length?ev.map(sessCard).join(""):`<div class="note">${t("cal.nothing")}</div>`}</div>
-    ${isMgr&&dt>=today?`<div style="margin-top:10px"><button class="btn blush sm" id="addDay" type="button">${t("cal.addDay")}</button></div>`:""}`;
+    ${apOn(k).map(apItem).join("")}<div class="list">${ev.length?ev.map(sessCard).join(""):apOn(k).length?"":`<div class="note">${t("cal.nothing")}</div>`}</div>
+    ${isMgr&&dt>=today?`<div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn blush sm" id="addDay" type="button">${t("cal.addDay")}</button><button class="btn sm" type="button" data-apnew="${k}">📅 ${wt("ضيف موعد (مش تصوير)","Add an appointment (not a shoot)")}</button></div>`:""}`;
   const b=$("#addDay"); if(b) b.addEventListener("click",()=>{ newShoot(); $("#s-date").value=k; go("manage"); setTimeout(()=>$("#s-clinic").focus(),60); });
 }
 $("#cal").addEventListener("click",e=>{const c=e.target.closest("[data-day]"); if(!c) return; selDay=selDay===c.dataset.day?null:c.dataset.day; renderCal();});
@@ -1787,6 +1805,58 @@ $("#asQ").addEventListener("input",()=>renderAssets());
 $("#asReload").addEventListener("click",()=>loadAssets(true));
 setTimeout(()=>loadAssets(false,true),2500);
 
+/* ---------- Appointments (not shoots): own sheet tab + calendar ---------- */
+var AP=[], apEditing=null; const AP_TAB="📅 Appointments", APA=a=>`'${AP_TAB}'!${a}`;
+function apOn(k){ return (AP||[]).filter(a=>a.date===k).sort((x,y)=>(x.time||"99").localeCompare(y.time||"99")); }
+function apStart(a){ const [h,m]=(a.time||"").split(":").map(Number); return a.time?new Date(a.d.getFullYear(),a.d.getMonth(),a.d.getDate(),h,m):new Date(a.d); }
+async function loadAppts(){ if(MODE!=="admin"||!isMgr||!mcp) return; try{ const p=await sheetCall("get_values",{range:APA("A2:H")});
+    AP=(p.values||[]).filter(r=>r[0]&&r[1]).map((r,i)=>({row:i+2,id:String(r[0]),date:String(r[1]).slice(0,10),time:String(r[2]||"").slice(0,5),min:+r[3]||60,title:r[4]||"",place:r[5]||"",note:r[6]||""}))
+      .map(a=>Object.assign(a,{d:new Date(a.date+"T00:00")})).filter(a=>!isNaN(a.d)); renderHome(); }catch(e){ AP=[]; } }
+async function apEnsureTab(){ try{ await sheetCall("get_values",{range:APA("A1:A1")}); }catch(e){
+  await sheetCall("update_spreadsheet",{requests:[{addSheet:{properties:{title:AP_TAB,gridProperties:{rowCount:1000,columnCount:8,frozenRowCount:1}}}}]});
+  await sheetCall("update_formulas",{range:APA("A1:H1"),formulas:[["id","Date","Time","Minutes","Title","Place","Note","Saved"]]}); } }
+function apTimes(a){ const p=n=>String(n).padStart(2,"0"), ds=x=>`${x.getFullYear()}-${p(x.getMonth()+1)}-${p(x.getDate())}`;
+  if(a.time){ const st=apStart(a), en=new Date(st.getTime()+(a.min||60)*6e4), iso=x=>`${ds(x)}T${p(x.getHours())}:${p(x.getMinutes())}:00+04:00`; return {allDay:false,start:iso(st),end:iso(en),sd:ds(st),ed:ds(en)}; }
+  const n=new Date(a.d.getTime()+864e5); return {allDay:true,start:ds(a.d),end:ds(n),sd:ds(a.d),ed:ds(n)}; }
+const apBody=a=>({title:"📅 "+a.title,loc:a.place||"",desc:[a.note,"Appointment · "+a.id].filter(Boolean).join("\n"),t:apTimes(a)});
+function apItem(a){ return `<div class="ap-it"><span class="tm">${esc(a.time||wt("كل اليوم","All day"))}</span><div><b>📅 ${esc(a.title)}</b><small>${esc([a.place,a.time?`${a.min} ${wt("دقيقة","min")}`:"",a.note].filter(Boolean).join(" · "))}</small></div>${isMgr?`<button class="linkbtn" type="button" data-apedit="${esc(a.id)}">${t("edit")}</button>`:""}</div>`; }
+function apCard(a,i){ const d=a.d; return `<article class="up ap" style="--i:${i||0}"><div class="up-date"><span class="dn">${DAYS[LANG][d.getDay()]}</span><b>${d.getDate()}</b><span class="mn">${MONTHS[LANG][d.getMonth()]}</span><span class="tm">${esc(a.time||wt("كل اليوم","All day"))}</span></div>
+  <div class="up-main"><div class="up-top"><strong>📅 ${esc(a.title)}</strong><span class="chip" style="background:var(--blush-soft)">${wt("موعد","Appointment")}</span></div>
+  <dl class="up-meta">${a.place?`<div class="wide"><dt>${wt("المكان","Place")}</dt><dd>${esc(a.place)}</dd></div>`:""}${a.note?`<div class="wide"><dt>${wt("ملاحظة","Note")}</dt><dd>${esc(a.note)}</dd></div>`:""}</dl>
+  <div class="up-foot"><span class="when">${esc(whenTxt(d))}</span><span class="links">${a.place?`<a class="map" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(a.place)}" target="_blank" rel="noopener">${t("map")}</a>`:""}<button class="linkbtn" type="button" data-apedit="${esc(a.id)}">${t("edit")}</button></span></div></div></article>`; }
+function apOpen(a,day){ apEditing=a||null; const f=$("#apForm"); f.reset();
+  $("#apT").textContent=a?wt("تعديل موعد","Edit appointment"):wt("موعد جديد (مش تصوير)","New appointment (not a shoot)");
+  [["apL1","العنوان (ميتينغ، تدريب، زيارة…)","Title (meeting, training, visit…)"],["apL2","التاريخ","Date"],["apL3","الوقت (فاضي = كل اليوم)","Time (empty = all day)"],["apL4","المدة","Duration"],["apL5","المكان (اختياري)","Place (optional)"],["apL6","ملاحظة (اختياري)","Note (optional)"],["apL7","ضيفو عالكاليندر","Add to the calendar"]].forEach(([id,ar,en])=>$("#"+id).textContent=wt(ar,en));
+  $("#ap-min").innerHTML=[15,30,45,60,90,120,180,240].map(m=>`<option value="${m}">${m<60?m+" "+wt("دقيقة","min"):(m/60)+" "+wt(m===60?"ساعة":"ساعات",m===60?"hour":"hours")}</option>`).join("");
+  $("#ap-places").innerHTML=[...new Set(S.map(s=>s.clinic).filter(Boolean))].slice(0,400).map(c=>`<option value="${esc(c)}">`).join("");
+  $("#ap-title").value=a?a.title:""; $("#ap-date").value=a?a.date:(day||ymd(today)); $("#ap-time").value=a?a.time:""; $("#ap-min").value=String(a?a.min:60); $("#ap-place").value=a?a.place:""; $("#ap-note").value=a?a.note:"";
+  $("#ap-cal").checked=a?!!(CALMAP["AP:"+a.id]&&CALMAP["AP:"+a.id].id):true;
+  $("#ap-save").textContent=a?wt("احفظ التعديل","Save changes"):wt("ضيف الموعد","Add appointment"); $("#ap-del").hidden=!a; $("#ap-del").textContent=wt("حذف","Delete"); $("#ap-del").dataset.sure="";
+  $("#ap-msg").textContent=""; $("#apDlg").showModal(); setTimeout(()=>$("#ap-title").focus(),50); }
+const apMsg=(m,c)=>{ const x=$("#ap-msg"); x.textContent=m; x.className="msg "+(c||""); };
+$("#apForm").addEventListener("submit",async e=>{ e.preventDefault(); if(!isMgr||!mcp) return;
+  const a={id:apEditing?apEditing.id:"AP"+Date.now().toString(36).toUpperCase(),date:$("#ap-date").value,time:$("#ap-time").value,min:+$("#ap-min").value||60,title:$("#ap-title").value.trim(),place:$("#ap-place").value.trim(),note:$("#ap-note").value.trim()};
+  if(!a.title||!a.date){ apMsg(wt("اكتب العنوان والتاريخ","Add a title and a date"),"err"); return; } a.d=new Date(a.date+"T00:00");
+  const txt=x=>{x=String(x||""); return /^[=+\-@]/.test(x)?"'"+x:x;}; $("#ap-save").disabled=true; apMsg(wt("عم يحفظ…","Saving…"));
+  try{ await apEnsureTab();
+    const vals=[[a.id,"'"+a.date,a.time?"'"+a.time:"",a.min,txt(a.title),txt(a.place),txt(a.note),new Date().toISOString()]];
+    let row=0; if(apEditing){ const p=await sheetCall("get_values",{range:APA("A2:A")}); const i=(p.values||[]).findIndex(r=>String(r[0])===a.id); row=i>=0?i+2:0; }
+    if(!row){ const p=await sheetCall("get_values",{range:APA("A1:A")}); row=(p.values||[]).length+1; }
+    await sheetCall("update_formulas",{range:APA(`A${row}:H${row}`),formulas:vals});
+    let calNote=""; const key="AP:"+a.id;
+    if($("#ap-cal").checked){ try{ await calUpsert({id:key,__body:apBody(a)}); calNote=wt(" وعالكاليندر ✓"," and the calendar ✓"); }catch(err){ calNote=wt(" (الكاليندر ما زبط)"," (calendar failed)"); } }
+    else if(CALMAP[key]){ try{ await calRemove(key); }catch(err){} }
+    toast(wt("✓ انحفظ الموعد","✓ Appointment saved")+calNote); $("#apDlg").close(); await loadAppts(); }
+  catch(err){ apMsg(wt("ما انحفظ: ","Not saved: ")+(err&&(err.message||err.code)||""),"err"); }
+  $("#ap-save").disabled=false; });
+$("#ap-del").addEventListener("click",async e=>{ const b=e.currentTarget; if(!apEditing) return; if(!b.dataset.sure){ b.dataset.sure="1"; b.textContent=wt("متأكد؟ اكبس كمان مرة","Sure? Tap again"); return; }
+  b.disabled=true; try{ const p=await sheetCall("get_values",{range:APA("A2:A")}); const i=(p.values||[]).findIndex(r=>String(r[0])===apEditing.id);
+    if(i>=0) await sheetCall("update_formulas",{range:APA(`A${i+2}:H${i+2}`),formulas:[["","","","","","","",""]]});
+    try{ await calRemove("AP:"+apEditing.id); }catch(err){} toast(wt("انحذف الموعد","Appointment deleted")); $("#apDlg").close(); await loadAppts(); }
+  catch(err){ apMsg(wt("ما انحذف: ","Not deleted: ")+(err&&(err.message||err.code)||""),"err"); } b.disabled=false; });
+document.addEventListener("click",e=>{ const n=e.target.closest("[data-apnew]"); if(n){ apOpen(null,n.dataset.apnew); return; }
+  const ed=e.target.closest("[data-apedit]"); if(ed){ const a=AP.find(x=>x.id===ed.dataset.apedit); if(a){ calMapLoad().then(()=>apOpen(a)); } } });
+
 /* ---------- Derma Finder team requests (sheet tab) ---------- */
 const DR_TAB="🩺 Derma requests", DRA=a=>`'${DR_TAB}'!${a}`;
 let DREQ=[], drBusy=false, drAt=0;
@@ -1939,7 +2009,7 @@ function calArgs(props,b,extra){ const cal=(CFG.calendarId||"").trim()||"primary
     if(isObj){ const pp=sp.properties||{}; a[k]=T.allDay&&("date" in pp||!("dateTime" in pp)&&!pp.date_time)?{date}:("dateTime" in pp||!Object.keys(pp).length?{dateTime:iso,timeZone:"Asia/Dubai"}:{date_time:iso,time_zone:"Asia/Dubai"}); }
     else a[k]=T.allDay?date:iso; };
   setT(kStart,T.start,T.sd); setT(kEnd,T.end,T.ed); return a; }
-async function calCall(tool,s,eventId){ const props=await calProps(tool); const a=tool==="delete_event"?(()=>{ const x=calArgs(props,{title:"",desc:"",loc:"",t:{}},{eventId}); const keep={}; Object.keys(x).forEach(k=>{ if(/cal|event|^id$/i.test(k)) keep[k]=x[k]; }); return keep; })():calArgs(props,calBody(s),{eventId});
+async function calCall(tool,s,eventId){ const props=await calProps(tool); const a=tool==="delete_event"?(()=>{ const x=calArgs(props,{title:"",desc:"",loc:"",t:{}},{eventId}); const keep={}; Object.keys(x).forEach(k=>{ if(/cal|event|^id$/i.test(k)) keep[k]=x[k]; }); return keep; })():calArgs(props,s.__body||calBody(s),{eventId});
   const r=await mcp.callTool(CAL_SRV,tool,a,{cache:false}); return r&&(r.payload!==undefined?r.payload:r); }
 async function calUpsert(s,oldId){ if(!mcp) throw {code:"capability_disabled"}; await calMapLoad();
   const key=oldId||s.id, cur=CALMAP[key];
@@ -2829,7 +2899,7 @@ let syncTimer=null;
   if(isMgr){ mcp=await __noCap("mcp"); assets=await __noCap("assets"); downloads=await __noCap("downloads"); }
   route();
   if(!db){ setSync("signin"); applyLang(); return; }
-  if(isMgr&&mcp){ setTimeout(pushTeam,12000); setTimeout(()=>loadDerma(true),5000); }
+  if(isMgr&&mcp){ setTimeout(pushTeam,12000); setTimeout(()=>loadDerma(true),5000); setTimeout(loadAppts,2500); }
   if(isMgr) calMapLoad();
   let langPicked=false; try{ langPicked=!!localStorage.getItem("vs-lang"); }catch(e){}
   let cfgSeen=false;
