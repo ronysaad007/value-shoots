@@ -1,7 +1,7 @@
 /* Value Shoots — offline support for the team page (and the Derma Finder + Product Hub inside it).
    Pages and data: network first, cached copy when offline. Files: served from cache, refreshed in the background.
    The page sends SAVE_ALL with every file URL so the whole library is available offline. */
-const SHELL = 'vs-shell-v1', DATA = 'vs-data-v1', FILES = 'vs-files-v1';
+const SHELL = 'vs-shell-v2', DATA = 'vs-data-v1', FILES = 'vs-files-v1';
 const SCOPE = self.registration.scope;
 const CORE = ['', 'index.html', 'data.json', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png',
   'derma/', 'derma/team.js', 'products/', 'products/catalog.json', 'assets/index.json'];
@@ -29,7 +29,7 @@ function key(u) {
 }
 const isFile = url => /\/assets\/(f|t|p)\//.test(url.pathname) || /\/products\/stock\//.test(url.pathname)
   || /\.(png|jpe?g|webp|gif|svg|pdf|woff2?|ttf|mjs|wasm|bcmap|pfb)$/i.test(url.pathname)
-  || /googleusercontent\.com$|^fonts\.(googleapis|gstatic)\.com$|cdnjs\.cloudflare\.com$|cdn\.jsdelivr\.net$/.test(url.hostname) && !/script\.googleusercontent/.test(url.hostname);
+  || /googleusercontent\.com$|^fonts\.(googleapis|gstatic)\.com$|cdnjs\.cloudflare\.com$|cdn\.jsdelivr\.net$|^unpkg\.com$/.test(url.hostname) && !/script\.googleusercontent/.test(url.hostname);
 
 async function networkFirst(req, cacheName, wait) {
   const k = key(req.url), cache = await caches.open(cacheName);

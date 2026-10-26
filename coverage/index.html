@@ -90,7 +90,7 @@ const TX={
    uae:'of places are clients',of:(a,b)=>`${a} of ${b}`,clinics:'Clinics',hosp:'Hospitals',opp:'Biggest opportunities (not clients)',team:n=>`team ${n}`,
    client:'✓ Client',notc:'Not a client yet',noMap:n=>`${n} new clients have no map location`,lg:{c:'Client',g:'Not yet',e:'Emirate colour = coverage'},
    names:{d:'Dubai',a:'Abu Dhabi',n:'Al Ain',s:'Sharjah',j:'Ajman',r:'Ras Al Khaimah',f:'Fujairah',q:'Umm Al Quwain'},lang:'العربية',alain:'incl. Al Ain'}};
-let L=(()=>{try{return localStorage.getItem('cov-lang')||'ar'}catch(e){return 'ar'}})();
+let L=(()=>{try{return localStorage.getItem('cov-lang')||localStorage.getItem('vs-lang')||'ar'}catch(e){return 'ar'}})();
 const tx=()=>TX[L];
 const EM=['d','a','s','j','r','f','q']; // map polygons (Al Ain sits inside Abu Dhabi)
 const emOf=ct=>ct==='n'?'a':ct;
