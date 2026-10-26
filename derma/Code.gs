@@ -8,6 +8,7 @@ const safe = v => { v = String(v == null ? '' : v).slice(0, 500); return /^[=+\-
 function doPost(e) {
   const d = JSON.parse((e && e.postData && e.postData.contents) || '{}');
   if (d.action && String(d.action).indexOf('hub_') === 0) return out(hubAction(d));
+  if (d.type === 'status' || d.type === 'account') return out(acctPost(d));
   if (!d.name || !d.type) return out({ ok: false });
   const lock = LockService.getScriptLock(); lock.waitLock(10000);
   try {
@@ -22,6 +23,7 @@ function doGet(e) {
   if (e && e.parameter && e.parameter.a === 'assets') return out(assets(e.parameter.fresh === '1'));
   if (e && e.parameter && e.parameter.a === 'catalog') return out(hubCatalog());
   if (e && e.parameter && e.parameter.a === 'file') return out(hubFile(e.parameter.id));
+  if (e && e.parameter && e.parameter.a === 'acct') return out(acctGet());
   const rows = sheet().getDataRange().getValues().slice(1)
     .filter(r => String(r[2]).trim().toLowerCase() === 'approved');
   return out(rows.map(r => ({ at: +new Date(r[0]), type: String(r[1]).toLowerCase(), name: r[3], role: r[4], level: r[5],
@@ -128,4 +130,36 @@ function hubAction(d) {
     }
     return { error: 'Not found' };
   } catch (err) { return { error: String(err && err.message || err) }; }
+}
+
+// --- Value Aesthetic accounts: "is it selling?" checks by reps + new accounts (need Rony's approval) ---
+const ACCT_TAB = '🏷 Accounts activity';
+const ACCT_HEAD = ['Date', 'Type', 'Approval', 'Clinic', 'City', 'Clinic key', 'Product', 'Value', 'By', 'Note', 'Id'];
+function acctSheet() {
+  const ss = SpreadsheetApp.getActive(); let sh = ss.getSheetByName(ACCT_TAB);
+  if (!sh) { sh = ss.insertSheet(ACCT_TAB); sh.appendRow(ACCT_HEAD); sh.setFrozenRows(1); sh.getRange(1, 1, 1, ACCT_HEAD.length).setFontWeight('bold'); }
+  return sh;
+}
+function acctPost(d) {
+  if (!d.by || !d.clinic) return { ok: false };
+  const lock = LockService.getScriptLock(); lock.waitLock(10000);
+  try {
+    const sh = acctSheet();
+    if (d.type === 'status') {
+      if (!/^(selling|not|unknown)$/.test(d.value || '')) return { ok: false };
+      sh.appendRow([new Date(), 'Status', 'Auto', safe(d.clinic), safe(d.city), safe(d.key), safe(d.product), d.value, safe(d.by), safe(d.note), safe(d.id)]);
+    } else {
+      const reps = d.reps && typeof d.reps === 'object' ? d.reps : {};
+      Object.keys(reps).slice(0, 8).forEach(prod => {
+        sh.appendRow([new Date(), 'New account', 'Pending', safe(d.clinic), safe(d.city), safe(d.key), safe(prod), safe(reps[prod]), safe(d.by), safe(d.note), safe(d.id)]);
+      });
+    }
+  } finally { lock.releaseLock(); }
+  return { ok: true };
+}
+function acctGet() {
+  const sh = SpreadsheetApp.getActive().getSheetByName(ACCT_TAB); if (!sh) return [];
+  return sh.getDataRange().getValues().slice(1)
+    .filter(r => r[1] === 'Status' || String(r[2]).trim().toLowerCase() === 'approved')
+    .map(r => ({ at: +new Date(r[0]), type: r[1] === 'Status' ? 'status' : 'account', clinic: r[3], city: r[4], key: r[5], product: r[6], value: r[7], by: r[8] }));
 }
