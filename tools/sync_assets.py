@@ -6,7 +6,8 @@ from PIL import Image, ImageOps
 
 API = os.environ.get('ASSETS_API') or open(os.path.join(os.path.dirname(__file__), '..', 'derma', 'api.txt')).read().strip()
 OUT = os.path.join(os.path.dirname(__file__), '..', 'assets')
-MAX = 40 * 1024 * 1024          # bigger files stay on Drive only
+MAX = 40 * 1024 * 1024          # bigger files: only a light view copy here, download stays on Drive
+HUGE = 300 * 1024 * 1024
 BUDGET = 900 * 1024 * 1024      # keep the repo well under GitHub's 1 GB guidance
 SKIP_FOLDER = re.compile(r'product hub uploads', re.I)
 Image.MAX_IMAGE_PIXELS = 200_000_000
@@ -40,28 +41,39 @@ def main():
         m = f.get('m', '')
         if not (m.startswith('image/') or m == 'application/pdf'):
             return
-        if f.get('s', 0) > MAX or used + f.get('s', 0) > BUDGET:
+        big = f.get('s', 0) > MAX
+        if f.get('s', 0) > HUGE or 'photoshop' in m or used + (0 if big else f.get('s', 0)) > BUDGET:
             stats['skipped'] += 1; return
         fid = f['id']; name = safe(f['n'])
         prev = old.get(fid)
         rel = f'f/{fid}/{name}'
-        if prev and prev.get('t') == f.get('t') and prev.get('g') == rel and os.path.exists(os.path.join(OUT, rel)):
-            for k in ('g', 'th', 'pv', 'w', 'h'):
+        if prev and prev.get('t') == f.get('t') and prev.get('th') and os.path.exists(os.path.join(OUT, prev['th'])) and (big or prev.get('g') == rel):
+            for k in ('g', 'th', 'pv', 'v', 'w', 'h'):
                 if k in prev: f[k] = prev[k]
-            used += f.get('s', 0); keep.add(fid); stats['kept'] += 1; return
+            used += 0 if big else f.get('s', 0); keep.add(fid); stats['kept'] += 1; return
         try:
             data, ct = get(f'https://drive.usercontent.google.com/download?id={fid}&export=download&confirm=t')
             if 'text/html' in ct:
                 raise RuntimeError('got an HTML page instead of the file')
             shutil.rmtree(os.path.join(OUT, 'f', fid), ignore_errors=True)
-            os.makedirs(os.path.join(OUT, 'f', fid), exist_ok=True)
-            open(os.path.join(OUT, rel), 'wb').write(data)
-            f['g'] = rel
+            if not big:
+                os.makedirs(os.path.join(OUT, 'f', fid), exist_ok=True)
+                open(os.path.join(OUT, rel), 'wb').write(data)
+                f['g'] = rel
             os.makedirs(os.path.join(OUT, 't'), exist_ok=True)
             if m == 'application/pdf':
                 with tempfile.TemporaryDirectory() as td:
                     pdf = os.path.join(td, 'a.pdf'); open(pdf, 'wb').write(data)
                     subprocess.run(['pdftoppm', '-f', '1', '-l', '1', '-r', '60', '-png', pdf, os.path.join(td, 'p')], check=True, timeout=120)
+                    if big:
+                        os.makedirs(os.path.join(OUT, 'f', fid), exist_ok=True)
+                        vrel = f'f/{fid}/' + re.sub(r'(?i)\.pdf$', '', name) + ' (light).pdf'
+                        subprocess.run(['gs', '-q', '-dNOPAUSE', '-dBATCH', '-dSAFER', '-sDEVICE=pdfwrite', '-dCompatibilityLevel=1.5',
+                                        '-dPDFSETTINGS=/ebook', '-dDownsampleColorImages=true', '-dColorImageResolution=110',
+                                        '-sOutputFile=' + os.path.join(OUT, vrel), pdf], check=True, timeout=900)
+                        vs = os.path.getsize(os.path.join(OUT, vrel))
+                        if vs < MAX: f['v'] = vrel; used += vs
+                        else: os.remove(os.path.join(OUT, vrel))
                     png = next(os.path.join(td, x) for x in os.listdir(td) if x.endswith('.png'))
                     im = Image.open(png)
             else:
@@ -72,15 +84,15 @@ def main():
             th = im.copy(); th.thumbnail((440, 440))
             th.save(os.path.join(OUT, 't', fid + '.webp'), 'WEBP', quality=78)
             f['th'] = f't/{fid}.webp'
-            if m.startswith('image/') and (len(data) > 700_000 or m not in ('image/png', 'image/jpeg', 'image/webp', 'image/gif')):
+            if m.startswith('image/') and (big or len(data) > 700_000 or m not in ('image/png', 'image/jpeg', 'image/webp', 'image/gif')):
                 os.makedirs(os.path.join(OUT, 'p'), exist_ok=True)
                 pv = im.copy(); pv.thumbnail((1800, 1800))
                 pv.save(os.path.join(OUT, 'p', fid + '.webp'), 'WEBP', quality=84)
                 f['pv'] = f'p/{fid}.webp'
-            used += f.get('s', 0); keep.add(fid); stats['new'] += 1
+            used += 0 if big else f.get('s', 0); keep.add(fid); stats['new'] += 1
         except Exception as e:
             print('::warning::FAILED ' + f.get('m','') + ' ' + f['n'] + ': ' + str(e)[:200]); stats['failed'] += 1
-            for k in ('g', 'th', 'pv'): f.pop(k, None)
+            for k in ('g', 'th', 'pv', 'v'): f.pop(k, None)
 
     def walk(d):
         d['d'] = [x for x in d.get('d', []) if not SKIP_FOLDER.search(x.get('n', ''))]
