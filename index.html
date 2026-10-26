@@ -1783,7 +1783,7 @@ $("#moreBtn").addEventListener("click",()=>{shown+=100;renderTable();});
 
 
 /* ---------- Assets (shared Google Drive folder) ---------- */
-const ASSETS_ROOT="1FZjAi2TMNp6kib5w_Jk_nWUi_w5GoOqW", ASSETS_API="https://script.google.com/macros/s/AKfycbxb7kW0OK3Tz-tJAUmKjBZN6OQeVsiE2cXeh6MsHiPjZWXcAtstaqSjHl1ybgcYWyIR/exec";
+const ASSETS_ROOT="1FZjAi2TMNp6kib5w_Jk_nWUi_w5GoOqW", ASSETS_API="https://script.google.com/macros/s/AKfycbwy-zE5NVwkQb6n-6n5tAdkG99kVNuYTt1Dr9wIrbyMgscuOGI1N9rEr9Dw_7xmU3yd/exec";
 let ASSETS=null, asPath=[], asBusy=false, asErr="", asAt=0;
 const asClean=n=>String(n||"").replace(/^\s*\d+\s*[-.]\s*/,"").trim()||n;
 const asExt=f=>{ const m=/\.([a-z0-9]{2,5})$/i.exec(f.n||""); return m?m[1].toUpperCase():(f.m||"").includes("pdf")?"PDF":(f.m||"").split("/").pop().toUpperCase().slice(0,4); };
