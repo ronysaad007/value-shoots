@@ -1,0 +1,18 @@
+{
+  "id": "./",
+  "name": "Value Aesthetic",
+  "short_name": "Value",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#263f6b",
+  "icons": [
+    {
+      "src": "stock/value-aesthetic-original.png",
+      "sizes": "1600x1600",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

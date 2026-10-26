@@ -1,0 +1,3311 @@
+{
+  "data": {
+    "settings": {
+      "title": {
+        "en": "Product library",
+        "ar": "مكتبة المنتجات"
+      },
+      "subtitle": {
+        "en": "PRODUCT HUB",
+        "ar": "مكتبة المنتجات"
+      },
+      "description": {
+        "en": "Explore. Compare. Present.",
+        "ar": "استكشف. قارن. اعرض."
+      },
+      "sideNote": {
+        "en": "Your product collection, ready for the next clinic visit.",
+        "ar": "منتجاتك جاهزة للزيارة القادمة للعيادة."
+      },
+      "footer": {
+        "en": "Professional product information · Value Aesthetic",
+        "ar": "معلومات المنتجات للمختصين · فاليو أثستيتك"
+      },
+      "company": {
+        "kicker": {
+          "en": "HEALTHCARE. MEDICAL AESTHETICS. PHARMACEUTICAL SOLUTIONS.",
+          "ar": "الرعاية الصحية. الجمال الطبي. الحلول الصيدلانية."
+        },
+        "headline": {
+          "en": "Global perspective.\nLocal commitment.",
+          "ar": "رؤية عالمية.\nالتزام محلي."
+        },
+        "intro": {
+          "en": "From Dubai, we connect healthcare professionals with international expertise, education and lasting support.",
+          "ar": "من دبي، نصل المتخصصين في الرعاية الصحية بالخبرة العالمية والتعليم والدعم المستمر."
+        },
+        "storyTitle": {
+          "en": "More than supply.\nA partner in your progress.",
+          "ar": "أكثر من توريد.\nشريك في تطوّرك."
+        },
+        "story": {
+          "en": "Established in Dubai in 2023, Value Aesthetic brings medical aesthetics, pharmaceutical solutions and professional education together.",
+          "ar": "تأسست فاليو في دبي عام 2023، لتجمع الجمال الطبي والحلول الصيدلانية والتعليم المهني."
+        },
+        "portfolioTitle": {
+          "en": "Discover your next solution.",
+          "ar": "اكتشف حلولنا الطبية."
+        },
+        "portfolioIntro": {
+          "en": "Explore our product library. Ingredients, benefits, protocols and reference documents, brought together in one place.",
+          "ar": "استكشف مكتبة المنتجات: المكونات والفوائد والبروتوكولات والملفات المرجعية، في مكان واحد."
+        },
+        "educationTitle": {
+          "en": "Knowledge that\nmoves practice forward.",
+          "ar": "معرفة ترتقي\nبالممارسة الطبية."
+        },
+        "education": {
+          "en": "Hands-on learning. Shared expertise. An ongoing connection with medical aesthetics.",
+          "ar": "تعلّم عملي وخبرات مشتركة وتواصل مستمر مع مستجدات الجمال الطبي."
+        },
+        "leadershipTitle": {
+          "en": "Experience behind the vision.",
+          "ar": "خبرة تقود الرؤية."
+        },
+        "contactTitle": {
+          "en": "Let’s build\nsomething valuable.",
+          "ar": "لنصنع قيمة.\nمعاً."
+        },
+        "contactIntro": {
+          "en": "Based in Dubai. Connected across the UAE. Talk to our team about products, training and partnerships.",
+          "ar": "مقرنا دبي، وشبكتنا في مختلف أنحاء الإمارات. تواصل مع فريقنا للمنتجات والتدريب والشراكات."
+        },
+        "address": {
+          "en": "109 ACICO Business Park Building, Port Saeed, Deira, Dubai, UAE",
+          "ar": "109، مبنى أسيكو بزنس بارك، بور سعيد، ديرة، دبي، الإمارات العربية المتحدة"
+        },
+        "phone": "+971 4 280 9407",
+        "email": "info@value-aesthetic.com",
+        "heroImage": "stock/company-art.webp",
+        "logo": "stock/value-aesthetic-original.png",
+        "trainingImage": "stock/company-training.webp",
+        "alaaImage": "stock/company-alaa.webp",
+        "yasirImage": "stock/company-yasir.webp",
+        "alaaName": {
+          "en": "Dr. Alaa Al Kasimi",
+          "ar": "د. آلاء القاسمي"
+        },
+        "alaaRole": {
+          "en": "Founder & Managing Director",
+          "ar": "المؤسسة والمديرة العامة"
+        },
+        "yasirName": {
+          "en": "Yasir Wisam Jirjees",
+          "ar": "ياسر وسام جرجيس"
+        },
+        "yasirRole": {
+          "en": "Founder & Chief Executive Officer",
+          "ar": "المؤسس والرئيس التنفيذي"
+        },
+        "clinicStat": "700+",
+        "professionalStat": "1,200+",
+        "teamStat": "18+",
+        "yearStat": "2023",
+        "trainingStat": "50+",
+        "experienceStat": "30+",
+        "partners": [
+          {
+            "id": "cmed",
+            "name": {
+              "en": "CMed Aesthetics",
+              "ar": "CMed Aesthetics"
+            },
+            "country": {
+              "en": "Italy",
+              "ar": "إيطاليا"
+            },
+            "city": {
+              "en": "Pisa",
+              "ar": "بيزا"
+            },
+            "description": {
+              "en": "Medical aesthetics, research and innovation.",
+              "ar": "الجمال الطبي والبحث والابتكار."
+            },
+            "flag": "IT",
+            "logo": "stock/cmed-logo.webp",
+            "image": "stock/cmed-portfolio.webp",
+            "website": "https://cmedaesthetics.com/",
+            "source": "https://cmedaesthetics.com/about-us/",
+            "visible": true
+          },
+          {
+            "id": "revitacare",
+            "name": {
+              "en": "Laboratoire Revitacare",
+              "ar": "Laboratoire Revitacare"
+            },
+            "country": {
+              "en": "France",
+              "ar": "فرنسا"
+            },
+            "city": {
+              "en": "French laboratory",
+              "ar": "مختبر فرنسي"
+            },
+            "description": {
+              "en": "Aesthetic medicine and skin quality.",
+              "ar": "الطب التجميلي وجودة البشرة."
+            },
+            "flag": "FR",
+            "logo": "stock/revitacare-logo.webp",
+            "image": "stock/revitacare-portfolio.webp",
+            "website": "https://revitacare.net/",
+            "source": "https://revitacare.net/content/1-our-laboratory",
+            "visible": true
+          },
+          {
+            "id": "ostafarma",
+            "name": {
+              "en": "Östafarma",
+              "ar": "Östafarma"
+            },
+            "country": {
+              "en": "Türkiye",
+              "ar": "تركيا"
+            },
+            "city": {
+              "en": "Istanbul",
+              "ar": "إسطنبول"
+            },
+            "description": {
+              "en": "Medical-aesthetic products and professional education.",
+              "ar": "منتجات الجمال الطبي والتعليم المهني."
+            },
+            "flag": "TR",
+            "logo": "stock/ostafarma-logo.webp",
+            "image": "stock/ostafarma-portfolio.webp",
+            "website": "https://www.ostafarma.com/",
+            "source": "https://www.ostafarma.com/contact/",
+            "visible": true
+          }
+        ],
+        "visionTitle": {
+          "en": "A wider vision.",
+          "ar": "رؤية أبعد."
+        },
+        "vision": {
+          "en": "To become a leading healthcare and medical-aesthetics partner across the GCC.",
+          "ar": "أن نكون شريكاً رائداً للرعاية الصحية والجمال الطبي في دول الخليج."
+        },
+        "missionTitle": {
+          "en": "A shared purpose.",
+          "ar": "هدف يجمعنا."
+        },
+        "mission": {
+          "en": "Empower healthcare professionals through scientific education, reliable solutions and support for their growth.",
+          "ar": "تمكين المتخصصين بالتعليم العلمي والحلول الموثوقة والدعم لتطوير أعمالهم."
+        },
+        "servicesTitle": {
+          "en": "One partner.\nConnected expertise.",
+          "ar": "شريك واحد.\nخبرات متكاملة."
+        },
+        "serviceNames": {
+          "en": "Medical aesthetics\nPharmaceutical operations\nScientific education\nMarketing & business support\nHealthcare partnerships\nClinical support",
+          "ar": "الجمال الطبي\nالعمليات الصيدلانية\nالتعليم العلمي\nالتسويق ودعم الأعمال\nالشراكات الصحية\nالدعم السريري"
+        },
+        "serviceDescriptions": {
+          "en": "International brands. Local access.\nMedical and pharmaceutical distribution.\nWorkshops, training and masterclasses.\nSupport for your visibility and growth.\nLong-term professional connections.\nKnowledge that supports daily practice.",
+          "ar": "علامات عالمية وخبرة محلية.\nتوزيع المنتجات الطبية والصيدلانية.\nورش وتدريب ودورات متقدمة.\nدعم حضورك وتطوير أعمالك.\nعلاقات مهنية طويلة الأمد.\nمعرفة تدعم الممارسة اليومية."
+        },
+        "valueNames": {
+          "en": "Excellence\nIntegrity\nInnovation\nPartnership\nQuality",
+          "ar": "التميّز\nالنزاهة\nالابتكار\nالشراكة\nالجودة"
+        },
+        "journeyTitle": {
+          "en": "Built on experience.\nMoving forward together.",
+          "ar": "نبني على الخبرة.\nونتقدّم معاً."
+        },
+        "milestoneNames": {
+          "en": "Foundation\nExpansion\nGrowth\nToday",
+          "ar": "التأسيس\nالتوسّع\nالنمو\nاليوم"
+        },
+        "milestoneDescriptions": {
+          "en": "Value Aesthetic established in Dubai.\nPartnerships and education expand across the UAE.\nA growing team and professional network.\nContinued investment in knowledge and lasting partnerships.",
+          "ar": "انطلاق Value Aesthetic من دبي.\nتوسّع الشراكات والتعليم في الإمارات.\nنمو الفريق والشبكة المهنية.\nاستثمار مستمر في المعرفة والشراكات."
+        },
+        "alaaExpertise": {
+          "en": "Healthcare management\nMedical aesthetics\nScientific education\nProduct strategy",
+          "ar": "إدارة الرعاية الصحية\nالجمال الطبي\nالتعليم العلمي\nاستراتيجية المنتجات"
+        },
+        "yasirExpertise": {
+          "en": "Business development\nStrategic partnerships\nMarket expansion\nTeam leadership",
+          "ar": "تطوير الأعمال\nالشراكات الاستراتيجية\nالتوسّع في الأسواق\nقيادة الفريق"
+        },
+        "presenceTitle": {
+          "en": "Dubai is home.\nThe UAE is our network.",
+          "ar": "دبي مقرّنا.\nوالإمارات شبكتنا."
+        },
+        "presence": {
+          "en": "Sales, education and support teams connect us with healthcare professionals across the Emirates.",
+          "ar": "فرق المبيعات والتعليم والدعم تصلنا بالمتخصصين في مختلف أنحاء الإمارات."
+        },
+        "presencePlaces": {
+          "en": "Dubai\nAbu Dhabi\nSharjah\nAjman\nUmm Al Quwain\nRas Al Khaimah\nFujairah\nAl Ain",
+          "ar": "دبي\nأبوظبي\nالشارقة\nعجمان\nأم القيوين\nرأس الخيمة\nالفجيرة\nالعين"
+        },
+        "officeImage": "stock/company-office.webp",
+        "presenceImage": "stock/company-dubai.webp",
+        "homeRevision": 2
+      }
+    },
+    "brands": [
+      {
+        "id": "cmed",
+        "name": {
+          "en": "CMED Aesthetics",
+          "ar": "CMED Aesthetics"
+        }
+      },
+      {
+        "id": "revitacare",
+        "name": {
+          "en": "Revitacare",
+          "ar": "Revitacare"
+        }
+      },
+      {
+        "id": "ostafarma",
+        "name": {
+          "en": "Ostafarma",
+          "ar": "Ostafarma"
+        }
+      }
+    ],
+    "categories": [
+      {
+        "id": "peels",
+        "name": {
+          "en": "Peels",
+          "ar": "التقشير"
+        }
+      },
+      {
+        "id": "skin",
+        "name": {
+          "en": "Skin quality",
+          "ar": "جودة البشرة"
+        }
+      },
+      {
+        "id": "hair",
+        "name": {
+          "en": "Hair & scalp",
+          "ar": "الشعر وفروة الرأس"
+        }
+      },
+      {
+        "id": "care",
+        "name": {
+          "en": "Professional care",
+          "ar": "العناية الاحترافية"
+        }
+      }
+    ],
+    "products": [
+      {
+        "id": "biorepeel-fnd",
+        "name": {
+          "en": "BioRePeelCl3 FND",
+          "ar": "BioRePeelCl3 FND"
+        },
+        "brand": "cmed",
+        "category": "peels",
+        "description": {
+          "en": "A biphasic professional peel for face, neck and décolleté.",
+          "ar": "تقشير احترافي ثنائي الطور للوجه والرقبة وأعلى الصدر."
+        },
+        "concerns": {
+          "en": "Uneven tone\nDullness\nUneven texture\nPost-acne marks\nFine lines",
+          "ar": "تفاوت لون البشرة\nالبهتان\nعدم تجانس الملمس\nآثار ما بعد الحبوب\nالخطوط الدقيقة"
+        },
+        "overview": {
+          "en": "BioRePeelCl3 FND combines exfoliation with revitalizing skin care. Its two-phase formulation brings together a hydrophilic phase and a lipophilic phase in one professional topical treatment.\n\nFND is the facial formulation, with 35% trichloroacetic acid (TCA). It is designed for the face, neck and décolleté; BODY is a different formulation with 50% TCA for body areas.\n\nUse the individual skin assessment and the current instructions for use to decide whether treatment is appropriate.",
+          "ar": "يجمع BioRePeelCl3 FND بين التقشير والعناية الداعمة لحيوية البشرة. تركيبته ثنائية الطور تجمع طوراً محباً للماء وطوراً محباً للدهون ضمن إجراء احترافي يُطبّق موضعياً.\n\nFND هو إصدار الوجه بتركيز ٣٥٪ من حمض ثلاثي كلورو الأسيتيك (TCA)، ومخصّص للوجه والرقبة وأعلى الصدر. إصدار BODY مختلف بتركيز ٥٠٪ ومخصّص لمناطق الجسم.\n\nتقييم البشرة وتعليمات الاستخدام الحالية هما الأساس لتحديد ملاءمة الإجراء."
+        },
+        "benefits": {
+          "en": "Supports skin renewal through exfoliation\nImproves the appearance of skin texture\nHelps improve radiance and tone\nSupports the appearance of smoother skin",
+          "ar": "يدعم تجدد البشرة من خلال التقشير\nيساعد على تحسين مظهر ملمس البشرة\nيساعد على تحسين الإشراق وتجانس اللون\nيدعم مظهر بشرة أكثر نعومة"
+        },
+        "ingredients": {
+          "en": "Trichloroacetic acid (TCA) 35%\nLactobionic acid\nSalicylic acid\nTartaric acid + citric acid\nGlycine, proline, hydroxyproline + arginine\nVitamins C + B2\nGamma-aminobutyric acid (GABA)\nSqualane\nIsopropyl myristate",
+          "ar": "حمض ثلاثي كلورو الأسيتيك (TCA) بتركيز ٣٥٪\nحمض اللاكتوبيونيك\nحمض الساليسيليك\nحمض الطرطريك + حمض الستريك\nغلايسين، برولين، هيدروكسي برولين + أرجينين\nفيتامين C + فيتامين B2\nحمض غاما أمينوبوتيريك (GABA)\nسكوالان\nإيزوبروبيل ميرستات"
+        },
+        "protocol": {
+          "en": "Professional topical application — not an injectable product.\n\nThe BioRetherapy.pdf brochure specifies 3–5 minutes of exposure for FND, according to tolerance. It illustrates a course of four treatments spaced 7–12 days apart, subject to medical assessment and treatment goals.\n\nApproximate quantities in that brochure: face 1.5–2 mL; neck 1–1.5 mL; décolleté 2–2.5 mL. These are reference values, not a prescription for every patient.\n\nThe supplied local flyer quotes 10–15 minutes for the overall visit; this is distinct from the peel exposure time.\n\nConfirm the current IFU and the treating professional’s protocol before use.",
+          "ar": "تطبيق موضعي احترافي — المنتج ليس للحقن.\n\nتذكر نشرة BioRetherapy.pdf مدة تعرّض ٣–٥ دقائق لإصدار FND بحسب التحمل. وتعرض مثالاً لسلسلة من أربع جلسات بفواصل ٧–١٢ يوماً، وفق التقييم الطبي وأهداف الإجراء.\n\nالكميات المرجعية في النشرة: الوجه ١٫٥–٢ مل؛ الرقبة ١–١٫٥ مل؛ أعلى الصدر ٢–٢٫٥ مل. هذه قيم مرجعية وليست وصفة ثابتة لكل مريض.\n\nالفلاير المحلي المرفوع يذكر ١٠–١٥ دقيقة للزيارة ككل، وهي مختلفة عن مدة تعرّض البشرة للمنتج.\n\nيجب الرجوع إلى تعليمات الاستخدام الحالية وبروتوكول المختص قبل التطبيق."
+        },
+        "notes": {
+          "en": "Start with the concern: texture, uneven tone, dullness or post-acne marks.\nExplain the distinction: FND = face/neck/décolleté, TCA 35%; BODY = body formulation, TCA 50%.\nShow the two-phase technology and the published brochure cases.\nDiscuss skin assessment, the treatment course and home care; avoid promising zero peeling, zero downtime or the same result for everyone.",
+          "ar": "ابدأ بالمشكلة: الملمس، تفاوت اللون، البهتان أو آثار الحبوب.\nوضّح الفرق: FND للوجه والرقبة وأعلى الصدر بتركيز TCA ٣٥٪؛ BODY إصدار الجسم بتركيز ٥٠٪.\nاعرض فكرة التقنية ثنائية الطور والحالات المنشورة في البروشور.\nناقش تقييم البشرة وخطة الجلسات والعناية المنزلية؛ لا تعد بانعدام التقشر أو التعافي أو بنتيجة موحّدة للجميع."
+        },
+        "faq": {
+          "en": "Is FND injected? | No. It is applied topically by an appropriately trained professional. The syringe in the brochure is used to withdraw the product; the needle is removed before application.\nWhat is the difference between FND and BODY? | FND contains TCA 35% for face, neck and décolleté. BODY contains TCA 50% and is intended for body areas.\nDoes everyone need four sessions? | No. Four treatments are illustrated in the BioRetherapy.pdf brochure. The actual course depends on assessment, goals and response.\nIs there absolutely no peeling or downtime? | A low visible-peeling approach is emphasized in the marketing materials, but sensitivity, redness and peeling can vary. Avoid an absolute no-downtime promise.\nCan it be used in summer? | The manufacturer describes year-round use. Individual assessment, sun protection and the current IFU remain necessary.\nCan it be combined with other procedures? | The supplied brochure discusses combination protocols. Timing and suitability must be decided by the treating professional; they are not universal add-on instructions.\nWhich post-treatment care is shown? | The supplied brochure pairs BioReHydra serum with oily skin and BioReLift cream with dry skin. Choose care according to assessment.",
+          "ar": "هل FND منتج للحقن؟ | لا. يُطبّق موضعياً بواسطة مختص مؤهل. السرنجة في النشرة تُستخدم لسحب المنتج، وتُزال الإبرة قبل التطبيق.\nما الفرق بين FND وBODY؟ | FND يحتوي TCA بتركيز ٣٥٪ للوجه والرقبة وأعلى الصدر. BODY بتركيز ٥٠٪ ومخصّص لمناطق الجسم.\nهل الجميع بحاجة إلى أربع جلسات؟ | لا. الأربع جلسات مثال وارد في نشرة BioRetherapy.pdf، والخطة الفعلية تعتمد على التقييم والهدف والاستجابة.\nهل التقشر ووقت التعافي معدومان تماماً؟ | المواد التسويقية تركز على قلة التقشر الظاهر، لكن الحساسية والاحمرار والتقشر قد تختلف. لا يُنصح بوعد مطلق بانعدام التعافي.\nهل يمكن استخدامه بالصيف؟ | الشركة تذكر الاستخدام طوال السنة، مع ضرورة التقييم الفردي والوقاية من الشمس واتباع تعليمات الاستخدام الحالية.\nهل يمكن دمجه مع إجراءات أخرى؟ | النشرة تناقش بروتوكولات مشتركة، لكن التوقيت والملاءمة يحددهما المختص؛ ليست تعليمات إضافية موحدة للجميع.\nما العناية بعد الإجراء المذكورة في البروشور؟ | البروشور يربط سيروم BioReHydra بالبشرة الدهنية وكريم BioReLift بالبشرة الجافة، ويُختار الأنسب حسب التقييم."
+        },
+        "source": "https://cmedaesthetics.com/therapeutic-areas/medical-devices/biorepeelcl%E2%82%83/",
+        "image": "stock/biorepeel-fnd-vial.png",
+        "document": "stock/biorepeel-brochure.pdf",
+        "cases": [
+          {
+            "title": {
+              "en": "Case 01 · Post-acne appearance",
+              "ar": "الحالة الأولى · مظهر آثار الحبوب"
+            },
+            "details": {
+              "en": "Male, 19 · 3 FND sessions. Source: supplied BioRepeel brochure, page 3.",
+              "ar": "ذكر، ١٩ سنة · ٣ جلسات FND. المصدر: بروشور BioRepeel المرفوع، الصفحة ٣."
+            },
+            "before": "stock/fnd-case1-before.jpg",
+            "after": "stock/fnd-case1-after.jpg",
+            "approved": true
+          },
+          {
+            "title": {
+              "en": "Case 02 · Skin texture",
+              "ar": "الحالة الثانية · ملمس البشرة"
+            },
+            "details": {
+              "en": "Female, 47 · 2 FND sessions. Source: supplied BioRepeel brochure, page 3.",
+              "ar": "أنثى، ٤٧ سنة · جلستان FND. المصدر: بروشور BioRepeel المرفوع، الصفحة ٣."
+            },
+            "before": "stock/fnd-case2-before.jpg",
+            "after": "stock/fnd-case2-after.jpg",
+            "approved": true
+          }
+        ],
+        "approved": true,
+        "visible": true,
+        "order": 0,
+        "featured": true,
+        "visual": true,
+        "facts": [
+          {
+            "label": {
+              "en": "TCA concentration",
+              "ar": "تركيز TCA"
+            },
+            "value": {
+              "en": "35%",
+              "ar": "٣٥٪"
+            }
+          },
+          {
+            "label": {
+              "en": "Treatment areas",
+              "ar": "مناطق التطبيق"
+            },
+            "value": {
+              "en": "Face · Neck · Décolleté",
+              "ar": "الوجه · الرقبة · أعلى الصدر"
+            }
+          },
+          {
+            "label": {
+              "en": "Presentation",
+              "ar": "حجم العبوة"
+            },
+            "value": {
+              "en": "5 × 6 mL",
+              "ar": "٥ × ٦ مل"
+            }
+          },
+          {
+            "label": {
+              "en": "Application",
+              "ar": "طريقة التطبيق"
+            },
+            "value": {
+              "en": "Professional topical peel",
+              "ar": "تقشير موضعي احترافي"
+            }
+          }
+        ],
+        "technology": [
+          {
+            "title": {
+              "en": "Lipophilic phase",
+              "ar": "الطور المحب للدهون"
+            },
+            "description": {
+              "en": "Stabilizes the formulation and supports the skin’s hydro-lipidic film. The brochure describes a role in reducing water loss and supporting delivery of active ingredients.",
+              "ar": "يساعد على استقرار التركيبة ويدعم الغشاء المائي الدهني للبشرة. تذكر النشرة دوره في الحد من فقدان الماء ودعم وصول المكوّنات الفعالة."
+            }
+          },
+          {
+            "title": {
+              "en": "Hydrophilic phase",
+              "ar": "الطور المحب للماء"
+            },
+            "description": {
+              "en": "Carries the exfoliating and revitalizing components. The brochure describes removal of outer surface cells and support for skin renewal.",
+              "ar": "يحمل مكوّنات التقشير ودعم حيوية البشرة. تذكر النشرة إزالة الخلايا السطحية الخارجية ودعم تجدد البشرة."
+            }
+          }
+        ],
+        "technologyImage": "stock/biorepeel-biphasic.jpg",
+        "packageImage": "stock/biorepeel-fnd-box.png",
+        "ingredientCards": [
+          {
+            "name": {
+              "en": "Acid complex",
+              "ar": "مركّب الأحماض"
+            },
+            "description": {
+              "en": "TCA 35%, lactobionic, salicylic, tartaric and citric acids — the exfoliating part of the formulation.",
+              "ar": "TCA ٣٥٪ وأحماض اللاكتوبيونيك والساليسيليك والطرطريك والستريك — جزء التقشير في التركيبة."
+            }
+          },
+          {
+            "name": {
+              "en": "Amino acid complex",
+              "ar": "مركّب الأحماض الأمينية"
+            },
+            "description": {
+              "en": "Glycine, proline, hydroxyproline and arginine — part of the brochure’s revitalizing complex.",
+              "ar": "غلايسين، برولين، هيدروكسي برولين وأرجينين — ضمن مركّب دعم حيوية البشرة المذكور في النشرة."
+            }
+          },
+          {
+            "name": {
+              "en": "Vitamins + GABA",
+              "ar": "فيتامينات + GABA"
+            },
+            "description": {
+              "en": "Vitamins C and B2, plus gamma-aminobutyric acid, complete the listed functional ingredients.",
+              "ar": "فيتامينا C وB2 وحمض غاما أمينوبوتيريك تُكمل المكوّنات الوظيفية المدرجة."
+            }
+          },
+          {
+            "name": {
+              "en": "Lipid phase",
+              "ar": "الطور الدهني"
+            },
+            "description": {
+              "en": "Squalane and isopropyl myristate contribute to the lipophilic portion of the system.",
+              "ar": "سكوالان وإيزوبروبيل ميرستات ضمن الجزء المحب للدهون في النظام."
+            }
+          }
+        ],
+        "protocolSteps": [
+          {
+            "en": "Shake for a few seconds until a temporary green emulsion forms. Shake again before each use.",
+            "ar": "رجّ العبوة لثوانٍ حتى يتشكل مستحلب أخضر مؤقت. أعد الرجّ قبل كل استخدام."
+          },
+          {
+            "en": "Withdraw the required amount with a syringe, then remove the needle.",
+            "ar": "اسحب الكمية المطلوبة بسرنجة، ثم أزل الإبرة."
+          },
+          {
+            "en": "Apply topically with nitrile gloves and massage as described in the manufacturer’s instructions.",
+            "ar": "طبّق موضعياً باستخدام قفازات النتريل ودلّك وفق تعليمات الشركة."
+          },
+          {
+            "en": "After the specified exposure time, clean carefully with water-soaked gauze.",
+            "ar": "بعد مدة التعرض المحددة، نظّف برفق باستخدام شاش مبلل بالماء."
+          }
+        ],
+        "safety": {
+          "en": "The BioRetherapy.pdf brochure lists: hypersensitivity to ingredients or salicylates; skin disease or infection such as dermatitis or herpes; pregnancy or breastfeeding. It advises caution with a tendency to keloids.\n\nThis is a reference summary, not the complete current IFU. Check skin integrity, suitability and the current instructions before treatment. Protect the eyes and mucous membranes and follow professional aftercare guidance.",
+          "ar": "تذكر نشرة BioRetherapy.pdf: فرط الحساسية للمكوّنات أو الساليسيلات؛ الأمراض أو العدوى الجلدية مثل التهاب الجلد أو الهربس؛ الحمل أو الرضاعة. وتوصي بالحذر عند وجود قابلية لتشكّل الجدرة.\n\nهذا ملخص مرجعي وليس بديلاً عن تعليمات الاستخدام الحالية الكاملة. يجب التحقق من سلامة الجلد وملاءمة الحالة والتعليمات الحالية قبل الإجراء، وحماية العينين والأغشية المخاطية واتباع إرشادات العناية المهنية."
+        },
+        "caseNote": {
+          "en": "Published cases from the supplied CMed brochure. Results are individual; the photographs have different lighting and are not standardized clinical measurements.",
+          "ar": "حالات منشورة في بروشور CMed المرفوع. النتائج فردية؛ الإضاءة تختلف بين الصور، وهي ليست قياسات سريرية موحّدة."
+        },
+        "references": [
+          {
+            "title": {
+              "en": "BioRepeel.pdf · latest primary reference · pages 2–3",
+              "ar": "BioRepeel.pdf · المرجع الأساسي الأحدث · الصفحتان ٢–٣"
+            },
+            "url": "stock/biorepeel-brochure.pdf"
+          },
+          {
+            "title": {
+              "en": "Supplied BioReTherapy brochure · pages 2–3 (2023)",
+              "ar": "بروشور BioReTherapy المرفوع · الصفحتان ٢–٣ (٢٠٢٣)"
+            },
+            "url": "stock/bioretherapy-brochure.pdf"
+          },
+          {
+            "title": {
+              "en": "CMed official product page",
+              "ar": "صفحة المنتج الرسمية لدى CMed"
+            },
+            "url": "https://cmedaesthetics.com/therapeutic-areas/medical-devices/biorepeelcl%E2%82%83/"
+          }
+        ],
+        "stepImages": [
+          "stock/fnd-step-1.jpg",
+          "stock/fnd-step-2.jpg",
+          "stock/fnd-step-3.jpg",
+          "stock/fnd-step-4.jpg"
+        ],
+        "documents": [
+          {
+            "title": {
+              "en": "BioRepeel · latest / primary reference",
+              "ar": "BioRepeel · الأحدث / المرجع الأساسي"
+            },
+            "filename": "BioRepeel.pdf",
+            "url": "stock/biorepeel-brochure.pdf"
+          },
+          {
+            "title": {
+              "en": "BioRetherapy · older supplementary reference (2023)",
+              "ar": "BioRetherapy · مرجع قديم مكمّل (٢٠٢٣)"
+            },
+            "filename": "BioRetherapy.pdf",
+            "url": "stock/bioretherapy-brochure.pdf"
+          },
+          {
+            "title": {
+              "en": "Green peel English · local patient leaflet",
+              "ar": "Green peel English · فلاير محلي للمريض"
+            },
+            "filename": "Green peel English.pdf",
+            "url": "stock/green-peel-english.pdf"
+          }
+        ],
+        "sourceReview": {
+          "en": "BioRepeel.pdf is the latest primary reference. Details not covered there are supplemented from BioRetherapy.pdf and the local leaflet; the latest file takes precedence if information conflicts.",
+          "ar": "اعتمدنا BioRepeel.pdf كمرجع أساسي أحدث، وكمّلنا التفاصيل غير المذكورة فيه من BioRetherapy.pdf والفلاير المحلي. عند وجود تعارض، تكون الأولوية للملف الأحدث."
+        },
+        "supplementaryNote": {
+          "en": "Application details and illustrations: BioRetherapy.pdf. Follow the current instructions for use and individual assessment.",
+          "ar": "تفاصيل التطبيق ورسومه من BioRetherapy.pdf. تُتبع تعليمات الاستخدام الحالية والتقييم الفردي."
+        }
+      },
+      {
+        "id": "biorepeel-body",
+        "name": {
+          "en": "BioRePeelCl3 BODY",
+          "ar": "BioRePeelCl3 BODY"
+        },
+        "brand": "cmed",
+        "category": "peels",
+        "description": {
+          "en": "A biphasic professional body peel with TCA 50%.",
+          "ar": "تقشير احترافي ثنائي الطور للجسم بتركيز TCA ٥٠٪."
+        },
+        "concerns": {
+          "en": "Body skin texture\nRough-looking skin\nSkin renewal\nHands & body areas",
+          "ar": "ملمس بشرة الجسم\nمظهر الجلد الخشن\nتجدد البشرة\nاليدان ومناطق الجسم"
+        },
+        "overview": {
+          "en": "BioRePeelCl3 BODY is the body formulation in the BioReTherapy line. It combines exfoliating and revitalizing components in a two-phase professional topical system.\n\nThe supplied brochures distinguish BODY, with trichloroacetic acid (TCA) 50%, from FND, with TCA 35%. BODY is supplied as 3 vials of 12 mL. The product leaflet lists hands, elbows, glutes, knees and feet. BioRetherapy.pdf also provides area-specific quantities for the back, shoulders and legs.\n\nThe application plan, area and exposure must be selected by a qualified professional using the current IFU and individual assessment.",
+          "ar": "BioRePeelCl3 BODY هو إصدار الجسم ضمن مجموعة BioReTherapy. يجمع مكوّنات التقشير ودعم حيوية البشرة في نظام احترافي ثنائي الطور يُطبّق موضعياً.\n\nتميّز النشرات المرفوعة BODY بتركيز ٥٠٪ من حمض ثلاثي كلورو الأسيتيك (TCA) عن FND بتركيز ٣٥٪. عبوة BODY تحتوي ٣ قوارير، كل منها ١٢ مل. يذكر بروشور المنتج اليدين والمرفقين والأرداف والركبتين والقدمين. وتورد نشرة BioRetherapy.pdf كميات بحسب المنطقة للظهر والكتفين والساقين أيضاً.\n\nيحدد المختص خطة التطبيق والمنطقة ومدة التعرض بالرجوع إلى تعليمات الاستخدام الحالية والتقييم الفردي."
+        },
+        "benefits": {
+          "en": "Supports surface exfoliation and skin renewal\nHelps improve the appearance of body skin texture\nCombines peeling with revitalizing skin care\nIncludes a lipophilic phase supporting the skin’s hydro-lipidic film",
+          "ar": "يدعم التقشير السطحي وتجدد البشرة\nيساعد على تحسين مظهر ملمس بشرة الجسم\nيجمع التقشير والعناية الداعمة لحيوية البشرة\nيتضمن طوراً محباً للدهون يدعم الغشاء المائي الدهني للبشرة"
+        },
+        "ingredients": {
+          "en": "Trichloroacetic acid (TCA) 50%\nLactobionic acid\nSalicylic acid\nTartaric acid + citric acid\nGlycine, proline, hydroxyproline + arginine\nVitamins C + B2\nGamma-aminobutyric acid (GABA)\nSqualane\nIsopropyl myristate",
+          "ar": "حمض ثلاثي كلورو الأسيتيك (TCA) بتركيز ٥٠٪\nحمض اللاكتوبيونيك\nحمض الساليسيليك\nحمض الطرطريك + حمض الستريك\nغلايسين، برولين، هيدروكسي برولين + أرجينين\nفيتامين C + فيتامين B2\nحمض غاما أمينوبوتيريك (GABA)\nسكوالان\nإيزوبروبيل ميرستات"
+        },
+        "protocol": {
+          "en": "Professional topical application — not an injectable product.\n\nThe BioRetherapy.pdf brochure specifies 3–10 minutes of exposure for BODY according to tolerance. It illustrates four treatments spaced 10–15 days apart, depending on medical assessment and treatment goals. This differs from FND exposure and intervals.\n\nThe quantities below are the area-specific reference amounts printed in that brochure; they are not a fixed prescription for every patient.\n\nShake again before each use. The temporary emulsion returns to its biphasic state after a few minutes. Confirm the current IFU before treatment.",
+          "ar": "تطبيق موضعي احترافي — المنتج ليس للحقن.\n\nتذكر نشرة BioReTherapy المرفوعة لعام ٢٠٢٣ مدة تعرّض ٣–١٠ دقائق لإصدار BODY بحسب التحمل، وتعرض أربع جلسات بفواصل ١٠–١٥ يوماً وفق التقييم الطبي وأهداف الإجراء. تختلف هذه القيم عن إصدار FND.\n\nالكميات أدناه هي القيم المرجعية بحسب المنطقة كما وردت في النشرة، وليست وصفة ثابتة لكل مريض.\n\nأعد رجّ العبوة قبل كل استخدام؛ يعود المستحلب المؤقت إلى حالته ثنائية الطور بعد بضع دقائق. يجب التحقق من تعليمات الاستخدام الحالية قبل الإجراء."
+        },
+        "notes": {
+          "en": "Present BODY as the body formulation: TCA 50%, 3 × 12 mL.\nUse the skin concern and treatment area to guide the discussion.\nShow the hand case as BODY alone, and label the abdominal case as BODY plus microneedling.\nDiscuss the professional assessment, BODY-specific timing and current IFU. Do not substitute FND timings or promise a fixed result.",
+          "ar": "قدّم BODY كإصدار الجسم: TCA ٥٠٪، و٣ × ١٢ مل.\nابدأ بمشكلة البشرة والمنطقة المراد التعامل معها.\nاعرض حالة اليدين باعتبارها BODY وحده، وحالة البطن باعتبارها BODY مع الميكرونيدلينغ.\nناقش التقييم المهني وتوقيت BODY الخاص وتعليمات الاستخدام الحالية. لا تستخدم توقيت FND بديلاً ولا تعد بنتيجة ثابتة."
+        },
+        "faq": {
+          "en": "Is BODY injected? | No. It is applied topically by a qualified professional. A syringe is used to withdraw the quantity, and the needle is removed before application.\nHow does BODY differ from FND? | BODY contains TCA 50% and comes as 3 × 12 mL. FND contains TCA 35% and comes as 5 × 6 mL for face, neck and décolleté.\nCan the FND protocol be used unchanged? | No. BioRetherapy.pdf lists different BODY exposure and session intervals. Always follow the current IFU and individual assessment.\nHow many sessions are described? | BioRetherapy.pdf illustrates four BODY treatments 10–15 days apart. The actual course is individualized.\nDoes the abdominal case show BODY alone? | No. The brochure labels that case as one BODY session combined with microneedling. The outcome cannot be attributed to BODY alone.\nAre these guaranteed results? | No. These are published illustrative cases with variable photographic conditions and individual outcomes.\nWhich areas are listed? | The product brochure lists hands, elbows, glutes, knees and feet. BioRetherapy.pdf also includes the back, shoulders and legs in its quantity table.",
+          "ar": "هل BODY منتج للحقن؟ | لا. يُطبّق موضعياً بواسطة مختص مؤهل. السرنجة لسحب الكمية، وتُزال الإبرة قبل التطبيق.\nكيف يختلف BODY عن FND؟ | BODY يحتوي TCA بتركيز ٥٠٪ ويأتي بعبوة ٣ × ١٢ مل. FND بتركيز ٣٥٪ وعبوة ٥ × ٦ مل للوجه والرقبة وأعلى الصدر.\nهل نستخدم بروتوكول FND نفسه؟ | لا. نشرة BioRetherapy.pdf تذكر مدة تعرّض وفواصل جلسات مختلفة لـBODY. يجب الالتزام بالتعليمات الحالية والتقييم الفردي.\nكم جلسة تذكر النشرة؟ | نشرة BioRetherapy.pdf تعرض أربع جلسات BODY بفواصل ١٠–١٥ يوماً، والخطة الفعلية تُحدد لكل حالة.\nهل نتيجة حالة البطن ناتجة عن BODY وحده؟ | لا. البروشور يصفها بأنها جلسة BODY واحدة مع الميكرونيدلينغ، لذلك لا تُنسب النتيجة إلى BODY وحده.\nهل النتائج مضمونة؟ | لا. هذه حالات منشورة توضيحية بظروف تصوير مختلفة ونتائج فردية.\nما المناطق المذكورة؟ | بروشور المنتج يذكر اليدين والمرفقين والأرداف والركبتين والقدمين. وتورد نشرة BioRetherapy.pdf الظهر والكتفين والساقين أيضاً في جدول الكميات."
+        },
+        "source": "https://cmedaesthetics.com/therapeutic-areas/medical-devices/biorepeelcl%E2%82%83/",
+        "image": "stock/biorepeel-body-vial.png",
+        "document": "stock/biorepeel-brochure.pdf",
+        "cases": [
+          {
+            "title": {
+              "en": "Case 01 · Abdominal skin",
+              "ar": "الحالة الأولى · جلد البطن"
+            },
+            "details": {
+              "en": "Female, 35 · 1 BODY session + microneedling. Combined treatment; not BODY alone. Source: BioRepeel brochure, page 3.",
+              "ar": "أنثى، ٣٥ سنة · جلسة BODY واحدة + ميكرونيدلينغ. إجراء مشترك وليس BODY وحده. المصدر: بروشور BioRepeel، الصفحة ٣."
+            },
+            "before": "stock/body-case1-before.jpg",
+            "after": "stock/body-case1-after.jpg",
+            "approved": true
+          },
+          {
+            "title": {
+              "en": "Case 02 · Hands",
+              "ar": "الحالة الثانية · اليدان"
+            },
+            "details": {
+              "en": "Male, 36 · 2 BODY sessions. Source: BioRepeel brochure, page 3.",
+              "ar": "ذكر، ٣٦ سنة · جلستان BODY. المصدر: بروشور BioRepeel، الصفحة ٣."
+            },
+            "before": "stock/body-case2-before.jpg",
+            "after": "stock/body-case2-after.jpg",
+            "approved": true
+          }
+        ],
+        "approved": true,
+        "visible": true,
+        "order": 1,
+        "technology": [
+          {
+            "title": {
+              "en": "Lipophilic phase",
+              "ar": "الطور المحب للدهون"
+            },
+            "description": {
+              "en": "Stabilizes the formulation and supports the skin’s hydro-lipidic film. The brochure describes a role in reducing water loss and supporting delivery of active ingredients.",
+              "ar": "يساعد على استقرار التركيبة ويدعم الغشاء المائي الدهني للبشرة. تذكر النشرة دوره في الحد من فقدان الماء ودعم وصول المكوّنات الفعالة."
+            }
+          },
+          {
+            "title": {
+              "en": "Hydrophilic phase",
+              "ar": "الطور المحب للماء"
+            },
+            "description": {
+              "en": "Carries the exfoliating and revitalizing components. The brochure describes removal of outer surface cells and support for skin renewal.",
+              "ar": "يحمل مكوّنات التقشير ودعم حيوية البشرة. تذكر النشرة إزالة الخلايا السطحية الخارجية ودعم تجدد البشرة."
+            }
+          }
+        ],
+        "technologyImage": "stock/biorepeel-biphasic.jpg",
+        "ingredientCards": [
+          {
+            "name": {
+              "en": "Acid complex",
+              "ar": "مركّب الأحماض"
+            },
+            "description": {
+              "en": "TCA 50%, lactobionic, salicylic, tartaric and citric acids — the exfoliating part of the BODY formulation.",
+              "ar": "TCA ٥٠٪ وأحماض اللاكتوبيونيك والساليسيليك والطرطريك والستريك — جزء التقشير في تركيبة BODY."
+            }
+          },
+          {
+            "name": {
+              "en": "Amino acid complex",
+              "ar": "مركّب الأحماض الأمينية"
+            },
+            "description": {
+              "en": "Glycine, proline, hydroxyproline and arginine — part of the brochure’s revitalizing complex.",
+              "ar": "غلايسين، برولين، هيدروكسي برولين وأرجينين — ضمن مركّب دعم حيوية البشرة المذكور في النشرة."
+            }
+          },
+          {
+            "name": {
+              "en": "Vitamins + GABA",
+              "ar": "فيتامينات + GABA"
+            },
+            "description": {
+              "en": "Vitamins C and B2, plus gamma-aminobutyric acid, complete the listed functional ingredients.",
+              "ar": "فيتامينا C وB2 وحمض غاما أمينوبوتيريك تُكمل المكوّنات الوظيفية المدرجة."
+            }
+          },
+          {
+            "name": {
+              "en": "Lipid phase",
+              "ar": "الطور الدهني"
+            },
+            "description": {
+              "en": "Squalane and isopropyl myristate contribute to the lipophilic portion of the system.",
+              "ar": "سكوالان وإيزوبروبيل ميرستات ضمن الجزء المحب للدهون في النظام."
+            }
+          }
+        ],
+        "protocolSteps": [
+          {
+            "en": "Shake for a few seconds until a temporary green emulsion forms. Shake again before each use.",
+            "ar": "رجّ العبوة لثوانٍ حتى يتشكل مستحلب أخضر مؤقت. أعد الرجّ قبل كل استخدام."
+          },
+          {
+            "en": "Withdraw the required amount with a syringe, then remove the needle.",
+            "ar": "اسحب الكمية المطلوبة بسرنجة، ثم أزل الإبرة."
+          },
+          {
+            "en": "Apply topically with nitrile gloves and massage as described in the manufacturer’s instructions.",
+            "ar": "طبّق موضعياً باستخدام قفازات النتريل ودلّك وفق تعليمات الشركة."
+          },
+          {
+            "en": "After the specified exposure time, clean carefully with water-soaked gauze.",
+            "ar": "بعد مدة التعرض المحددة، نظّف برفق باستخدام شاش مبلل بالماء."
+          }
+        ],
+        "stepImages": [
+          "stock/fnd-step-1.jpg",
+          "stock/fnd-step-2.jpg",
+          "stock/fnd-step-3.jpg",
+          "stock/fnd-step-4.jpg"
+        ],
+        "safety": {
+          "en": "The BioRetherapy.pdf brochure lists: hypersensitivity to ingredients or salicylates; skin disease or infection such as dermatitis or herpes; pregnancy or breastfeeding. It advises caution with a tendency to keloids.\n\nThis is a reference summary, not the complete current IFU. Check skin integrity, suitability and the current instructions before treatment. Protect the eyes and mucous membranes and follow professional aftercare guidance.",
+          "ar": "تذكر نشرة BioRetherapy.pdf: فرط الحساسية للمكوّنات أو الساليسيلات؛ الأمراض أو العدوى الجلدية مثل التهاب الجلد أو الهربس؛ الحمل أو الرضاعة. وتوصي بالحذر عند وجود قابلية لتشكّل الجدرة.\n\nهذا ملخص مرجعي وليس بديلاً عن تعليمات الاستخدام الحالية الكاملة. يجب التحقق من سلامة الجلد وملاءمة الحالة والتعليمات الحالية قبل الإجراء، وحماية العينين والأغشية المخاطية واتباع إرشادات العناية المهنية."
+        },
+        "caseNote": {
+          "en": "Published cases from the supplied CMed brochure. Results are individual; the photographs have different lighting and are not standardized clinical measurements.",
+          "ar": "حالات منشورة في بروشور CMed المرفوع. النتائج فردية؛ الإضاءة تختلف بين الصور، وهي ليست قياسات سريرية موحّدة."
+        },
+        "visual": true,
+        "featured": false,
+        "documents": [
+          {
+            "title": {
+              "en": "BioRepeel · latest / primary reference",
+              "ar": "BioRepeel · الأحدث / المرجع الأساسي"
+            },
+            "filename": "BioRepeel.pdf",
+            "url": "stock/biorepeel-brochure.pdf"
+          },
+          {
+            "title": {
+              "en": "BioRetherapy · older supplementary reference (2023)",
+              "ar": "BioRetherapy · مرجع قديم مكمّل (٢٠٢٣)"
+            },
+            "filename": "BioRetherapy.pdf",
+            "url": "stock/bioretherapy-brochure.pdf"
+          },
+          {
+            "title": {
+              "en": "Green peel English · local patient leaflet",
+              "ar": "Green peel English · فلاير محلي للمريض"
+            },
+            "filename": "Green peel English.pdf",
+            "url": "stock/green-peel-english.pdf"
+          }
+        ],
+        "packageImage": "",
+        "galleryImages": [
+          "stock/biorepeel-body-vial.png",
+          "stock/biorepeel-biphasic.jpg"
+        ],
+        "comparisonImage": "stock/biorepeel-fnd-vial.png",
+        "facts": [
+          {
+            "label": {
+              "en": "TCA concentration",
+              "ar": "تركيز TCA"
+            },
+            "value": {
+              "en": "50%",
+              "ar": "٥٠٪"
+            }
+          },
+          {
+            "label": {
+              "en": "Formulation",
+              "ar": "الإصدار"
+            },
+            "value": {
+              "en": "BODY · body areas",
+              "ar": "BODY · مناطق الجسم"
+            }
+          },
+          {
+            "label": {
+              "en": "Presentation",
+              "ar": "حجم العبوة"
+            },
+            "value": {
+              "en": "3 × 12 mL",
+              "ar": "٣ × ١٢ مل"
+            }
+          },
+          {
+            "label": {
+              "en": "Application",
+              "ar": "طريقة التطبيق"
+            },
+            "value": {
+              "en": "Professional topical peel",
+              "ar": "تقشير موضعي احترافي"
+            }
+          }
+        ],
+        "areas": [
+          {
+            "name": {
+              "en": "Back",
+              "ar": "الظهر"
+            },
+            "amount": {
+              "en": "6 mL",
+              "ar": "٦ مل"
+            }
+          },
+          {
+            "name": {
+              "en": "Shoulders / feet",
+              "ar": "الكتفان / القدمان"
+            },
+            "amount": {
+              "en": "3 mL",
+              "ar": "٣ مل"
+            }
+          },
+          {
+            "name": {
+              "en": "Glutes",
+              "ar": "الأرداف"
+            },
+            "amount": {
+              "en": "4 mL",
+              "ar": "٤ مل"
+            }
+          },
+          {
+            "name": {
+              "en": "Legs",
+              "ar": "الساقان"
+            },
+            "amount": {
+              "en": "5 mL",
+              "ar": "٥ مل"
+            }
+          },
+          {
+            "name": {
+              "en": "Knees / hands",
+              "ar": "الركبتان / اليدان"
+            },
+            "amount": {
+              "en": "2 mL",
+              "ar": "٢ مل"
+            }
+          },
+          {
+            "name": {
+              "en": "Elbows",
+              "ar": "المرفقان"
+            },
+            "amount": {
+              "en": "1 mL",
+              "ar": "١ مل"
+            }
+          }
+        ],
+        "references": [
+          {
+            "title": {
+              "en": "BioRepeel.pdf · latest primary reference · pages 2–3",
+              "ar": "BioRepeel.pdf · المرجع الأساسي الأحدث · الصفحتان ٢–٣"
+            },
+            "url": "stock/biorepeel-brochure.pdf"
+          },
+          {
+            "title": {
+              "en": "Supplied BioReTherapy brochure · pages 2–3 (2023)",
+              "ar": "بروشور BioReTherapy المرفوع · الصفحتان ٢–٣ (٢٠٢٣)"
+            },
+            "url": "stock/bioretherapy-brochure.pdf"
+          },
+          {
+            "title": {
+              "en": "CMed official product page",
+              "ar": "صفحة المنتج الرسمية لدى CMed"
+            },
+            "url": "https://cmedaesthetics.com/therapeutic-areas/medical-devices/biorepeelcl%E2%82%83/"
+          }
+        ],
+        "sourceReview": {
+          "en": "BioRepeel.pdf is the latest primary reference. Details not covered there are supplemented from BioRetherapy.pdf and the local leaflet; the latest file takes precedence if information conflicts.",
+          "ar": "اعتمدنا BioRepeel.pdf كمرجع أساسي أحدث، وكمّلنا التفاصيل غير المذكورة فيه من BioRetherapy.pdf والفلاير المحلي. عند وجود تعارض، تكون الأولوية للملف الأحدث."
+        },
+        "supplementaryNote": {
+          "en": "Application details and illustrations: BioRetherapy.pdf. Follow the current instructions for use and individual assessment.",
+          "ar": "تفاصيل التطبيق ورسومه من BioRetherapy.pdf. تُتبع تعليمات الاستخدام الحالية والتقييم الفردي."
+        }
+      },
+      {
+        "id": "cytocare-532",
+        "name": {
+          "en": "CYTOCARE 532",
+          "ar": "CYTOCARE 532"
+        },
+        "brand": "revitacare",
+        "category": "skin",
+        "description": {
+          "en": "Skin quality · fine lines · radiance",
+          "ar": "جودة البشرة · الخطوط الدقيقة · الإشراق"
+        },
+        "concerns": {
+          "en": "Advanced skin ageing\nFine lines\nDull skin",
+          "ar": "علامات التقدم بالعمر\nالخطوط الدقيقة\nبهتان البشرة"
+        },
+        "overview": {
+          "en": "A resorbable, non-cross-linked hyaluronic-acid medical device with CT50 Rejuvenating Complex, intended to improve the quality of skin with advanced ageing signs. Supplied in vials; distinguish it from CYTOCARE 532 C Line topical cosmetics.",
+          "ar": "جهاز طبي قابل للامتصاص يجمع حمض الهيالورونيك غير المتشابك مع مركّب CT50 لتحسين جودة البشرة ذات علامات التقدم بالعمر. يأتي بقوارير، ويختلف عن CYTOCARE 532 C Line الموضعي."
+        },
+        "benefits": {
+          "en": "Improves skin quality\nFills fine lines\nRestores radiance",
+          "ar": "تحسين جودة البشرة\nملء الخطوط الدقيقة\nاستعادة الإشراق"
+        },
+        "ingredients": {
+          "en": "Hyaluronic acid · non-cross-linked\nCT50 · amino acids: Alanine, Arginine, Asparagine, Aspartic Acid, Cysteine, Glutamine, Glutamic Acid, Glycine, Histidine, Isoleucine, Leucine, Lysine, Methionine, Phenylalanine, Proline, Serine, Threonine, Tryptophan, Tyrosine, Valine\nCT50 · vitamins / related components: Biotin, Calcium Pantothenate, Choline Chloride, Folic Acid, Inositol, Nicotinamide, Pyridoxine, Riboflavin, Thiamine, Cyanocobalamin\nCT50 · minerals: Ammonium Molybdate, Ammonium Metavanadate, Calcium Chloride, Iron Sulfate, Potassium Chloride, Copper Sulfate, Magnesium Chloride, Manganese Sulfate, Sodium Acetate, Sodium Hydrogen Carbonate, Sodium Chloride, Sodium Hydrogen Phosphate, Sodium Metasilicate, Sodium Selenite, Tin Chloride, Zinc Sulfate\nCT50 · additional components: Adenine, Deoxythymidine, Glucose, Putrescine, Sodium Pyruvate, Lipoic Acid",
+          "ar": "حمض هيالورونيك غير متشابك\nCT50 · الأحماض الأمينية: Alanine, Arginine, Asparagine, Aspartic Acid, Cysteine, Glutamine, Glutamic Acid, Glycine, Histidine, Isoleucine, Leucine, Lysine, Methionine, Phenylalanine, Proline, Serine, Threonine, Tryptophan, Tyrosine, Valine\nCT50 · فيتامينات ومكوّنات مرتبطة: Biotin, Calcium Pantothenate, Choline Chloride, Folic Acid, Inositol, Nicotinamide, Pyridoxine, Riboflavin, Thiamine, Cyanocobalamin\nCT50 · المعادن: Ammonium Molybdate, Ammonium Metavanadate, Calcium Chloride, Iron Sulfate, Potassium Chloride, Copper Sulfate, Magnesium Chloride, Manganese Sulfate, Sodium Acetate, Sodium Hydrogen Carbonate, Sodium Chloride, Sodium Hydrogen Phosphate, Sodium Metasilicate, Sodium Selenite, Tin Chloride, Zinc Sulfate\nCT50 · مكوّنات إضافية: Adenine, Deoxythymidine, Glucose, Putrescine, Sodium Pyruvate, Lipoic Acid"
+        },
+        "protocol": {
+          "en": "Supplied brochure: 3 sessions at 3-week intervals, using at most the content of one vial per session. Superficial or medium dermis of periorbital and perioral lines; manual injection using 30G needles. Techniques: nappage, point by point, retrotracing. Maintenance is decided by the physician. The current official implant-card page excludes eyelids, tear troughs, glabella and lips; vertical lip lines do not mean injection into lip tissue.",
+          "ar": "حسب البروشور: 3 جلسات بفاصل 3 أسابيع، وبحد أقصى محتوى قارورة لكل جلسة. حقن يدوي بإبر 30G ضمن الأدمة السطحية أو المتوسطة لخطوط محيط العين والفم. التقنيات: الناباج، نقطة بنقطة، والحقن الرجعي. الصيانة يحددها الطبيب. تستثني صفحة الشركة الحالية الجفون وأخدود الدمع وما بين الحاجبين والشفاه؛ خطوط محيط الفم لا تعني الحقن داخل نسيج الشفاه."
+        },
+        "notes": {
+          "en": "",
+          "ar": ""
+        },
+        "faq": {
+          "en": "Who performs the treatment?|A qualified medical doctor following the current Instructions for Use.\nAre results guaranteed?|No. Response varies between individuals.\nCan I open the brochure here?|Yes. Use Open PDF to view every page inside the site.",
+          "ar": "من يجري العلاج؟|طبيب مؤهل وفق تعليمات الاستخدام الحالية.\nهل النتائج مضمونة؟|لا، تختلف الاستجابة بين الأشخاص.\nهل يمكن قراءة البروشور هنا؟|نعم، زر فتح PDF يعرض جميع الصفحات داخل الموقع."
+        },
+        "source": "https://revitacare.net/medical-devices/20-cytocare-532.html",
+        "image": "stock/cytocare-532-owner-vial-hd.webp",
+        "document": "stock/cytocare-532-brochure.pdf",
+        "cases": [
+          {
+            "title": {
+              "en": "CYTOCARE range · case 1",
+              "ar": "مجموعة CYTOCARE · الحالة 1"
+            },
+            "details": {
+              "en": "Supplied brochure, page 5. After 3 sessions. The specific 502/516/532 formulation is not identified.",
+              "ar": "البروشور، صفحة 5. بعد 3 جلسات. لم يُحدّد الإصدار 502 أو 516 أو 532 لهذه الحالة."
+            },
+            "before": "stock/cytocare-532-case-0-before",
+            "after": "stock/cytocare-532-case-0-after",
+            "approved": true
+          },
+          {
+            "title": {
+              "en": "CYTOCARE range · case 2",
+              "ar": "مجموعة CYTOCARE · الحالة 2"
+            },
+            "details": {
+              "en": "Supplied brochure, page 5. After 3 sessions. The specific 502/516/532 formulation is not identified.",
+              "ar": "البروشور، صفحة 5. بعد 3 جلسات. لم يُحدّد الإصدار 502 أو 516 أو 532 لهذه الحالة."
+            },
+            "before": "stock/cytocare-532-case-1-before",
+            "after": "stock/cytocare-532-case-1-after",
+            "approved": true
+          }
+        ],
+        "approved": true,
+        "visible": true,
+        "order": 2,
+        "visual": true,
+        "revitacareLayout": true,
+        "revitacareRevision": 1,
+        "packageImage": "stock/cytocare-532-owner-box-hd.webp",
+        "documents": [
+          {
+            "title": {
+              "en": "Revitacare · supplied product brochure",
+              "ar": "Revitacare · بروشور المنتج المرفق"
+            },
+            "filename": "cytocare-532-brochure.pdf",
+            "url": "stock/cytocare-532-brochure.pdf"
+          }
+        ],
+        "references": [
+          {
+            "title": {
+              "en": "Supplied brochure · all pages",
+              "ar": "البروشور المرفق · جميع الصفحات"
+            },
+            "url": "stock/cytocare-532-brochure.pdf"
+          },
+          {
+            "title": {
+              "en": "Official Revitacare product page",
+              "ar": "صفحة المنتج الرسمية"
+            },
+            "url": "https://revitacare.net/medical-devices/20-cytocare-532.html"
+          },
+          {
+            "title": {
+              "en": "Current implant-card information",
+              "ar": "معلومات بطاقة الزرعة الحالية"
+            },
+            "url": "https://revitacare.net/content/15-implantcard"
+          }
+        ],
+        "caseNote": {
+          "en": "Published manufacturer cases from the supplied brochure. Individual results vary; photographs are not a guarantee.",
+          "ar": "حالات منشورة من الشركة ضمن البروشور المرفق. النتائج فردية والصور لا تضمن نتيجة مماثلة."
+        },
+        "sourceReview": {
+          "en": "Reviewed against the supplied brochure and official Revitacare website · 26 October 2026. Brochure protocol references must be checked against the current pack IFU. HA label: brochure 32 mg / 5 mL; current implant-card page sodium hyaluronate 6.37 mg/mL. Values are shown with their source.",
+          "ar": "مراجعة البروشور المرفق والموقع الرسمي · 26 أكتوبر 2026. يُراجع بروتوكول البروشور مقابل تعليمات الاستخدام الحالية للعبوة. تركيز HA: البروشور 32 ملغ / 5 مل؛ الصفحة الحالية تذكر هيالورونات الصوديوم 6.37 ملغ/مل. لكل رقم مرجعه."
+        },
+        "safety": {
+          "en": "For qualified medical doctors. Review the current Instructions for Use and contraindications before treatment. Do not use in pregnancy/breastfeeding, under 18, allergy to components, altered skin or relevant autoimmune disease/immunotherapy. Injection can cause pain, bleeding, redness, swelling, infection and rare serious vascular complications. Single use; follow asepsis, traceability and disposal requirements.",
+          "ar": "للأطباء المؤهلين. تُراجع تعليمات الاستخدام الحالية وموانع الاستعمال قبل الإجراء. لا يُستخدم أثناء الحمل والرضاعة أو تحت 18 عاماً أو مع تحسس المكوّنات أو الجلد المتضرر أو الحالات المناعية ذات الصلة. قد يسبب الحقن ألماً ونزفاً واحمراراً وتورماً وعدوى ومضاعفات وعائية خطيرة نادرة. للاستخدام مرة واحدة مع التعقيم والتتبّع والتخلص الآمن."
+        },
+        "ingredientCards": [
+          {
+            "name": {
+              "en": "Hyaluronic acid",
+              "ar": "حمض الهيالورونيك"
+            },
+            "description": {
+              "en": "Non-cross-linked HA",
+              "ar": "هيالورونيك غير متشابك"
+            },
+            "meaning": "ha"
+          },
+          {
+            "name": {
+              "en": "CT50 · amino acids",
+              "ar": "CT50 · الأحماض الأمينية"
+            },
+            "description": {
+              "en": "Amino-acid group listed in the brochure",
+              "ar": "مجموعة الأحماض الأمينية المدرجة في البروشور"
+            },
+            "meaning": "amino"
+          },
+          {
+            "name": {
+              "en": "CT50 · vitamins",
+              "ar": "CT50 · الفيتامينات"
+            },
+            "description": {
+              "en": "Biotin and B-vitamin components",
+              "ar": "البيوتين ومكوّنات من مجموعة فيتامين B"
+            },
+            "meaning": "vitamins"
+          },
+          {
+            "name": {
+              "en": "CT50 · minerals",
+              "ar": "CT50 · المعادن"
+            },
+            "description": {
+              "en": "Mineral salts and trace elements",
+              "ar": "أملاح معدنية وعناصر نادرة"
+            },
+            "meaning": "ingredient"
+          }
+        ],
+        "facts": [
+          {
+            "label": {
+              "en": "Format",
+              "ar": "الشكل"
+            },
+            "value": {
+              "en": "5 or 10 vials × 5 mL",
+              "ar": "5 أو 10 قوارير × 5 مل"
+            }
+          },
+          {
+            "label": {
+              "en": "Use",
+              "ar": "الاستخدام"
+            },
+            "value": {
+              "en": "Medical device · injection",
+              "ar": "جهاز طبي · حقن"
+            }
+          },
+          {
+            "label": {
+              "en": "Origin",
+              "ar": "المنشأ"
+            },
+            "value": {
+              "en": "Made in France",
+              "ar": "صنع في فرنسا"
+            }
+          }
+        ],
+        "protocolSteps": [
+          {
+            "en": "Assessment, contraindication review, aseptic preparation and pack checks.",
+            "ar": "التقييم ومراجعة موانع الاستعمال والتحضير المعقم وفحص العبوة."
+          },
+          {
+            "en": "Nappage: superficial micro-injections, about 1 cm apart in the 532 brochure. Diagram is schematic.",
+            "ar": "الناباج: حقن دقيقة سطحية، بتباعد نحو 1 سم في بروشور 532. الرسم توضيحي."
+          },
+          {
+            "en": "Point by point: a series of small deposits along the indicated area.",
+            "ar": "نقطة بنقطة: سلسلة كميات صغيرة على امتداد المنطقة المحددة."
+          },
+          {
+            "en": "Retrotracing: deposit product while withdrawing the needle along the wrinkle.",
+            "ar": "الحقن الرجعي: توزيع المنتج مع سحب الإبرة على امتداد الخط."
+          }
+        ],
+        "compositionRows": [
+          {
+            "name": {
+              "en": "HA · supplied brochure",
+              "ar": "HA · البروشور المرفق"
+            },
+            "value": {
+              "en": "32 mg / 5 mL",
+              "ar": "32 ملغ / 5 مل"
+            }
+          },
+          {
+            "name": {
+              "en": "Sodium hyaluronate · current official page",
+              "ar": "هيالورونات الصوديوم · الصفحة الرسمية الحالية"
+            },
+            "value": {
+              "en": "6.37 mg/mL",
+              "ar": "6.37 ملغ/مل"
+            }
+          },
+          {
+            "name": {
+              "en": "CT50 · current official page",
+              "ar": "CT50 · الصفحة الرسمية الحالية"
+            },
+            "value": {
+              "en": "18.8 mg/mL",
+              "ar": "18.8 ملغ/مل"
+            }
+          }
+        ],
+        "galleryImages": [
+          "stock/cytocare-532-owner-vial-hd.webp",
+          "stock/cytocare-532-owner-box-hd.webp"
+        ],
+        "suppliedPhotoRevision": 1
+      },
+      {
+        "id": "cytocare-715",
+        "name": {
+          "en": "CYTOCARE 715 C Line",
+          "ar": "CYTOCARE 715 C Line"
+        },
+        "brand": "revitacare",
+        "category": "skin",
+        "description": {
+          "en": "Topical professional care · plumping appearance",
+          "ar": "عناية موضعية احترافية · مظهر ممتلئ للبشرة"
+        },
+        "concerns": {
+          "en": "Loss of plump appearance\nRough skin texture\nDull complexion",
+          "ar": "نقص مظهر الامتلاء\nخشونة ملمس البشرة\nبهتان البشرة"
+        },
+        "overview": {
+          "en": "A sterile cosmetic for professional topical care of the face, neck and décolleté. Combines hyaluronic acid, carnosine and an amino-acid complex. For topical use only.",
+          "ar": "مستحضر تجميلي معقم للعناية الموضعية الاحترافية بالوجه والرقبة وأعلى الصدر، يجمع الهيالورونيك والكارنوسين ومركّب أحماض أمينية. للاستخدام الموضعي فقط."
+        },
+        "benefits": {
+          "en": "Plumper appearance\nSmoother, softer skin\nBrighter-looking complexion",
+          "ar": "مظهر أكثر امتلاءً\nبشرة أنعم وأملس\nمظهر أكثر إشراقاً"
+        },
+        "ingredients": {
+          "en": "Hyaluronic acid\nCarnosine\nAmino-acid complex",
+          "ar": "حمض الهيالورونيك\nكارنوسين\nمركّب أحماض أمينية"
+        },
+        "protocol": {
+          "en": "After cleansing / removing make-up, apply a suitable amount to the dedicated area and massage until fully absorbed. The official page lists face, neck and décolleté. Sterile single-use topical solution; use immediately after opening. The brochure does not specify an injection protocol.",
+          "ar": "بعد تنظيف البشرة وإزالة المكياج، توضع كمية مناسبة على المنطقة وتُدلّك حتى الامتصاص. يذكر الموقع الرسمي الوجه والرقبة وأعلى الصدر. محلول موضعي معقم للاستخدام مرة واحدة وفور الفتح. لا يذكر البروشور بروتوكول حقن."
+        },
+        "notes": {
+          "en": "",
+          "ar": ""
+        },
+        "faq": {
+          "en": "Is this an injectable product?|No. This is CYTOCARE 715 C Line for topical use.\nAre results guaranteed?|No. Response varies between individuals.\nCan I open the brochure here?|Yes. Use Open PDF to view every page inside the site.",
+          "ar": "هل يُستخدم بالحقن؟|لا، CYTOCARE 715 C Line للاستخدام الموضعي.\nهل النتائج مضمونة؟|لا، تختلف الاستجابة بين الأشخاص.\nهل يمكن قراءة البروشور هنا؟|نعم، زر فتح PDF يعرض جميع الصفحات داخل الموقع."
+        },
+        "source": "https://revitacare.net/sterile-cosmetics/9-cytocare-715-c-line.html",
+        "image": "stock/cytocare-715.jpg",
+        "document": "stock/cytocare-715-brochure.pdf",
+        "cases": [],
+        "approved": true,
+        "visible": true,
+        "order": 3,
+        "visual": true,
+        "revitacareLayout": true,
+        "revitacareRevision": 1,
+        "packageImage": "stock/cytocare-715-visual",
+        "documents": [
+          {
+            "title": {
+              "en": "Revitacare · supplied product brochure",
+              "ar": "Revitacare · بروشور المنتج المرفق"
+            },
+            "filename": "cytocare-715-brochure.pdf",
+            "url": "stock/cytocare-715-brochure.pdf"
+          }
+        ],
+        "references": [
+          {
+            "title": {
+              "en": "Supplied brochure · all pages",
+              "ar": "البروشور المرفق · جميع الصفحات"
+            },
+            "url": "stock/cytocare-715-brochure.pdf"
+          },
+          {
+            "title": {
+              "en": "Official Revitacare product page",
+              "ar": "صفحة المنتج الرسمية"
+            },
+            "url": "https://revitacare.net/sterile-cosmetics/9-cytocare-715-c-line.html"
+          }
+        ],
+        "caseNote": {
+          "en": "Published manufacturer cases from the supplied brochure. Individual results vary; photographs are not a guarantee.",
+          "ar": "حالات منشورة من الشركة ضمن البروشور المرفق. النتائج فردية والصور لا تضمن نتيجة مماثلة."
+        },
+        "sourceReview": {
+          "en": "Reviewed against the supplied brochure and official Revitacare website · 26 October 2026. Brochure protocol references must be checked against the current pack IFU.",
+          "ar": "مراجعة البروشور المرفق والموقع الرسمي · 26 أكتوبر 2026. يُراجع بروتوكول البروشور مقابل تعليمات الاستخدام الحالية للعبوة."
+        },
+        "ingredientCards": [
+          {
+            "name": {
+              "en": "Hyaluronic acid",
+              "ar": "حمض الهيالورونيك"
+            },
+            "description": {
+              "en": "Part of the topical formula",
+              "ar": "ضمن التركيبة الموضعية"
+            }
+          },
+          {
+            "name": {
+              "en": "Carnosine",
+              "ar": "كارنوسين"
+            },
+            "description": {
+              "en": "Named component in the brochure",
+              "ar": "مكوّن مسمى في البروشور"
+            }
+          },
+          {
+            "name": {
+              "en": "Amino-acid complex",
+              "ar": "مركّب الأحماض الأمينية"
+            },
+            "description": {
+              "en": "The full individual list is not provided in this brochure",
+              "ar": "لم تُدرج القائمة الفردية الكاملة في هذا البروشور"
+            }
+          }
+        ],
+        "compositionRows": [
+          {
+            "name": {
+              "en": "Formula",
+              "ar": "التركيبة"
+            },
+            "value": {
+              "en": "HA + carnosine + amino-acid complex",
+              "ar": "هيالورونيك + كارنوسين + مركّب أحماض أمينية"
+            }
+          },
+          {
+            "name": {
+              "en": "Full INCI / concentrations",
+              "ar": "INCI الكامل / التراكيز"
+            },
+            "value": {
+              "en": "Not provided in the supplied brochure; confirm from current pack",
+              "ar": "غير مدرجة في البروشور؛ تُراجع العبوة الحالية"
+            }
+          }
+        ],
+        "facts": [
+          {
+            "label": {
+              "en": "Format",
+              "ar": "الشكل"
+            },
+            "value": {
+              "en": "5 vials × 5 mL",
+              "ar": "5 قوارير × 5 مل"
+            }
+          },
+          {
+            "label": {
+              "en": "Use",
+              "ar": "الاستخدام"
+            },
+            "value": {
+              "en": "Topical only",
+              "ar": "موضعي فقط"
+            }
+          },
+          {
+            "label": {
+              "en": "Origin",
+              "ar": "المنشأ"
+            },
+            "value": {
+              "en": "Made in France",
+              "ar": "صنع في فرنسا"
+            }
+          }
+        ],
+        "protocolSteps": [
+          {
+            "en": "Cleanse and remove make-up.",
+            "ar": "تنظيف البشرة وإزالة المكياج."
+          },
+          {
+            "en": "Apply a suitable amount to the intended area.",
+            "ar": "وضع كمية مناسبة على المنطقة المقصودة."
+          },
+          {
+            "en": "Massage until completely absorbed.",
+            "ar": "التدليك حتى الامتصاص الكامل."
+          }
+        ],
+        "safety": {
+          "en": "For topical professional care only. Follow the current label and professional assessment. Use immediately after opening; single use. Do not use this page as an injection protocol.",
+          "ar": "للعناية الموضعية الاحترافية فقط. تُتبع تعليمات العبوة والتقييم المهني. استخدام فوري بعد الفتح ولمرة واحدة. هذه الصفحة ليست بروتوكول حقن."
+        },
+        "technologyImage": "stock/cytocare-715-lifestyle",
+        "hideResults": true
+      },
+      {
+        "id": "cytocare-s-line",
+        "name": {
+          "en": "CYTOCARE S Line",
+          "ar": "CYTOCARE S Line"
+        },
+        "brand": "revitacare",
+        "category": "skin",
+        "description": {
+          "en": "Skin quality · fine lines · radiance",
+          "ar": "جودة البشرة · الخطوط الدقيقة · الإشراق"
+        },
+        "concerns": {
+          "en": "Advanced skin ageing\nFine lines\nDull skin",
+          "ar": "علامات التقدم بالعمر\nالخطوط الدقيقة\nبهتان البشرة"
+        },
+        "overview": {
+          "en": "A resorbable, non-cross-linked hyaluronic-acid medical device with CT50 Rejuvenating Complex, intended to improve the quality of skin with advanced ageing signs. Supplied in a ready-to-use pre-filled syringe.",
+          "ar": "جهاز طبي قابل للامتصاص يجمع حمض الهيالورونيك غير المتشابك مع مركّب CT50 لتحسين جودة البشرة ذات علامات التقدم بالعمر. يأتي بحقنة معبأة مسبقاً وجاهزة للاستخدام."
+        },
+        "benefits": {
+          "en": "Improves skin quality\nFills fine lines\nRestores radiance",
+          "ar": "تحسين جودة البشرة\nملء الخطوط الدقيقة\nاستعادة الإشراق"
+        },
+        "ingredients": {
+          "en": "Hyaluronic acid · non-cross-linked\nCT50 · amino acids: Alanine, Arginine, Asparagine, Aspartic Acid, Cysteine, Glutamine, Glutamic Acid, Glycine, Histidine, Isoleucine, Leucine, Lysine, Methionine, Phenylalanine, Proline, Serine, Threonine, Tryptophan, Tyrosine, Valine\nCT50 · vitamins / related components: Biotin, Calcium Pantothenate, Choline Chloride, Folic Acid, Inositol, Nicotinamide, Pyridoxine, Riboflavin, Thiamine, Cyanocobalamin\nCT50 · minerals: Ammonium Molybdate, Ammonium Metavanadate, Calcium Chloride, Iron Sulfate, Potassium Chloride, Copper Sulfate, Magnesium Chloride, Manganese Sulfate, Sodium Acetate, Sodium Hydrogen Carbonate, Sodium Chloride, Sodium Hydrogen Phosphate, Sodium Metasilicate, Sodium Selenite, Tin Chloride, Zinc Sulfate\nCT50 · additional components: Adenine, Deoxythymidine, Glucose, Putrescine, Sodium Pyruvate, Lipoic Acid",
+          "ar": "حمض هيالورونيك غير متشابك\nCT50 · الأحماض الأمينية: Alanine, Arginine, Asparagine, Aspartic Acid, Cysteine, Glutamine, Glutamic Acid, Glycine, Histidine, Isoleucine, Leucine, Lysine, Methionine, Phenylalanine, Proline, Serine, Threonine, Tryptophan, Tyrosine, Valine\nCT50 · فيتامينات ومكوّنات مرتبطة: Biotin, Calcium Pantothenate, Choline Chloride, Folic Acid, Inositol, Nicotinamide, Pyridoxine, Riboflavin, Thiamine, Cyanocobalamin\nCT50 · المعادن: Ammonium Molybdate, Ammonium Metavanadate, Calcium Chloride, Iron Sulfate, Potassium Chloride, Copper Sulfate, Magnesium Chloride, Manganese Sulfate, Sodium Acetate, Sodium Hydrogen Carbonate, Sodium Chloride, Sodium Hydrogen Phosphate, Sodium Metasilicate, Sodium Selenite, Tin Chloride, Zinc Sulfate\nCT50 · مكوّنات إضافية: Adenine, Deoxythymidine, Glucose, Putrescine, Sodium Pyruvate, Lipoic Acid"
+        },
+        "protocol": {
+          "en": "Supplied brochure: 3 sessions at 3-week intervals, using at most the content of one syringe per session. Superficial or medium dermis of periorbital and perioral lines; manual injection using 30G needles. Techniques: nappage, point by point, retrotracing. Maintenance is decided by the physician. The current official implant-card page excludes eyelids, tear troughs, glabella and lips; vertical lip lines do not mean injection into lip tissue.",
+          "ar": "حسب البروشور: 3 جلسات بفاصل 3 أسابيع، وبحد أقصى محتوى حقنة لكل جلسة. حقن يدوي بإبر 30G ضمن الأدمة السطحية أو المتوسطة لخطوط محيط العين والفم. التقنيات: الناباج، نقطة بنقطة، والحقن الرجعي. الصيانة يحددها الطبيب. تستثني صفحة الشركة الحالية الجفون وأخدود الدمع وما بين الحاجبين والشفاه؛ خطوط محيط الفم لا تعني الحقن داخل نسيج الشفاه."
+        },
+        "notes": {
+          "en": "",
+          "ar": ""
+        },
+        "faq": {
+          "en": "Who performs the treatment?|A qualified medical doctor following the current Instructions for Use.\nAre results guaranteed?|No. Response varies between individuals.\nCan I open the brochure here?|Yes. Use Open PDF to view every page inside the site.",
+          "ar": "من يجري العلاج؟|طبيب مؤهل وفق تعليمات الاستخدام الحالية.\nهل النتائج مضمونة؟|لا، تختلف الاستجابة بين الأشخاص.\nهل يمكن قراءة البروشور هنا؟|نعم، زر فتح PDF يعرض جميع الصفحات داخل الموقع."
+        },
+        "source": "https://revitacare.net/medical-devices/2-cytocare-s-line.html",
+        "image": "stock/cytocare-s-line.jpg",
+        "document": "stock/cytocare-s-line-brochure.pdf",
+        "cases": [
+          {
+            "title": {
+              "en": "S Line · case 1",
+              "ar": "S Line · الحالة 1"
+            },
+            "details": {
+              "en": "Supplied brochure, page 4. Session count is not stated for this photograph.",
+              "ar": "البروشور، صفحة 4. عدد الجلسات غير مذكور لهذه الصورة."
+            },
+            "before": "stock/cytocare-s-line-case-0-before",
+            "after": "stock/cytocare-s-line-case-0-after",
+            "approved": true
+          },
+          {
+            "title": {
+              "en": "S Line · case 2",
+              "ar": "S Line · الحالة 2"
+            },
+            "details": {
+              "en": "Supplied brochure, page 4. Session count is not stated for this photograph.",
+              "ar": "البروشور، صفحة 4. عدد الجلسات غير مذكور لهذه الصورة."
+            },
+            "before": "stock/cytocare-s-line-case-1-before",
+            "after": "stock/cytocare-s-line-case-1-after",
+            "approved": true
+          }
+        ],
+        "approved": true,
+        "visible": true,
+        "order": 4,
+        "visual": true,
+        "revitacareLayout": true,
+        "revitacareRevision": 1,
+        "packageImage": "stock/cytocare-s-line-visual",
+        "documents": [
+          {
+            "title": {
+              "en": "Revitacare · supplied product brochure",
+              "ar": "Revitacare · بروشور المنتج المرفق"
+            },
+            "filename": "cytocare-s-line-brochure.pdf",
+            "url": "stock/cytocare-s-line-brochure.pdf"
+          }
+        ],
+        "references": [
+          {
+            "title": {
+              "en": "Supplied brochure · all pages",
+              "ar": "البروشور المرفق · جميع الصفحات"
+            },
+            "url": "stock/cytocare-s-line-brochure.pdf"
+          },
+          {
+            "title": {
+              "en": "Official Revitacare product page",
+              "ar": "صفحة المنتج الرسمية"
+            },
+            "url": "https://revitacare.net/medical-devices/2-cytocare-s-line.html"
+          },
+          {
+            "title": {
+              "en": "Current implant-card information",
+              "ar": "معلومات بطاقة الزرعة الحالية"
+            },
+            "url": "https://revitacare.net/content/15-implantcard"
+          }
+        ],
+        "caseNote": {
+          "en": "Published manufacturer cases from the supplied brochure. Individual results vary; photographs are not a guarantee.",
+          "ar": "حالات منشورة من الشركة ضمن البروشور المرفق. النتائج فردية والصور لا تضمن نتيجة مماثلة."
+        },
+        "sourceReview": {
+          "en": "Reviewed against the supplied brochure and official Revitacare website · 26 October 2026. Brochure protocol references must be checked against the current pack IFU. HA label: brochure 18 mg / 3 mL; current implant-card page 6.37 mg/mL. Do not combine these as identical specifications.",
+          "ar": "مراجعة البروشور المرفق والموقع الرسمي · 26 أكتوبر 2026. يُراجع بروتوكول البروشور مقابل تعليمات الاستخدام الحالية للعبوة. تركيز HA: البروشور 18 ملغ / 3 مل؛ صفحة بطاقة الزرعة الحالية 6.37 ملغ/مل. لا تُدمج كأنها مواصفات متطابقة."
+        },
+        "safety": {
+          "en": "For qualified medical doctors. Review the current Instructions for Use and contraindications before treatment. Do not use in pregnancy/breastfeeding, under 18, allergy to components, altered skin or relevant autoimmune disease/immunotherapy. Injection can cause pain, bleeding, redness, swelling, infection and rare serious vascular complications. Single use; follow asepsis, traceability and disposal requirements.",
+          "ar": "للأطباء المؤهلين. تُراجع تعليمات الاستخدام الحالية وموانع الاستعمال قبل الإجراء. لا يُستخدم أثناء الحمل والرضاعة أو تحت 18 عاماً أو مع تحسس المكوّنات أو الجلد المتضرر أو الحالات المناعية ذات الصلة. قد يسبب الحقن ألماً ونزفاً واحمراراً وتورماً وعدوى ومضاعفات وعائية خطيرة نادرة. للاستخدام مرة واحدة مع التعقيم والتتبّع والتخلص الآمن."
+        },
+        "ingredientCards": [
+          {
+            "name": {
+              "en": "Hyaluronic acid",
+              "ar": "حمض الهيالورونيك"
+            },
+            "description": {
+              "en": "Non-cross-linked HA",
+              "ar": "هيالورونيك غير متشابك"
+            },
+            "meaning": "ha"
+          },
+          {
+            "name": {
+              "en": "CT50 · amino acids",
+              "ar": "CT50 · الأحماض الأمينية"
+            },
+            "description": {
+              "en": "Amino-acid group listed in the brochure",
+              "ar": "مجموعة الأحماض الأمينية المدرجة في البروشور"
+            },
+            "meaning": "amino"
+          },
+          {
+            "name": {
+              "en": "CT50 · vitamins",
+              "ar": "CT50 · الفيتامينات"
+            },
+            "description": {
+              "en": "Biotin and B-vitamin components",
+              "ar": "البيوتين ومكوّنات من مجموعة فيتامين B"
+            },
+            "meaning": "vitamins"
+          },
+          {
+            "name": {
+              "en": "CT50 · minerals",
+              "ar": "CT50 · المعادن"
+            },
+            "description": {
+              "en": "Mineral salts and trace elements",
+              "ar": "أملاح معدنية وعناصر نادرة"
+            },
+            "meaning": "ingredient"
+          }
+        ],
+        "facts": [
+          {
+            "label": {
+              "en": "Format",
+              "ar": "الشكل"
+            },
+            "value": {
+              "en": "1 syringe × 3 mL",
+              "ar": "حقنة واحدة × 3 مل"
+            }
+          },
+          {
+            "label": {
+              "en": "Use",
+              "ar": "الاستخدام"
+            },
+            "value": {
+              "en": "Medical device · injection",
+              "ar": "جهاز طبي · حقن"
+            }
+          },
+          {
+            "label": {
+              "en": "Origin",
+              "ar": "المنشأ"
+            },
+            "value": {
+              "en": "Made in France",
+              "ar": "صنع في فرنسا"
+            }
+          }
+        ],
+        "protocolSteps": [
+          {
+            "en": "Assessment, contraindication review, aseptic preparation and pack checks.",
+            "ar": "التقييم ومراجعة موانع الاستعمال والتحضير المعقم وفحص العبوة."
+          },
+          {
+            "en": "Nappage: superficial micro-injections, about 1 cm apart in the 532 brochure. Diagram is schematic.",
+            "ar": "الناباج: حقن دقيقة سطحية، بتباعد نحو 1 سم في بروشور 532. الرسم توضيحي."
+          },
+          {
+            "en": "Point by point: a series of small deposits along the indicated area.",
+            "ar": "نقطة بنقطة: سلسلة كميات صغيرة على امتداد المنطقة المحددة."
+          },
+          {
+            "en": "Retrotracing: deposit product while withdrawing the needle along the wrinkle.",
+            "ar": "الحقن الرجعي: توزيع المنتج مع سحب الإبرة على امتداد الخط."
+          }
+        ],
+        "compositionRows": [
+          {
+            "name": {
+              "en": "HA · supplied brochure",
+              "ar": "HA · البروشور المرفق"
+            },
+            "value": {
+              "en": "18 mg / 3 mL",
+              "ar": "18 ملغ / 3 مل"
+            }
+          },
+          {
+            "name": {
+              "en": "Sodium hyaluronate · current official page",
+              "ar": "هيالورونات الصوديوم · الصفحة الرسمية الحالية"
+            },
+            "value": {
+              "en": "6.37 mg/mL",
+              "ar": "6.37 ملغ/مل"
+            }
+          },
+          {
+            "name": {
+              "en": "CT50 · current official page",
+              "ar": "CT50 · الصفحة الرسمية الحالية"
+            },
+            "value": {
+              "en": "18.8 mg/mL",
+              "ar": "18.8 ملغ/مل"
+            }
+          }
+        ]
+      },
+      {
+        "id": "haircare",
+        "name": {
+          "en": "REVITACARE HAIRCARE",
+          "ar": "REVITACARE HAIRCARE"
+        },
+        "brand": "revitacare",
+        "category": "hair",
+        "description": {
+          "en": "Scalp hydration · reduced hair loss · hair quality",
+          "ar": "ترطيب فروة الرأس · تقليل التساقط · جودة الشعر"
+        },
+        "concerns": {
+          "en": "Hair loss\nDehydrated scalp\nHair breakage",
+          "ar": "تساقط الشعر\nجفاف فروة الرأس\nتكسّر الشعر"
+        },
+        "overview": {
+          "en": "An injectable medical device combining non-cross-linked hyaluronic acid with Restructuring Hair Complex, for the superficial dermis of the scalp near the roots.",
+          "ar": "جهاز طبي قابل للحقن يجمع الهيالورونيك غير المتشابك مع مركّب Restructuring Hair Complex للأدمة السطحية لفروة الرأس قرب الجذور."
+        },
+        "benefits": {
+          "en": "Reduces hair loss\nRestores scalp hydration\nImproves hair texture",
+          "ar": "تقليل تساقط الشعر\nاستعادة ترطيب فروة الرأس\nتحسين ملمس الشعر"
+        },
+        "ingredients": {
+          "en": "Non-cross-linked hyaluronic acid · 2 mg / 5 mL (brochure)\nAmino acids: Arginine, Cysteine, Glutamine, Glycine, Ornithine\nVitamins: Biotin, Calcium Pantothenate, Cyanocobalamin, Folic Acid, Nicotinamide, Pyridoxine\nMineral: Zinc",
+          "ar": "هيالورونيك غير متشابك · 2 ملغ / 5 مل (البروشور)\nالأحماض الأمينية: أرجينين، سيستئين، غلوتامين، غلايسين، أورنيثين\nالفيتامينات: بيوتين، كالسيوم بانتوثينات، سيانوكوبالامين، حمض الفوليك، نيكوتيناميد، بيريدوكسين\nالمعدن: الزنك"
+        },
+        "protocol": {
+          "en": "Supplied brochure: 6 sessions, 6–10 days apart; maximum one 5 mL vial per session. Manual 30G micro-injections into superficial scalp dermis near the roots. Nappage or point by point. Maintenance is decided by the physician. Results depend on the hair cycle and individual assessment.",
+          "ar": "حسب البروشور: 6 جلسات بفاصل 6–10 أيام، وبحد أقصى قارورة 5 مل لكل جلسة. حقن دقيقة يدوية بإبر 30G ضمن الأدمة السطحية لفروة الرأس قرب الجذور؛ ناباج أو نقطة بنقطة. يحدد الطبيب الصيانة، وتعتمد النتائج على دورة الشعر والتقييم الفردي."
+        },
+        "notes": {
+          "en": "",
+          "ar": ""
+        },
+        "faq": {
+          "en": "Who performs the treatment?|A qualified medical doctor following the current Instructions for Use.\nAre results guaranteed?|No. Response varies between individuals.\nCan I open the brochure here?|Yes. Use Open PDF to view every page inside the site.",
+          "ar": "من يجري العلاج؟|طبيب مؤهل وفق تعليمات الاستخدام الحالية.\nهل النتائج مضمونة؟|لا، تختلف الاستجابة بين الأشخاص.\nهل يمكن قراءة البروشور هنا؟|نعم، زر فتح PDF يعرض جميع الصفحات داخل الموقع."
+        },
+        "source": "https://revitacare.net/medical-devices/3-haircare.html",
+        "image": "stock/haircare.jpg",
+        "document": "stock/haircare-brochure.pdf",
+        "cases": [
+          {
+            "title": {
+              "en": "Haircare · case 1",
+              "ar": "Haircare · الحالة 1"
+            },
+            "details": {
+              "en": "Manufacturer brochure, page 2. After 6 sessions; male patient. Individual results vary.",
+              "ar": "بروشور الشركة، صفحة 2. بعد 6 جلسات؛ مريض. النتائج فردية."
+            },
+            "before": "stock/haircare-owner-case-0-before-hd.webp",
+            "after": "stock/haircare-owner-case-0-after-hd.webp",
+            "approved": true
+          },
+          {
+            "title": {
+              "en": "Haircare · case 2",
+              "ar": "Haircare · الحالة 2"
+            },
+            "details": {
+              "en": "Manufacturer brochure, page 2. After 6 sessions; male patient. Individual results vary.",
+              "ar": "بروشور الشركة، صفحة 2. بعد 6 جلسات؛ مريض. النتائج فردية."
+            },
+            "before": "stock/haircare-owner-case-1-before-hd.webp",
+            "after": "stock/haircare-owner-case-1-after-hd.webp",
+            "approved": true
+          },
+          {
+            "title": {
+              "en": "Haircare · case 3",
+              "ar": "Haircare · الحالة 3"
+            },
+            "details": {
+              "en": "Manufacturer brochure, page 2. After 6 sessions; male patient. Individual results vary.",
+              "ar": "بروشور الشركة، صفحة 2. بعد 6 جلسات؛ مريض. النتائج فردية."
+            },
+            "before": "stock/haircare-owner-case-2-before-hd.webp",
+            "after": "stock/haircare-owner-case-2-after-hd.webp",
+            "approved": true
+          },
+          {
+            "title": {
+              "en": "Haircare · case 4",
+              "ar": "Haircare · الحالة 4"
+            },
+            "details": {
+              "en": "Manufacturer brochure, page 2. After 6 sessions; female patient. Individual results vary.",
+              "ar": "بروشور الشركة، صفحة 2. بعد 6 جلسات؛ مريضة. النتائج فردية."
+            },
+            "before": "stock/haircare-owner-case-3-before-hd.webp",
+            "after": "stock/haircare-owner-case-3-after-hd.webp",
+            "approved": true
+          },
+          {
+            "title": {
+              "en": "Haircare · case 5",
+              "ar": "Haircare · الحالة 5"
+            },
+            "details": {
+              "en": "Manufacturer brochure, page 2. After 6 sessions; male patient. Individual results vary.",
+              "ar": "بروشور الشركة، صفحة 2. بعد 6 جلسات؛ مريض. النتائج فردية."
+            },
+            "before": "stock/haircare-owner-case-4-before-hd.webp",
+            "after": "stock/haircare-owner-case-4-after-hd.webp",
+            "approved": true
+          }
+        ],
+        "approved": true,
+        "visible": true,
+        "order": 5,
+        "visual": true,
+        "revitacareLayout": true,
+        "revitacareRevision": 1,
+        "packageImage": "stock/haircare-visual",
+        "documents": [
+          {
+            "title": {
+              "en": "Revitacare · supplied product brochure",
+              "ar": "Revitacare · بروشور المنتج المرفق"
+            },
+            "filename": "haircare-brochure.pdf",
+            "url": "stock/haircare-brochure.pdf"
+          }
+        ],
+        "references": [
+          {
+            "title": {
+              "en": "Supplied brochure · all pages",
+              "ar": "البروشور المرفق · جميع الصفحات"
+            },
+            "url": "stock/haircare-brochure.pdf"
+          },
+          {
+            "title": {
+              "en": "Official Revitacare product page",
+              "ar": "صفحة المنتج الرسمية"
+            },
+            "url": "https://revitacare.net/medical-devices/3-haircare.html"
+          }
+        ],
+        "caseNote": {
+          "en": "Published manufacturer cases from the supplied brochure. Individual results vary; photographs are not a guarantee. Higher-resolution copies supplied by Value Aesthetic; the original brochure remains available for reference.",
+          "ar": "حالات منشورة من الشركة ضمن البروشور المرفق. النتائج فردية والصور لا تضمن نتيجة مماثلة. نسخ أوضح مقدّمة من فاليو؛ البروشور الأصلي متاح للمرجع."
+        },
+        "sourceReview": {
+          "en": "Reviewed against the supplied brochure and official Revitacare website · 26 October 2026. Brochure protocol references must be checked against the current pack IFU.",
+          "ar": "مراجعة البروشور المرفق والموقع الرسمي · 26 أكتوبر 2026. يُراجع بروتوكول البروشور مقابل تعليمات الاستخدام الحالية للعبوة."
+        },
+        "safety": {
+          "en": "For qualified medical doctors. Review the current Instructions for Use and contraindications before treatment. Do not use in pregnancy/breastfeeding, under 18, allergy to components, altered skin or relevant autoimmune disease/immunotherapy. Injection can cause pain, bleeding, redness, swelling, infection and rare serious vascular complications. Single use; follow asepsis, traceability and disposal requirements.",
+          "ar": "للأطباء المؤهلين. تُراجع تعليمات الاستخدام الحالية وموانع الاستعمال قبل الإجراء. لا يُستخدم أثناء الحمل والرضاعة أو تحت 18 عاماً أو مع تحسس المكوّنات أو الجلد المتضرر أو الحالات المناعية ذات الصلة. قد يسبب الحقن ألماً ونزفاً واحمراراً وتورماً وعدوى ومضاعفات وعائية خطيرة نادرة. للاستخدام مرة واحدة مع التعقيم والتتبّع والتخلص الآمن."
+        },
+        "ingredientCards": [
+          {
+            "name": {
+              "en": "Hyaluronic acid",
+              "ar": "حمض الهيالورونيك"
+            },
+            "description": {
+              "en": "Non-cross-linked · 2 mg per 5 mL in the brochure",
+              "ar": "غير متشابك · 2 ملغ لكل 5 مل في البروشور"
+            }
+          },
+          {
+            "name": {
+              "en": "Amino acids",
+              "ar": "الأحماض الأمينية"
+            },
+            "description": {
+              "en": "Five named amino acids, including cysteine",
+              "ar": "خمسة أحماض أمينية، منها السيستئين"
+            }
+          },
+          {
+            "name": {
+              "en": "B vitamins & biotin",
+              "ar": "فيتامينات B والبيوتين"
+            },
+            "description": {
+              "en": "Six named vitamin components",
+              "ar": "ستة مكوّنات فيتامينية مسماة"
+            }
+          },
+          {
+            "name": {
+              "en": "Zinc",
+              "ar": "الزنك"
+            },
+            "description": {
+              "en": "Mineral component in the complex",
+              "ar": "مكوّن معدني ضمن المركّب"
+            }
+          }
+        ],
+        "facts": [
+          {
+            "label": {
+              "en": "Format",
+              "ar": "الشكل"
+            },
+            "value": {
+              "en": "10 vials × 5 mL",
+              "ar": "10 قوارير × 5 مل"
+            }
+          },
+          {
+            "label": {
+              "en": "Use",
+              "ar": "الاستخدام"
+            },
+            "value": {
+              "en": "Medical device · injection",
+              "ar": "جهاز طبي · حقن"
+            }
+          },
+          {
+            "label": {
+              "en": "Origin",
+              "ar": "المنشأ"
+            },
+            "value": {
+              "en": "Made in France",
+              "ar": "صنع في فرنسا"
+            }
+          }
+        ],
+        "compositionRows": [
+          {
+            "name": {
+              "en": "HA · brochure",
+              "ar": "HA · البروشور"
+            },
+            "value": {
+              "en": "2 mg / 5 mL",
+              "ar": "2 ملغ / 5 مل"
+            }
+          },
+          {
+            "name": {
+              "en": "Hair complex",
+              "ar": "مركّب الشعر"
+            },
+            "value": {
+              "en": "Amino acids + vitamins + zinc",
+              "ar": "أحماض أمينية + فيتامينات + زنك"
+            }
+          }
+        ],
+        "protocolSteps": [
+          {
+            "en": "Assess the cause of hair loss and review contraindications.",
+            "ar": "تقييم سبب التساقط ومراجعة موانع الاستعمال."
+          },
+          {
+            "en": "Prepare the scalp aseptically; check the single-use vial.",
+            "ar": "تحضير فروة الرأس بالتعقيم وفحص القارورة ذات الاستخدام الواحد."
+          },
+          {
+            "en": "Nappage or point-by-point micro-injections by the medical doctor.",
+            "ar": "حقن دقيقة بتقنية الناباج أو نقطة بنقطة بواسطة الطبيب."
+          },
+          {
+            "en": "Review response through the six-session course and plan maintenance individually.",
+            "ar": "تقييم الاستجابة خلال الجلسات الست وتحديد الصيانة بشكل فردي."
+          }
+        ],
+        "suppliedPhotoRevision": 1
+      },
+      {
+        "id": "biorehydra",
+        "name": {
+          "en": "BioReHydra",
+          "ar": "BioReHydra"
+        },
+        "brand": "cmed",
+        "category": "care",
+        "description": {
+          "en": "Lightweight post-treatment hydrogel serum for hydration.",
+          "ar": "سيروم هيدروجل خفيف لترطيب البشرة بعد الإجراءات."
+        },
+        "concerns": {
+          "en": "Dehydration\nOily skin care\nPost-treatment comfort",
+          "ar": "نقص الترطيب\nالعناية بالبشرة الدهنية\nراحة البشرة بعد الإجراء"
+        },
+        "overview": {
+          "en": "Fast-absorbing serum, designed for oily skin and also suitable for normal or combination skin. Complements BioRePeel and can serve as a make-up base.",
+          "ar": "سيروم سريع الامتصاص طُوّر للبشرة الدهنية، ويلائم أيضاً العادية والمختلطة. يكمّل BioRePeel ويمكن استخدامه كقاعدة للمكياج."
+        },
+        "benefits": {
+          "en": "Supports skin hydration\nHelps maintain softness and comfort\nSupports a smoother-looking complexion",
+          "ar": "يدعم ترطيب البشرة\nيساعد على الحفاظ على النعومة والراحة\nيدعم مظهر بشرة أكثر نعومة"
+        },
+        "ingredients": {
+          "en": "Micronized hyaluronic acid · 5 kDa\nOceanic seaweed extracts\nAmino acids\nVitamins\nGABA",
+          "ar": "حمض هيالورونيك ميكروني · ٥ كيلودالتون\nمستخلصات طحالب بحرية\nأحماض أمينية\nفيتامينات\nGABA"
+        },
+        "protocol": {
+          "en": "Apply topically to the treated area, morning and evening as appropriate for the skin-type routine. Massage gently until absorbed. Follow the clinician’s post-procedure plan.",
+          "ar": "يُطبّق موضعياً على المنطقة المعالجة صباحاً ومساءً بما يلائم روتين نوع البشرة. يُدلّك بلطف حتى الامتصاص، مع اتباع خطة المختص بعد الإجراء."
+        },
+        "notes": {
+          "en": "Serum · oily/normal/combination skin · 30 mL home care / 200 mL clinic.",
+          "ar": "سيروم · بشرة دهنية/عادية/مختلطة · ٣٠ مل للمنزل / ٢٠٠ مل للعيادة."
+        },
+        "faq": {
+          "en": "Serum or cream? | A light hydrogel serum.\nWhich skin types? | Oily, normal and combination.\nAvailable sizes? | 30 mL for home care; 200 mL for clinic use.\nWith the companion product? | Follow the skin-type routine below and the clinician’s advice.\nComplete ingredient list? | The table lists named actives. Refer to the pack for full INCI.",
+          "ar": "سيروم أم كريم؟ | سيروم هيدروجل خفيف.\nلأي أنواع بشرة؟ | الدهنية والعادية والمختلطة.\nما الأحجام المتاحة؟ | ٣٠ مل للعناية المنزلية و٢٠٠ مل للعيادة.\nمع المنتج المكمّل؟ | اتبع روتين نوع البشرة أدناه وإرشادات المختص.\nهل هذه كل المكوّنات؟ | الجدول للمكوّنات الفعّالة المسماة؛ راجع العبوة لقائمة INCI كاملة."
+        },
+        "source": "https://cmedaesthetics.com/therapeutic-areas/professional-skincare/biorehydra/",
+        "image": "stock/biorehydra-30-official.png",
+        "document": "",
+        "cases": [],
+        "approved": true,
+        "visible": true,
+        "order": 6,
+        "visual": true,
+        "careLayout": true,
+        "hideResults": true,
+        "contentRevision": "official-care-2026-10",
+        "packageImage": "stock/biorehydra-200-official.png",
+        "galleryImages": [],
+        "documents": [
+          {
+            "title": {
+              "en": "CMed BioReTherapy · official 2026 brochure",
+              "ar": "CMed BioReTherapy · البروشور الرسمي 2026"
+            },
+            "filename": "CMed-BioReTherapy-2026.pdf",
+            "url": "stock/bioretherapy-2026-official.pdf"
+          }
+        ],
+        "ingredientCards": [
+          {
+            "name": {
+              "en": "Hyaluronic acid",
+              "ar": "حمض الهيالورونيك"
+            },
+            "description": {
+              "en": "5 kDa, as specified by CMed.",
+              "ar": "٥ كيلودالتون وفق CMed."
+            }
+          },
+          {
+            "name": {
+              "en": "Seaweed extracts",
+              "ar": "مستخلصات الطحالب"
+            },
+            "description": {
+              "en": "Extracts associated with three oceans in the brochure.",
+              "ar": "مستخلصات مرتبطة بثلاثة محيطات في البروشور."
+            }
+          },
+          {
+            "name": {
+              "en": "Amino acids & vitamins",
+              "ar": "أحماض أمينية وفيتامينات"
+            },
+            "description": {
+              "en": "Listed nutrient groups.",
+              "ar": "مجموعات مغذّيات مدرجة."
+            }
+          },
+          {
+            "name": {
+              "en": "GABA",
+              "ar": "GABA"
+            },
+            "description": {
+              "en": "Gamma-aminobutyric acid.",
+              "ar": "حمض غاما أمينوبوتيريك."
+            }
+          }
+        ],
+        "protocolSteps": [
+          {
+            "en": "Choose the product for the skin type.",
+            "ar": "اختر المنتج الملائم لنوع البشرة."
+          },
+          {
+            "en": "Apply to the treated area and gently massage until absorbed.",
+            "ar": "طبّق على المنطقة المعالجة ودلّك بلطف حتى الامتصاص."
+          },
+          {
+            "en": "Follow the morning/evening routine below.",
+            "ar": "اتبع روتين الصباح والمساء الموضّح أدناه."
+          }
+        ],
+        "safety": {
+          "en": "Topical skincare. Follow the package directions and professional post-procedure advice. The named active groups are not a complete INCI list; check the package for allergens.",
+          "ar": "عناية موضعية بالبشرة. اتبع تعليمات العبوة وإرشادات المختص بعد الإجراء. مجموعات المكوّنات المسماة ليست قائمة INCI كاملة؛ راجع العبوة للتحقق من مسببات الحساسية."
+        },
+        "facts": [
+          {
+            "label": {
+              "en": "Texture",
+              "ar": "القوام"
+            },
+            "value": {
+              "en": "Hydrogel serum",
+              "ar": "سيروم هيدروجل"
+            }
+          },
+          {
+            "label": {
+              "en": "Home care",
+              "ar": "العناية المنزلية"
+            },
+            "value": {
+              "en": "30 mL",
+              "ar": "٣٠ مل"
+            }
+          },
+          {
+            "label": {
+              "en": "Clinic use",
+              "ar": "استخدام العيادة"
+            },
+            "value": {
+              "en": "200 mL",
+              "ar": "٢٠٠ مل"
+            }
+          },
+          {
+            "label": {
+              "en": "Named active count",
+              "ar": "عدد الفعّالات المعلن"
+            },
+            "value": {
+              "en": "15+",
+              "ar": "أكثر من ١٥"
+            }
+          }
+        ],
+        "sourceReview": {
+          "en": "CMed product page and BioReTherapy 2026 brochure. Named actives, not full INCI.",
+          "ar": "صفحة المنتج لدى CMed وبروشور BioReTherapy 2026. المكوّنات الفعّالة المسماة وليست قائمة INCI كاملة."
+        },
+        "references": [
+          {
+            "title": {
+              "en": "CMed · official product information",
+              "ar": "CMed · معلومات المنتج الرسمية"
+            },
+            "url": "https://cmedaesthetics.com/therapeutic-areas/professional-skincare/biorehydra/"
+          },
+          {
+            "title": {
+              "en": "CMind · BioReTherapy 2026 brochure",
+              "ar": "CMind · بروشور BioReTherapy 2026"
+            },
+            "url": "https://www.cmind.cmedaesthetics.com/wp-content/uploads/2026/04/BIORETHERAPY-2026.pdf"
+          },
+          {
+            "title": {
+              "en": "CMed · integrated BioReTherapy system",
+              "ar": "CMed · نظام BioReTherapy المتكامل"
+            },
+            "url": "https://cmedaesthetics.com/bioretherapy/"
+          }
+        ]
+      },
+      {
+        "id": "biorelift",
+        "name": {
+          "en": "BioReLift",
+          "ar": "BioReLift"
+        },
+        "brand": "cmed",
+        "category": "care",
+        "description": {
+          "en": "Silky post-treatment cream for nourishment and comfort.",
+          "ar": "كريم بقوام حريري لتغذية البشرة وراحتها بعد الإجراءات."
+        },
+        "concerns": {
+          "en": "Dry skin\nPost-treatment nourishment\nSkin firmness & elasticity",
+          "ar": "البشرة الجافة\nالتغذية بعد الإجراء\nتماسك البشرة ومرونتها"
+        },
+        "overview": {
+          "en": "Quickly absorbed cream developed for dry skin, also suitable for normal or combination skin. Complements BioRePeel and can be paired with BioReHydra.",
+          "ar": "كريم سريع الامتصاص طُوّر للبشرة الجافة، ويلائم أيضاً العادية والمختلطة. يكمّل BioRePeel ويمكن استخدامه مع BioReHydra."
+        },
+        "benefits": {
+          "en": "Supports hydration and skin comfort\nProvides nourishing lipid care\nSupports firmness and elasticity",
+          "ar": "يدعم الترطيب وراحة البشرة\nيوفّر عناية مغذية بالدهون\nيدعم التماسك والمرونة"
+        },
+        "ingredients": {
+          "en": "Four biomimetic peptides\nColloidal platinum\nMicronized hyaluronic acid\nAmino acids\nVitamins\nArgan oil\nAlmond oil\nShea butter\nBisabolol",
+          "ar": "أربعة ببتيدات محاكية حيوياً\nبلاتين غرواني\nحمض هيالورونيك ميكروني\nأحماض أمينية\nفيتامينات\nزيت الأرغان\nزيت اللوز\nزبدة الشيا\nبيسابولول"
+        },
+        "protocol": {
+          "en": "Apply topically to the treated area, morning and evening as appropriate for the skin-type routine. Massage gently until absorbed. Follow the clinician’s post-procedure plan.",
+          "ar": "يُطبّق موضعياً على المنطقة المعالجة صباحاً ومساءً بما يلائم روتين نوع البشرة. يُدلّك بلطف حتى الامتصاص، مع اتباع خطة المختص بعد الإجراء."
+        },
+        "notes": {
+          "en": "Cream · dry/normal/combination skin · 30 mL home care / 200 mL clinic.",
+          "ar": "كريم · بشرة جافة/عادية/مختلطة · ٣٠ مل للمنزل / ٢٠٠ مل للعيادة."
+        },
+        "faq": {
+          "en": "Serum or cream? | A light, silky cream.\nWhich skin types? | Dry, normal and combination.\nAvailable sizes? | 30 mL for home care; 200 mL for clinic use.\nWith the companion product? | Follow the skin-type routine below and the clinician’s advice.\nComplete ingredient list? | The table lists named actives. Refer to the pack for full INCI.",
+          "ar": "سيروم أم كريم؟ | كريم خفيف بقوام حريري.\nلأي أنواع بشرة؟ | الجافة والعادية والمختلطة.\nما الأحجام المتاحة؟ | ٣٠ مل للعناية المنزلية و٢٠٠ مل للعيادة.\nمع المنتج المكمّل؟ | اتبع روتين نوع البشرة أدناه وإرشادات المختص.\nهل هذه كل المكوّنات؟ | الجدول للمكوّنات الفعّالة المسماة؛ راجع العبوة لقائمة INCI كاملة."
+        },
+        "source": "https://cmedaesthetics.com/therapeutic-areas/professional-skincare/biorelift/",
+        "image": "stock/biorelift-30-official.png",
+        "document": "",
+        "cases": [],
+        "approved": true,
+        "visible": true,
+        "order": 7,
+        "visual": true,
+        "careLayout": true,
+        "hideResults": true,
+        "contentRevision": "official-care-2026-10",
+        "packageImage": "stock/biorelift-200-official.png",
+        "galleryImages": [],
+        "documents": [
+          {
+            "title": {
+              "en": "CMed BioReTherapy · official 2026 brochure",
+              "ar": "CMed BioReTherapy · البروشور الرسمي 2026"
+            },
+            "filename": "CMed-BioReTherapy-2026.pdf",
+            "url": "stock/bioretherapy-2026-official.pdf"
+          }
+        ],
+        "ingredientCards": [
+          {
+            "name": {
+              "en": "Peptides & colloidal platinum",
+              "ar": "ببتيدات وبلاتين غرواني"
+            },
+            "description": {
+              "en": "Four biomimetic peptides enhanced with colloidal platinum.",
+              "ar": "أربعة ببتيدات محاكية حيوياً مع بلاتين غرواني."
+            }
+          },
+          {
+            "name": {
+              "en": "Hyaluronic acid",
+              "ar": "حمض الهيالورونيك"
+            },
+            "description": {
+              "en": "Micronized HA.",
+              "ar": "هيالورونيك ميكروني."
+            }
+          },
+          {
+            "name": {
+              "en": "Amino acids & vitamins",
+              "ar": "أحماض أمينية وفيتامينات"
+            },
+            "description": {
+              "en": "Listed nutrient groups.",
+              "ar": "مجموعات مغذّيات مدرجة."
+            }
+          },
+          {
+            "name": {
+              "en": "Natural oils & butters",
+              "ar": "زيوت وزبدة طبيعية"
+            },
+            "description": {
+              "en": "Argan, almond and shea, with bisabolol.",
+              "ar": "أرغان ولوز وشيا مع بيسابولول."
+            }
+          }
+        ],
+        "protocolSteps": [
+          {
+            "en": "Choose the product for the skin type.",
+            "ar": "اختر المنتج الملائم لنوع البشرة."
+          },
+          {
+            "en": "Apply to the treated area and gently massage until absorbed.",
+            "ar": "طبّق على المنطقة المعالجة ودلّك بلطف حتى الامتصاص."
+          },
+          {
+            "en": "Follow the morning/evening routine below.",
+            "ar": "اتبع روتين الصباح والمساء الموضّح أدناه."
+          }
+        ],
+        "safety": {
+          "en": "Topical skincare. Follow the package directions and professional post-procedure advice. The named active groups are not a complete INCI list; check the package for allergens.",
+          "ar": "عناية موضعية بالبشرة. اتبع تعليمات العبوة وإرشادات المختص بعد الإجراء. مجموعات المكوّنات المسماة ليست قائمة INCI كاملة؛ راجع العبوة للتحقق من مسببات الحساسية."
+        },
+        "facts": [
+          {
+            "label": {
+              "en": "Texture",
+              "ar": "القوام"
+            },
+            "value": {
+              "en": "Silky cream",
+              "ar": "كريم حريري"
+            }
+          },
+          {
+            "label": {
+              "en": "Home care",
+              "ar": "العناية المنزلية"
+            },
+            "value": {
+              "en": "30 mL",
+              "ar": "٣٠ مل"
+            }
+          },
+          {
+            "label": {
+              "en": "Clinic use",
+              "ar": "استخدام العيادة"
+            },
+            "value": {
+              "en": "200 mL",
+              "ar": "٢٠٠ مل"
+            }
+          },
+          {
+            "label": {
+              "en": "Named active count",
+              "ar": "عدد الفعّالات المعلن"
+            },
+            "value": {
+              "en": "20+",
+              "ar": "أكثر من ٢٠"
+            }
+          }
+        ],
+        "sourceReview": {
+          "en": "CMed product page and BioReTherapy 2026 brochure. Named actives, not full INCI.",
+          "ar": "صفحة المنتج لدى CMed وبروشور BioReTherapy 2026. المكوّنات الفعّالة المسماة وليست قائمة INCI كاملة."
+        },
+        "references": [
+          {
+            "title": {
+              "en": "CMed · official product information",
+              "ar": "CMed · معلومات المنتج الرسمية"
+            },
+            "url": "https://cmedaesthetics.com/therapeutic-areas/professional-skincare/biorelift/"
+          },
+          {
+            "title": {
+              "en": "CMind · BioReTherapy 2026 brochure",
+              "ar": "CMind · بروشور BioReTherapy 2026"
+            },
+            "url": "https://www.cmind.cmedaesthetics.com/wp-content/uploads/2026/04/BIORETHERAPY-2026.pdf"
+          },
+          {
+            "title": {
+              "en": "CMed · integrated BioReTherapy system",
+              "ar": "CMed · نظام BioReTherapy المتكامل"
+            },
+            "url": "https://cmedaesthetics.com/bioretherapy/"
+          }
+        ]
+      },
+      {
+        "id": "ares-ao",
+        "name": {
+          "en": "ARES AO · Anti-Oxidant",
+          "ar": "ARES AO · عناية مضادة للأكسدة"
+        },
+        "brand": "cmed",
+        "category": "skin",
+        "description": {
+          "en": "Hyaluronic acid + antioxidants for dull, photoaged skin.",
+          "ar": "حمض الهيالورونيك ومضادات الأكسدة للبشرة الباهتة والمتأثرة بالشمس."
+        },
+        "concerns": {
+          "en": "Dullness\nPhotoaging\nOxidative stress",
+          "ar": "البهتان\nعلامات التقدم بالعمر الناتجة عن الشمس\nالإجهاد التأكسدي"
+        },
+        "overview": {
+          "en": "ARES AO is the Anti-Oxidant formulation. The brochure positions it for photoaging, chronological aging and skin lacking radiance. It combines two molecular weights of hyaluronic acid with an antioxidant blend.",
+          "ar": "ARES AO هو إصدار Anti-Oxidant. يقدّمه البروشور للعناية بعلامات الشيخوخة الناتجة عن الشمس أو مرور الوقت، وللبشرة التي تفتقد الإشراق. يجمع حمض الهيالورونيك بوزنين جزيئيين مع مجموعة مضادات أكسدة."
+        },
+        "benefits": {
+          "en": "Supports antioxidant care\nHelps restore a brighter-looking complexion\nCombines hydration and care for environmentally stressed skin",
+          "ar": "يدعم العناية المضادة للأكسدة\nيساعد على استعادة مظهر أكثر إشراقاً\nيجمع الترطيب والعناية بالبشرة المتأثرة بالعوامل البيئية"
+        },
+        "ingredients": {
+          "en": "Hyaluronic acid: 0.5 & 1 MDa\nFerulic acid\nEugenol\nAscorbyl glucoside\nSafranal\nRiboflavin\nCurcumin",
+          "ar": "حمض الهيالورونيك: ٠٫٥ و١ ميغادالتون\nحمض الفيروليك\nيوجينول\nأسكوربيل غلوكوزيد\nسافرانال\nريبوفلافين (فيتامين B2)\nكركمين"
+        },
+        "protocol": {
+          "en": "Supplied brochure: 2 mL for each area; 3–4 sessions every 15–20 days. These are brochure reference values, not a fixed plan for every patient.\n\nCurrent CMed overview: one session every 15 days; 3–5 sessions.\n\nCMind microneedling reference: 2 mL per treatment, with a series of 4–5 sessions every 2–4 weeks. Quantity per treatment differs from the brochure’s quantity per area. Match the chosen method to the current IFU and individual assessment.",
+          "ar": "البروشور المرفوع: ٢ مل لكل منطقة؛ ٣–٤ جلسات كل ١٥–٢٠ يوماً. هذه قيم مرجعية وليست خطة ثابتة لكل حالة.\n\nالملخص الحالي لدى CMed: جلسة كل ١٥ يوماً؛ 3–5 جلسات.\n\nمرجع CMind للميكرونيدلينغ: ٢ مل لكل إجراء، وسلسلة ٤–٥ جلسات كل ٢–٤ أسابيع. الكمية لكل إجراء تختلف عن الكمية لكل منطقة في البروشور. تُطابق الطريقة المختارة مع تعليمات الاستخدام الحالية والتقييم الفردي."
+        },
+        "notes": {
+          "en": "Hyaluronic acid + antioxidants for dull, photoaged skin.",
+          "ar": "حمض الهيالورونيك ومضادات الأكسدة للبشرة الباهتة والمتأثرة بالشمس."
+        },
+        "faq": {
+          "en": "How do AA, AO and AK differ? | AA focuses on wrinkles and elasticity; AO on antioxidant care and radiance; AK on tired-looking skin and restructuring care.\nIs the pack size the same? | Yes: the supplied brochure shows 4 vials of 4 mL for each formulation.\nAre the active ingredients a complete INCI? | No. This is the named active list from official resources, not a full label ingredient declaration.\nIs there one universal schedule? | No. The brochure, current website overview and delivery-specific training reference give different courses. They are shown separately in Protocol.\nAre the case results guaranteed? | No. Each published photo pair illustrates an individual case.",
+          "ar": "كيف تختلف AA وAO وAK؟ | AA للتجاعيد والمرونة؛ AO للعناية المضادة للأكسدة والإشراق؛ AK للمظهر المرهق ودعم إعادة هيكلة البشرة.\nهل حجم العبوة واحد؟ | نعم: البروشور المرفوع يذكر ٤ قوارير، كل منها ٤ مل، لكل إصدار.\nهل قائمة المكوّنات هي INCI كاملة؟ | لا. هذه قائمة المكوّنات الفعّالة المسماة في المراجع الرسمية، وليست بيان المكوّنات الكامل على الملصق.\nهل يوجد جدول جلسات واحد للجميع؟ | لا. البروشور والملخص الحالي للموقع ومرجع التدريب بحسب طريقة التطبيق يذكرون خططاً مختلفة، وهي مفصولة في البروتوكول.\nهل نتائج الصور مضمونة؟ | لا. كل زوج صور منشور يوضح حالة فردية."
+        },
+        "source": "https://cmedaesthetics.com/therapeutic-areas/mesotherapy/ares_ao/",
+        "image": "stock/ares-ao-vial",
+        "document": "stock/ares-brochure.pdf",
+        "cases": [
+          {
+            "title": {
+              "en": "Published AO case",
+              "ar": "حالة AO المنشورة"
+            },
+            "details": {
+              "en": "Female, 47 years · 2 sessions with ARES AO · supplied brochure, page 2.",
+              "ar": "أنثى، 47 سنة · 2 جلسات ARES AO · البروشور المرفوع، الصفحة 2."
+            },
+            "before": "stock/ares-ao-before",
+            "after": "stock/ares-ao-after",
+            "approved": true
+          }
+        ],
+        "approved": true,
+        "visible": true,
+        "order": 8,
+        "visual": true,
+        "technologyImage": "stock/ares-nts",
+        "packageImage": "",
+        "galleryImages": [
+          "stock/ares-ao-vial"
+        ],
+        "documents": [
+          {
+            "title": {
+              "en": "ARES · complete supplied brochure",
+              "ar": "ARES · البروشور المرفوع كاملاً"
+            },
+            "filename": "ARES.pdf",
+            "url": "stock/ares-brochure.pdf"
+          }
+        ],
+        "facts": [
+          {
+            "label": {
+              "en": "Focus",
+              "ar": "الهدف"
+            },
+            "value": {
+              "en": "Anti-Oxidant",
+              "ar": "عناية مضادة للأكسدة"
+            }
+          },
+          {
+            "label": {
+              "en": "Pack",
+              "ar": "العبوة"
+            },
+            "value": {
+              "en": "4 × 4 mL",
+              "ar": "٤ × ٤ مل"
+            }
+          },
+          {
+            "label": {
+              "en": "HA molecular weights",
+              "ar": "أوزان الهيالورونيك"
+            },
+            "value": {
+              "en": "0.5 · 1 MDa",
+              "ar": "0.5 · 1 MDa"
+            }
+          },
+          {
+            "label": {
+              "en": "Delivery in brochure",
+              "ar": "طرق التطبيق في البروشور"
+            },
+            "value": {
+              "en": "Microneedling / electroporation",
+              "ar": "ميكرونيدلينغ / إلكتروبوريشن"
+            }
+          }
+        ],
+        "ingredientCards": [
+          {
+            "name": {
+              "en": "Dual-weight HA",
+              "ar": "هيالورونيك بوزنين"
+            },
+            "description": {
+              "en": "0.5 · 1 MDa",
+              "ar": "٠٫٥ · ١ ميغادالتون"
+            }
+          },
+          {
+            "name": {
+              "en": "Antioxidant blend",
+              "ar": "مجموعة مضادات الأكسدة"
+            },
+            "description": {
+              "en": "Ferulic acid, curcumin and safranal.",
+              "ar": "حمض الفيروليك والكركمين والسافرانال."
+            }
+          },
+          {
+            "name": {
+              "en": "Vitamin derivatives",
+              "ar": "مشتقات الفيتامينات"
+            },
+            "description": {
+              "en": "Ascorbyl glucoside and riboflavin.",
+              "ar": "أسكوربيل غلوكوزيد والريبوفلافين."
+            }
+          }
+        ],
+        "technology": [
+          {
+            "title": {
+              "en": "NTS technology",
+              "ar": "تقنية NTS"
+            },
+            "description": {
+              "en": "Non Thermal Stress: CMed describes vacuum filtration without high heat to preserve heat-sensitive ingredients.",
+              "ar": "Non Thermal Stress: تصف CMed الترشيح تحت التفريغ دون حرارة مرتفعة للحفاظ على المكوّنات الحساسة للحرارة."
+            }
+          },
+          {
+            "title": {
+              "en": "Hyaluronic acid",
+              "ar": "حمض الهيالورونيك"
+            },
+            "description": {
+              "en": "Molecular weights vary by formulation: AA uses three; AK and AO list two.",
+              "ar": "الأوزان الجزيئية تختلف بحسب الإصدار: AA بثلاثة أوزان، وAK وAO بوزنين مذكورين."
+            }
+          }
+        ],
+        "sourceReview": {
+          "en": "Based on the supplied ARES brochure and CMed / CMind official resources checked on 8 October 2026. The brochure is supplemented with ingredient and delivery information; protocol differences are shown separately.",
+          "ar": "اعتمدنا بروشور ARES المرفوع ومراجع CMed وCMind الرسمية التي راجعناها في ٨ أكتوبر ٢٠٢٦. كُمّلت تفاصيل المكوّنات وطرق التطبيق من المراجع الرسمية، مع فصل اختلافات البروتوكول."
+        },
+        "caseNote": {
+          "en": "Manufacturer-published illustrative case from the supplied brochure. Individual results vary; lighting and photographic conditions differ.",
+          "ar": "حالة توضيحية منشورة من الشركة في البروشور المرفوع. النتائج فردية، وتختلف الإضاءة وظروف التصوير."
+        },
+        "protocolSteps": [
+          {
+            "en": "Assess the skin and choose the formulation and delivery method. Cleanse and disinfect before a microneedling protocol.",
+            "ar": "قيّم البشرة واختر الإصدار وطريقة التطبيق. نظّف وعقّم قبل بروتوكول الميكرونيدلينغ."
+          },
+          {
+            "en": "The microneedling reference uses device settings selected by a trained professional, followed by topical ARES application and a further pass.",
+            "ar": "مرجع الميكرونيدلينغ يعتمد إعدادات جهاز يحددها المختص، ثم تطبيق ARES موضعياً ومرور إضافي بالجهاز."
+          },
+          {
+            "en": "Electroporation is another delivery method shown in the brochure. Follow its device-specific protocol; it is distinct from microneedling.",
+            "ar": "الإلكتروبوريشن طريقة أخرى مذكورة في البروشور. يُتبع بروتوكول الجهاز الخاص بها، وهي تختلف عن الميكرونيدلينغ."
+          },
+          {
+            "en": "Allow absorption and finish with suitable aftercare and SPF according to professional instructions.",
+            "ar": "اترك وقتاً للامتصاص ثم أكمل بالعناية المناسبة والوقاية من الشمس وفق تعليمات المختص."
+          }
+        ],
+        "stepImages": [],
+        "safety": {
+          "en": "Professional reference summary, not the complete IFU. Assess allergies, skin condition, medical history, medicines and contraindications for the chosen device. The brochure lists microneedling and electroporation; the term mesotherapy alone does not establish approval for syringe injection.",
+          "ar": "ملخص مرجعي للمختصين وليس تعليمات الاستخدام الكاملة. تُقيّم الحساسية وحالة الجلد والتاريخ الطبي والأدوية وموانع استخدام الجهاز المختار. البروشور يذكر الميكرونيدلينغ والإلكتروبوريشن؛ كلمة ميزوثيرابي وحدها لا تثبت اعتماد الحقن بالسرنجة."
+        },
+        "references": [
+          {
+            "title": {
+              "en": "Supplied ARES brochure · all four pages",
+              "ar": "بروشور ARES المرفوع · الصفحات الأربع"
+            },
+            "url": "stock/ares-brochure.pdf"
+          },
+          {
+            "title": {
+              "en": "CMed · ARES AO",
+              "ar": "CMed · ARES AO"
+            },
+            "url": "https://cmedaesthetics.com/therapeutic-areas/mesotherapy/ares_ao/"
+          },
+          {
+            "title": {
+              "en": "CMed · current treatment overview",
+              "ar": "CMed · ملخص الإجراءات الحالي"
+            },
+            "url": "https://cmedaesthetics.com/what-to-expect-from-our-treatments/"
+          },
+          {
+            "title": {
+              "en": "CMind · ARES presentation (2025)",
+              "ar": "CMind · عرض ARES (٢٠٢٥)"
+            },
+            "url": "https://www.cmind.cmedaesthetics.com/wp-content/uploads/2025/05/ARES-PRESENTATION-2025.pdf"
+          }
+        ],
+        "visualTrial": true,
+        "visualBenefits": [
+          {
+            "title": {
+              "en": "Hydration",
+              "ar": "الترطيب"
+            },
+            "description": {
+              "en": "Hyaluronic acid in two molecular weights.",
+              "ar": "حمض الهيالورونيك بوزنين جزيئيين."
+            },
+            "icon": "drop"
+          },
+          {
+            "title": {
+              "en": "Antioxidant care",
+              "ar": "عناية مضادة للأكسدة"
+            },
+            "description": {
+              "en": "A blend of named antioxidant actives.",
+              "ar": "مجموعة من المكوّنات الفعّالة المضادة للأكسدة."
+            },
+            "icon": "shield"
+          },
+          {
+            "title": {
+              "en": "Radiance",
+              "ar": "الإشراق"
+            },
+            "description": {
+              "en": "Care for skin that lacks radiance.",
+              "ar": "عناية بالبشرة التي تفتقد الإشراق."
+            },
+            "icon": "spark"
+          }
+        ]
+      },
+      {
+        "id": "ares-aa",
+        "name": {
+          "en": "ARES AA · Anti-Age",
+          "ar": "ARES AA · عناية بعلامات التقدّم بالعمر"
+        },
+        "brand": "cmed",
+        "category": "skin",
+        "description": {
+          "en": "Hyaluronic acid + biopeptides for wrinkles and loss of elasticity.",
+          "ar": "حمض الهيالورونيك والببتيدات الحيوية للعناية بالتجاعيد وفقدان المرونة."
+        },
+        "concerns": {
+          "en": "Wrinkles\nLoss of elasticity\nSkin quality",
+          "ar": "التجاعيد\nفقدان المرونة\nجودة البشرة"
+        },
+        "overview": {
+          "en": "ARES AA is the Anti-Age formulation. The brochure positions it for aged and wrinkled skin, with a focus on elasticity and skin quality. Its formula combines hyaluronic acid at three molecular weights with a selected peptide complex.",
+          "ar": "ARES AA هو إصدار Anti-Age للعناية بعلامات التقدم بالعمر. يقدّمه البروشور للبشرة التي تظهر عليها التجاعيد وفقدان المرونة، مع التركيز على جودة البشرة. يجمع حمض الهيالورونيك بثلاثة أوزان جزيئية مع مجموعة ببتيدات مختارة."
+        },
+        "benefits": {
+          "en": "Helps improve the appearance of fine lines\nSupports elasticity and smoother-looking skin\nCombines hydration with peptide-based care",
+          "ar": "يساعد على تحسين مظهر الخطوط الدقيقة\nيدعم المرونة ومظهر البشرة الأكثر نعومة\nيجمع الترطيب والعناية القائمة على الببتيدات"
+        },
+        "ingredients": {
+          "en": "Hyaluronic acid: 0.25, 0.5 & 1 MDa\nAcetyl Tetrapeptide-11\nPentapeptide-3\nOligopeptide-34\nCopper Tripeptide-34\nTripeptide-29\nMyristoyl Pentapeptide-8\nPal-Tetrapeptide-7",
+          "ar": "حمض الهيالورونيك: ٠٫٢٥ و٠٫٥ و١ ميغادالتون\nAcetyl Tetrapeptide-11\nPentapeptide-3\nOligopeptide-34\nCopper Tripeptide-34\nTripeptide-29\nMyristoyl Pentapeptide-8\nPal-Tetrapeptide-7"
+        },
+        "protocol": {
+          "en": "Supplied brochure: 2 mL for each area; 3–4 sessions every 15–20 days. These are brochure reference values, not a fixed plan for every patient.\n\nCurrent CMed overview: one session every 15 days; 3–5 sessions.\n\nCMind microneedling reference: 2 mL per treatment, with a series of 4–5 sessions every 2–4 weeks. Quantity per treatment differs from the brochure’s quantity per area. Match the chosen method to the current IFU and individual assessment.",
+          "ar": "البروشور المرفوع: ٢ مل لكل منطقة؛ ٣–٤ جلسات كل ١٥–٢٠ يوماً. هذه قيم مرجعية وليست خطة ثابتة لكل حالة.\n\nالملخص الحالي لدى CMed: جلسة كل ١٥ يوماً؛ 3–5 جلسات.\n\nمرجع CMind للميكرونيدلينغ: ٢ مل لكل إجراء، وسلسلة ٤–٥ جلسات كل ٢–٤ أسابيع. الكمية لكل إجراء تختلف عن الكمية لكل منطقة في البروشور. تُطابق الطريقة المختارة مع تعليمات الاستخدام الحالية والتقييم الفردي."
+        },
+        "notes": {
+          "en": "Hyaluronic acid + biopeptides for wrinkles and loss of elasticity.",
+          "ar": "حمض الهيالورونيك والببتيدات الحيوية للعناية بالتجاعيد وفقدان المرونة."
+        },
+        "faq": {
+          "en": "How do AA, AO and AK differ? | AA focuses on wrinkles and elasticity; AO on antioxidant care and radiance; AK on tired-looking skin and restructuring care.\nIs the pack size the same? | Yes: the supplied brochure shows 4 vials of 4 mL for each formulation.\nAre the active ingredients a complete INCI? | No. This is the named active list from official resources, not a full label ingredient declaration.\nIs there one universal schedule? | No. The brochure, current website overview and delivery-specific training reference give different courses. They are shown separately in Protocol.\nAre the case results guaranteed? | No. Each published photo pair illustrates an individual case.",
+          "ar": "كيف تختلف AA وAO وAK؟ | AA للتجاعيد والمرونة؛ AO للعناية المضادة للأكسدة والإشراق؛ AK للمظهر المرهق ودعم إعادة هيكلة البشرة.\nهل حجم العبوة واحد؟ | نعم: البروشور المرفوع يذكر ٤ قوارير، كل منها ٤ مل، لكل إصدار.\nهل قائمة المكوّنات هي INCI كاملة؟ | لا. هذه قائمة المكوّنات الفعّالة المسماة في المراجع الرسمية، وليست بيان المكوّنات الكامل على الملصق.\nهل يوجد جدول جلسات واحد للجميع؟ | لا. البروشور والملخص الحالي للموقع ومرجع التدريب بحسب طريقة التطبيق يذكرون خططاً مختلفة، وهي مفصولة في البروتوكول.\nهل نتائج الصور مضمونة؟ | لا. كل زوج صور منشور يوضح حالة فردية."
+        },
+        "source": "https://cmedaesthetics.com/therapeutic-areas/mesotherapy/ares_aa/",
+        "image": "stock/ares-aa-vial",
+        "document": "stock/ares-brochure.pdf",
+        "cases": [
+          {
+            "title": {
+              "en": "Published AA case",
+              "ar": "حالة AA المنشورة"
+            },
+            "details": {
+              "en": "Female, 27 years · 3 sessions with ARES AA · supplied brochure, page 3.",
+              "ar": "أنثى، 27 سنة · 3 جلسات ARES AA · البروشور المرفوع، الصفحة 3."
+            },
+            "before": "stock/ares-aa-before",
+            "after": "stock/ares-aa-after",
+            "approved": true
+          }
+        ],
+        "approved": true,
+        "visible": true,
+        "order": 9,
+        "visual": true,
+        "technologyImage": "stock/ares-nts",
+        "packageImage": "",
+        "galleryImages": [
+          "stock/ares-aa-vial"
+        ],
+        "documents": [
+          {
+            "title": {
+              "en": "ARES · complete supplied brochure",
+              "ar": "ARES · البروشور المرفوع كاملاً"
+            },
+            "filename": "ARES.pdf",
+            "url": "stock/ares-brochure.pdf"
+          }
+        ],
+        "facts": [
+          {
+            "label": {
+              "en": "Focus",
+              "ar": "الهدف"
+            },
+            "value": {
+              "en": "Anti-Age",
+              "ar": "عناية بعلامات التقدّم بالعمر"
+            }
+          },
+          {
+            "label": {
+              "en": "Pack",
+              "ar": "العبوة"
+            },
+            "value": {
+              "en": "4 × 4 mL",
+              "ar": "٤ × ٤ مل"
+            }
+          },
+          {
+            "label": {
+              "en": "HA molecular weights",
+              "ar": "أوزان الهيالورونيك"
+            },
+            "value": {
+              "en": "0.25 · 0.5 · 1 MDa",
+              "ar": "0.25 · 0.5 · 1 MDa"
+            }
+          },
+          {
+            "label": {
+              "en": "Delivery in brochure",
+              "ar": "طرق التطبيق في البروشور"
+            },
+            "value": {
+              "en": "Microneedling / electroporation",
+              "ar": "ميكرونيدلينغ / إلكتروبوريشن"
+            }
+          }
+        ],
+        "ingredientCards": [
+          {
+            "name": {
+              "en": "Multi-weight HA",
+              "ar": "هيالورونيك متعدد الأوزان"
+            },
+            "description": {
+              "en": "0.25 · 0.5 · 1 MDa",
+              "ar": "٠٫٢٥ · ٠٫٥ · ١ ميغادالتون"
+            }
+          },
+          {
+            "name": {
+              "en": "Peptide complex",
+              "ar": "مجموعة الببتيدات"
+            },
+            "description": {
+              "en": "Seven named peptides in the CMed presentation.",
+              "ar": "سبعة ببتيدات مسمّاة في عرض CMed."
+            }
+          }
+        ],
+        "technology": [
+          {
+            "title": {
+              "en": "NTS technology",
+              "ar": "تقنية NTS"
+            },
+            "description": {
+              "en": "Non Thermal Stress: CMed describes vacuum filtration without high heat to preserve heat-sensitive ingredients.",
+              "ar": "Non Thermal Stress: تصف CMed الترشيح تحت التفريغ دون حرارة مرتفعة للحفاظ على المكوّنات الحساسة للحرارة."
+            }
+          },
+          {
+            "title": {
+              "en": "Hyaluronic acid",
+              "ar": "حمض الهيالورونيك"
+            },
+            "description": {
+              "en": "Molecular weights vary by formulation: AA uses three; AK and AO list two.",
+              "ar": "الأوزان الجزيئية تختلف بحسب الإصدار: AA بثلاثة أوزان، وAK وAO بوزنين مذكورين."
+            }
+          }
+        ],
+        "sourceReview": {
+          "en": "Based on the supplied ARES brochure and CMed / CMind official resources checked on 8 October 2026. The brochure is supplemented with ingredient and delivery information; protocol differences are shown separately.",
+          "ar": "اعتمدنا بروشور ARES المرفوع ومراجع CMed وCMind الرسمية التي راجعناها في ٨ أكتوبر ٢٠٢٦. كُمّلت تفاصيل المكوّنات وطرق التطبيق من المراجع الرسمية، مع فصل اختلافات البروتوكول."
+        },
+        "caseNote": {
+          "en": "Manufacturer-published illustrative case from the supplied brochure. Individual results vary; lighting and photographic conditions differ.",
+          "ar": "حالة توضيحية منشورة من الشركة في البروشور المرفوع. النتائج فردية، وتختلف الإضاءة وظروف التصوير."
+        },
+        "protocolSteps": [
+          {
+            "en": "Assess the skin and choose the formulation and delivery method. Cleanse and disinfect before a microneedling protocol.",
+            "ar": "قيّم البشرة واختر الإصدار وطريقة التطبيق. نظّف وعقّم قبل بروتوكول الميكرونيدلينغ."
+          },
+          {
+            "en": "The microneedling reference uses device settings selected by a trained professional, followed by topical ARES application and a further pass.",
+            "ar": "مرجع الميكرونيدلينغ يعتمد إعدادات جهاز يحددها المختص، ثم تطبيق ARES موضعياً ومرور إضافي بالجهاز."
+          },
+          {
+            "en": "Electroporation is another delivery method shown in the brochure. Follow its device-specific protocol; it is distinct from microneedling.",
+            "ar": "الإلكتروبوريشن طريقة أخرى مذكورة في البروشور. يُتبع بروتوكول الجهاز الخاص بها، وهي تختلف عن الميكرونيدلينغ."
+          },
+          {
+            "en": "Allow absorption and finish with suitable aftercare and SPF according to professional instructions.",
+            "ar": "اترك وقتاً للامتصاص ثم أكمل بالعناية المناسبة والوقاية من الشمس وفق تعليمات المختص."
+          }
+        ],
+        "stepImages": [],
+        "safety": {
+          "en": "Professional reference summary, not the complete IFU. Assess allergies, skin condition, medical history, medicines and contraindications for the chosen device. The brochure lists microneedling and electroporation; the term mesotherapy alone does not establish approval for syringe injection.",
+          "ar": "ملخص مرجعي للمختصين وليس تعليمات الاستخدام الكاملة. تُقيّم الحساسية وحالة الجلد والتاريخ الطبي والأدوية وموانع استخدام الجهاز المختار. البروشور يذكر الميكرونيدلينغ والإلكتروبوريشن؛ كلمة ميزوثيرابي وحدها لا تثبت اعتماد الحقن بالسرنجة."
+        },
+        "references": [
+          {
+            "title": {
+              "en": "Supplied ARES brochure · all four pages",
+              "ar": "بروشور ARES المرفوع · الصفحات الأربع"
+            },
+            "url": "stock/ares-brochure.pdf"
+          },
+          {
+            "title": {
+              "en": "CMed · ARES AA",
+              "ar": "CMed · ARES AA"
+            },
+            "url": "https://cmedaesthetics.com/therapeutic-areas/mesotherapy/ares_aa/"
+          },
+          {
+            "title": {
+              "en": "CMed · current treatment overview",
+              "ar": "CMed · ملخص الإجراءات الحالي"
+            },
+            "url": "https://cmedaesthetics.com/what-to-expect-from-our-treatments/"
+          },
+          {
+            "title": {
+              "en": "CMind · ARES presentation (2025)",
+              "ar": "CMind · عرض ARES (٢٠٢٥)"
+            },
+            "url": "https://www.cmind.cmedaesthetics.com/wp-content/uploads/2025/05/ARES-PRESENTATION-2025.pdf"
+          }
+        ]
+      },
+      {
+        "id": "ares-ak",
+        "name": {
+          "en": "ARES AK · Dermo Restructurant",
+          "ar": "ARES AK · دعم إعادة هيكلة البشرة"
+        },
+        "brand": "cmed",
+        "category": "skin",
+        "description": {
+          "en": "Hyaluronic acid + succinic acid + amino acids for tired-looking skin.",
+          "ar": "حمض الهيالورونيك والسكسينيك والأحماض الأمينية للبشرة ذات المظهر المرهق."
+        },
+        "concerns": {
+          "en": "Tired-looking skin\nDehydration\nTexture / scarring assessment",
+          "ar": "مظهر البشرة المرهق\nالجفاف\nتقييم الملمس والندبات"
+        },
+        "overview": {
+          "en": "ARES AK is the Dermo Restructurant formulation. The brochure positions it as moisturizing and stimulating care for tired-looking skin and tissue scarring. It combines dual-weight hyaluronic acid, succinic acid and amino acids; suitability for any scar or skin concern requires individual assessment.",
+          "ar": "ARES AK هو إصدار Dermo Restructurant. يقدّمه البروشور كعناية مرطبة وداعمة لحيوية البشرة ذات المظهر المرهق، ويذكر الندبات ضمن استخداماته. يجمع حمض الهيالورونيك بوزنين جزيئيين وحمض السكسينيك وأحماضاً أمينية؛ وتُقيّم ملاءمته لأي ندبة أو حالة بشكل فردي."
+        },
+        "benefits": {
+          "en": "Supports hydration of tired-looking skin\nHelps improve the appearance of texture and radiance\nCombines hyaluronic acid with succinic acid and amino acids",
+          "ar": "يدعم ترطيب البشرة ذات المظهر المرهق\nيساعد على تحسين مظهر الملمس والإشراق\nيجمع الهيالورونيك مع السكسينيك والأحماض الأمينية"
+        },
+        "ingredients": {
+          "en": "Hyaluronic acid: 0.5 & 1 MDa\nSuccinic acid\nProline, lysine, leucine, isoleucine\nHydroxyproline, glycine, valine, threonine\nPhenylalanine, methionine, glutamic acid, arginine",
+          "ar": "حمض الهيالورونيك: ٠٫٥ و١ ميغادالتون\nحمض السكسينيك\nبرولين، لايسين، ليوسين، إيزوليوسين\nهيدروكسي برولين، غلايسين، فالين، ثريونين\nفينيل ألانين، ميثيونين، حمض الغلوتاميك، أرجينين"
+        },
+        "protocol": {
+          "en": "Supplied brochure: 2 mL for each area; 3–4 sessions every 15–20 days. These are brochure reference values, not a fixed plan for every patient.\n\nCurrent CMed overview: one session every 15 days; 4 sessions.\n\nCMind microneedling reference: 2 mL per treatment, with a series of 4–5 sessions every 2–4 weeks. Quantity per treatment differs from the brochure’s quantity per area. Match the chosen method to the current IFU and individual assessment.\n\nThe AK area diagram notes 1:1 dilution, without specifying the diluent or preparation conditions. This is a source note; obtain the full current instructions before preparing a dilution.",
+          "ar": "البروشور المرفوع: ٢ مل لكل منطقة؛ ٣–٤ جلسات كل ١٥–٢٠ يوماً. هذه قيم مرجعية وليست خطة ثابتة لكل حالة.\n\nالملخص الحالي لدى CMed: جلسة كل ١٥ يوماً؛ 4 جلسات.\n\nمرجع CMind للميكرونيدلينغ: ٢ مل لكل إجراء، وسلسلة ٤–٥ جلسات كل ٢–٤ أسابيع. الكمية لكل إجراء تختلف عن الكمية لكل منطقة في البروشور. تُطابق الطريقة المختارة مع تعليمات الاستخدام الحالية والتقييم الفردي.\n\nرسم مناطق AK يذكر تخفيفاً ١:١ دون تحديد المذيب أو شروط التحضير. هذه ملاحظة عن المصدر؛ يجب الحصول على التعليمات الحالية الكاملة قبل تحضير أي تخفيف."
+        },
+        "notes": {
+          "en": "Hyaluronic acid + succinic acid + amino acids for tired-looking skin.",
+          "ar": "حمض الهيالورونيك والسكسينيك والأحماض الأمينية للبشرة ذات المظهر المرهق."
+        },
+        "faq": {
+          "en": "How do AA, AO and AK differ? | AA focuses on wrinkles and elasticity; AO on antioxidant care and radiance; AK on tired-looking skin and restructuring care.\nIs the pack size the same? | Yes: the supplied brochure shows 4 vials of 4 mL for each formulation.\nAre the active ingredients a complete INCI? | No. This is the named active list from official resources, not a full label ingredient declaration.\nIs there one universal schedule? | No. The brochure, current website overview and delivery-specific training reference give different courses. They are shown separately in Protocol.\nAre the case results guaranteed? | No. Each published photo pair illustrates an individual case.",
+          "ar": "كيف تختلف AA وAO وAK؟ | AA للتجاعيد والمرونة؛ AO للعناية المضادة للأكسدة والإشراق؛ AK للمظهر المرهق ودعم إعادة هيكلة البشرة.\nهل حجم العبوة واحد؟ | نعم: البروشور المرفوع يذكر ٤ قوارير، كل منها ٤ مل، لكل إصدار.\nهل قائمة المكوّنات هي INCI كاملة؟ | لا. هذه قائمة المكوّنات الفعّالة المسماة في المراجع الرسمية، وليست بيان المكوّنات الكامل على الملصق.\nهل يوجد جدول جلسات واحد للجميع؟ | لا. البروشور والملخص الحالي للموقع ومرجع التدريب بحسب طريقة التطبيق يذكرون خططاً مختلفة، وهي مفصولة في البروتوكول.\nهل نتائج الصور مضمونة؟ | لا. كل زوج صور منشور يوضح حالة فردية."
+        },
+        "source": "https://cmedaesthetics.com/therapeutic-areas/mesotherapy/ares_ak/",
+        "image": "stock/ares-ak-vial",
+        "document": "stock/ares-brochure.pdf",
+        "cases": [
+          {
+            "title": {
+              "en": "Published AK case",
+              "ar": "حالة AK المنشورة"
+            },
+            "details": {
+              "en": "Female, 54 years · 2 sessions with ARES AK · supplied brochure, page 2.",
+              "ar": "أنثى، 54 سنة · 2 جلسات ARES AK · البروشور المرفوع، الصفحة 2."
+            },
+            "before": "stock/ares-ak-before",
+            "after": "stock/ares-ak-after",
+            "approved": true
+          }
+        ],
+        "approved": true,
+        "visible": true,
+        "order": 10,
+        "visual": true,
+        "technologyImage": "stock/ares-nts",
+        "packageImage": "stock/ares-ak-package",
+        "galleryImages": [
+          "stock/ares-ak-vial",
+          "stock/ares-ak-package"
+        ],
+        "documents": [
+          {
+            "title": {
+              "en": "ARES · complete supplied brochure",
+              "ar": "ARES · البروشور المرفوع كاملاً"
+            },
+            "filename": "ARES.pdf",
+            "url": "stock/ares-brochure.pdf"
+          }
+        ],
+        "facts": [
+          {
+            "label": {
+              "en": "Focus",
+              "ar": "الهدف"
+            },
+            "value": {
+              "en": "Dermo Restructurant",
+              "ar": "دعم إعادة هيكلة البشرة"
+            }
+          },
+          {
+            "label": {
+              "en": "Pack",
+              "ar": "العبوة"
+            },
+            "value": {
+              "en": "4 × 4 mL",
+              "ar": "٤ × ٤ مل"
+            }
+          },
+          {
+            "label": {
+              "en": "HA molecular weights",
+              "ar": "أوزان الهيالورونيك"
+            },
+            "value": {
+              "en": "0.5 · 1 MDa",
+              "ar": "0.5 · 1 MDa"
+            }
+          },
+          {
+            "label": {
+              "en": "Delivery in brochure",
+              "ar": "طرق التطبيق في البروشور"
+            },
+            "value": {
+              "en": "Microneedling / electroporation",
+              "ar": "ميكرونيدلينغ / إلكتروبوريشن"
+            }
+          }
+        ],
+        "ingredientCards": [
+          {
+            "name": {
+              "en": "Dual-weight HA",
+              "ar": "هيالورونيك بوزنين"
+            },
+            "description": {
+              "en": "0.5 · 1 MDa",
+              "ar": "٠٫٥ · ١ ميغادالتون"
+            }
+          },
+          {
+            "name": {
+              "en": "Succinic acid",
+              "ar": "حمض السكسينيك"
+            },
+            "description": {
+              "en": "A distinguishing active of the AK formulation.",
+              "ar": "مكوّن فعّال يميّز إصدار AK."
+            }
+          },
+          {
+            "name": {
+              "en": "Amino acids",
+              "ar": "الأحماض الأمينية"
+            },
+            "description": {
+              "en": "The named amino acids are listed below.",
+              "ar": "الأحماض الأمينية المسماة مدرجة أدناه."
+            }
+          }
+        ],
+        "technology": [
+          {
+            "title": {
+              "en": "NTS technology",
+              "ar": "تقنية NTS"
+            },
+            "description": {
+              "en": "Non Thermal Stress: CMed describes vacuum filtration without high heat to preserve heat-sensitive ingredients.",
+              "ar": "Non Thermal Stress: تصف CMed الترشيح تحت التفريغ دون حرارة مرتفعة للحفاظ على المكوّنات الحساسة للحرارة."
+            }
+          },
+          {
+            "title": {
+              "en": "Hyaluronic acid",
+              "ar": "حمض الهيالورونيك"
+            },
+            "description": {
+              "en": "Molecular weights vary by formulation: AA uses three; AK and AO list two.",
+              "ar": "الأوزان الجزيئية تختلف بحسب الإصدار: AA بثلاثة أوزان، وAK وAO بوزنين مذكورين."
+            }
+          }
+        ],
+        "sourceReview": {
+          "en": "Based on the supplied ARES brochure and CMed / CMind official resources checked on 8 October 2026. The brochure is supplemented with ingredient and delivery information; protocol differences are shown separately.",
+          "ar": "اعتمدنا بروشور ARES المرفوع ومراجع CMed وCMind الرسمية التي راجعناها في ٨ أكتوبر ٢٠٢٦. كُمّلت تفاصيل المكوّنات وطرق التطبيق من المراجع الرسمية، مع فصل اختلافات البروتوكول."
+        },
+        "caseNote": {
+          "en": "Manufacturer-published illustrative case from the supplied brochure. Individual results vary; lighting and photographic conditions differ.",
+          "ar": "حالة توضيحية منشورة من الشركة في البروشور المرفوع. النتائج فردية، وتختلف الإضاءة وظروف التصوير."
+        },
+        "protocolSteps": [
+          {
+            "en": "Assess the skin and choose the formulation and delivery method. Cleanse and disinfect before a microneedling protocol.",
+            "ar": "قيّم البشرة واختر الإصدار وطريقة التطبيق. نظّف وعقّم قبل بروتوكول الميكرونيدلينغ."
+          },
+          {
+            "en": "The microneedling reference uses device settings selected by a trained professional, followed by topical ARES application and a further pass.",
+            "ar": "مرجع الميكرونيدلينغ يعتمد إعدادات جهاز يحددها المختص، ثم تطبيق ARES موضعياً ومرور إضافي بالجهاز."
+          },
+          {
+            "en": "Electroporation is another delivery method shown in the brochure. Follow its device-specific protocol; it is distinct from microneedling.",
+            "ar": "الإلكتروبوريشن طريقة أخرى مذكورة في البروشور. يُتبع بروتوكول الجهاز الخاص بها، وهي تختلف عن الميكرونيدلينغ."
+          },
+          {
+            "en": "Allow absorption and finish with suitable aftercare and SPF according to professional instructions.",
+            "ar": "اترك وقتاً للامتصاص ثم أكمل بالعناية المناسبة والوقاية من الشمس وفق تعليمات المختص."
+          }
+        ],
+        "stepImages": [],
+        "safety": {
+          "en": "Professional reference summary, not the complete IFU. Assess allergies, skin condition, medical history, medicines and contraindications for the chosen device. The brochure lists microneedling and electroporation; the term mesotherapy alone does not establish approval for syringe injection.",
+          "ar": "ملخص مرجعي للمختصين وليس تعليمات الاستخدام الكاملة. تُقيّم الحساسية وحالة الجلد والتاريخ الطبي والأدوية وموانع استخدام الجهاز المختار. البروشور يذكر الميكرونيدلينغ والإلكتروبوريشن؛ كلمة ميزوثيرابي وحدها لا تثبت اعتماد الحقن بالسرنجة."
+        },
+        "references": [
+          {
+            "title": {
+              "en": "Supplied ARES brochure · all four pages",
+              "ar": "بروشور ARES المرفوع · الصفحات الأربع"
+            },
+            "url": "stock/ares-brochure.pdf"
+          },
+          {
+            "title": {
+              "en": "CMed · ARES AK",
+              "ar": "CMed · ARES AK"
+            },
+            "url": "https://cmedaesthetics.com/therapeutic-areas/mesotherapy/ares_ak/"
+          },
+          {
+            "title": {
+              "en": "CMed · current treatment overview",
+              "ar": "CMed · ملخص الإجراءات الحالي"
+            },
+            "url": "https://cmedaesthetics.com/what-to-expect-from-our-treatments/"
+          },
+          {
+            "title": {
+              "en": "CMind · ARES presentation (2025)",
+              "ar": "CMind · عرض ARES (٢٠٢٥)"
+            },
+            "url": "https://www.cmind.cmedaesthetics.com/wp-content/uploads/2025/05/ARES-PRESENTATION-2025.pdf"
+          }
+        ]
+      },
+      {
+        "id": "ares-ac",
+        "name": {
+          "en": "ARES AC",
+          "ar": "ARES AC"
+        },
+        "brand": "cmed",
+        "category": "skin",
+        "description": {
+          "en": "Add your approved product information",
+          "ar": "أضف معلومات المنتج المعتمدة"
+        },
+        "concerns": {
+          "en": "",
+          "ar": ""
+        },
+        "overview": {
+          "en": "Add your approved product information",
+          "ar": "أضف معلومات المنتج المعتمدة"
+        },
+        "benefits": {
+          "en": "",
+          "ar": ""
+        },
+        "ingredients": {
+          "en": "",
+          "ar": ""
+        },
+        "protocol": {
+          "en": "",
+          "ar": ""
+        },
+        "notes": {
+          "en": "",
+          "ar": ""
+        },
+        "faq": {
+          "en": "",
+          "ar": ""
+        },
+        "source": "",
+        "image": "",
+        "document": "",
+        "cases": [],
+        "approved": false,
+        "visible": true,
+        "order": 11
+      },
+      {
+        "id": "ares-ar",
+        "name": {
+          "en": "ARES AR",
+          "ar": "ARES AR"
+        },
+        "brand": "cmed",
+        "category": "skin",
+        "description": {
+          "en": "Add your approved product information",
+          "ar": "أضف معلومات المنتج المعتمدة"
+        },
+        "concerns": {
+          "en": "",
+          "ar": ""
+        },
+        "overview": {
+          "en": "Add your approved product information",
+          "ar": "أضف معلومات المنتج المعتمدة"
+        },
+        "benefits": {
+          "en": "",
+          "ar": ""
+        },
+        "ingredients": {
+          "en": "",
+          "ar": ""
+        },
+        "protocol": {
+          "en": "",
+          "ar": ""
+        },
+        "notes": {
+          "en": "",
+          "ar": ""
+        },
+        "faq": {
+          "en": "",
+          "ar": ""
+        },
+        "source": "",
+        "image": "",
+        "document": "",
+        "cases": [],
+        "approved": false,
+        "visible": true,
+        "order": 12
+      },
+      {
+        "id": "ostafarma-retinol",
+        "name": {
+          "en": "Retinol Anti-Aging Serum",
+          "ar": "سيروم الريتينول المضاد لعلامات التقدم بالعمر"
+        },
+        "brand": "ostafarma",
+        "category": "care",
+        "description": {
+          "en": "Professional anti-aging serum presented as a 0.25% retinol formula.",
+          "ar": "سيروم احترافي مضاد لعلامات التقدم بالعمر، مقدّم كتركيبة ريتينول بتركيز 0.25%."
+        },
+        "concerns": {
+          "en": "Uneven texture\nFine lines\nUneven pigmentation\nPhotoaged skin",
+          "ar": "ملمس غير متجانس\nالخطوط الدقيقة\nالتصبغات غير المتجانسة\nعلامات التقدم الضوئي بالعمر"
+        },
+        "overview": {
+          "en": "A professional-use serum from Östafarma. The supplied material highlights skin texture, fine lines and pigmentation, and pairs the retinoid formula with niacinamide, glycerin and collagen amino acids.",
+          "ar": "سيروم للاستخدام الاحترافي من Östafarma. تركز المواد المرفوعة على ملمس البشرة والخطوط الدقيقة والتصبغات، وتجمع تركيبة الريتينويد مع النياسيناميد والغليسرين وأحماض أمينية من الكولاجين."
+        },
+        "benefits": {
+          "en": "Helps improve the appearance of skin texture\nHelps improve the appearance of fine lines\nSupports a more even-looking skin tone\nSupports collagen and epidermal-barrier care",
+          "ar": "يساعد على تحسين مظهر ملمس البشرة\nيساعد على تحسين مظهر الخطوط الدقيقة\nيدعم مظهراً أكثر تجانساً للون البشرة\nيدعم العناية بالكولاجين وحاجز البشرة"
+        },
+        "ingredients": {
+          "en": "Aqua\nRetinyl Palmitate\nPolysorbate-20\nNiacinamide\nGlycerin\nButylene Glycol\nPropylene Glycol\nPentylene Glycol\nAloe Barbadensis Leaf Extract\nPhenoxyethanol\nPanthenol\nSalvia Officinalis Extract\nCollagen Amino Acids\nEthylhexylglycerin\nAllantoin\nPalmitoyl Tetrapeptide-7",
+          "ar": "ماء\nريتينيل بالميتات\nبوليسوربات-20\nنياسيناميد\nغليسرين\nبوتيلين غليكول\nبروبيلين غليكول\nبنتيلين غليكول\nخلاصة أوراق الألوفيرا\nفينوكسي إيثانول\nبانثينول\nخلاصة الميرمية\nأحماض أمينية من الكولاجين\nإيثيل هكسيل غليسرين\nألانتوين\nبالميتويل تيتراببتيد-7"
+        },
+        "protocol": {
+          "en": "The supplied professional-use sheet describes combining the serum with microneedling or HydraFacial-type procedures for enhanced topical delivery, followed by a 2 cc post-session application. Finish with moisturizer and broad-spectrum sunscreen. A trained professional must select device settings and confirm the current label/IFU before treatment.",
+          "ar": "تصف ورقة الاستخدام الاحترافي المرفوعة دمج السيروم مع الميكرونيدلينغ أو إجراءات من نمط الهيدرافيشل لتعزيز التوصيل الموضعي، ثم تطبيق 2 مل بعد الجلسة. يُنهى الإجراء بمرطب وواقي شمس واسع الطيف. يحدد المختص المدرّب إعدادات الجهاز ويتحقق من الملصق وتعليمات الاستخدام الحالية قبل العلاج."
+        },
+        "notes": {
+          "en": "Professional use · 10 vials × 10 mL. The formula page states 0.25%; some artwork displays “25%” in the logo. Verify the current pack/IFU before use.",
+          "ar": "للاستخدام الاحترافي · 10 قوارير × 10 مل. تذكر صفحة التركيبة 0.25%، بينما يظهر “25%” ضمن الشعار في بعض التصاميم. يجب التحقق من العبوة وتعليمات الاستخدام الحالية قبل الاستعمال."
+        },
+        "faq": {
+          "en": "What is the pack size? | 10 vials of 10 mL.\nWhat concentration is shown? | The formula page states 0.25%. Some artwork also displays “25%” in the logo, so confirm the current pack/IFU.\nIs this for home use? | The supplied material presents it for professional use.\nDoes the ingredient list say retinol? | The supplied INCI names Retinyl Palmitate.\nCan it be used after a device treatment? | The supplied sheet describes professional pairing with microneedling or HydraFacial-type procedures and a 2 cc post-session application. Follow current IFU and professional assessment.",
+          "ar": "ما حجم العبوة؟ | 10 قوارير، كل منها 10 مل.\nما التركيز الظاهر؟ | تذكر صفحة التركيبة 0.25%. يظهر أيضاً “25%” ضمن الشعار في بعض التصاميم، لذا يجب التحقق من العبوة وتعليمات الاستخدام الحالية.\nهل هو للاستخدام المنزلي؟ | تقدمه المواد المرفوعة للاستخدام الاحترافي.\nهل تذكر قائمة المكونات الريتينول؟ | تذكر قائمة INCI المرفوعة Retinyl Palmitate.\nهل يمكن استخدامه بعد إجراء بجهاز؟ | تصف الورقة المرفوعة دمجه احترافياً مع الميكرونيدلينغ أو إجراءات من نمط الهيدرافيشل وتطبيق 2 مل بعد الجلسة، وفق تعليمات الاستخدام والتقييم المهني."
+        },
+        "source": "",
+        "image": "stock/retinol-pack.webp",
+        "document": "stock/retinol-brochure.pdf",
+        "cases": [],
+        "approved": true,
+        "visible": true,
+        "order": 13,
+        "visual": true,
+        "careLayout": true,
+        "hideResults": true,
+        "contentRevision": "supplied-retinol-2026-10",
+        "packageImage": "stock/retinol-cover.webp",
+        "galleryImages": [
+          "stock/retinol-formula.webp",
+          "stock/retinol-professional-summary.webp"
+        ],
+        "documents": [
+          {
+            "title": {
+              "en": "Retinol · supplied product brochure",
+              "ar": "Retinol · بروشور المنتج المرفوع"
+            },
+            "filename": "Retinol-product-brochure.pdf",
+            "url": "stock/retinol-brochure.pdf"
+          },
+          {
+            "title": {
+              "en": "Retinol · professional-use sheet",
+              "ar": "Retinol · ورقة الاستخدام الاحترافي"
+            },
+            "filename": "Retinol-professional-use.pdf",
+            "url": "stock/retinol-professional-use.pdf"
+          }
+        ],
+        "ingredientCards": [
+          {
+            "name": {
+              "en": "Retinoid formula",
+              "ar": "تركيبة الريتينويد"
+            },
+            "description": {
+              "en": "The formula page states 0.25%; supplied INCI lists Retinyl Palmitate.",
+              "ar": "تذكر صفحة التركيبة 0.25%؛ وتدرج قائمة INCI ريتينيل بالميتات."
+            }
+          },
+          {
+            "name": {
+              "en": "Niacinamide 5%",
+              "ar": "نياسيناميد 5%"
+            },
+            "description": {
+              "en": "Highlighted in the brochure for uneven pigmentation care.",
+              "ar": "مذكور في البروشور للعناية بمظهر التصبغات."
+            }
+          },
+          {
+            "name": {
+              "en": "Glycerin 3%",
+              "ar": "غليسرين 3%"
+            },
+            "description": {
+              "en": "Humectant support for moisture and barrier comfort.",
+              "ar": "دعم مرطّب للرطوبة وراحة حاجز البشرة."
+            }
+          },
+          {
+            "name": {
+              "en": "Collagen 0.5%",
+              "ar": "كولاجين 0.5%"
+            },
+            "description": {
+              "en": "Presented for elasticity and smoothness support.",
+              "ar": "مقدّم لدعم المرونة والنعومة."
+            }
+          }
+        ],
+        "protocolSteps": [
+          {
+            "en": "Assess skin, history, current retinoid use and suitability for the chosen professional procedure.",
+            "ar": "قيّم البشرة والتاريخ الطبي واستخدام الريتينويدات الحالي وملاءمة الإجراء الاحترافي المختار."
+          },
+          {
+            "en": "Perform the selected professional microneedling or HydraFacial-type protocol using trained-professional settings.",
+            "ar": "نفّذ بروتوكول الميكرونيدلينغ أو الإجراء من نمط الهيدرافيشل بإعدادات يحددها مختص مدرّب."
+          },
+          {
+            "en": "The supplied sheet instructs a 2 cc application after the session.",
+            "ar": "توصي الورقة المرفوعة بتطبيق 2 مل بعد الجلسة."
+          },
+          {
+            "en": "Finish with moisturizer and broad-spectrum sunscreen.",
+            "ar": "اختم بمرطب وواقي شمس واسع الطيف."
+          }
+        ],
+        "safety": {
+          "en": "Professional-use reference, not a substitute for the current label or IFU. Retinoids can irritate skin and increase sun sensitivity. Confirm pregnancy/breastfeeding precautions, allergies, medicines, barrier condition and device contraindications; avoid eyes and compromised skin. Use broad-spectrum sunscreen.",
+          "ar": "مرجع للاستخدام الاحترافي وليس بديلاً عن الملصق أو تعليمات الاستخدام الحالية. قد تسبب الريتينويدات تهيجاً وتزيد حساسية الشمس. يجب التحقق من احتياطات الحمل والرضاعة والحساسيات والأدوية وحالة حاجز البشرة وموانع استخدام الجهاز، وتجنب محيط العين والجلد المتضرر. يُستخدم واقي شمس واسع الطيف."
+        },
+        "facts": [
+          {
+            "label": {
+              "en": "Formula claim",
+              "ar": "تركيز التركيبة"
+            },
+            "value": {
+              "en": "0.25%",
+              "ar": "0.25%"
+            }
+          },
+          {
+            "label": {
+              "en": "Pack",
+              "ar": "العبوة"
+            },
+            "value": {
+              "en": "10 × 10 mL",
+              "ar": "10 × 10 مل"
+            }
+          },
+          {
+            "label": {
+              "en": "Use",
+              "ar": "الاستخدام"
+            },
+            "value": {
+              "en": "Professional",
+              "ar": "احترافي"
+            }
+          },
+          {
+            "label": {
+              "en": "Post-session amount",
+              "ar": "الكمية بعد الجلسة"
+            },
+            "value": {
+              "en": "2 cc",
+              "ar": "2 مل"
+            }
+          }
+        ],
+        "sourceReview": {
+          "en": "Based on the two supplied Value Aesthetic / Östafarma documents. The 0.25% value comes from the formula page; the supplied INCI lists Retinyl Palmitate.",
+          "ar": "اعتمدت المعلومات على ملفي Value Aesthetic / Östafarma المرفوعين. قيمة 0.25% مأخوذة من صفحة التركيبة؛ وتذكر قائمة INCI المرفوعة Retinyl Palmitate."
+        },
+        "references": [
+          {
+            "title": {
+              "en": "Supplied Retinol product brochure",
+              "ar": "بروشور Retinol المرفوع"
+            },
+            "url": "stock/retinol-brochure.pdf"
+          },
+          {
+            "title": {
+              "en": "Supplied professional-use sheet",
+              "ar": "ورقة الاستخدام الاحترافي المرفوعة"
+            },
+            "url": "stock/retinol-professional-use.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  "version": 0
+}
