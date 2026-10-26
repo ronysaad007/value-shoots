@@ -447,7 +447,7 @@ td.id{color:var(--fg);font-weight:600;font-size:12.5px;white-space:nowrap}
 .as-in{padding:10px 12px;display:grid;gap:8px;flex:1}
 .as-in b{font-size:13.5px;font-weight:600;overflow-wrap:anywhere;line-height:1.35}
 .as-in small{color:var(--muted);font-size:12px}
-.as-acts{display:flex;gap:6px;margin-top:auto}.as-acts a{flex:1;text-align:center;justify-content:center}
+.as-acts{display:flex;gap:6px;margin-top:auto}.as-acts a,.as-acts button{flex:1;text-align:center;justify-content:center}.as-acts .btn{white-space:nowrap;padding-inline:8px}.as-acts .as-dr{flex:0 0 auto;opacity:.75;font-size:12px}
 .as-path{font-size:11.5px;color:var(--muted)}
 .as-empty{padding:40px 10px;text-align:center;color:var(--muted)}
 .as-lb{position:fixed;inset:0;z-index:90;background:rgba(8,12,22,.86);display:grid;place-items:center;padding:20px}
@@ -1789,6 +1789,8 @@ const asClean=n=>String(n||"").replace(/^\s*\d+\s*[-.]\s*/,"").trim()||n;
 const asExt=f=>{ const m=/\.([a-z0-9]{2,5})$/i.exec(f.n||""); return m?m[1].toUpperCase():(f.m||"").includes("pdf")?"PDF":(f.m||"").split("/").pop().toUpperCase().slice(0,4); };
 const asIcon=f=>{ const m=f.m||""; return m.startsWith("image/")?"🖼️":m.includes("pdf")?"📄":m.startsWith("video/")?"🎬":/zip|rar|compressed/.test(m)?"🗜️":/presentation|powerpoint/.test(m)?"📊":/sheet|excel/.test(m)?"📈":/document|word/.test(m)?"📝":/illustrator|postscript|photoshop|svg/.test(m)?"🎨":"📁"; };
 const asSize=b=>!b?"":b>1048576?(b/1048576).toFixed(1)+" MB":Math.max(1,Math.round(b/1024))+" KB";
+const ASSET_BASE="https://ronysaad007.github.io/value-shoots/assets/";
+const asU=p=>ASSET_BASE+String(p).split("/").map(encodeURIComponent).join("/");
 const asThumb=id=>`https://drive.google.com/thumbnail?id=${encodeURIComponent(id)}&sz=w220`;
 const asView=id=>`https://drive.google.com/file/d/${encodeURIComponent(id)}/view`;
 const asDl=id=>`https://drive.google.com/uc?export=download&id=${encodeURIComponent(id)}`;
@@ -1803,16 +1805,17 @@ async function loadAssets(fresh,quiet){ if(asBusy) return; if(!ASSETS){ try{ con
   if(ASSETS&&!fresh&&Date.now()-asAt<120000){ if(!quiet) renderAssets(); return; }
   asBusy=true; asErr=""; if(!quiet) renderAssets(); const rb=$("#asReload"); if(rb) rb.classList.add("spin");
   try{ let tree=null;
-    try{ const r=await fetch(ASSETS_API+"?a=assets"+(fresh?"&fresh=1":""),{cache:"no-store"}); const j=await r.json(); if(j&&j.id) tree=j; }catch(e){}
+    try{ const r=await fetch(ASSET_BASE+"index.json?t="+Date.now(),{cache:"no-store"}); const j=await r.json(); if(j&&j.id) tree=j; }catch(e){}
+    if(!tree) try{ const r=await fetch(ASSETS_API+"?a=assets"+(fresh?"&fresh=1":""),{cache:"no-store"}); const j=await r.json(); if(j&&j.id) tree=j; }catch(e){}
     if(!tree&&MODE==="admin"&&mcp&&!quiet) tree=await asViaMcp();
     if(!tree) throw 0; ASSETS=tree; asAt=Date.now(); try{ localStorage.setItem("vs-assets",JSON.stringify(tree)); }catch(e){} }
   catch(e){ if(ASSETS) asErr=""; else asErr=wt("ما قدرت إفتح المجلد هلق. جرّب بعد شوي أو افتحو من Google Drive.","Couldn't load the folder right now. Try again shortly or open it in Google Drive."); }
   asBusy=false; if(rb) rb.classList.remove("spin"); if(!quiet||VIEW==="assets") renderAssets(); }
 function asNode(){ let d=ASSETS; for(const id of asPath){ const n=d&&d.d.find(x=>x.id===id); if(!n) break; d=n; } return d; }
-function asFileCard(f,path){ const img=/^image\//.test(f.m||"");
-  return `<div class="as-file"><div class="as-th" data-asprev="${esc(f.id)}" data-asname="${esc(f.n)}" data-asimg="${/^image\//.test(f.m||"")?1:0}">${img?`<img loading="lazy" alt="" src="${asThumb(f.id)}" onerror="this.remove()">`:""}${img?"":asIcon(f)}<span class="ext">${esc(asExt(f))}</span></div>
+function asFileCard(f,path){ const img=/^image\//.test(f.m||""), th=f.th?asU(f.th):img?asThumb(f.id):"", big=f.pv?asU(f.pv):f.g?asU(f.g):"";
+  return `<div class="as-file"><div class="as-th" data-asprev="${esc(f.id)}" data-asname="${esc(f.n)}" data-asimg="${img?1:0}" data-asbig="${esc(big)}" data-asg="${esc(f.g?asU(f.g):"")}">${th?`<img loading="lazy" alt="" src="${esc(th)}" onerror="this.remove()">`:""}${th?"":asIcon(f)}<span class="ext">${esc(asExt(f))}</span></div>
     <div class="as-in"><b>${esc(f.n.replace(/\.[a-z0-9]{2,5}$/i,""))}</b>${path?`<span class="as-path">📁 ${esc(path)}</span>`:""}<small><bdi>${esc(asSize(f.s))}</bdi></small>
-    <div class="as-acts"><a class="btn sm" href="${asView(f.id)}" target="_blank" rel="noopener">👁 ${wt("عرض","View")}</a><a class="btn primary sm" href="${asDl(f.id)}" target="_blank" rel="noopener">⬇ ${wt("تحميل","Download")}</a></div></div></div>`; }
+    <div class="as-acts">${f.g?`<button type="button" class="btn sm" data-asopen="${esc(f.id)}">👁 ${wt("عرض","View")}</button><a class="btn primary sm" href="${esc(asU(f.g))}" download="${esc(f.n)}" target="_blank" rel="noopener">⬇ ${wt("تحميل","Download")}</a><a class="btn sm as-dr" href="${asView(f.id)}" target="_blank" rel="noopener" title="Google Drive">Drive ↗</a>`:`<a class="btn sm" href="${asView(f.id)}" target="_blank" rel="noopener">👁 ${wt("عرض","View")}</a><a class="btn primary sm" href="${asDl(f.id)}" target="_blank" rel="noopener">⬇ ${wt("تحميل","Download")}</a>`}</div></div></div>`; }
 function renderAssets(){ if(!$("#asTitle")) return;
   $("#asTitle").innerHTML=wt("ملفات <span>وتصاميم</span>","Brand <span>assets</span>");
   $("#asSub").textContent=wt("لوغوهات، صور منتجات، بروشورات وأكتر. شوف ونزّل يلي بدك ياه.","Logos, product photos, brochures and more. Preview and download what you need.");
@@ -1834,9 +1837,9 @@ function renderAssets(){ if(!$("#asTitle")) return;
 document.addEventListener("click",e=>{
   const i=e.target.closest("[data-asin]"); if(i){ asPath.push(i.dataset.asin); renderAssets(); window.scrollTo(0,0); return; }
   const g=e.target.closest("[data-asgo]"); if(g){ const id=g.dataset.asgo; asPath=id?asPath.slice(0,asPath.indexOf(id)+1):[]; renderAssets(); return; }
-  const p=e.target.closest("[data-asprev]"); if(p){ const id=p.dataset.asprev, nm=p.dataset.asname;
-    if(p.dataset.asimg!=="1"){ window.open(asView(id),"_blank","noopener"); return; }
-    const lb=document.createElement("div"); lb.className="as-lb"; lb.innerHTML=`<div class="bar"><span>${esc(nm)}</span><span style="display:flex;gap:8px"><a class="btn primary sm" href="${asDl(id)}" target="_blank" rel="noopener">⬇ ${wt("تحميل","Download")}</a><button class="btn sm" type="button" data-lbx>✕</button></span></div><img alt="" src="https://drive.google.com/thumbnail?id=${encodeURIComponent(id)}&sz=w1600">`;
+  const o=e.target.closest("[data-asopen]"); const p=o?document.querySelector(`.as-th[data-asprev="${CSS.escape(o.dataset.asopen)}"]`):e.target.closest("[data-asprev]"); if(p){ const id=p.dataset.asprev, nm=p.dataset.asname, g=p.dataset.asg, big=p.dataset.asbig;
+    if(p.dataset.asimg!=="1"){ window.open(g||asView(id),"_blank","noopener"); return; }
+    const lb=document.createElement("div"); lb.className="as-lb"; lb.innerHTML=`<div class="bar"><span>${esc(nm)}</span><span style="display:flex;gap:8px"><a class="btn primary sm" href="${esc(g||asDl(id))}" download="${esc(nm)}" target="_blank" rel="noopener">⬇ ${wt("تحميل","Download")}</a><a class="btn sm" href="${asView(id)}" target="_blank" rel="noopener">Drive ↗</a><button class="btn sm" type="button" data-lbx>✕</button></span></div><img alt="" src="${esc(big||`https://drive.google.com/thumbnail?id=${encodeURIComponent(id)}&sz=w1600`)}">`;
     lb.addEventListener("click",ev=>{ if(ev.target===lb||ev.target.closest("[data-lbx]")) lb.remove(); }); document.body.appendChild(lb); return; } });
 document.addEventListener("keydown",e=>{ if(e.key==="Escape") document.querySelectorAll(".as-lb").forEach(x=>x.remove()); });
 $("#asQ").addEventListener("input",()=>renderAssets());
