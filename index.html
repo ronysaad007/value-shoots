@@ -75,7 +75,12 @@ h2 small{font-family:var(--f-body);font-weight:400;color:var(--muted);font-size:
  .ng{position:static}
  .ng-m{position:absolute;top:100%;left:10px;right:10px;min-width:0}
  .nav a.ico[data-v="alerts"]{margin-inline-start:0}
+ .is-pub .nav{flex-wrap:wrap;justify-content:flex-start;gap:2px}
+ .is-pub .nav a{font-size:12.5px;padding:5px 7px}
+ .is-pub .nav::-webkit-scrollbar{display:none}
 }
+.nav .ng.flat .ng-m a{white-space:nowrap;flex:0 0 auto}
+.ng.flat{display:contents}
 .nav a{color:var(--on-navy);opacity:.72;text-decoration:none;font-weight:600;font-size:14px;padding:6px 11px;border-radius:8px;white-space:nowrap}
 .nav a:hover{opacity:1;background:rgba(255,255,255,.08)}
 .nav .nb{display:inline-block;min-width:18px;height:18px;line-height:18px;padding:0 5px;margin-inline-start:6px;border-radius:9px;background:var(--blush);color:var(--ink);font-size:11px;font-weight:800;text-align:center;vertical-align:1px}
@@ -2920,7 +2925,7 @@ let syncTimer=null;
       const V=d.videos||{}, KM=V.k||(V.vc?{}:V);
       LINKS=new Map(Object.entries(KM).map(([k,l])=>[k,(l||[]).map(([t,u,st])=>({t,u,star:!!st}))])); VCPUB=V.vc||[];
     }catch(e){ setSync("fail"); }
-    document.querySelectorAll("[data-pub]").forEach(a=>a.hidden=false);
+    document.body.classList.add("is-pub"); document.querySelectorAll("[data-pub]").forEach(a=>a.hidden=false);
     $("#rqOpen").addEventListener("click",e=>{ e.preventDefault(); rqOpen(); });
     applyLang(); route(); setInterval(updateSync,60000); return;
   }
@@ -2970,7 +2975,7 @@ let syncTimer=null;
     if(busy) return; busy=true; mo&&mo.disconnect();
     groups.forEach(g=>{
       const items=[...g.querySelectorAll(".ng-m a")].filter(a=>!a.hidden);
-      g.hidden=!items.length; g.classList.toggle("flat",items.length===1);
+      g.hidden=!items.length; g.classList.toggle("flat",items.length===1||document.body.classList.contains("is-pub"));
       const b=g.querySelector(".ng-b"); b.classList.toggle("on",items.some(a=>a.getAttribute("aria-current")==="page"));
       let n=0; items.forEach(a=>{ const x=a.querySelector(".nb"); if(x&&!x.hidden) n+=parseInt(x.textContent)||0; });
       const c=g.querySelector(".ng-n"); c.hidden=!n; c.textContent=n||"";
