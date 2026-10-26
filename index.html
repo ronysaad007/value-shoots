@@ -6,6 +6,9 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Value Shoots">
 <title>Value Shoots</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#1E2538">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Readex+Pro:wght@400;500;600;700&display=swap">
 <style>
@@ -38,6 +41,8 @@
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.55}
 .app{max-width:1200px;margin:0 auto;padding-inline:16px;padding-block:0 56px}
+.offbar{position:fixed;inset-inline:0;bottom:0;z-index:40;background:#7a4b12;color:#fff;font-size:13px;font-weight:600;text-align:center;padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px))}
+.offchip{position:fixed;bottom:calc(14px + env(safe-area-inset-bottom,0px));inset-inline-start:14px;z-index:40;background:var(--ink);color:var(--on-navy);font-size:12.5px;font-weight:600;padding:8px 12px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}
 .view.fv{margin-inline:-16px;padding-top:0}
 .nav a.ext::after{content:" ↗"}
 .fv iframe{display:block;width:100%;height:calc(100dvh - var(--toph,64px));border:0;background:#fff}
@@ -2920,6 +2925,39 @@ function csvCol(t){ const out=[]; let i=0,f="",q=false,first=true,col=0; for(;i<
     else if(c==='"') q=true; else if(c===','){ if(col===0) out.push(f); f=""; col++; } else if(c==='\n'){ if(col===0) out.push(f); f=""; col=0; } else if(c!=='\r') f+=c; }
   if(f||col===0) { if(col===0&&f) out.push(f); } return out.filter(Boolean); }
 
+/* ---------- offline (team page only): service worker + save everything ---------- */
+function offlineInit(){
+  if(MODE!=="public"||!("serviceWorker" in navigator)) return;
+  const bar=document.createElement("div"); bar.id="offBar"; bar.className="offbar"; bar.hidden=true; document.body.appendChild(bar);
+  const chip=document.createElement("div"); chip.id="offChip"; chip.className="offchip"; chip.hidden=true; document.body.appendChild(chip);
+  const LS=(k,v)=>{ try{ if(v===undefined) return localStorage.getItem(k); localStorage.setItem(k,v); }catch(e){} return null; };
+  const when=ts=>{ if(!ts) return ""; const d=new Date(+ts); return d.toLocaleString(LANG==="ar"?"ar-AE":"en-GB",{weekday:"short",day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"}); };
+  const showBar=()=>{ const off=navigator.onLine===false; bar.hidden=!off; if(off) bar.textContent="📴 "+wt("بلا إنترنت · عم تشوف آخر نسخة محفوظة","Offline · showing the last saved copy")+(LS("vs-saved-at")?" ("+when(LS("vs-saved-at"))+")":""); };
+  window.addEventListener("online",()=>{ showBar(); setTimeout(()=>saveAll(true),1500); }); window.addEventListener("offline",showBar); showBar(); $("#langBtn").addEventListener("click",()=>setTimeout(showBar,0));
+  let hideT=null;
+  navigator.serviceWorker.addEventListener("message",e=>{ const m=e.data||{}; if(m.type!=="SAVE_PROGRESS") return;
+    if(m.final){ LS("vs-saved-at",String(Date.now())); if(chip.dataset.show){ chip.textContent="✓ "+wt("كلشي محفوظ، بيشتغل بلا إنترنت","Everything saved for offline use"); clearTimeout(hideT); hideT=setTimeout(()=>{ chip.hidden=true; delete chip.dataset.show; },4000); } return; }
+    if(m.total>8){ chip.dataset.show="1"; chip.hidden=false; chip.textContent="⬇ "+wt("عم يحفظ للاستعمال بلا إنترنت","Saving for offline use")+" "+Math.round(m.done/Math.max(1,m.total)*100)+"%"; } });
+  navigator.serviceWorker.register("sw.js").then(()=>setTimeout(()=>saveAll(false),4000)).catch(()=>{});
+  async function saveAll(force){
+    if(navigator.onLine===false) return; const last=+(LS("vs-save-run")||0); if(!force&&Date.now()-last<20*60*1000) return; LS("vs-save-run",String(Date.now()));
+    const reg=await navigator.serviceWorker.ready; const sw=reg.active||navigator.serviceWorker.controller; if(!sw) return;
+    const urls=[], refresh=[]; let seen={}; try{ seen=JSON.parse(LS("vs-saved-t")||"{}")||{}; }catch(e){}
+    const now={};
+    try{ const tree=await (await fetch(ASSET_BASE+"index.json",{cache:"no-store"})).json();
+      const walk=d=>{ (d.f||[]).forEach(f=>{ const list=[]; if(f.th) list.push(f.th);
+          if((f.m||"")==="application/pdf"){ if(f.v||f.g) list.push(f.v||f.g); } else if(/^image\//.test(f.m||"")){ if(f.pv||f.g) list.push(f.pv||f.g); }
+          list.forEach(p=>{ const u=asU(p); urls.push(u); if(seen[f.id]&&seen[f.id]!==f.t) refresh.push(u); }); now[f.id]=f.t; });
+        (d.d||[]).forEach(walk); }; walk(tree); }catch(e){}
+    try{ const list=await (await fetch(PUBLIC_URL+"products/offline-assets.json",{cache:"no-store"})).json(); list.forEach(p=>urls.push(new URL(p,PUBLIC_URL+"products/").href)); }catch(e){}
+    try{ const txt=await (await fetch(ASSETS_API+"?a=catalog")).text(); (txt.match(/https?:\/\/[^"\s\\]+/g)||[]).forEach(u=>{ if(/lh3\.googleusercontent|\.(png|jpe?g|webp|gif|svg|pdf)(\?|$)/i.test(u)) urls.push(u); });
+      (txt.match(/"stock\/[^"]+"/g)||[]).forEach(p=>urls.push(new URL(p.slice(1,-1),PUBLIC_URL+"products/").href)); }catch(e){}
+    ["derma/","products/","products/catalog.json","data.json"].forEach(p=>urls.push(PUBLIC_URL+p));
+    LS("vs-saved-t",JSON.stringify(now));
+    sw.postMessage({type:"SAVE_ALL",urls:[...new Set(urls)],refresh});
+  }
+}
+offlineInit();
 if(MODE==="admin"){ /* Claude's artifact frame can't embed other sites: open these two in a new tab here */
   [["hubLink","products/"],["dermaLink","derma/"]].forEach(([id,p])=>{ const a=$("#"+id); a.href=PUBLIC_URL+p; a.target="_blank"; a.rel="noopener"; delete a.dataset.v; a.classList.add("ext"); }); }
 try{ const l=localStorage.getItem("vs-lang"); if(l) LANG=l; }catch(e){}

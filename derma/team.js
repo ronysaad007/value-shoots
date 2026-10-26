@@ -14,7 +14,11 @@ const TX={en:{add:'+ Add a person',addT:'Add a person to this clinic',name:'Full
 const tx=()=>TX[L]||TX.en, mx=()=>(t().mv||T.en.mv);
 let BY='';try{BY=localStorage.getItem('dby')||''}catch(e){}
 const saveBy=v=>{BY=v;try{localStorage.setItem('dby',v)}catch(e){}};
-async function post(d){await fetch(API,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)})}
+const QK='derma-queue',qGet=()=>{try{return JSON.parse(localStorage.getItem(QK)||'[]')}catch(e){return[]}},qSet=a=>{try{localStorage.setItem(QK,JSON.stringify(a))}catch(e){}};
+async function send(d){await fetch(API,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)})}
+async function post(d){if(navigator.onLine===false){qSet(qGet().concat([d]));return}try{await send(d)}catch(e){qSet(qGet().concat([d]))}}
+async function flushQ(){const a=qGet();if(!a.length||navigator.onLine===false)return;const left=[];for(const d of a){try{await send(d)}catch(e){left.push(d)}}qSet(left)}
+window.addEventListener('online',flushQ);setTimeout(flushQ,3000);
 const pKey=d=>{const c=C[d.c0];return [c.ct,d.s,d.l||String(d.n).toLowerCase(),c.n].join('|')};
 function hashId(s){let h1=0x811c9dc5,h2=0;for(let i=0;i<s.length;i++){h1^=s.charCodeAt(i);h1=Math.imul(h1,16777619)>>>0;h2=(h2*31+s.charCodeAt(i))>>>0}return 'm'+h1.toString(36)+h2.toString(36)}
 const roleLabel=s=>`${T.en.sp[s]} (${s})`, cityLabel=c=>`${T.en.city[c]} (${c})`;
