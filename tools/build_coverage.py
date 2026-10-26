@@ -25,7 +25,9 @@ for a in acc:
     if not a.get('k'):
         row = {'n': a['dn'], 'ct': a['ct'], 'h': 1 if 'HOSPITAL' in a['n'].upper() else 0, 'm': 0, 'c': 1, 'p': a.get('p', {}), 'new': 1}
         g = GEO.get(a['ct'] + '|' + a['dn'])
-        if g: row['x'] = [g[0], g[1]]
+        if g and isinstance(g, list):
+            row['x'] = [g[0], g[1]]
+            if len(g) > 3 and g[3]: row['ap'] = 1
         out.append(row)
 json.dump({'v': acc and 1, 'clinics': out}, open(os.path.join(R, 'coverage', 'data.json'), 'w', encoding='utf8'), ensure_ascii=False, separators=(',', ':'))
 st = collections.defaultdict(lambda: [0, 0, 0, 0])

@@ -146,7 +146,7 @@ $('lbls').addEventListener('click',e=>{const l=e.target.closest('.lb');if(l)sele
 function hover(i){const t=$('tip'),r=i.object;
   if(!r||!r.n){t.style.display='none';return}
   const x=tx(),p=r.p||{};
-  t.innerHTML=`<b>${esc(r.n)}</b>${esc(x.names[r.ct]||'')}${r.ar?' · '+esc(r.ar):''} · ${x.team(r.m)}<br><span class="k" style="background:${r.c?'#d1fae5':'#fde2de'};color:${r.c?'#065f46':'#9f3a2f'}">${r.c?x.client:x.notc}</span>`
+  t.innerHTML=`<b>${esc(r.n)}</b>${esc(x.names[r.ct]||'')}${r.ar?' · '+esc(r.ar):''}${r.m?' · '+x.team(r.m):''}${r.ap?(L==='ar'?' · 📍 موقع تقريبي (المنطقة)':' · 📍 approximate (area)'):''}<br><span class="k" style="background:${r.c?'#d1fae5':'#fde2de'};color:${r.c?'#065f46':'#9f3a2f'}">${r.c?x.client:x.notc}</span>`
    +(r.c&&Object.keys(p).length?`<div class="pr">${Object.entries(p).map(([k,v])=>`${esc(k)}: <b style="display:inline;font-size:12px">${esc(v)}</b>`).join(' · ')}</div>`:'');
   t.innerHTML+=`<div style="margin-top:6px;font-size:11.5px;color:#64748b">${L==='ar'?(matchMedia('(hover: none)').matches?'اكبس مرة تانية لتفتح Google Maps':'اكبس لتفتح Google Maps'):(matchMedia('(hover: none)').matches?'Tap again to open Google Maps':'Click to open Google Maps')}</div>`;
   t.style.display='block';const W=innerWidth;t.style.left=Math.min(i.x+14,W-300)+'px';t.style.top=(i.y+14)+'px'}
