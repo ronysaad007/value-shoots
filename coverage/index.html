@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>UAE Coverage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --bg:#0a0f1e; --panel:rgba(14,20,38,.86); --line:rgba(255,255,255,.09); --ink:#eef2fb; --muted:#93a0bb;
+  --client:#34d399; --gap:#f0857a; --hosp:#f5c46b; --accent:#e9b7aa;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:Rubik,system-ui,sans-serif;overflow:hidden}
+#map{position:fixed;inset:0;inset-inline-end:368px;background:radial-gradient(1200px 700px at 40% 45%,#16213f 0%,#0a0f1e 70%)}
+.top{position:fixed;top:14px;inset-inline-start:14px;z-index:5;max-width:min(520px,calc(100vw - 28px))}
+.top h1{margin:0;font-size:26px;font-weight:700;letter-spacing:.2px}
+.top h1 span{color:var(--accent)}
+.top p{margin:4px 0 10px;color:var(--muted);font-size:13px}
+.seg{display:inline-flex;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:3px;margin:0 0 6px 6px;backdrop-filter:blur(8px)}
+.seg button{border:0;background:transparent;color:var(--muted);font:500 13px Rubik,sans-serif;padding:6px 12px;border-radius:999px;cursor:pointer}
+.seg button.on{background:#fff;color:#0a0f1e}
+.lang{position:fixed;top:14px;inset-inline-end:14px;z-index:6;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:10px;padding:6px 12px;font:500 13px Rubik,sans-serif;cursor:pointer}
+.panel{position:fixed;z-index:5;top:58px;inset-inline-end:14px;bottom:14px;width:340px;background:var(--panel);border:1px solid var(--line);border-radius:18px;backdrop-filter:blur(12px);display:flex;flex-direction:column;overflow:hidden}
+.tot{padding:16px 18px 12px;border-bottom:1px solid var(--line)}
+.tot .big{font-size:44px;font-weight:700;line-height:1}
+.tot .big small{font-size:16px;color:var(--muted);font-weight:500;margin-inline-start:6px}
+.tot .sub{color:var(--muted);font-size:13px;margin-top:6px}
+.list{overflow:auto;padding:8px 10px 14px;flex:1}
+.em{border:1px solid transparent;border-radius:14px;padding:10px 10px 12px;cursor:pointer;margin-bottom:4px}
+.em:hover{background:rgba(255,255,255,.04)}
+.em.on{background:rgba(255,255,255,.07);border-color:var(--line)}
+.em .hd{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+.em .hd b{font-size:15px}.em .hd span{font-size:20px;font-weight:700}
+.row{display:grid;grid-template-columns:70px 1fr auto;gap:8px;align-items:center;font-size:12px;color:var(--muted);margin-top:5px}
+.bar{height:8px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:99px;transition:width .6s cubic-bezier(.2,.7,.2,1)}
+.row bdi{color:var(--ink);font-variant-numeric:tabular-nums}
+.opp{margin-top:10px;border-top:1px dashed var(--line);padding-top:8px}
+.opp h4{margin:0 0 6px;font-size:12px;font-weight:600;color:var(--gap);letter-spacing:.3px}
+.opp div{display:flex;justify-content:space-between;gap:8px;font-size:12.5px;padding:3px 0}
+.opp div span{color:var(--muted);white-space:nowrap}
+.legend{display:flex;gap:14px;flex-wrap:wrap;padding:10px 18px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-inline-end:6px;vertical-align:-1px}
+.tip{position:fixed;z-index:8;pointer-events:none;background:#fff;color:#0a0f1e;border-radius:12px;padding:10px 12px;font-size:13px;max-width:280px;box-shadow:0 12px 30px rgba(0,0,0,.35);display:none}
+.tip b{display:block;font-size:14px;margin-bottom:3px}.tip .k{display:inline-block;font-size:11px;font-weight:600;border-radius:99px;padding:2px 8px;margin-top:4px}
+.tip .pr{margin-top:6px;font-size:12px;color:#475569;line-height:1.5}
+.credit{position:fixed;bottom:6px;inset-inline-start:10px;z-index:4;font-size:10px;color:#4b5876}
+.load{position:fixed;inset:0;display:grid;place-items:center;color:var(--muted);font-size:14px;z-index:9;background:var(--bg);transition:opacity .5s}
+#lbls{position:fixed;inset:0;pointer-events:none;z-index:3}
+.lb{position:absolute;transform:translate(-50%,-100%);background:rgba(10,15,30,.78);border:1px solid var(--line);border-radius:10px;padding:4px 9px;font-size:13px;font-weight:600;white-space:nowrap;pointer-events:auto;cursor:pointer;backdrop-filter:blur(6px)}
+.lb span{margin-inline-start:6px}
+@media (max-width:760px){
+  #map{inset-inline-end:0}
+  .top h1{font-size:20px}.top p{display:none}
+  .panel{top:auto;inset-inline:8px;bottom:8px;width:auto;height:42vh;border-radius:16px}
+  .tot{padding:10px 14px}.tot .big{font-size:32px}
+  .legend{padding:8px 14px}
+}
+</style>
+</head>
+<body>
+<div id="map"></div><div id="lbls"></div>
+<div class="load" id="load">…</div>
+<div class="top">
+  <h1 id="t1"></h1><p id="t2"></p>
+  <div class="seg" id="segKind"><button data-k="all"></button><button data-k="c"></button><button data-k="h"></button></div>
+  <div class="seg" id="segShow"><button data-s="all"></button><button data-s="yes"></button><button data-s="no"></button></div>
+</div>
+<button class="lang" id="lang" type="button"></button>
+<aside class="panel">
+  <div class="tot"><div class="big" id="bigPct"></div><div class="sub" id="bigSub"></div></div>
+  <div class="list" id="list"></div>
+  <div class="legend" id="legend"></div>
+</aside>
+<div class="tip" id="tip"></div>
+<div class="credit">Map shapes © amCharts</div>
+<script src="https://unpkg.com/deck.gl@9.1.14/dist.min.js"></script>
+<script>
+(function(){
+const TX={
+ ar:{t1:'تغطية <span>Value</span> بالإمارات',t2:'كل عيادة ومستشفى بسجل Derma Finder. العمود الأخضر عميل عنا، والأحمر لسا مش عميل. طول العمود حجم الفريق.',
+   kind:{all:'الكل',c:'عيادات',h:'مستشفيات'},show:{all:'الكل',yes:'عملاؤنا',no:'مش عملاء'},
+   uae:'من الأماكن صارت عملاء',of:(a,b)=>`${a} من ${b}`,clinics:'عيادات',hosp:'مستشفيات',opp:'أكبر فرص (مش عملاء)',team:n=>`${n} بالفريق`,
+   client:'✓ عميل',notc:'مش عميل لسا',noMap:n=>`${n} عميل جديد بدون موقع على الخريطة`,lg:{c:'عميل',g:'مش عميل',e:'لون الإمارة = نسبة التغطية'},
+   names:{d:'دبي',a:'أبوظبي',n:'العين',s:'الشارقة',j:'عجمان',r:'رأس الخيمة',f:'الفجيرة',q:'أم القيوين'},lang:'English',alain:'منها العين'},
+ en:{t1:'<span>Value</span> coverage across the UAE',t2:'Every clinic and hospital in Derma Finder. Green columns are our clients, red are not yet. Column height = team size.',
+   kind:{all:'All',c:'Clinics',h:'Hospitals'},show:{all:'All',yes:'Clients',no:'Not yet'},
+   uae:'of places are clients',of:(a,b)=>`${a} of ${b}`,clinics:'Clinics',hosp:'Hospitals',opp:'Biggest opportunities (not clients)',team:n=>`team ${n}`,
+   client:'✓ Client',notc:'Not a client yet',noMap:n=>`${n} new clients have no map location`,lg:{c:'Client',g:'Not yet',e:'Emirate colour = coverage'},
+   names:{d:'Dubai',a:'Abu Dhabi',n:'Al Ain',s:'Sharjah',j:'Ajman',r:'Ras Al Khaimah',f:'Fujairah',q:'Umm Al Quwain'},lang:'العربية',alain:'incl. Al Ain'}};
+let L=(()=>{try{return localStorage.getItem('cov-lang')||'ar'}catch(e){return 'ar'}})();
+const tx=()=>TX[L];
+const EM=['d','a','s','j','r','f','q']; // map polygons (Al Ain sits inside Abu Dhabi)
+const emOf=ct=>ct==='n'?'a':ct;
+let DATA=[],GEO=null,kind='all',show='all',SEL=null,deckgl=null,CENT={};
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
+const pct=(a,b)=>b?Math.round(a/b*100):0;
+const kindOk=r=>kind==='all'||(kind==='h'?r.h:!r.h);
+function stats(filterCt){
+  const s={};[...EM,'n'].forEach(k=>s[k]={c:[0,0],h:[0,0]});
+  DATA.forEach(r=>{const o=s[r.ct];if(!o)return;const b=r.h?o.h:o.c;b[0]++;b[1]+=r.c});
+  return s;
+}
+function emStats(S,e){const a=S[e],n=e==='a'?S.n:null;const c=[a.c[0]+(n?n.c[0]:0),a.c[1]+(n?n.c[1]:0)],h=[a.h[0]+(n?n.h[0]:0),a.h[1]+(n?n.h[1]:0)];
+  const tot=(kind!=='h'?c[0]:0)+(kind!=='c'?h[0]:0),cl=(kind!=='h'?c[1]:0)+(kind!=='c'?h[1]:0);return {c,h,tot,cl,p:pct(cl,tot)}}
+// colours
+const ramp=p=>{const a=[42,53,86],b=[52,211,153];const t=Math.min(1,p/70);return [0,1,2].map(i=>Math.round(a[i]+(b[i]-a[i])*t))};
+function centroid(f){let x=0,y=0,n=0;const g=f.geometry,polys=g.type==='Polygon'?[g.coordinates]:g.coordinates;
+  let best=null,ba=0;polys.forEach(p=>{const r=p[0];let A=0;for(let i=0;i<r.length-1;i++)A+=r[i][0]*r[i+1][1]-r[i+1][0]*r[i][1];A=Math.abs(A);if(A>ba){ba=A;best=r}});
+  best.forEach(c=>{x+=c[0];y+=c[1];n++});return [x/n,y/n]}
+function layers(){
+  const S=stats(),ES={};EM.forEach(e=>ES[e]=emStats(S,e));ESc=ES;
+  const H=e=>500+ES[e].p*45;
+  const pts=DATA.filter(r=>r.x&&kindOk(r)&&(show==='all'||(show==='yes'?r.c:!r.c)));
+  const col=r=>r.c?(r.h?[245,196,107,240]:[52,211,153,235]):[240,133,122,r.h?220:170];
+  return [
+    new deck.GeoJsonLayer({id:'em',data:GEO,extruded:true,wireframe:false,filled:true,stroked:true,pickable:true,
+      getElevation:f=>H(f.properties.id),getFillColor:f=>{const c=ramp(ES[f.properties.id].p);return [...c,SEL&&SEL!==f.properties.id?110:205]},
+      getLineColor:[255,255,255,60],lineWidthMinPixels:1,
+      material:{ambient:.55,diffuse:.6,shininess:24,specularColor:[60,70,90]},
+      updateTriggers:{getElevation:[kind,DATA.length],getFillColor:[kind,SEL,DATA.length]},
+      transitions:{getElevation:{duration:700}},
+      onClick:i=>{if(i.object)select(i.object.properties.id)}}),
+    new deck.ColumnLayer({id:'pts',data:pts,diskResolution:10,radius:180,extruded:true,pickable:true,
+      getPosition:r=>[r.x[0],r.x[1],H(emOf(r.ct))+30],getElevation:r=>350+Math.min(r.m,120)*55,getFillColor:col,
+      material:{ambient:.6,diffuse:.6},updateTriggers:{getPosition:[kind,DATA.length]},
+      transitions:{getElevation:{duration:600}},onHover:hover,onClick:hover})
+  ];
+}
+let ESc={};
+function placeLabels(){if(!deckgl||!deckgl.isInitialized)return;let vp;try{vp=deckgl.getViewports()[0]}catch(e){return}if(!vp)return;const box=$('lbls'),r=$('map').getBoundingClientRect();
+  if(box.children.length!==EM.length)box.innerHTML=EM.map(e=>`<div class="lb" data-e="${e}"></div>`).join('');
+  [...box.children].forEach(el=>{const e=el.dataset.e,s=ESc[e];if(!s)return;const z=500+s.p*45;const [x,y]=vp.project([CENT[e][0],CENT[e][1],z+800]);
+    el.style.left=(r.left+x)+'px';el.style.top=(r.top+y)+'px';el.innerHTML=`${tx().names[e]}<span style="color:rgb(${ramp(s.p).join(',')})"><bdi>${s.p}%</bdi></span>`;
+    const small=(e==='j'||e==='q')&&vp.zoom<8.6;
+    el.style.display=(small||x<0||y<0||x>r.width||y>r.height)?'none':''})}
+$('lbls').addEventListener('click',e=>{const l=e.target.closest('.lb');if(l)select(l.dataset.e)});
+function hover(i){const t=$('tip'),r=i.object;
+  if(!r||!r.n){t.style.display='none';return}
+  const x=tx(),p=r.p||{};
+  t.innerHTML=`<b>${esc(r.n)}</b>${esc(x.names[r.ct]||'')}${r.ar?' · '+esc(r.ar):''} · ${x.team(r.m)}<br><span class="k" style="background:${r.c?'#d1fae5':'#fde2de'};color:${r.c?'#065f46':'#9f3a2f'}">${r.c?x.client:x.notc}</span>`
+   +(r.c&&Object.keys(p).length?`<div class="pr">${Object.entries(p).map(([k,v])=>`${esc(k)}: <b style="display:inline;font-size:12px">${esc(v)}</b>`).join(' · ')}</div>`:'');
+  t.style.display='block';const W=innerWidth;t.style.left=Math.min(i.x+14,W-300)+'px';t.style.top=(i.y+14)+'px'}
+function select(e){SEL=SEL===e?null:e;render();
+  const v=SEL?{longitude:CENT[SEL][0],latitude:CENT[SEL][1],zoom:SEL==='a'?7.6:SEL==='d'?10.2:SEL==='s'||SEL==='j'||SEL==='q'?10:9,pitch:50,bearing:-15}:HOME;
+  deckgl.setProps({initialViewState:{...v,transitionDuration:1400,transitionInterpolator:new deck.FlyToInterpolator()}})}
+const HOME=innerWidth<760?{longitude:55.15,latitude:23.95,zoom:6.35,pitch:45,bearing:-12}:{longitude:54.55,latitude:24.45,zoom:7.15,pitch:48,bearing:-14};
+function panel(){
+  const x=tx(),S=stats();let tot=0,cl=0;
+  const rows=EM.map(e=>{const s=emStats(S,e);tot+=s.tot;cl+=s.cl;return [e,s]}).sort((a,b)=>b[1].tot-a[1].tot);
+  $('bigPct').innerHTML=`${pct(cl,tot)}%<small>${x.of(cl,tot)}</small>`;
+  const nm=DATA.filter(r=>!r.x&&r.c&&kindOk(r)).length;
+  $('bigSub').textContent=x.uae+(nm?' · '+x.noMap(nm):'');
+  $('list').innerHTML=rows.map(([e,s])=>{
+    const bar=(lab,v,colr)=>`<div class="row"><span>${lab}</span><div class="bar"><i style="width:${pct(v[1],v[0])}%;background:${colr}"></i></div><bdi>${v[1]}/${v[0]}</bdi></div>`;
+    let opp='';
+    if(SEL===e){const list=DATA.filter(r=>emOf(r.ct)===e&&!r.c&&kindOk(r)).sort((a,b)=>b.m-a.m).slice(0,8);
+      if(list.length)opp=`<div class="opp"><h4>${x.opp}</h4>${list.map(r=>`<div><b style="font-weight:500">${esc(r.n)}</b><span>${x.team(r.m)}</span></div>`).join('')}</div>`}
+    return `<div class="em${SEL===e?' on':''}" data-e="${e}"><div class="hd"><b>${x.names[e]}${e==='a'?` <small style="color:var(--muted);font-weight:400">· ${x.alain}</small>`:''}</b><span style="color:rgb(${ramp(s.p).join(',')})">${s.p}%</span></div>
+      ${kind!=='h'?bar(x.clinics,s.c,'var(--client)'):''}${kind!=='c'?bar(x.hosp,s.h,'var(--hosp)'):''}${opp}</div>`}).join('');
+  $('legend').innerHTML=`<span><i style="background:var(--client)"></i>${x.lg.c}</span><span><i style="background:var(--gap)"></i>${x.lg.g}</span><span><i style="background:linear-gradient(90deg,#2a3556,#34d399)"></i>${x.lg.e}</span>`;
+}
+function labels(){const x=tx();document.documentElement.lang=L;document.documentElement.dir=L==='ar'?'rtl':'ltr';
+  $('t1').innerHTML=x.t1;$('t2').textContent=x.t2;$('lang').textContent=x.lang;
+  document.querySelectorAll('#segKind button').forEach(b=>{b.textContent=x.kind[b.dataset.k];b.classList.toggle('on',b.dataset.k===kind)});
+  document.querySelectorAll('#segShow button').forEach(b=>{b.textContent=x.show[b.dataset.s];b.classList.toggle('on',b.dataset.s===show)})}
+function render(){labels();panel();if(deckgl){deckgl.setProps({layers:layers()});placeLabels()}}
+$('segKind').addEventListener('click',e=>{const b=e.target.closest('button');if(b){kind=b.dataset.k;render()}});
+$('segShow').addEventListener('click',e=>{const b=e.target.closest('button');if(b){show=b.dataset.s;render()}});
+$('list').addEventListener('click',e=>{const c=e.target.closest('[data-e]');if(c)select(c.dataset.e)});
+$('lang').addEventListener('click',()=>{L=L==='ar'?'en':'ar';try{localStorage.setItem('cov-lang',L)}catch(e){}render()});
+Promise.all([fetch('emirates.json').then(r=>r.json()),fetch('data.json',{cache:'no-cache'}).then(r=>r.json())]).then(([g,d])=>{
+  GEO=g;DATA=d.clinics;g.features.forEach(f=>CENT[f.properties.id]=centroid(f));
+  CENT.d=[55.22,25.08];CENT.a=[54.55,24.15];CENT.s=[55.7,25.22];CENT.j=[55.48,25.4];CENT.r=[55.98,25.68];CENT.f=[56.28,25.3];CENT.q=[55.62,25.52];
+  const light=new deck.LightingEffect({amb:new deck.AmbientLight({color:[255,255,255],intensity:1.1}),sun:new deck.DirectionalLight({color:[255,240,225],intensity:1.6,direction:[-3,-6,-4]})});
+  deckgl=new deck.DeckGL({container:$('map'),initialViewState:HOME,controller:{touchRotate:true,dragRotate:true},effects:[light],layers:layers(),
+    getCursor:({isHovering})=>isHovering?'pointer':'grab',onAfterRender:placeLabels,onClick:i=>{if(!i.object){$('tip').style.display='none'}}});
+  render();$('load').style.opacity=0;setTimeout(()=>$('load').remove(),600);
+}).catch(e=>{$('load').textContent='Could not load the map data.'});
+})();
+</script>
+</body>
+</html>
