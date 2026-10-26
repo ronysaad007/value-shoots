@@ -23,7 +23,7 @@ def safe(name):
 def main():
     raw, _ = get(API + '?a=assets&fresh=1', 300)
     tree = json.loads(raw)
-    if not tree.get('id'):
+    if not isinstance(tree, dict) or not tree.get('id'):
         sys.exit('No tree from Apps Script: ' + raw[:200].decode('utf8', 'replace'))
     old = {}
     try:
