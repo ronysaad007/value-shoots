@@ -39,6 +39,7 @@
 body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.55}
 .app{max-width:1200px;margin:0 auto;padding-inline:16px;padding-block:0 56px}
 .view.fv{margin-inline:-16px;padding-top:0}
+.nav a.ext::after{content:" ↗"}
 .fv iframe{display:block;width:100%;height:calc(100dvh - var(--toph,64px));border:0;background:#fff}
 body.framed .app{padding-bottom:0}
 body.framed{overflow:hidden}
@@ -2919,6 +2920,8 @@ function csvCol(t){ const out=[]; let i=0,f="",q=false,first=true,col=0; for(;i<
     else if(c==='"') q=true; else if(c===','){ if(col===0) out.push(f); f=""; col++; } else if(c==='\n'){ if(col===0) out.push(f); f=""; col=0; } else if(c!=='\r') f+=c; }
   if(f||col===0) { if(col===0&&f) out.push(f); } return out.filter(Boolean); }
 
+if(MODE==="admin"){ /* Claude's artifact frame can't embed other sites: open these two in a new tab here */
+  [["hubLink","products/"],["dermaLink","derma/"]].forEach(([id,p])=>{ const a=$("#"+id); a.href=PUBLIC_URL+p; a.target="_blank"; a.rel="noopener"; delete a.dataset.v; a.classList.add("ext"); }); }
 try{ const l=localStorage.getItem("vs-lang"); if(l) LANG=l; }catch(e){}
 applyLang(); route(); setSync("loading");
 let syncTimer=null;
