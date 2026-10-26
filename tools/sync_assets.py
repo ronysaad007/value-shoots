@@ -8,6 +8,7 @@ API = os.environ.get('ASSETS_API') or open(os.path.join(os.path.dirname(__file__
 OUT = os.path.join(os.path.dirname(__file__), '..', 'assets')
 MAX = 40 * 1024 * 1024          # bigger files: only a light view copy here, download stays on Drive
 HUGE = 300 * 1024 * 1024
+LIGHT = 4 * 1024 * 1024          # PDFs above this also get a light copy (used for offline + fast viewing)
 BUDGET = 900 * 1024 * 1024      # keep the repo well under GitHub's 1 GB guidance
 SKIP_FOLDER = re.compile(r'product hub uploads', re.I)
 Image.MAX_IMAGE_PIXELS = 200_000_000
@@ -47,8 +48,8 @@ def main():
         fid = f['id']; name = safe(f['n'])
         prev = old.get(fid)
         rel = f'f/{fid}/{name}'
-        if prev and prev.get('t') == f.get('t') and prev.get('th') and os.path.exists(os.path.join(OUT, prev['th'])) and (big or prev.get('g') == rel):
-            for k in ('g', 'th', 'pv', 'v', 'w', 'h'):
+        if prev and prev.get('t') == f.get('t') and prev.get('th') and os.path.exists(os.path.join(OUT, prev['th'])) and (big or prev.get('g') == rel) and not (m == 'application/pdf' and f.get('s', 0) > LIGHT and not prev.get('v') and not prev.get('nv')):
+            for k in ('g', 'th', 'pv', 'v', 'nv', 'w', 'h'):
                 if k in prev: f[k] = prev[k]
             used += 0 if big else f.get('s', 0); keep.add(fid); stats['kept'] += 1; return
         try:
@@ -65,15 +66,16 @@ def main():
                 with tempfile.TemporaryDirectory() as td:
                     pdf = os.path.join(td, 'a.pdf'); open(pdf, 'wb').write(data)
                     subprocess.run(['pdftoppm', '-f', '1', '-l', '1', '-r', '60', '-png', pdf, os.path.join(td, 'p')], check=True, timeout=120)
-                    if big:
+                    if big or len(data) > LIGHT:
                         os.makedirs(os.path.join(OUT, 'f', fid), exist_ok=True)
                         vrel = f'f/{fid}/' + re.sub(r'(?i)\.pdf$', '', name) + ' (light).pdf'
                         subprocess.run(['gs', '-q', '-dNOPAUSE', '-dBATCH', '-dSAFER', '-sDEVICE=pdfwrite', '-dCompatibilityLevel=1.5',
-                                        '-dPDFSETTINGS=/ebook', '-dDownsampleColorImages=true', '-dColorImageResolution=110',
+                                        '-dPDFSETTINGS=/ebook', '-dDownsampleColorImages=true', '-dColorImageResolution=100',
+                                        '-dDownsampleGrayImages=true', '-dGrayImageResolution=100',
                                         '-sOutputFile=' + os.path.join(OUT, vrel), pdf], check=True, timeout=900)
                         vs = os.path.getsize(os.path.join(OUT, vrel))
-                        if vs < MAX: f['v'] = vrel; used += vs
-                        else: os.remove(os.path.join(OUT, vrel))
+                        if vs < MAX and vs < 0.7 * len(data): f['v'] = vrel; used += vs
+                        else: os.remove(os.path.join(OUT, vrel)); f['nv'] = 1
                     png = next(os.path.join(td, x) for x in os.listdir(td) if x.endswith('.png'))
                     im = Image.open(png)
             else:
