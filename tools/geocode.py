@@ -19,7 +19,7 @@ def clean(n):
     n = re.sub(r'\(.*?\)', ' ', n); n = re.sub(LEGAL, ' ', n, flags=re.I); n = re.sub(r'[-,.&/]+', ' ', n)
     return ' '.join(n.split())
 def slug(s): return re.sub(r'[^a-z0-9]+', '-', s.lower()).strip('-')
-def get(u, t=25):
+def get(u, t=12):
     req = urllib.request.Request(u, headers=UA)
     with urllib.request.urlopen(req, timeout=t) as r: return r.read().decode('utf8', 'replace')
 def inbox(ct, lon, lat):
@@ -34,10 +34,10 @@ def nomi(q, ct):
         if inbox(ct, lon, lat): return lon, lat, r.get('display_name', '')
     return None
 def zavis(a):
-    raw = a['n']; base = [raw, clean(raw), clean(raw) + ' 1', raw + '1']
+    raw = a['n']; base = [raw, clean(raw), raw + '1']
     for b in dict.fromkeys(base):
         for em in ZSLUG[a['ct']]:
-            for cat in ('clinics', 'dental', 'hospitals'):
+            for cat in (('hospitals',) if 'hospital' in raw.lower() else ('dental', 'clinics') if 'dental' in raw.lower() else ('clinics',)):
                 u = f'https://www.zavis.ai/directory/{em}/{cat}/{slug(b)}-{em}'
                 try: page = get(u)
                 except Exception: continue
@@ -53,8 +53,9 @@ found = tried = 0
 for a in acc:
     if a.get('k'): continue
     key = a['ct'] + '|' + a['dn']
-    if key in GEO: continue
+    if key in GEO or key in GEO.get('_miss', {}): continue
     tried += 1; hit = None
+    if tried % 5 == 0: json.dump(GEO, open(out_p, 'w', encoding='utf8'), ensure_ascii=False, indent=0)
     z = zavis(a)
     if z:
         addr = z[0]; parts = [p.strip() for p in addr.split(' - ') if p.strip()]
@@ -73,5 +74,6 @@ for a in acc:
         print('OK ', a['dn'], '->', hit[2][:110])
     else:
         print('-- ', a['dn'], '(zavis' + (' address but no map match' if z else ' not found') + ')')
+        GEO.setdefault('_miss', {})[key] = 1 if z else 0
 json.dump(GEO, open(out_p, 'w', encoding='utf8'), ensure_ascii=False, indent=0)
 print(f'::notice::located {found} of {tried}; total {len(GEO)}')
