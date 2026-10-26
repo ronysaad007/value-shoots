@@ -79,12 +79,13 @@ def main():
                 f['pv'] = f'p/{fid}.webp'
             used += f.get('s', 0); keep.add(fid); stats['new'] += 1
         except Exception as e:
-            print('::warning::FAILED ' + f['n'] + ': ' + str(e)[:200]); stats['failed'] += 1
+            print('::warning::FAILED ' + f.get('m','') + ' ' + f['n'] + ': ' + str(e)[:200]); stats['failed'] += 1
             for k in ('g', 'th', 'pv'): f.pop(k, None)
 
     def walk(d):
         d['d'] = [x for x in d.get('d', []) if not SKIP_FOLDER.search(x.get('n', ''))]
-        for f in d.get('f', []): handle(f)
+        d['f'] = [f for f in d.get('f', []) if not f.get('n', '').startswith('.')]
+        for f in d['f']: handle(f)
         for x in d['d']: walk(x)
     walk(tree)
 
