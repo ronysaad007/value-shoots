@@ -5,9 +5,10 @@
 if(typeof C==='undefined'||typeof clinicCard!=='function') return;
 const PROD=['BioRePeel','ARES','Revitacare','Retinol'];
 const AX={en:{client:'Client',clients:'Value clients',panel:'Value Aesthetic account',old:'Previously',noTeam:'Our client · team not in the register yet',
-            ask:p=>`${p} — is it selling here?`,st:{selling:'Selling',not:'Not selling',unknown:'Not sure'},check:'Tap a product to update',by:'Your name',byPh:'So we know who checked',needBy:'Write your name first.',saved:'Saved ✓',err:'Not sent — will retry when online.',last:(b,d)=>`by ${b} · ${d}`},
+            ask:p=>`${p} — is it selling here?`,st:{selling:'Selling',not:'Not selling',unknown:'Not sure'},check:'Tap a product to update',by:'Your name',byPh:'So we know who checked',needBy:'Write your name first.',saved:'Saved ✓',err:'Not sent — will retry when online.',last:(b,d)=>`by ${b} · ${d}`,newAcc:'+ New account',newT:'New Value account',which:'Which products, and which rep?',none:'—',note:'Note (optional)',send:'Send to Rony',cancel:'Cancel',needP:'Pick at least one product and its rep.',sentA:'Sent ✓ It shows for everyone once Rony approves it.'},
           ar:{client:'عميل',clients:'عملاء Value',panel:'حساب Value Aesthetic',old:'سابقاً',noTeam:'عميل عنا · الفريق مش موجود بالسجل لسا',
-            ask:p=>`${p} — عم ينباع هون؟`,st:{selling:'عم ينباع',not:'مش عم ينباع',unknown:'ما بعرف'},check:'اكبس على المنتج لتحدّث حالتو',by:'اسمك',byPh:'لنعرف مين عمل التشييك',needBy:'اكتب اسمك أول.',saved:'انحفظ ✓',err:'ما انبعت، رح ينبعت لما يرجع النت.',last:(b,d)=>`${b} · ${d}`}};
+            ask:p=>`${p} — عم ينباع هون؟`,st:{selling:'عم ينباع',not:'مش عم ينباع',unknown:'ما بعرف'},check:'اكبس على المنتج لتحدّث حالتو',by:'اسمك',byPh:'لنعرف مين عمل التشييك',needBy:'اكتب اسمك أول.',saved:'انحفظ ✓',err:'ما انبعت، رح ينبعت لما يرجع النت.',last:(b,d)=>`${b} · ${d}`,newAcc:'+ أكاونت جديد',newT:'أكاونت Value جديد',which:'أي منتجات، ومين الريب؟',none:'—',note:'ملاحظة (اختياري)',send:'ابعت لروني',cancel:'إلغاء',needP:'اختار منتج واحد عالأقل ومين الريب تبعو.',sentA:'انبعت ✓ بيطلع للكل بعد ما يوافق روني.'}};
+const REPS=['Hala','Leen','Mohamad','Moayad','Maram','Zeina'];
 const REPC={Hala:'#C2410C',Leen:'#7C3AED',Mohamad:'#0F766E',Moayad:'#1D4ED8',Maram:'#BE185D',Zeina:'#A16207'};
 const repColor=n=>REPC[n]||'#475569';
 const ICON={selling:'✅',not:'⏸️',unknown:'❓'};
@@ -36,6 +37,9 @@ css.textContent=`.acb{display:inline-flex;align-items:center;gap:4px;font:600 11
 .acp .ask .lst{font-size:11.5px;color:var(--muted);margin-top:6px}
 .acp .old{margin-top:6px;font-size:12px;color:var(--muted)}
 .acp .nt{margin-top:6px;font-size:12px;color:var(--rose-ink)}
+.nab{margin:4px 0 10px}.naf .nag{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:8px}
+.naf label{display:flex;flex-direction:column;gap:4px;font-size:12px}.naf select,.naf input{width:100%;box-sizing:border-box;border:1px solid var(--line);border-radius:8px;padding:7px 9px;font:inherit;font-size:13px;background:#fff;margin-top:6px}
+.naf label select{margin-top:0}
 #f-acct[aria-pressed="true"]{background:var(--ok);border-color:var(--ok);color:#fff}`;
 document.head.appendChild(css);
 
@@ -55,10 +59,11 @@ function load(data){
 // card: badge + account panel
 const _card=clinicCard;
 clinicCard=function(c,q,open){
-  let h=_card(c,q,open); if(!c.acct) return h;
+  let h=_card(c,q,open);
+  if(!c.acct){ const at=h.indexOf('<div><button class="btn" type="button" data-xadd'); const b=naBtn(c); return at>=0?h.slice(0,at)+b+h.slice(at):h.replace('<div class="tbl">',b+'<div class="tbl">'); }
   const x=ax();
   h=h.replace('<div class="cname">',`<div class="cname"><span class="acb">✓ ${x.client}</span>`);
-  const panel=panelHtml(c);
+  const panel=panelHtml(c)+naBtn(c);
   const at=h.indexOf('<div><button class="btn" type="button" data-xadd');
   if(at>=0) return h.slice(0,at)+panel+h.slice(at);
   return h.replace('<div class="tbl">',panel+'<div class="tbl">');
@@ -94,7 +99,38 @@ document.addEventListener('click',e=>{
 },true);
 async function loadStatus(){if(!API)return;try{const r=await fetch(API+'?a=acct',{cache:'no-store'});const list=await r.json();if(!Array.isArray(list))return;
   list.filter(i=>i.type==='status').sort((a,b)=>a.at-b.at).forEach(i=>{const kk=i.key+'|'+i.product,cur=ST[kk];if(!cur||cur.t<=i.at)ST[kk]={v:i.value,b:i.by,t:i.at}});
-  saveST();document.querySelectorAll('[data-acp]').forEach(el=>redraw(+el.dataset.acp));}catch(e){}}
+  saveST();
+  let changed=false;const byK=new Map(C.map(c=>[ckey(c),c]));
+  list.filter(i=>i.type==='account').forEach(i=>{const c=byK.get(i.key);if(!c||!i.product)return;
+    if(!c.acct){c.acct={name:c.n,p:{},o:''};changed=true}
+    if(c.acct.p[i.product]!==i.value){c.acct.p[i.product]=i.value;changed=true}});
+  if(changed)render();else document.querySelectorAll('[data-acp]').forEach(el=>redraw(+el.dataset.acp));}catch(e){}}
+
+// ---- new account (needs Rony's approval) ----
+function naBtn(c){return `<div class="nab" data-nab="${c.i}"><button class="btn" type="button" data-naopen="${c.i}">${ax().newAcc}</button></div>`}
+let NA=null;
+function naForm(msg,kind){const c=C[NA.ci],x=ax();let by='';try{by=localStorage.getItem('dby')||''}catch(e){}
+  return `<div class="acp naf" data-nab="${c.i}"><h4>${x.newT}</h4><p style="margin:0 0 8px;font-size:13px;color:var(--muted)">${x.which}</p>
+   <div class="nag">${PROD.map(p=>`<label><b>${p}</b><select data-nap="${p}"><option value="">${x.none}</option>${REPS.map(r=>`<option${NA.r[p]===r?' selected':''}>${r}</option>`).join('')}</select></label>`).join('')}</div>
+   <input id="naNote" placeholder="${esc(x.note)}" value="${esc(NA.note||'')}"><input id="naBy" autocomplete="name" placeholder="${esc(x.by)} — ${esc(x.byPh)}" value="${esc(by)}">
+   ${msg?`<div class="m ${kind||''}" style="font-size:12px;margin-top:6px;color:${kind==='ok'?'var(--ok)':'var(--rose-ink)'}">${esc(msg)}</div>`:''}
+   <div style="display:flex;gap:8px;margin-top:10px"><button class="btn" type="button" data-naclose>${x.cancel}</button><button class="btn solid" type="button" data-nasend>${x.send}</button></div></div>`}
+function naDraw(msg,kind){const el=document.querySelector(`[data-nab="${NA.ci}"]`);if(el)el.outerHTML=naForm(msg,kind)}
+function naBack(ci){const el=document.querySelector(`[data-nab="${ci}"]`);if(el)el.outerHTML=naBtn(C[ci])}
+document.addEventListener('click',e=>{
+  const o=e.target.closest('[data-naopen]');if(o){e.preventDefault();if(NA)naBack(NA.ci);NA={ci:+o.dataset.naopen,r:{},note:''};naDraw();return}
+  if(!NA)return;
+  if(e.target.closest('[data-naclose]')){e.preventDefault();const ci=NA.ci;NA=null;naBack(ci);return}
+  if(e.target.closest('[data-nasend]')){e.preventDefault();const c=C[NA.ci],x=ax();
+    document.querySelectorAll('[data-nap]').forEach(sl=>{if(sl.value)NA.r[sl.dataset.nap]=sl.value;else delete NA.r[sl.dataset.nap]});
+    NA.note=(document.getElementById('naNote')||{}).value||'';const by=((document.getElementById('naBy')||{}).value||'').trim();
+    if(!Object.keys(NA.r).length){naDraw(x.needP,'bad');return}
+    if(!by){naDraw(x.needBy,'bad');return}
+    try{localStorage.setItem('dby',by)}catch(err){}
+    send({type:'account',key:ckey(c),clinic:c.n,city:(T.en.city[c.ct]||c.ct),reps:NA.r,note:NA.note,by,id:'a'+Date.now().toString(36)});
+    naDraw(x.sentA,'ok');const ci=NA.ci;setTimeout(()=>{if(NA&&NA.ci===ci){NA=null;naBack(ci)}},2200)}
+},true);
+document.addEventListener('change',e=>{const sl=e.target.closest('[data-nap]');if(sl&&NA){if(sl.value)NA.r[sl.dataset.nap]=sl.value;else delete NA.r[sl.dataset.nap]}});
 
 // filters: "Value clients" chip; client-only cards (no team yet) still show
 const _place=placeOk;

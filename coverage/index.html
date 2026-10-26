@@ -127,10 +127,15 @@ function layers(){
     new deck.ColumnLayer({id:'pts',data:pts,diskResolution:10,radius:180,extruded:true,pickable:true,
       getPosition:r=>[r.x[0],r.x[1],H(emOf(r.ct))+30],getElevation:r=>350+Math.min(r.m,120)*55,getFillColor:col,
       material:{ambient:.6,diffuse:.6},updateTriggers:{getPosition:[kind,DATA.length]},
-      transitions:{getElevation:{duration:600}},onHover:hover,onClick:hover})
+      transitions:{getElevation:{duration:600}},onHover:hover,onClick:tapPt})
   ];
 }
-let ESc={};
+let ESc={},lastTap=null;
+const EN={d:'Dubai',a:'Abu Dhabi',n:'Al Ain',s:'Sharjah',j:'Ajman',r:'Ras Al Khaimah',f:'Fujairah',q:'Umm Al Quwain'};
+const gmap=r=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent([r.n,r.ar,EN[r.ct],'UAE'].filter(Boolean).join(', '));
+function tapPt(i){const r=i.object;if(!r)return;
+  if(matchMedia('(hover: none)').matches&&lastTap!==r){lastTap=r;hover(i);return}
+  window.open(gmap(r),'_blank','noopener')}
 function placeLabels(){if(!deckgl||!deckgl.isInitialized)return;let vp;try{vp=deckgl.getViewports()[0]}catch(e){return}if(!vp)return;const box=$('lbls'),r=$('map').getBoundingClientRect();
   if(box.children.length!==EM.length)box.innerHTML=EM.map(e=>`<div class="lb" data-e="${e}"></div>`).join('');
   [...box.children].forEach(el=>{const e=el.dataset.e,s=ESc[e];if(!s)return;const z=500+s.p*45;const [x,y]=vp.project([CENT[e][0],CENT[e][1],z+800]);
@@ -143,6 +148,7 @@ function hover(i){const t=$('tip'),r=i.object;
   const x=tx(),p=r.p||{};
   t.innerHTML=`<b>${esc(r.n)}</b>${esc(x.names[r.ct]||'')}${r.ar?' · '+esc(r.ar):''} · ${x.team(r.m)}<br><span class="k" style="background:${r.c?'#d1fae5':'#fde2de'};color:${r.c?'#065f46':'#9f3a2f'}">${r.c?x.client:x.notc}</span>`
    +(r.c&&Object.keys(p).length?`<div class="pr">${Object.entries(p).map(([k,v])=>`${esc(k)}: <b style="display:inline;font-size:12px">${esc(v)}</b>`).join(' · ')}</div>`:'');
+  t.innerHTML+=`<div style="margin-top:6px;font-size:11.5px;color:#64748b">${L==='ar'?(matchMedia('(hover: none)').matches?'اكبس مرة تانية لتفتح Google Maps':'اكبس لتفتح Google Maps'):(matchMedia('(hover: none)').matches?'Tap again to open Google Maps':'Click to open Google Maps')}</div>`;
   t.style.display='block';const W=innerWidth;t.style.left=Math.min(i.x+14,W-300)+'px';t.style.top=(i.y+14)+'px'}
 function select(e){SEL=SEL===e?null:e;render();
   const v=SEL?{longitude:CENT[SEL][0],latitude:CENT[SEL][1],zoom:SEL==='a'?7.6:SEL==='d'?10.2:SEL==='s'||SEL==='j'||SEL==='q'?10:9,pitch:50,bearing:-15}:HOME;
@@ -158,7 +164,7 @@ function panel(){
     const bar=(lab,v,colr)=>`<div class="row"><span>${lab}</span><div class="bar"><i style="width:${pct(v[1],v[0])}%;background:${colr}"></i></div><bdi>${v[1]}/${v[0]}</bdi></div>`;
     let opp='';
     if(SEL===e){const list=DATA.filter(r=>emOf(r.ct)===e&&!r.c&&kindOk(r)).sort((a,b)=>b.m-a.m).slice(0,8);
-      if(list.length)opp=`<div class="opp"><h4>${x.opp}</h4>${list.map(r=>`<div><b style="font-weight:500">${esc(r.n)}</b><span>${x.team(r.m)}</span></div>`).join('')}</div>`}
+      if(list.length)opp=`<div class="opp"><h4>${x.opp}</h4>${list.map(r=>`<div><a href="${gmap(r)}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;font-weight:500">${esc(r.n)} ↗</a><span>${x.team(r.m)}</span></div>`).join('')}</div>`}
     return `<div class="em${SEL===e?' on':''}" data-e="${e}"><div class="hd"><b>${x.names[e]}${e==='a'?` <small style="color:var(--muted);font-weight:400">· ${x.alain}</small>`:''}</b><span style="color:rgb(${ramp(s.p).join(',')})">${s.p}%</span></div>
       ${kind!=='h'?bar(x.clinics,s.c,'var(--client)'):''}${kind!=='c'?bar(x.hosp,s.h,'var(--hosp)'):''}${opp}</div>`}).join('');
   $('legend').innerHTML=`<span><i style="background:var(--client)"></i>${x.lg.c}</span><span><i style="background:var(--gap)"></i>${x.lg.g}</span><span><i style="background:linear-gradient(90deg,#2a3556,#34d399)"></i>${x.lg.e}</span>`;
@@ -179,6 +185,10 @@ Promise.all([fetch('emirates.json').then(r=>r.json()),fetch('data.json',{cache:'
   deckgl=new deck.DeckGL({container:$('map'),initialViewState:HOME,controller:{touchRotate:true,dragRotate:true},effects:[light],layers:layers(),
     getCursor:({isHovering})=>isHovering?'pointer':'grab',onAfterRender:placeLabels,onClick:i=>{if(!i.object){$('tip').style.display='none'}}});
   render();$('load').style.opacity=0;setTimeout(()=>$('load').remove(),600);
+  fetch('../derma/api.txt').then(r=>r.text()).then(u=>fetch(u.trim()+'?a=acct',{cache:'no-store'})).then(r=>r.json()).then(list=>{
+    if(!Array.isArray(list))return;const by=new Map(DATA.map(r=>[r.ct+'|'+r.n,r]));let ch=false;
+    list.filter(i=>i.type==='account').forEach(i=>{const r=by.get(i.key);if(!r)return;if(!r.c){r.c=1;ch=true}r.p=r.p||{};r.p[i.product]=i.value});
+    if(ch)render()}).catch(()=>{});
 }).catch(e=>{$('load').textContent='Could not load the map data.'});
 })();
 </script>
