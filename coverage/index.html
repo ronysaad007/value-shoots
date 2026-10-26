@@ -147,7 +147,7 @@ function hover(i){const t=$('tip'),r=i.object;
 function select(e){SEL=SEL===e?null:e;render();
   const v=SEL?{longitude:CENT[SEL][0],latitude:CENT[SEL][1],zoom:SEL==='a'?7.6:SEL==='d'?10.2:SEL==='s'||SEL==='j'||SEL==='q'?10:9,pitch:50,bearing:-15}:HOME;
   deckgl.setProps({initialViewState:{...v,transitionDuration:1400,transitionInterpolator:new deck.FlyToInterpolator()}})}
-const HOME=innerWidth<760?{longitude:55.15,latitude:23.95,zoom:6.35,pitch:45,bearing:-12}:{longitude:54.55,latitude:24.45,zoom:7.15,pitch:48,bearing:-14};
+const HOME=innerWidth<760?{longitude:55.15,latitude:23.95,zoom:6.35+Math.log2(innerWidth/390),pitch:45,bearing:-12}:{longitude:54.55,latitude:24.45,zoom:7.15+Math.log2(Math.max(400,innerWidth-368)/1032),pitch:48,bearing:-14};
 function panel(){
   const x=tx(),S=stats();let tot=0,cl=0;
   const rows=EM.map(e=>{const s=emStats(S,e);tot+=s.tot;cl+=s.cl;return [e,s]}).sort((a,b)=>b[1].tot-a[1].tot);
