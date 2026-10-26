@@ -79,7 +79,7 @@ def main():
                 f['pv'] = f'p/{fid}.webp'
             used += f.get('s', 0); keep.add(fid); stats['new'] += 1
         except Exception as e:
-            print('FAILED', f['n'], e); stats['failed'] += 1
+            print('::warning::FAILED ' + f['n'] + ': ' + str(e)[:200]); stats['failed'] += 1
             for k in ('g', 'th', 'pv'): f.pop(k, None)
 
     def walk(d):
@@ -97,7 +97,13 @@ def main():
                 shutil.rmtree(q) if os.path.isdir(q) else os.remove(q)
     tree.pop('at', None)
     json.dump(tree, open(os.path.join(OUT, 'index.json'), 'w'), ensure_ascii=False, separators=(',', ':'))
-    print(stats, 'mirrored MB:', round(used / 1048576, 1))
+    print('::notice::' + str(stats) + ' mirrored MB: ' + str(round(used / 1048576, 1)))
 
 if __name__ == '__main__':
-    os.makedirs(OUT, exist_ok=True); main()
+    os.makedirs(OUT, exist_ok=True)
+    try:
+        main()
+    except BaseException as e:
+        import traceback
+        print('::error::' + ' | '.join(traceback.format_exc().strip().splitlines()[-4:]).replace('\n', ' '))
+        raise
