@@ -7,6 +7,7 @@ const safe = v => { v = String(v == null ? '' : v).slice(0, 500); return /^[=+\-
 
 function doPost(e) {
   const d = JSON.parse((e && e.postData && e.postData.contents) || '{}');
+  if (d.action && String(d.action).indexOf('hub_') === 0) return out(hubAction(d));
   if (!d.name || !d.type) return out({ ok: false });
   const lock = LockService.getScriptLock(); lock.waitLock(10000);
   try {
@@ -19,6 +20,8 @@ function doPost(e) {
 
 function doGet(e) {
   if (e && e.parameter && e.parameter.a === 'assets') return out(assets(e.parameter.fresh === '1'));
+  if (e && e.parameter && e.parameter.a === 'catalog') return out(hubCatalog());
+  if (e && e.parameter && e.parameter.a === 'file') return out(hubFile(e.parameter.id));
   const rows = sheet().getDataRange().getValues().slice(1)
     .filter(r => String(r[2]).trim().toLowerCase() === 'approved');
   return out(rows.map(r => ({ at: +new Date(r[0]), type: String(r[1]).toLowerCase(), name: r[3], role: r[4], level: r[5],
@@ -53,4 +56,76 @@ function assets(fresh) {
   for (let i = 0; i < s.length; i += 90000) parts['as_' + (n++)] = s.slice(i, i + 90000);
   parts.as_n = String(n); try { cache.putAll(parts, 300); } catch (err) {}
   return tree;
+}
+
+// --- Product Hub: catalogue editing (Settings on the Product Hub page) ---
+// Default password = the Value Shoots settings password. Change it from the Product Hub settings.
+const HUB_DEFAULT_PW = '5847d8377b1ae15440a9f0b4b2de1b54e0e3bb8f3d35e51dd1f2c4e46436e188';
+const props = () => PropertiesService.getScriptProperties();
+const sha = s => Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, s, Utilities.Charset.UTF_8)
+  .map(b => ((b + 256) % 256).toString(16).padStart(2, '0')).join('');
+function hubCatalogFile() {
+  const id = props().getProperty('HUB_CATALOG_ID');
+  if (id) { try { const f = DriveApp.getFileById(id); if (!f.isTrashed()) return f; } catch (err) {} }
+  return null;
+}
+function hubCatalog() {
+  const f = hubCatalogFile(); if (!f) return { none: true };
+  const j = JSON.parse(f.getBlob().getDataAsString('UTF-8'));
+  return { data: j.data, version: j.version || 0 };
+}
+function hubUploads() {
+  const id = props().getProperty('HUB_UPLOADS_ID');
+  if (id) { try { const f = DriveApp.getFolderById(id); if (!f.isTrashed()) return f; } catch (err) {} }
+  const f = DriveApp.getFolderById(ASSETS_ROOT).createFolder('9 - 🧪 Product Hub uploads');
+  props().setProperty('HUB_UPLOADS_ID', f.getId()); return f;
+}
+function hubFile(id) {
+  const f = DriveApp.getFileById(String(id || ''));
+  const parents = f.getParents(); let ok = false; const up = hubUploads().getId();
+  while (parents.hasNext()) if (parents.next().getId() === up) ok = true;
+  if (!ok) return { error: 'Not found' };
+  return { type: f.getMimeType(), b64: Utilities.base64Encode(f.getBlob().getBytes()) };
+}
+function hubAuthed(token) { return !!(token && CacheService.getScriptCache().get('hub_s_' + sha(String(token)))); }
+function hubAction(d) {
+  const cache = CacheService.getScriptCache();
+  try {
+    if (d.action === 'hub_login') {
+      const fails = +(cache.get('hub_fails') || 0); if (fails > 15) return { error: 'Too many attempts. Try again in 15 minutes.' };
+      const want = props().getProperty('HUB_PW') || HUB_DEFAULT_PW;
+      if (typeof d.password !== 'string' || sha(d.password) !== want) { cache.put('hub_fails', String(fails + 1), 900); return { error: 'Incorrect password' }; }
+      const token = Utilities.getUuid() + Utilities.getUuid(); cache.put('hub_s_' + sha(token), '1', 21600);
+      return { admin: true, token };
+    }
+    if (d.action === 'hub_session') return { admin: hubAuthed(d.token) };
+    if (!hubAuthed(d.token)) return { error: 'Please sign in to settings' };
+    if (d.action === 'hub_logout') { cache.remove('hub_s_' + sha(String(d.token))); return { ok: true }; }
+    if (d.action === 'hub_password') {
+      if (typeof d.password !== 'string' || d.password.length < 6 || d.password.length > 200) return { error: 'Use at least 6 characters' };
+      props().setProperty('HUB_PW', sha(d.password)); return { ok: true };
+    }
+    if (d.action === 'hub_save') {
+      const lock = LockService.getScriptLock(); lock.waitLock(15000);
+      try {
+        const cur = hubCatalog(), curV = cur.none ? (d.version || 0) : cur.version;
+        if (!cur.none && d.version !== curV) return { error: 'Another editor saved changes. Reload before saving.' };
+        if (!d.data || !Array.isArray(d.data.products)) return { error: 'Invalid catalogue' };
+        const body = JSON.stringify({ data: d.data, version: curV + 1, savedAt: new Date().toISOString() });
+        const f = hubCatalogFile();
+        if (f) f.setContent(body); else props().setProperty('HUB_CATALOG_ID', DriveApp.createFile('Product Hub catalogue.json', body, 'application/json').getId());
+        return { ok: true, version: curV + 1 };
+      } finally { lock.releaseLock(); }
+    }
+    if (d.action === 'hub_upload') {
+      const bytes = Utilities.base64Decode(String(d.b64 || ''));
+      if (bytes.length > 25 * 1024 * 1024) return { error: 'Maximum file size is 25 MB' };
+      const type = String(d.type || '');
+      if (!/^(image\/(png|jpeg|webp)|application\/pdf)$/.test(type)) return { error: 'Use JPG, PNG, WebP or PDF' };
+      const f = hubUploads().createFile(Utilities.newBlob(bytes, type, String(d.name || 'file').slice(0, 120)));
+      const id = f.getId();
+      return { url: type === 'application/pdf' ? 'https://drive.google.com/file/d/' + id + '/view' : 'https://lh3.googleusercontent.com/d/' + id };
+    }
+    return { error: 'Not found' };
+  } catch (err) { return { error: String(err && err.message || err) }; }
 }
