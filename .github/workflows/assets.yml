@@ -19,9 +19,10 @@ jobs:
           python-version: '3.12'
       - run: (which pdftoppm && which gs || (sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils ghostscript)) && pip install -q pillow
       - run: python tools/sync_assets.py
+      - run: python tools/build_coverage.py
       - name: Commit changes
         run: |
-          git add assets
+          git add assets coverage/data.json
           if git diff --cached --quiet; then echo "No changes"; exit 0; fi
           git -c user.name="Assets sync" -c user.email="actions@users.noreply.github.com" commit -qm "Sync assets from Drive"
           git pull -q --rebase && git push -q

@@ -151,5 +151,6 @@ if(fav&&!document.getElementById('f-acct')){
 const _render=render;
 render=function(){ const b=document.getElementById('f-acct'); if(b) b.textContent='✓ '+ax().clients; return _render.apply(this,arguments); };
 
-fetch('accounts.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{load(d);render();loadStatus();}).catch(()=>{});
+Promise.all([fetch('accounts.json',{cache:'no-cache'}).then(r=>r.json()),fetch('geo.json',{cache:'no-cache'}).then(r=>r.ok?r.json():{}).catch(()=>({}))])
+  .then(([d,g])=>{load(d);C.forEach(c=>{const p=c.acOnly&&g[ckey(c)];if(p){c.lo=p[0];c.la=p[1]}});render();loadStatus();}).catch(()=>{});
 })();

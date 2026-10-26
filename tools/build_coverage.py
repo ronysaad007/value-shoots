@@ -19,9 +19,14 @@ for i, c in enumerate(C):
     if a: row['p'] = a.get('p', {})
     if c.get('la') and c.get('lo'): row['x'] = [round(c['lo'], 5), round(c['la'], 5)]
     out.append(row)
+try: GEO = json.load(open(os.path.join(R, 'derma', 'geo.json'), encoding='utf8'))
+except Exception: GEO = {}
 for a in acc:
     if not a.get('k'):
-        out.append({'n': a['dn'], 'ct': a['ct'], 'h': 1 if 'HOSPITAL' in a['n'].upper() else 0, 'm': 0, 'c': 1, 'p': a.get('p', {}), 'new': 1})
+        row = {'n': a['dn'], 'ct': a['ct'], 'h': 1 if 'HOSPITAL' in a['n'].upper() else 0, 'm': 0, 'c': 1, 'p': a.get('p', {}), 'new': 1}
+        g = GEO.get(a['ct'] + '|' + a['dn'])
+        if g: row['x'] = [g[0], g[1]]
+        out.append(row)
 json.dump({'v': acc and 1, 'clinics': out}, open(os.path.join(R, 'coverage', 'data.json'), 'w', encoding='utf8'), ensure_ascii=False, separators=(',', ':'))
 st = collections.defaultdict(lambda: [0, 0, 0, 0])
 for r in out:
