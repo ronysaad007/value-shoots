@@ -1,3 +1,5 @@
+/* Embedded inside Value Shoots: hide the back link (the Value Shoots bar is already on top). */
+(function(){ if(window.top===window.self) return; var st=document.createElement('style'); st.textContent='a[href="../"]{display:none!important}'; document.head.appendChild(st); })();
 /* Derma Finder — team overlay for the GitHub copy.
    Reports (move a person / add a person) go to the Value Shoots Google Sheet; approved ones are applied for everyone.
    Self-contained: only relies on the page's data (C, D) and helpers (t, T, L, esc, norm, $, render, rebuildTeams, skWords, joinsOf, wordHit, qScore, isDoc, CITIES). */
