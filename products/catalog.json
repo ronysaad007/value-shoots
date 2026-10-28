@@ -3150,7 +3150,7 @@
         "cases": [],
         "approved": true,
         "visible": true,
-        "order": 13,
+        "order": 14,
         "visual": true,
         "careLayout": true,
         "hideResults": true,
@@ -3304,6 +3304,344 @@
             "url": "stock/retinol-professional-use.pdf"
           }
         ]
+      },
+      {
+        "id": "luminescens",
+        "brand": "cmed",
+        "category": "skin",
+        "order": 13,
+        "approved": true,
+        "visible": true,
+        "visual": true,
+        "name": {
+          "en": "LUMINESCENS",
+          "ar": "LUMINESCENS"
+        },
+        "description": {
+          "en": "Depigmenting & whitening programme: in-clinic mesotherapy plus a home cream for hyperpigmentation.",
+          "ar": "برنامج لتفتيح التصبغات: ميزوثيرابي في العيادة مع كريم منزلي لعلاج فرط التصبغ."
+        },
+        "overview": {
+          "en": "LUMINESCENS is CMed’s depigmenting and whitening solution for acquired hyperpigmentation. It combines professional mesotherapy sessions (delivered with microneedling) with a home cream that continues the treatment between sessions. The brochure positions it for all phototypes and both oily and dry skin, with no downtime and no 6–12 hour mask.",
+          "ar": "LUMINESCENS هو حلّ CMed لتفتيح وتوحيد لون البشرة في حالات فرط التصبغ المكتسب. يجمع بين جلسات ميزوثيرابي احترافية (تُطبَّق مع الميكرونيدلينغ) وكريم منزلي يُكمل العلاج بين الجلسات. يقدّمه البروشور لجميع أنواع البشرة الضوئية وللبشرة الدهنية والجافة، بدون فترة نقاهة وبدون قناع يبقى ٦–١٢ ساعة."
+        },
+        "concerns": {
+          "en": "Melasma\nPost-inflammatory hyperpigmentation\nSun spots / photo-damage\nUneven tone\nDull, non-luminous skin",
+          "ar": "الكلف\nالتصبغ التالي للالتهاب\nالبقع الشمسية / ضرر الشمس\nتفاوت لون البشرة\nبهتان البشرة وقلة الإشراق"
+        },
+        "benefits": {
+          "en": "Targets several steps of melanin formation and transport\nReduces the appearance of dark spots\nNo downtime — no impact on daily life\nNo 6–12 h mask to leave on\nSuitable for all phototypes, oily and dry skin\nRich home formula continues the treatment between sessions",
+          "ar": "يستهدف عدة مراحل من تكوّن الميلانين وانتقاله\nيخفّف مظهر البقع الداكنة\nبدون فترة نقاهة — لا يؤثر على الحياة اليومية\nبدون قناع يبقى ٦–١٢ ساعة\nمناسب لجميع أنواع البشرة الضوئية والدهنية والجافة\nتركيبة منزلية غنية تُكمل العلاج بين الجلسات"
+        },
+        "facts": [
+          {
+            "label": {
+              "en": "Kit",
+              "ar": "العلبة"
+            },
+            "value": {
+              "en": "1 cream 30 mL + 2 ampoules × 4 mL",
+              "ar": "كريم ٣٠ مل + أمبولتان × ٤ مل"
+            }
+          },
+          {
+            "label": {
+              "en": "Home Cream",
+              "ar": "الكريم المنزلي"
+            },
+            "value": {
+              "en": "30 mL · sold separately",
+              "ar": "٣٠ مل · يُباع منفصلاً"
+            }
+          },
+          {
+            "label": {
+              "en": "Programmes",
+              "ar": "البرامج"
+            },
+            "value": {
+              "en": "Light pigment · Deep pigment",
+              "ar": "تصبغ سطحي · تصبغ عميق"
+            }
+          },
+          {
+            "label": {
+              "en": "Delivery",
+              "ar": "طريقة التطبيق"
+            },
+            "value": {
+              "en": "Mesotherapy with microneedling",
+              "ar": "ميزوثيرابي مع ميكرونيدلينغ"
+            }
+          }
+        ],
+        "technology": [
+          {
+            "title": {
+              "en": "Blocks melanogenic enzymes",
+              "ar": "يثبّط إنزيمات تكوين الميلانين"
+            },
+            "description": {
+              "en": "Actives such as oligopeptide-34, arbutin, phenylethyl resorcinol, glabridin and azelaic acid act on the enzymes that produce melanin.",
+              "ar": "مكوّنات مثل Oligopeptide-34 والأربوتين وPhenylethyl Resorcinol والغلابريدين وحمض الأزيليك تعمل على الإنزيمات المسؤولة عن إنتاج الميلانين."
+            }
+          },
+          {
+            "title": {
+              "en": "Blocks melanin formation & transport",
+              "ar": "يحدّ من تكوين الميلانين وانتقاله"
+            },
+            "description": {
+              "en": "Tranexamic acid, aminoethyl phosphinic acid and acetyl tetrapeptide-2 limit the formation of melanin and its transfer to the surface cells.",
+              "ar": "حمض الترانيكساميك وAminoethyl Phosphinic Acid وAcetyl Tetrapeptide-2 تحدّ من تكوّن الميلانين وانتقاله إلى خلايا السطح."
+            }
+          },
+          {
+            "title": {
+              "en": "Increases cell turnover",
+              "ar": "يسرّع تجدد الخلايا"
+            },
+            "description": {
+              "en": "Citric, tartaric and salicylic acids plus retinol help remove pigmented surface cells.",
+              "ar": "أحماض الستريك والطرطريك والساليسيليك مع الريتينول تساعد على إزالة الخلايا السطحية المصطبغة."
+            }
+          },
+          {
+            "title": {
+              "en": "Antioxidant protection",
+              "ar": "حماية مضادة للأكسدة"
+            },
+            "description": {
+              "en": "Glutathione, tocopheryl acetate, ellagic and phytic acids and plant extracts counter oxidative triggers of pigmentation.",
+              "ar": "الغلوتاثيون وفيتامين E وحمض الإيلاجيك والفيتيك والمستخلصات النباتية تحدّ من محفّزات التصبغ التأكسدية."
+            }
+          }
+        ],
+        "technologyImage": "stock/luminescens-cream-vials.png",
+        "ingredientCards": [
+          {
+            "name": {
+              "en": "Enzyme-blocking complex",
+              "ar": "مركّب تثبيط الإنزيمات"
+            },
+            "description": {
+              "en": "Oligopeptide-34, arbutin, phenylethyl resorcinol, glabridin, azelaic & glycyrrhetinic acid, Silybum marianum.",
+              "ar": "Oligopeptide-34، أربوتين، Phenylethyl Resorcinol، غلابريدين، حمض الأزيليك والغليسيريتينيك، مستخلص الشوك الحليبي."
+            }
+          },
+          {
+            "name": {
+              "en": "Anti-transfer complex",
+              "ar": "مركّب منع الانتقال"
+            },
+            "description": {
+              "en": "Tranexamic acid, aminoethyl phosphinic acid, acetyl tetrapeptide-2, potassium azeloyl diglycinate, hexapeptide-40 / SH-polypeptide-76, acetyl hexapeptide-1.",
+              "ar": "حمض الترانيكساميك، Aminoethyl Phosphinic Acid، Acetyl Tetrapeptide-2، Potassium Azeloyl Diglycinate، Hexapeptide-40 / SH-Polypeptide-76، Acetyl Hexapeptide-1."
+            }
+          },
+          {
+            "name": {
+              "en": "Renewal complex",
+              "ar": "مركّب التجديد"
+            },
+            "description": {
+              "en": "Citric, tartaric and salicylic acids with retinol.",
+              "ar": "أحماض الستريك والطرطريك والساليسيليك مع الريتينول."
+            }
+          },
+          {
+            "name": {
+              "en": "Antioxidant complex",
+              "ar": "مركّب مضادات الأكسدة"
+            },
+            "description": {
+              "en": "Glutathione, tocopheryl acetate, ellagic & phytic acid, CG-TGP2, rutin and botanical extracts.",
+              "ar": "الغلوتاثيون، Tocopheryl Acetate، حمض الإيلاجيك والفيتيك، CG-TGP2، الروتين ومستخلصات نباتية."
+            }
+          }
+        ],
+        "ingredients": {
+          "en": "Mesotherapy ampoule: Tranexamic Acid, Salicylic Acid, Aminoethyl Phosphinic Acid, Sodium Phytate, Rutin, Ellagic Acid, Oxothiazolidinecarboxylic Acid, Vitis / Rosmarinus / Melissa / Salvia / Camellia / Betula extracts, Acetyl Tetrapeptide-2, Arbutin, Sodium DNA, Potassium Azeloyl Diglycinate, Oligopeptide-34, Glutathione, Hyaluronic Acid.\n\nHome Cream: Tranexamic Acid, Aminoethyl Phosphinic Acid, Azelaic Acid, Phytic Acid, Arbutin, Oligopeptide-34, Citric Acid, Tartaric Acid, Hexapeptide-40, SH-Polypeptide-76, Acetyl Hexapeptide-1, Salicylic Acid, Panthenol, Silybum Marianum, Phenylethyl Resorcinol, Glycyrrhetinic Acid, Retinol, Hyaluronic Acid, Glabridin, Tocopheryl Acetate.",
+          "ar": "أمبولة الميزوثيرابي: Tranexamic Acid، Salicylic Acid، Aminoethyl Phosphinic Acid، Sodium Phytate، Rutin، Ellagic Acid، Oxothiazolidinecarboxylic Acid، مستخلصات العنب / إكليل الجبل / المليسة / المريمية / الشاي / البتولا، Acetyl Tetrapeptide-2، Arbutin، Sodium DNA، Potassium Azeloyl Diglycinate، Oligopeptide-34، Glutathione، Hyaluronic Acid.\n\nالكريم المنزلي: Tranexamic Acid، Aminoethyl Phosphinic Acid، Azelaic Acid، Phytic Acid، Arbutin، Oligopeptide-34، Citric Acid، Tartaric Acid، Hexapeptide-40، SH-Polypeptide-76، Acetyl Hexapeptide-1، Salicylic Acid، Panthenol، Silybum Marianum، Phenylethyl Resorcinol، Glycyrrhetinic Acid، Retinol، Hyaluronic Acid، Glabridin، Tocopheryl Acetate."
+        },
+        "protocolSteps": [
+          {
+            "en": "Consultation: take before photos, assess the extent and depth of the pigmentation (this decides the Light 2-session or Deep 4-session programme), run the contraindication checklist and get the waiver signed.",
+            "ar": "الاستشارة: صور قبل العلاج، تقييم امتداد التصبغ وعمقه (يحدد برنامج السطحي بجلستين أو العميق بأربع جلسات)، مراجعة موانع الاستعمال وتوقيع الإقرار."
+          },
+          {
+            "en": "Day 1 — mesotherapy session. Optional: BioRePeelCl3 FND for 5 min first. Two passes of half-dose microneedling (0.25–0.5 mm Light / 0.5–1 mm Deep), no bleeding. About 2 mL per session; do not draw from a vial more than twice.",
+            "ar": "اليوم ١ — جلسة الميزوثيرابي. اختياري: BioRePeelCl3 FND لمدة ٥ دقائق قبلها. تمريرتان بنصف الكمية بالميكرونيدلينغ (٠٫٢٥–٠٫٥ مم للسطحي / ٠٫٥–١ مم للعميق) بدون نزيف. حوالي ٢ مل للجلسة، ولا تسحب من الأمبولة أكثر من مرتين."
+          },
+          {
+            "en": "Days 2–13 — home cream: twice daily on days 2–7, then once at night on days 8–13. Daily sun protection throughout.",
+            "ar": "الأيام ٢–١٣ — الكريم المنزلي: مرتين يومياً من اليوم ٢ إلى ٧، ثم مرة ليلاً من اليوم ٨ إلى ١٣. واقي شمس يومي طوال البرنامج."
+          },
+          {
+            "en": "Day 14 — second mesotherapy session (Deep programme: also days 28 and 42).",
+            "ar": "اليوم ١٤ — جلسة الميزوثيرابي الثانية (البرنامج العميق: أيضاً اليوم ٢٨ و٤٢)."
+          },
+          {
+            "en": "Maintenance — home cream every night: through month 2–4 (Light) or months 3–6 (Deep).",
+            "ar": "المتابعة — الكريم المنزلي كل ليلة: حتى الشهر ٢–٤ (السطحي) أو من الشهر ٣ إلى ٦ (العميق)."
+          }
+        ],
+        "stepImages": [
+          "",
+          "stock/lum-step-1.jpg",
+          "stock/lum-step-2.jpg",
+          "stock/lum-step-3.jpg",
+          ""
+        ],
+        "protocol": {
+          "en": "Professional mesotherapy delivered with microneedling (derma pen, multi-needle injector or derma roller; electroporation is also listed in the brochure), followed by the Home Cream.\n\nLocalized spots: treat the spot plus 1 cm around it. Large areas: treat the full face.\n\nKit plans:\n• Light pigment · 3 months: 1 kit + 2 Home Cream\n• Light pigment · 4 months: 1 kit + 3 Home Cream\n• Deep pigment · 5 months: 2 kits + 3 Home Cream\n• Deep pigment · 6 months: 2 kits + 4 Home Cream",
+          "ar": "ميزوثيرابي احترافي يُطبَّق بالميكرونيدلينغ (ديرما بن، حاقن متعدد الإبر أو ديرما رولر؛ ويذكر البروشور أيضاً الإلكتروبوريشن)، يليه الكريم المنزلي.\n\nالبقع الموضعية: عالج البقعة مع ١ سم حولها. المساحات الكبيرة: عالج الوجه كاملاً.\n\nخطط العلب:\n• تصبغ سطحي · ٣ أشهر: علبة واحدة + ٢ كريم منزلي\n• تصبغ سطحي · ٤ أشهر: علبة واحدة + ٣ كريم منزلي\n• تصبغ عميق · ٥ أشهر: علبتان + ٣ كريم منزلي\n• تصبغ عميق · ٦ أشهر: علبتان + ٤ كريم منزلي"
+        },
+        "notes": {
+          "en": "Open with the patient’s concern: melasma, post-acne marks or sun spots.\nKey message: no downtime and no 6–12 h mask — patients keep their normal routine.\nExplain the two parts: in-clinic mesotherapy + home cream; the home cream is what keeps results going.\nUse the kit-plan table to quote 1 or 2 kits plus home creams.\nShow the Antera 3D results and the published cases.\nRemind: acquired pigmentation only — not birthmarks or moles.",
+          "ar": "ابدأ بمشكلة المريض: كلف، آثار حبوب أو بقع شمس.\nالرسالة الأساسية: بدون فترة نقاهة وبدون قناع ٦–١٢ ساعة — المريض يكمل حياته الطبيعية.\nاشرح الجزأين: ميزوثيرابي بالعيادة + كريم منزلي؛ الكريم المنزلي هو اللي بيحافظ على النتيجة.\nاستعمل جدول خطط العلب لتسعير علبة أو علبتين مع الكريمات المنزلية.\nاعرض نتائج Antera 3D والحالات المنشورة.\nذكّر: للتصبغ المكتسب فقط — مش للوحمات أو الشامات."
+        },
+        "faq": {
+          "en": "Is there downtime? | No. The brochure states no downtime and no impact on daily life, and there is no 6–12 hour mask to leave on.\nWho is it for? | Acquired hyperpigmentation such as melasma, post-inflammatory hyperpigmentation and sun damage, in all phototypes and in oily or dry skin. It is not for birthmarks or moles.\nHow many sessions? | Light pigment: 2 mesotherapy sessions (day 1 and day 14). Deep pigment: 4 sessions (days 1, 14, 28 and 42). The choice depends on the extent and depth at consultation.\nIs the Home Cream included? | One 30 mL cream is in the kit; extra Home Creams are sold separately according to the kit plan.\nCan it be combined with other actives? | Avoid other BHA/AHA or retinol products during the programme — the cream already contains retinol.\nIs it safe in pregnancy? | No. Avoid during pregnancy and breastfeeding.",
+          "ar": "في فترة نقاهة؟ | لا. يذكر البروشور عدم وجود فترة نقاهة ولا تأثير على الحياة اليومية، ولا يوجد قناع يبقى ٦–١٢ ساعة.\nلمين مناسب؟ | التصبغ المكتسب مثل الكلف والتصبغ التالي للالتهاب وضرر الشمس، لجميع أنواع البشرة الضوئية والدهنية والجافة. غير مخصص للوحمات أو الشامات.\nكم جلسة؟ | التصبغ السطحي: جلستا ميزوثيرابي (اليوم ١ واليوم ١٤). التصبغ العميق: ٤ جلسات (الأيام ١ و١٤ و٢٨ و٤٢). يتحدد حسب امتداد التصبغ وعمقه بالاستشارة.\nهل الكريم المنزلي موجود بالعلبة؟ | يوجد كريم ٣٠ مل بالعلبة؛ والكريمات الإضافية تُباع منفصلة حسب خطة العلاج.\nهل يُدمج مع مواد أخرى؟ | تجنّب منتجات BHA/AHA أو الريتينول خلال البرنامج — الكريم يحتوي ريتينول أصلاً.\nهل هو آمن بالحمل؟ | لا. يُتجنّب أثناء الحمل والرضاعة."
+        },
+        "safety": {
+          "en": "Only for acquired pigmentation (melasma, PIH, sun damage) — not for birthmarks or moles.\nAvoid during pregnancy and breastfeeding. Test for sensitivity before treatment.\nDuring the programme avoid: other BHA/AHA or retinol products, steroids, antibiotics (at least 1 week antibiotic-free before starting), other facial treatments and sunbeds. Use sun protection throughout.\nStore at 5–20 °C, away from heat and light.\n\nThis is a reference summary, not the complete current IFU.",
+          "ar": "للتصبغ المكتسب فقط (الكلف، التصبغ التالي للالتهاب، ضرر الشمس) — وليس للوحمات أو الشامات.\nيُتجنّب أثناء الحمل والرضاعة. يُجرى اختبار حساسية قبل العلاج.\nخلال البرنامج تجنّب: منتجات BHA/AHA أو الريتينول الأخرى، الكورتيزون، المضادات الحيوية (أسبوع على الأقل بدونها قبل البدء)، أي علاجات وجه أخرى وأسرّة التسمير. واقي شمس طوال الفترة.\nيُحفظ بين ٥ و٢٠ درجة مئوية بعيداً عن الحرارة والضوء.\n\nهذا ملخص مرجعي وليس بديلاً عن تعليمات الاستخدام الحالية الكاملة."
+        },
+        "cases": [
+          {
+            "title": {
+              "en": "Case 01 · Pigmentation",
+              "ar": "الحالة الأولى · تصبغ"
+            },
+            "details": {
+              "en": "Female, 45 · 30 days. Source: LUMINESCENS brochure.",
+              "ar": "أنثى، ٤٥ سنة · ٣٠ يوماً. المصدر: بروشور LUMINESCENS."
+            },
+            "before": "stock/lum-case1-before.jpg",
+            "after": "stock/lum-case1-after.jpg",
+            "approved": true
+          },
+          {
+            "title": {
+              "en": "Case 02 · Pigmentation",
+              "ar": "الحالة الثانية · تصبغ"
+            },
+            "details": {
+              "en": "Female, 43 · 60 days. Source: LUMINESCENS brochure.",
+              "ar": "أنثى، ٤٣ سنة · ٦٠ يوماً. المصدر: بروشور LUMINESCENS."
+            },
+            "before": "stock/lum-case2-before.jpg",
+            "after": "stock/lum-case2-after.jpg",
+            "approved": true
+          },
+          {
+            "title": {
+              "en": "Case 03 · Melasma patches",
+              "ar": "الحالة الثالثة · بقع كلف"
+            },
+            "details": {
+              "en": "Female, 41 · 60 days. Source: LUMINESCENS brochure.",
+              "ar": "أنثى، ٤١ سنة · ٦٠ يوماً. المصدر: بروشور LUMINESCENS."
+            },
+            "before": "stock/lum-case4-before.jpg",
+            "after": "stock/lum-case4-after.jpg",
+            "approved": true
+          },
+          {
+            "title": {
+              "en": "Case 04 · Pigmentation",
+              "ar": "الحالة الرابعة · تصبغ"
+            },
+            "details": {
+              "en": "Male, 51 · 30 days. Source: LUMINESCENS open folder.",
+              "ar": "ذكر، ٥١ سنة · ٣٠ يوماً. المصدر: فولدر LUMINESCENS."
+            },
+            "before": "stock/lum-case5-before.jpg",
+            "after": "stock/lum-case5-after.jpg",
+            "approved": true
+          },
+          {
+            "title": {
+              "en": "Antera 3D · T0 vs T28",
+              "ar": "Antera 3D · اليوم ٠ مقابل ٢٨"
+            },
+            "details": {
+              "en": "Melanin map before and after 28 days. Clinical study CMed Report 213E30F-1 (Bio Basic Europe with the University of Pavia).",
+              "ar": "خريطة الميلانين قبل وبعد ٢٨ يوماً. دراسة سريرية CMed Report 213E30F-1 (Bio Basic Europe مع جامعة بافيا)."
+            },
+            "before": "stock/lum-antera-t0.jpg",
+            "after": "stock/lum-antera-t28.jpg",
+            "approved": true
+          }
+        ],
+        "caseNote": {
+          "en": "Published cases from the supplied CMed brochure and folder. In the clinical study, 95% of patients gave a positive opinion and said their spots were reduced. Results are individual.",
+          "ar": "حالات منشورة في بروشور وفولدر CMed المرفوعين. في الدراسة السريرية، ٩٥٪ من المرضى أعطوا رأياً إيجابياً وأفادوا بتخفيف البقع. النتائج فردية."
+        },
+        "image": "stock/luminescens-kit.png",
+        "packageImage": "stock/luminescens-box.png",
+        "galleryImages": [
+          "stock/luminescens-vial.png",
+          "stock/luminescens-cream.png",
+          "stock/luminescens-home-box.png"
+        ],
+        "document": "stock/luminescens-brochure.pdf",
+        "documents": [
+          {
+            "title": {
+              "en": "LUMINESCENS Brochure · latest / primary reference",
+              "ar": "بروشور LUMINESCENS · الأحدث / المرجع الأساسي"
+            },
+            "filename": "LUMINESCENS_BROCHURE.pdf",
+            "url": "stock/luminescens-brochure.pdf"
+          },
+          {
+            "title": {
+              "en": "LUMINESCENS Programme · treatment protocol",
+              "ar": "برنامج LUMINESCENS · بروتوكول العلاج"
+            },
+            "filename": "LUMINESCENS_PROGRAM.pdf",
+            "url": "stock/luminescens-program.pdf"
+          },
+          {
+            "title": {
+              "en": "LUMINESCENS Open Folder · full product folder",
+              "ar": "فولدر LUMINESCENS · الملف الكامل للمنتج"
+            },
+            "filename": "Open_FOLDER_LUMINESCENS.pdf",
+            "url": "stock/luminescens-open-folder.pdf"
+          }
+        ],
+        "references": [
+          {
+            "title": {
+              "en": "LUMINESCENS Brochure",
+              "ar": "بروشور LUMINESCENS"
+            },
+            "url": "stock/luminescens-brochure.pdf"
+          },
+          {
+            "title": {
+              "en": "LUMINESCENS Programme (Light & Deep pigment)",
+              "ar": "برنامج LUMINESCENS (التصبغ السطحي والعميق)"
+            },
+            "url": "stock/luminescens-program.pdf"
+          },
+          {
+            "title": {
+              "en": "LUMINESCENS Open Folder",
+              "ar": "فولدر LUMINESCENS"
+            },
+            "url": "stock/luminescens-open-folder.pdf"
+          }
+        ],
+        "sourceReview": {
+          "en": "Built from the three supplied files: the brochure (primary, newest cases), the programme PDF (Light / Deep protocols and kit plans) and the open folder (ingredients, INCI, clinical study).",
+          "ar": "مبني على الملفات الثلاثة المرفوعة: البروشور (المرجع الأساسي وأحدث الحالات)، ملف البرنامج (بروتوكولات السطحي والعميق وخطط العلب)، والفولدر (المكوّنات وINCI والدراسة السريرية)."
+        },
+        "source": "stock/luminescens-brochure.pdf"
       }
     ]
   },
