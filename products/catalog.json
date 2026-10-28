@@ -3322,16 +3322,16 @@
           "ar": "برنامج لتفتيح التصبغات: ميزوثيرابي في العيادة مع كريم منزلي لعلاج فرط التصبغ."
         },
         "overview": {
-          "en": "LUMINESCENS is CMed’s depigmenting and whitening solution for acquired hyperpigmentation. It combines professional mesotherapy sessions (delivered with microneedling) with a home cream that continues the treatment between sessions. The brochure positions it for all phototypes and both oily and dry skin, with no downtime and no 6–12 hour mask.",
-          "ar": "LUMINESCENS هو حلّ CMed لتفتيح وتوحيد لون البشرة في حالات فرط التصبغ المكتسب. يجمع بين جلسات ميزوثيرابي احترافية (تُطبَّق مع الميكرونيدلينغ) وكريم منزلي يُكمل العلاج بين الجلسات. يقدّمه البروشور لجميع أنواع البشرة الضوئية وللبشرة الدهنية والجافة، بدون فترة نقاهة وبدون قناع يبقى ٦–١٢ ساعة."
+          "en": "LUMINESCENS® is CMed’s advanced professional depigmenting system: in-clinic depigmenting mesotherapy (2 × 4 mL) combined with a 30 mL home post-treatment cream that extends, stabilises and enhances results and helps prevent rebound pigmentation. It is designed for dermatologists, aesthetic doctors and professional skin clinics, for face and body, and is ideal in combination with microneedling and other transdermal delivery technologies. A superficial peeling action promotes epidermal renewal and helps actives reach deeper layers. The brochure positions it for all phototypes and both oily and dry skin, with no downtime and no 6–12 hour mask.",
+          "ar": "LUMINESCENS® هو نظام CMed الاحترافي المتقدم لتفتيح التصبغات: ميزوثيرابي مفتّح بالعيادة (٢ × ٤ مل) مع كريم منزلي ٣٠ مل بعد العلاج يطيل النتيجة ويثبّتها ويعزّزها ويساعد على منع عودة التصبغ. مصمم لأطباء الجلد وأطباء التجميل والعيادات المتخصصة، للوجه والجسم، ومثالي مع الميكرونيدلينغ وتقنيات الإيصال عبر الجلد الأخرى. يساعد التقشير السطحي على تجديد البشرة وإيصال المواد الفعالة لطبقات أعمق. يقدّمه البروشور لجميع أنواع البشرة الضوئية وللبشرة الدهنية والجافة، بدون فترة نقاهة وبدون قناع ٦–١٢ ساعة."
         },
         "concerns": {
-          "en": "Melasma\nPost-inflammatory hyperpigmentation\nSun spots / photo-damage\nUneven tone\nDull, non-luminous skin",
-          "ar": "الكلف\nالتصبغ التالي للالتهاب\nالبقع الشمسية / ضرر الشمس\nتفاوت لون البشرة\nبهتان البشرة وقلة الإشراق"
+          "en": "Melasma\nPost-inflammatory hyperpigmentation\nSun / age spots\nUneven tone\nDull, non-luminous skin",
+          "ar": "الكلف\nالتصبغ التالي للالتهاب\nالبقع الشمسية / بقع العمر\nتفاوت لون البشرة\nبهتان البشرة وقلة الإشراق"
         },
         "benefits": {
-          "en": "Targets several steps of melanin formation and transport\nReduces the appearance of dark spots\nNo downtime — no impact on daily life\nNo 6–12 h mask to leave on\nSuitable for all phototypes, oily and dry skin\nRich home formula continues the treatment between sessions",
-          "ar": "يستهدف عدة مراحل من تكوّن الميلانين وانتقاله\nيخفّف مظهر البقع الداكنة\nبدون فترة نقاهة — لا يؤثر على الحياة اليومية\nبدون قناع يبقى ٦–١٢ ساعة\nمناسب لجميع أنواع البشرة الضوئية والدهنية والجافة\nتركيبة منزلية غنية تُكمل العلاج بين الجلسات"
+          "en": "Targets several steps of melanin formation and transport\nReduces the appearance of dark spots and evens tone\nHome cream helps prevent rebound pigmentation\nNo downtime — no 6–12 h mask, no impact on daily life\nSuitable for all phototypes, oily and dry skin · face and body\nHydrating, soothing and antioxidant support after procedures",
+          "ar": "يستهدف عدة مراحل من تكوّن الميلانين وانتقاله\nيخفّف البقع الداكنة ويوحّد لون البشرة\nالكريم المنزلي يساعد على منع عودة التصبغ\nبدون فترة نقاهة — بدون قناع ٦–١٢ ساعة ولا تأثير على الحياة اليومية\nمناسب لجميع أنواع البشرة الضوئية والدهنية والجافة · للوجه والجسم\nترطيب وتهدئة ودعم مضاد للأكسدة بعد الإجراءات"
         },
         "facts": [
           {
@@ -3370,8 +3370,8 @@
               "ar": "طريقة التطبيق"
             },
             "value": {
-              "en": "Mesotherapy with microneedling",
-              "ar": "ميزوثيرابي مع ميكرونيدلينغ"
+              "en": "Mesotherapy + microneedling · face & body",
+              "ar": "ميزوثيرابي + ميكرونيدلينغ · الوجه والجسم"
             }
           }
         ],
@@ -3382,8 +3382,8 @@
               "ar": "يثبّط إنزيمات تكوين الميلانين"
             },
             "description": {
-              "en": "Actives such as oligopeptide-34, arbutin, phenylethyl resorcinol, glabridin and azelaic acid act on the enzymes that produce melanin.",
-              "ar": "مكوّنات مثل Oligopeptide-34 والأربوتين وPhenylethyl Resorcinol والغلابريدين وحمض الأزيليك تعمل على الإنزيمات المسؤولة عن إنتاج الميلانين."
+              "en": "Tyrosinase inhibition: oligopeptide-34, arbutin, phenylethyl resorcinol, glabridin and azelaic acid act on tyrosinase and related melanogenic proteins to reduce melanin synthesis.",
+              "ar": "تثبيط التيروزيناز: Oligopeptide-34 والأربوتين وPhenylethyl Resorcinol والغلابريدين وحمض الأزيليك تعمل على التيروزيناز والبروتينات المرتبطة به لتقليل إنتاج الميلانين."
             }
           },
           {
@@ -3392,8 +3392,8 @@
               "ar": "يحدّ من تكوين الميلانين وانتقاله"
             },
             "description": {
-              "en": "Tranexamic acid, aminoethyl phosphinic acid and acetyl tetrapeptide-2 limit the formation of melanin and its transfer to the surface cells.",
-              "ar": "حمض الترانيكساميك وAminoethyl Phosphinic Acid وAcetyl Tetrapeptide-2 تحدّ من تكوّن الميلانين وانتقاله إلى خلايا السطح."
+              "en": "Melanin modulation: copper chelators and MC1R-targeting ingredients (tranexamic acid, aminoethyl phosphinic acid, acetyl tetrapeptide-2) limit melanin formation and its transfer, reducing how far pigment spreads.",
+              "ar": "تعديل الميلانين: مواد خالبة للنحاس ومكوّنات تستهدف مستقبل MC1R (حمض الترانيكساميك، Aminoethyl Phosphinic Acid، Acetyl Tetrapeptide-2) تحدّ من تكوّن الميلانين وانتقاله وانتشار التصبغ."
             }
           },
           {
@@ -3402,8 +3402,8 @@
               "ar": "يسرّع تجدد الخلايا"
             },
             "description": {
-              "en": "Citric, tartaric and salicylic acids plus retinol help remove pigmented surface cells.",
-              "ar": "أحماض الستريك والطرطريك والساليسيليك مع الريتينول تساعد على إزالة الخلايا السطحية المصطبغة."
+              "en": "Cellular renewal: keratolytic citric, tartaric and salicylic acids plus retinol lift existing dark spots and smooth texture.",
+              "ar": "تجديد الخلايا: أحماض الستريك والطرطريك والساليسيليك المقشّرة مع الريتينول ترفع البقع الموجودة وتنعّم الملمس."
             }
           },
           {
@@ -3417,7 +3417,7 @@
             }
           }
         ],
-        "technologyImage": "stock/luminescens-cream-vials.png",
+        "technologyImage": "stock/luminescens-kit-white.jpg",
         "ingredientCards": [
           {
             "name": {
@@ -3461,8 +3461,8 @@
           }
         ],
         "ingredients": {
-          "en": "Mesotherapy ampoule: Tranexamic Acid, Salicylic Acid, Aminoethyl Phosphinic Acid, Sodium Phytate, Rutin, Ellagic Acid, Oxothiazolidinecarboxylic Acid, Vitis / Rosmarinus / Melissa / Salvia / Camellia / Betula extracts, Acetyl Tetrapeptide-2, Arbutin, Sodium DNA, Potassium Azeloyl Diglycinate, Oligopeptide-34, Glutathione, Hyaluronic Acid.\n\nHome Cream: Tranexamic Acid, Aminoethyl Phosphinic Acid, Azelaic Acid, Phytic Acid, Arbutin, Oligopeptide-34, Citric Acid, Tartaric Acid, Hexapeptide-40, SH-Polypeptide-76, Acetyl Hexapeptide-1, Salicylic Acid, Panthenol, Silybum Marianum, Phenylethyl Resorcinol, Glycyrrhetinic Acid, Retinol, Hyaluronic Acid, Glabridin, Tocopheryl Acetate.",
-          "ar": "أمبولة الميزوثيرابي: Tranexamic Acid، Salicylic Acid، Aminoethyl Phosphinic Acid، Sodium Phytate، Rutin، Ellagic Acid، Oxothiazolidinecarboxylic Acid، مستخلصات العنب / إكليل الجبل / المليسة / المريمية / الشاي / البتولا، Acetyl Tetrapeptide-2، Arbutin، Sodium DNA، Potassium Azeloyl Diglycinate، Oligopeptide-34، Glutathione، Hyaluronic Acid.\n\nالكريم المنزلي: Tranexamic Acid، Aminoethyl Phosphinic Acid، Azelaic Acid، Phytic Acid، Arbutin، Oligopeptide-34، Citric Acid، Tartaric Acid، Hexapeptide-40، SH-Polypeptide-76، Acetyl Hexapeptide-1، Salicylic Acid، Panthenol، Silybum Marianum، Phenylethyl Resorcinol، Glycyrrhetinic Acid، Retinol، Hyaluronic Acid، Glabridin، Tocopheryl Acetate."
+          "en": "Mesotherapy ampoule: Tranexamic Acid, Salicylic Acid, Aminoethyl Phosphinic Acid, Sodium Phytate, Rutin, Ellagic Acid, Oxothiazolidinecarboxylic Acid, Vitis / Rosmarinus / Melissa / Salvia / Camellia / Betula extracts, Acetyl Tetrapeptide-2, Arbutin, Sodium DNA, Potassium Azeloyl Diglycinate, Oligopeptide-34, Glutathione, Hyaluronic Acid.\nHome Cream: Tranexamic Acid, Aminoethyl Phosphinic Acid, Azelaic Acid, Phytic Acid, Arbutin, Oligopeptide-34, Citric Acid, Tartaric Acid, Hexapeptide-40, SH-Polypeptide-76, Acetyl Hexapeptide-1, Salicylic Acid, Panthenol, Silybum Marianum, Phenylethyl Resorcinol, Glycyrrhetinic Acid, Retinol, Hyaluronic Acid, Glabridin, Tocopheryl Acetate.",
+          "ar": "أمبولة الميزوثيرابي: Tranexamic Acid، Salicylic Acid، Aminoethyl Phosphinic Acid، Sodium Phytate، Rutin، Ellagic Acid، Oxothiazolidinecarboxylic Acid، مستخلصات العنب / إكليل الجبل / المليسة / المريمية / الشاي / البتولا، Acetyl Tetrapeptide-2، Arbutin، Sodium DNA، Potassium Azeloyl Diglycinate، Oligopeptide-34، Glutathione، Hyaluronic Acid.\nالكريم المنزلي: Tranexamic Acid، Aminoethyl Phosphinic Acid، Azelaic Acid، Phytic Acid، Arbutin، Oligopeptide-34، Citric Acid، Tartaric Acid، Hexapeptide-40، SH-Polypeptide-76، Acetyl Hexapeptide-1، Salicylic Acid، Panthenol، Silybum Marianum، Phenylethyl Resorcinol، Glycyrrhetinic Acid، Retinol، Hyaluronic Acid، Glabridin، Tocopheryl Acetate."
         },
         "protocolSteps": [
           {
@@ -3635,13 +3635,101 @@
               "ar": "فولدر LUMINESCENS"
             },
             "url": "stock/luminescens-open-folder.pdf"
+          },
+          {
+            "title": {
+              "en": "CMed official product page",
+              "ar": "صفحة المنتج الرسمية لدى CMed"
+            },
+            "url": "https://cmedaesthetics.com/therapeutic-areas/professional-skincare/luminescens/"
+          },
+          {
+            "title": {
+              "en": "CMed LUMINESCENS® page · full INCI",
+              "ar": "صفحة LUMINESCENS® لدى CMed · المكوّنات الكاملة"
+            },
+            "url": "https://cmedaesthetics.com/luminescens/"
           }
         ],
         "sourceReview": {
-          "en": "Built from the three supplied files: the brochure (primary, newest cases), the programme PDF (Light / Deep protocols and kit plans) and the open folder (ingredients, INCI, clinical study).",
-          "ar": "مبني على الملفات الثلاثة المرفوعة: البروشور (المرجع الأساسي وأحدث الحالات)، ملف البرنامج (بروتوكولات السطحي والعميق وخطط العلب)، والفولدر (المكوّنات وINCI والدراسة السريرية)."
+          "en": "Built from the three supplied files — the brochure (primary, newest cases), the programme PDF (Light / Deep protocols and kit plans) and the open folder (INCI, clinical study) — plus CMed’s official website (indications, mechanism wording, kit contents, face & body use). The website does not give session numbers or study figures; those come from the supplied files.",
+          "ar": "مبني على الملفات الثلاثة المرفوعة — البروشور (المرجع الأساسي وأحدث الحالات)، ملف البرنامج (بروتوكولات السطحي والعميق وخطط العلب)، والفولدر (INCI والدراسة السريرية) — إضافة إلى موقع CMed الرسمي (الاستطبابات، صياغة آلية العمل، محتوى العلبة، الاستخدام للوجه والجسم). الموقع لا يذكر عدد الجلسات أو أرقام الدراسة؛ هذه مأخوذة من الملفات المرفوعة."
         },
-        "source": "stock/luminescens-brochure.pdf"
+        "source": "https://cmedaesthetics.com/therapeutic-areas/professional-skincare/luminescens/",
+        "kitPlans": [
+          {
+            "program": {
+              "en": "Light pigment",
+              "ar": "تصبغ سطحي"
+            },
+            "duration": {
+              "en": "3 months",
+              "ar": "٣ أشهر"
+            },
+            "order": {
+              "en": "1 kit + 2 Home Cream",
+              "ar": "علبة واحدة + ٢ كريم منزلي"
+            }
+          },
+          {
+            "program": {
+              "en": "Light pigment",
+              "ar": "تصبغ سطحي"
+            },
+            "duration": {
+              "en": "4 months",
+              "ar": "٤ أشهر"
+            },
+            "order": {
+              "en": "1 kit + 3 Home Cream",
+              "ar": "علبة واحدة + ٣ كريم منزلي"
+            }
+          },
+          {
+            "program": {
+              "en": "Deep pigment",
+              "ar": "تصبغ عميق"
+            },
+            "duration": {
+              "en": "5 months",
+              "ar": "٥ أشهر"
+            },
+            "order": {
+              "en": "2 kits + 3 Home Cream",
+              "ar": "علبتان + ٣ كريم منزلي"
+            }
+          },
+          {
+            "program": {
+              "en": "Deep pigment",
+              "ar": "تصبغ عميق"
+            },
+            "duration": {
+              "en": "6 months",
+              "ar": "٦ أشهر"
+            },
+            "order": {
+              "en": "2 kits + 4 Home Cream",
+              "ar": "علبتان + ٤ كريم منزلي"
+            }
+          }
+        ],
+        "protocolNote": {
+          "en": "Professional mesotherapy with microneedling, followed by the Home Cream. Follow the current CMed programme for depth and volumes.",
+          "ar": "ميزوثيرابي احترافي مع ميكرونيدلينغ، يليه الكريم المنزلي. اتبع برنامج CMed الحالي للعمق والكميات."
+        },
+        "techEyebrow": {
+          "en": "HOW IT WORKS",
+          "ar": "آلية العمل"
+        },
+        "techTitle": {
+          "en": "Four actions against pigment.",
+          "ar": "أربع آليات ضد التصبغ."
+        },
+        "overviewTitle": {
+          "en": "Mesotherapy + home care for pigmentation",
+          "ar": "ميزوثيرابي + عناية منزلية للتصبغات"
+        }
       }
     ]
   },
