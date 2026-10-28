@@ -3729,7 +3729,8 @@
         "overviewTitle": {
           "en": "Mesotherapy + home care for pigmentation",
           "ar": "ميزوثيرابي + عناية منزلية للتصبغات"
-        }
+        },
+        "noStepAnimation": true
       }
     ]
   },
