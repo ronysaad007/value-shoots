@@ -3466,44 +3466,50 @@
         },
         "protocolSteps": [
           {
-            "en": "Consultation: take before photos, assess the extent and depth of the pigmentation (this decides the Light 2-session or Deep 4-session programme), run the contraindication checklist and get the waiver signed.",
-            "ar": "الاستشارة: صور قبل العلاج، تقييم امتداد التصبغ وعمقه (يحدد برنامج السطحي بجلستين أو العميق بأربع جلسات)، مراجعة موانع الاستعمال وتوقيع الإقرار."
+            "en": "Before day 1 — Consult & choose the programme: Before photos, assess extent and depth of the pigment (Light or Deep), run the contraindication checklist, sensitivity check, signed waiver.",
+            "ar": "قبل اليوم ١ — الاستشارة واختيار البرنامج: صور قبل العلاج، تقييم امتداد التصبغ وعمقه (سطحي أو عميق)، مراجعة الموانع، اختبار حساسية وتوقيع الإقرار."
           },
           {
-            "en": "Day 1 — mesotherapy session. Optional: BioRePeelCl3 FND for 5 min first. Two passes of half-dose microneedling (0.25–0.5 mm Light / 0.5–1 mm Deep), no bleeding. About 2 mL per session; do not draw from a vial more than twice.",
-            "ar": "اليوم ١ — جلسة الميزوثيرابي. اختياري: BioRePeelCl3 FND لمدة ٥ دقائق قبلها. تمريرتان بنصف الكمية بالميكرونيدلينغ (٠٫٢٥–٠٫٥ مم للسطحي / ٠٫٥–١ مم للعميق) بدون نزيف. حوالي ٢ مل للجلسة، ولا تسحب من الأمبولة أكثر من مرتين."
+            "en": "Day 1 · before session — Optional: BioRePeelCl3 FND: Standard FND peel, leave on 5 minutes, then clean off with water and gauze (gentle mild cleanser only if needed).",
+            "ar": "اليوم ١ · قبل الجلسة — اختياري: BioRePeelCl3 FND: تقشير FND بالبروتوكول القياسي لمدة ٥ دقائق، ثم تنظيف بالماء والشاش (منظف لطيف فقط عند الحاجة)."
           },
           {
-            "en": "Days 2–13 — home cream: twice daily on days 2–7, then once at night on days 8–13. Daily sun protection throughout.",
-            "ar": "الأيام ٢–١٣ — الكريم المنزلي: مرتين يومياً من اليوم ٢ إلى ٧، ثم مرة ليلاً من اليوم ٨ إلى ١٣. واقي شمس يومي طوال البرنامج."
+            "en": "Day 1 — Mesotherapy session #1: Draw from the vial into a syringe. Apply half the dose and microneedle until erythema appears (0.25–0.5 mm), then apply the second half and microneedle again. No bleeding. Clean with water and gauze — no cleanser. Home Cream that evening.",
+            "ar": "اليوم ١ — جلسة الميزوثيرابي #1: اسحب من الأمبولة بسيرنج. طبّق نصف الكمية واعمل ميكرونيدلينغ حتى يظهر الاحمرار (0.25–0.5 mm)، ثم النصف الثاني وميكرونيدلينغ مرة ثانية. بدون نزيف. نظّف بالماء والشاش — بدون منظف. الكريم المنزلي بنفس المساء."
           },
           {
-            "en": "Day 14 — second mesotherapy session (Deep programme: also days 28 and 42).",
-            "ar": "اليوم ١٤ — جلسة الميزوثيرابي الثانية (البرنامج العميق: أيضاً اليوم ٢٨ و٤٢)."
+            "en": "Days 2–7 — Home Cream twice a day: Morning and evening, massage until fully absorbed — only on the areas of concern. Sun protection every day.",
+            "ar": "الأيام ٢–٧ — الكريم المنزلي مرتين باليوم: صباحاً ومساءً، تدليك حتى يمتص بالكامل — فقط على مناطق التصبغ. واقي شمس كل يوم."
           },
           {
-            "en": "Maintenance — home cream every night: through month 2–4 (Light) or months 3–6 (Deep).",
-            "ar": "المتابعة — الكريم المنزلي كل ليلة: حتى الشهر ٢–٤ (السطحي) أو من الشهر ٣ إلى ٦ (العميق)."
+            "en": "Days 8–13 — Home Cream once, at night: Once a day in the evening, massage until fully absorbed.",
+            "ar": "الأيام ٨–١٣ — الكريم المنزلي مرة مساءً: مرة باليوم مساءً، تدليك حتى يمتص بالكامل."
+          },
+          {
+            "en": "Day 14 — Mesotherapy session #2: Draw from the vial into a syringe. Apply half the dose and microneedle until erythema appears (0.25–0.5 mm), then apply the second half and microneedle again. No bleeding. Clean with water and gauze — no cleanser. Home Cream that evening.",
+            "ar": "اليوم ١٤ — جلسة الميزوثيرابي #2: اسحب من الأمبولة بسيرنج. طبّق نصف الكمية واعمل ميكرونيدلينغ حتى يظهر الاحمرار (0.25–0.5 mm)، ثم النصف الثاني وميكرونيدلينغ مرة ثانية. بدون نزيف. نظّف بالماء والشاش — بدون منظف. الكريم المنزلي بنفس المساء."
+          },
+          {
+            "en": "Days 15–27 — Home Cream once, at night: Once a day in the evening, massage until fully absorbed.",
+            "ar": "الأيام ١٥–٢٧ — الكريم المنزلي مرة مساءً: مرة باليوم مساءً، تدليك حتى يمتص بالكامل."
+          },
+          {
+            "en": "Months 2 → 4 — Maintenance: Home Cream every evening to keep evening out the pigment and prevent rebound.",
+            "ar": "الشهر ٢ ← ٤ — المتابعة: الكريم المنزلي كل مساء لمتابعة توحيد اللون ومنع رجوع التصبغ."
           }
         ],
-        "stepImages": [
-          "",
-          "stock/lum-step-1.jpg",
-          "stock/lum-step-2.jpg",
-          "stock/lum-step-3.jpg",
-          ""
-        ],
+        "stepImages": [],
         "protocol": {
-          "en": "Professional mesotherapy delivered with microneedling (derma pen, multi-needle injector or derma roller; electroporation is also listed in the brochure), followed by the Home Cream.\n\nLocalized spots: treat the spot plus 1 cm around it. Large areas: treat the full face.\n\nKit plans:\n• Light pigment · 3 months: 1 kit + 2 Home Cream\n• Light pigment · 4 months: 1 kit + 3 Home Cream\n• Deep pigment · 5 months: 2 kits + 3 Home Cream\n• Deep pigment · 6 months: 2 kits + 4 Home Cream",
-          "ar": "ميزوثيرابي احترافي يُطبَّق بالميكرونيدلينغ (ديرما بن، حاقن متعدد الإبر أو ديرما رولر؛ ويذكر البروشور أيضاً الإلكتروبوريشن)، يليه الكريم المنزلي.\n\nالبقع الموضعية: عالج البقعة مع ١ سم حولها. المساحات الكبيرة: عالج الوجه كاملاً.\n\nخطط العلب:\n• تصبغ سطحي · ٣ أشهر: علبة واحدة + ٢ كريم منزلي\n• تصبغ سطحي · ٤ أشهر: علبة واحدة + ٣ كريم منزلي\n• تصبغ عميق · ٥ أشهر: علبتان + ٣ كريم منزلي\n• تصبغ عميق · ٦ أشهر: علبتان + ٤ كريم منزلي"
+          "en": "LIGHT PIGMENT (2 sessions, depth 0.25–0.5 mm)\n• Day 1: session #1 (optional BioRePeelCl3 FND 5 min first)\n• Days 2–7: Home Cream morning + evening\n• Days 8–13: evening only\n• Day 14: session #2\n• Day 15 → month 4: evening only\n\nDEEP PIGMENT (4 sessions, depth 0.5–1 mm)\n• Day 1: session #1 (optional FND first)\n• Days 2–13: morning + evening\n• Day 14: session #2 · Days 15–27: evening (very dense pigment: twice daily all month 1)\n• Day 28: session #3 · Days 29–41: morning + evening\n• Day 42: session #4 · Days 43–56: evening\n• Months 3–6: evening only\n\nEach session: half dose + microneedling until erythema, second half + microneedling again, no bleeding, clean with water and gauze, Home Cream that evening.\n\nLocalized spots: spot + 1 cm. Large surfaces: whole face, about 2 mL per session. Do not draw from a vial more than twice.",
+          "ar": "التصبغ السطحي (جلستان، عمق ٠٫٢٥–٠٫٥ مم)\n• اليوم ١: الجلسة ١ (اختياري FND لمدة ٥ دقائق قبلها)\n• الأيام ٢–٧: الكريم صباحاً ومساءً\n• الأيام ٨–١٣: مساءً فقط\n• اليوم ١٤: الجلسة ٢\n• من اليوم ١٥ حتى الشهر ٤: مساءً فقط\n\nالتصبغ العميق (٤ جلسات، عمق ٠٫٥–١ مم)\n• اليوم ١: الجلسة ١ (اختياري FND قبلها)\n• الأيام ٢–١٣: صباحاً ومساءً\n• اليوم ١٤: الجلسة ٢ · الأيام ١٥–٢٧: مساءً (التصبغ الكثيف جداً: مرتين يومياً طوال الشهر الأول)\n• اليوم ٢٨: الجلسة ٣ · الأيام ٢٩–٤١: صباحاً ومساءً\n• اليوم ٤٢: الجلسة ٤ · الأيام ٤٣–٥٦: مساءً\n• الأشهر ٣–٦: مساءً فقط\n\nكل جلسة: نصف الكمية + ميكرونيدلينغ حتى الاحمرار، النصف الثاني + ميكرونيدلينغ مرة ثانية، بدون نزيف، تنظيف بالماء والشاش، والكريم المنزلي بنفس المساء.\n\nالبقع الموضعية: البقعة + ١ سم. المساحات الواسعة: كامل الوجه، حوالي ٢ مل للجلسة. لا تسحب من الأمبولة أكثر من مرتين."
         },
         "notes": {
           "en": "Open with the patient’s concern: melasma, post-acne marks or sun spots.\nKey message: no downtime and no 6–12 h mask — patients keep their normal routine.\nExplain the two parts: in-clinic mesotherapy + home cream; the home cream is what keeps results going.\nUse the kit-plan table to quote 1 or 2 kits plus home creams.\nShow the Antera 3D results and the published cases.\nRemind: acquired pigmentation only — not birthmarks or moles.",
           "ar": "ابدأ بمشكلة المريض: كلف، آثار حبوب أو بقع شمس.\nالرسالة الأساسية: بدون فترة نقاهة وبدون قناع ٦–١٢ ساعة — المريض يكمل حياته الطبيعية.\nاشرح الجزأين: ميزوثيرابي بالعيادة + كريم منزلي؛ الكريم المنزلي هو اللي بيحافظ على النتيجة.\nاستعمل جدول خطط العلب لتسعير علبة أو علبتين مع الكريمات المنزلية.\nاعرض نتائج Antera 3D والحالات المنشورة.\nذكّر: للتصبغ المكتسب فقط — مش للوحمات أو الشامات."
         },
         "faq": {
-          "en": "Is there downtime? | No. The brochure states no downtime and no impact on daily life, and there is no 6–12 hour mask to leave on.\nWho is it for? | Acquired hyperpigmentation such as melasma, post-inflammatory hyperpigmentation and sun damage, in all phototypes and in oily or dry skin. It is not for birthmarks or moles.\nHow many sessions? | Light pigment: 2 mesotherapy sessions (day 1 and day 14). Deep pigment: 4 sessions (days 1, 14, 28 and 42). The choice depends on the extent and depth at consultation.\nIs the Home Cream included? | One 30 mL cream is in the kit; extra Home Creams are sold separately according to the kit plan.\nCan it be combined with other actives? | Avoid other BHA/AHA or retinol products during the programme — the cream already contains retinol.\nIs it safe in pregnancy? | No. Avoid during pregnancy and breastfeeding.",
-          "ar": "في فترة نقاهة؟ | لا. يذكر البروشور عدم وجود فترة نقاهة ولا تأثير على الحياة اليومية، ولا يوجد قناع يبقى ٦–١٢ ساعة.\nلمين مناسب؟ | التصبغ المكتسب مثل الكلف والتصبغ التالي للالتهاب وضرر الشمس، لجميع أنواع البشرة الضوئية والدهنية والجافة. غير مخصص للوحمات أو الشامات.\nكم جلسة؟ | التصبغ السطحي: جلستا ميزوثيرابي (اليوم ١ واليوم ١٤). التصبغ العميق: ٤ جلسات (الأيام ١ و١٤ و٢٨ و٤٢). يتحدد حسب امتداد التصبغ وعمقه بالاستشارة.\nهل الكريم المنزلي موجود بالعلبة؟ | يوجد كريم ٣٠ مل بالعلبة؛ والكريمات الإضافية تُباع منفصلة حسب خطة العلاج.\nهل يُدمج مع مواد أخرى؟ | تجنّب منتجات BHA/AHA أو الريتينول خلال البرنامج — الكريم يحتوي ريتينول أصلاً.\nهل هو آمن بالحمل؟ | لا. يُتجنّب أثناء الحمل والرضاعة."
+          "en": "Is there downtime? | No. The brochure states no downtime and no impact on daily life, and there is no 6–12 hour mask to leave on.\nWho is it for? | Acquired hyperpigmentation such as melasma, post-inflammatory hyperpigmentation and sun damage, in all phototypes and in oily or dry skin. It is not for birthmarks or moles.\nHow many sessions? | Light pigment: 2 mesotherapy sessions (days 1 and 14), Home Cream until month 4. Deep pigment: 4 sessions (days 1, 14, 28 and 42), Home Cream until month 6. The choice depends on the extent and depth at consultation.\nIs the Home Cream included? | One 30 mL cream is in the kit; extra Home Creams are sold separately according to the kit plan.\nCan it be combined with other actives? | Avoid other BHA/AHA or retinol products during the programme — the cream already contains retinol.\nIs it safe in pregnancy? | No. Avoid during pregnancy and breastfeeding.",
+          "ar": "في فترة نقاهة؟ | لا. يذكر البروشور عدم وجود فترة نقاهة ولا تأثير على الحياة اليومية، ولا يوجد قناع يبقى ٦–١٢ ساعة.\nلمين مناسب؟ | التصبغ المكتسب مثل الكلف والتصبغ التالي للالتهاب وضرر الشمس، لجميع أنواع البشرة الضوئية والدهنية والجافة. غير مخصص للوحمات أو الشامات.\nكم جلسة؟ | التصبغ السطحي: جلستا ميزوثيرابي (اليوم ١ و١٤) والكريم حتى الشهر ٤. التصبغ العميق: ٤ جلسات (الأيام ١ و١٤ و٢٨ و٤٢) والكريم حتى الشهر ٦. يتحدد حسب امتداد التصبغ وعمقه بالاستشارة.\nهل الكريم المنزلي موجود بالعلبة؟ | يوجد كريم ٣٠ مل بالعلبة؛ والكريمات الإضافية تُباع منفصلة حسب خطة العلاج.\nهل يُدمج مع مواد أخرى؟ | تجنّب منتجات BHA/AHA أو الريتينول خلال البرنامج — الكريم يحتوي ريتينول أصلاً.\nهل هو آمن بالحمل؟ | لا. يُتجنّب أثناء الحمل والرضاعة."
         },
         "safety": {
           "en": "Only for acquired pigmentation (melasma, PIH, sun damage) — not for birthmarks or moles.\nAvoid during pregnancy and breastfeeding. Test for sensitivity before treatment.\nDuring the programme avoid: other BHA/AHA or retinol products, steroids, antibiotics (at least 1 week antibiotic-free before starting), other facial treatments and sunbeds. Use sun protection throughout.\nStore at 5–20 °C, away from heat and light.\n\nThis is a reference summary, not the complete current IFU.",
@@ -3715,8 +3721,8 @@
           }
         ],
         "protocolNote": {
-          "en": "Professional mesotherapy with microneedling, followed by the Home Cream. Follow the current CMed programme for depth and volumes.",
-          "ar": "ميزوثيرابي احترافي مع ميكرونيدلينغ، يليه الكريم المنزلي. اتبع برنامج CMed الحالي للعمق والكميات."
+          "en": "Choose the programme after the consultation. Follow both the in-clinic and at-home steps strictly; when unsure, send photos to CMed for a protocol opinion.",
+          "ar": "اختر البرنامج بعد الاستشارة. التزم بخطوات العيادة والبيت بدقة؛ وعند الشك أرسل صوراً لـ CMed لأخذ رأي بالبروتوكول."
         },
         "techEyebrow": {
           "en": "HOW IT WORKS",
@@ -3730,7 +3736,556 @@
           "en": "Mesotherapy + home care for pigmentation",
           "ar": "ميزوثيرابي + عناية منزلية للتصبغات"
         },
-        "noStepAnimation": true
+        "noStepAnimation": true,
+        "programs": {
+          "light": {
+            "name": {
+              "en": "Light pigment",
+              "ar": "تصبغ سطحي"
+            },
+            "hint": {
+              "en": "2 sessions · 3–4 months",
+              "ar": "جلستان · ٣–٤ أشهر"
+            },
+            "depth": "0.25–0.5 mm",
+            "maintainMonths": 3,
+            "maintainFrom": 2,
+            "summary": [
+              {
+                "label": {
+                  "en": "mesotherapy sessions",
+                  "ar": "جلسات ميزوثيرابي"
+                },
+                "value": {
+                  "en": "2",
+                  "ar": "٢"
+                }
+              },
+              {
+                "label": {
+                  "en": "needle depth",
+                  "ar": "عمق الإبر"
+                },
+                "value": {
+                  "en": "0.25–0.5 mm",
+                  "ar": "0.25–0.5 mm"
+                }
+              },
+              {
+                "label": {
+                  "en": "programme length",
+                  "ar": "مدة البرنامج"
+                },
+                "value": {
+                  "en": "3–4 months",
+                  "ar": "٣–٤ أشهر"
+                }
+              },
+              {
+                "label": {
+                  "en": "to order",
+                  "ar": "المطلوب"
+                },
+                "value": {
+                  "en": "1 kit + 2–3 creams",
+                  "ar": "علبة + ٢–٣ كريم"
+                }
+              }
+            ],
+            "timeline": [
+              [
+                "clinic",
+                1,
+                {
+                  "en": "D1",
+                  "ar": "ي١"
+                }
+              ],
+              [
+                "ampm",
+                6,
+                {
+                  "en": "D2–7",
+                  "ar": "ي٢–٧"
+                }
+              ],
+              [
+                "pm",
+                6,
+                {
+                  "en": "D8–13",
+                  "ar": "ي٨–١٣"
+                }
+              ],
+              [
+                "clinic",
+                1,
+                {
+                  "en": "D14",
+                  "ar": "ي١٤"
+                }
+              ],
+              [
+                "pm",
+                13,
+                {
+                  "en": "D15–27",
+                  "ar": "ي١٥–٢٧"
+                }
+              ],
+              [
+                "maintain",
+                30,
+                {
+                  "en": "Months 2–4 · nightly",
+                  "ar": "الشهر ٢–٤ · كل ليلة"
+                }
+              ]
+            ],
+            "steps": [
+              {
+                "type": "consult",
+                "when": {
+                  "en": "Before day 1",
+                  "ar": "قبل اليوم ١"
+                },
+                "title": {
+                  "en": "Consult & choose the programme",
+                  "ar": "الاستشارة واختيار البرنامج"
+                },
+                "text": {
+                  "en": "Before photos, assess extent and depth of the pigment (Light or Deep), run the contraindication checklist, sensitivity check, signed waiver.",
+                  "ar": "صور قبل العلاج، تقييم امتداد التصبغ وعمقه (سطحي أو عميق)، مراجعة الموانع، اختبار حساسية وتوقيع الإقرار."
+                }
+              },
+              {
+                "type": "prep",
+                "when": {
+                  "en": "Day 1 · before session",
+                  "ar": "اليوم ١ · قبل الجلسة"
+                },
+                "title": {
+                  "en": "Optional: BioRePeelCl3 FND",
+                  "ar": "اختياري: BioRePeelCl3 FND"
+                },
+                "text": {
+                  "en": "Standard FND peel, leave on 5 minutes, then clean off with water and gauze (gentle mild cleanser only if needed).",
+                  "ar": "تقشير FND بالبروتوكول القياسي لمدة ٥ دقائق، ثم تنظيف بالماء والشاش (منظف لطيف فقط عند الحاجة)."
+                }
+              },
+              {
+                "type": "clinic",
+                "when": {
+                  "en": "Day 1",
+                  "ar": "اليوم ١"
+                },
+                "title": {
+                  "en": "Mesotherapy session #1",
+                  "ar": "جلسة الميزوثيرابي #1"
+                },
+                "text": {
+                  "en": "Draw from the vial into a syringe. Apply half the dose and microneedle until erythema appears (0.25–0.5 mm), then apply the second half and microneedle again. No bleeding. Clean with water and gauze — no cleanser. Home Cream that evening.",
+                  "ar": "اسحب من الأمبولة بسيرنج. طبّق نصف الكمية واعمل ميكرونيدلينغ حتى يظهر الاحمرار (0.25–0.5 mm)، ثم النصف الثاني وميكرونيدلينغ مرة ثانية. بدون نزيف. نظّف بالماء والشاش — بدون منظف. الكريم المنزلي بنفس المساء."
+                }
+              },
+              {
+                "type": "ampm",
+                "when": {
+                  "en": "Days 2–7",
+                  "ar": "الأيام ٢–٧"
+                },
+                "title": {
+                  "en": "Home Cream twice a day",
+                  "ar": "الكريم المنزلي مرتين باليوم"
+                },
+                "text": {
+                  "en": "Morning and evening, massage until fully absorbed — only on the areas of concern. Sun protection every day.",
+                  "ar": "صباحاً ومساءً، تدليك حتى يمتص بالكامل — فقط على مناطق التصبغ. واقي شمس كل يوم."
+                }
+              },
+              {
+                "type": "pm",
+                "when": {
+                  "en": "Days 8–13",
+                  "ar": "الأيام ٨–١٣"
+                },
+                "title": {
+                  "en": "Home Cream once, at night",
+                  "ar": "الكريم المنزلي مرة مساءً"
+                },
+                "text": {
+                  "en": "Once a day in the evening, massage until fully absorbed.",
+                  "ar": "مرة باليوم مساءً، تدليك حتى يمتص بالكامل."
+                }
+              },
+              {
+                "type": "clinic",
+                "when": {
+                  "en": "Day 14",
+                  "ar": "اليوم ١٤"
+                },
+                "title": {
+                  "en": "Mesotherapy session #2",
+                  "ar": "جلسة الميزوثيرابي #2"
+                },
+                "text": {
+                  "en": "Draw from the vial into a syringe. Apply half the dose and microneedle until erythema appears (0.25–0.5 mm), then apply the second half and microneedle again. No bleeding. Clean with water and gauze — no cleanser. Home Cream that evening.",
+                  "ar": "اسحب من الأمبولة بسيرنج. طبّق نصف الكمية واعمل ميكرونيدلينغ حتى يظهر الاحمرار (0.25–0.5 mm)، ثم النصف الثاني وميكرونيدلينغ مرة ثانية. بدون نزيف. نظّف بالماء والشاش — بدون منظف. الكريم المنزلي بنفس المساء."
+                }
+              },
+              {
+                "type": "pm",
+                "when": {
+                  "en": "Days 15–27",
+                  "ar": "الأيام ١٥–٢٧"
+                },
+                "title": {
+                  "en": "Home Cream once, at night",
+                  "ar": "الكريم المنزلي مرة مساءً"
+                },
+                "text": {
+                  "en": "Once a day in the evening, massage until fully absorbed.",
+                  "ar": "مرة باليوم مساءً، تدليك حتى يمتص بالكامل."
+                }
+              },
+              {
+                "type": "maintain",
+                "when": {
+                  "en": "Months 2 → 4",
+                  "ar": "الشهر ٢ ← ٤"
+                },
+                "title": {
+                  "en": "Maintenance",
+                  "ar": "المتابعة"
+                },
+                "text": {
+                  "en": "Home Cream every evening to keep evening out the pigment and prevent rebound.",
+                  "ar": "الكريم المنزلي كل مساء لمتابعة توحيد اللون ومنع رجوع التصبغ."
+                }
+              }
+            ]
+          },
+          "deep": {
+            "name": {
+              "en": "Deep pigment",
+              "ar": "تصبغ عميق"
+            },
+            "hint": {
+              "en": "4 sessions · 5–6 months",
+              "ar": "٤ جلسات · ٥–٦ أشهر"
+            },
+            "depth": "0.5–1 mm",
+            "maintainMonths": 4,
+            "maintainFrom": 3,
+            "summary": [
+              {
+                "label": {
+                  "en": "mesotherapy sessions",
+                  "ar": "جلسات ميزوثيرابي"
+                },
+                "value": {
+                  "en": "4",
+                  "ar": "٤"
+                }
+              },
+              {
+                "label": {
+                  "en": "needle depth",
+                  "ar": "عمق الإبر"
+                },
+                "value": {
+                  "en": "0.5–1 mm",
+                  "ar": "0.5–1 mm"
+                }
+              },
+              {
+                "label": {
+                  "en": "programme length",
+                  "ar": "مدة البرنامج"
+                },
+                "value": {
+                  "en": "5–6 months",
+                  "ar": "٥–٦ أشهر"
+                }
+              },
+              {
+                "label": {
+                  "en": "to order",
+                  "ar": "المطلوب"
+                },
+                "value": {
+                  "en": "2 kits + 3–4 creams",
+                  "ar": "علبتان + ٣–٤ كريم"
+                }
+              }
+            ],
+            "timeline": [
+              [
+                "clinic",
+                1,
+                {
+                  "en": "D1",
+                  "ar": "ي١"
+                }
+              ],
+              [
+                "ampm",
+                12,
+                {
+                  "en": "D2–13",
+                  "ar": "ي٢–١٣"
+                }
+              ],
+              [
+                "clinic",
+                1,
+                {
+                  "en": "D14",
+                  "ar": "ي١٤"
+                }
+              ],
+              [
+                "pm",
+                13,
+                {
+                  "en": "D15–27",
+                  "ar": "ي١٥–٢٧"
+                }
+              ],
+              [
+                "clinic",
+                1,
+                {
+                  "en": "D28",
+                  "ar": "ي٢٨"
+                }
+              ],
+              [
+                "ampm",
+                13,
+                {
+                  "en": "D29–41",
+                  "ar": "ي٢٩–٤١"
+                }
+              ],
+              [
+                "clinic",
+                1,
+                {
+                  "en": "D42",
+                  "ar": "ي٤٢"
+                }
+              ],
+              [
+                "pm",
+                14,
+                {
+                  "en": "D43–56",
+                  "ar": "ي٤٣–٥٦"
+                }
+              ],
+              [
+                "maintain",
+                40,
+                {
+                  "en": "Months 3–6 · nightly",
+                  "ar": "الشهر ٣–٦ · كل ليلة"
+                }
+              ]
+            ],
+            "steps": [
+              {
+                "type": "consult",
+                "when": {
+                  "en": "Before day 1",
+                  "ar": "قبل اليوم ١"
+                },
+                "title": {
+                  "en": "Consult & choose the programme",
+                  "ar": "الاستشارة واختيار البرنامج"
+                },
+                "text": {
+                  "en": "Before photos, assess extent and depth of the pigment (Light or Deep), run the contraindication checklist, sensitivity check, signed waiver.",
+                  "ar": "صور قبل العلاج، تقييم امتداد التصبغ وعمقه (سطحي أو عميق)، مراجعة الموانع، اختبار حساسية وتوقيع الإقرار."
+                }
+              },
+              {
+                "type": "prep",
+                "when": {
+                  "en": "Day 1 · before session",
+                  "ar": "اليوم ١ · قبل الجلسة"
+                },
+                "title": {
+                  "en": "Optional: BioRePeelCl3 FND",
+                  "ar": "اختياري: BioRePeelCl3 FND"
+                },
+                "text": {
+                  "en": "Standard FND peel, leave on 5 minutes, then clean off with water and gauze (gentle mild cleanser only if needed).",
+                  "ar": "تقشير FND بالبروتوكول القياسي لمدة ٥ دقائق، ثم تنظيف بالماء والشاش (منظف لطيف فقط عند الحاجة)."
+                }
+              },
+              {
+                "type": "clinic",
+                "when": {
+                  "en": "Day 1",
+                  "ar": "اليوم ١"
+                },
+                "title": {
+                  "en": "Mesotherapy session #1",
+                  "ar": "جلسة الميزوثيرابي #1"
+                },
+                "text": {
+                  "en": "Draw from the vial into a syringe. Apply half the dose and microneedle until erythema appears (0.5–1 mm), then apply the second half and microneedle again. No bleeding. Clean with water and gauze — no cleanser. Home Cream that evening.",
+                  "ar": "اسحب من الأمبولة بسيرنج. طبّق نصف الكمية واعمل ميكرونيدلينغ حتى يظهر الاحمرار (0.5–1 mm)، ثم النصف الثاني وميكرونيدلينغ مرة ثانية. بدون نزيف. نظّف بالماء والشاش — بدون منظف. الكريم المنزلي بنفس المساء."
+                }
+              },
+              {
+                "type": "ampm",
+                "when": {
+                  "en": "Days 2–13",
+                  "ar": "الأيام ٢–١٣"
+                },
+                "title": {
+                  "en": "Home Cream twice a day",
+                  "ar": "الكريم المنزلي مرتين باليوم"
+                },
+                "text": {
+                  "en": "Morning and evening, massage until fully absorbed — only on the areas of concern. Sun protection every day.",
+                  "ar": "صباحاً ومساءً، تدليك حتى يمتص بالكامل — فقط على مناطق التصبغ. واقي شمس كل يوم."
+                }
+              },
+              {
+                "type": "clinic",
+                "when": {
+                  "en": "Day 14",
+                  "ar": "اليوم ١٤"
+                },
+                "title": {
+                  "en": "Mesotherapy session #2",
+                  "ar": "جلسة الميزوثيرابي #2"
+                },
+                "text": {
+                  "en": "Draw from the vial into a syringe. Apply half the dose and microneedle until erythema appears (0.5–1 mm), then apply the second half and microneedle again. No bleeding. Clean with water and gauze — no cleanser. Home Cream that evening.",
+                  "ar": "اسحب من الأمبولة بسيرنج. طبّق نصف الكمية واعمل ميكرونيدلينغ حتى يظهر الاحمرار (0.5–1 mm)، ثم النصف الثاني وميكرونيدلينغ مرة ثانية. بدون نزيف. نظّف بالماء والشاش — بدون منظف. الكريم المنزلي بنفس المساء."
+                }
+              },
+              {
+                "type": "pm",
+                "when": {
+                  "en": "Days 15–27",
+                  "ar": "الأيام ١٥–٢٧"
+                },
+                "title": {
+                  "en": "Home Cream once, at night",
+                  "ar": "الكريم المنزلي مرة مساءً"
+                },
+                "text": {
+                  "en": "Once a day in the evening, massage until fully absorbed. Very dense pigment: twice daily for the whole first month.",
+                  "ar": "مرة باليوم مساءً، تدليك حتى يمتص بالكامل. التصبغ الكثيف جداً: مرتين يومياً طوال الشهر الأول."
+                }
+              },
+              {
+                "type": "clinic",
+                "when": {
+                  "en": "Day 28",
+                  "ar": "اليوم ٢٨"
+                },
+                "title": {
+                  "en": "Mesotherapy session #3",
+                  "ar": "جلسة الميزوثيرابي #3"
+                },
+                "text": {
+                  "en": "Draw from the vial into a syringe. Apply half the dose and microneedle until erythema appears (0.5–1 mm), then apply the second half and microneedle again. No bleeding. Clean with water and gauze — no cleanser. Home Cream that evening.",
+                  "ar": "اسحب من الأمبولة بسيرنج. طبّق نصف الكمية واعمل ميكرونيدلينغ حتى يظهر الاحمرار (0.5–1 mm)، ثم النصف الثاني وميكرونيدلينغ مرة ثانية. بدون نزيف. نظّف بالماء والشاش — بدون منظف. الكريم المنزلي بنفس المساء."
+                }
+              },
+              {
+                "type": "ampm",
+                "when": {
+                  "en": "Days 29–41",
+                  "ar": "الأيام ٢٩–٤١"
+                },
+                "title": {
+                  "en": "Home Cream twice a day",
+                  "ar": "الكريم المنزلي مرتين باليوم"
+                },
+                "text": {
+                  "en": "Morning and evening, massage until fully absorbed — only on the areas of concern. Sun protection every day.",
+                  "ar": "صباحاً ومساءً، تدليك حتى يمتص بالكامل — فقط على مناطق التصبغ. واقي شمس كل يوم."
+                }
+              },
+              {
+                "type": "clinic",
+                "when": {
+                  "en": "Day 42",
+                  "ar": "اليوم ٤٢"
+                },
+                "title": {
+                  "en": "Mesotherapy session #4",
+                  "ar": "جلسة الميزوثيرابي #4"
+                },
+                "text": {
+                  "en": "Draw from the vial into a syringe. Apply half the dose and microneedle until erythema appears (0.5–1 mm), then apply the second half and microneedle again. No bleeding. Clean with water and gauze — no cleanser. Home Cream that evening.",
+                  "ar": "اسحب من الأمبولة بسيرنج. طبّق نصف الكمية واعمل ميكرونيدلينغ حتى يظهر الاحمرار (0.5–1 mm)، ثم النصف الثاني وميكرونيدلينغ مرة ثانية. بدون نزيف. نظّف بالماء والشاش — بدون منظف. الكريم المنزلي بنفس المساء."
+                }
+              },
+              {
+                "type": "pm",
+                "when": {
+                  "en": "Days 43–56",
+                  "ar": "الأيام ٤٣–٥٦"
+                },
+                "title": {
+                  "en": "Home Cream once, at night",
+                  "ar": "الكريم المنزلي مرة مساءً"
+                },
+                "text": {
+                  "en": "Once a day in the evening, massage until fully absorbed.",
+                  "ar": "مرة باليوم مساءً، تدليك حتى يمتص بالكامل."
+                }
+              },
+              {
+                "type": "maintain",
+                "when": {
+                  "en": "Months 3 → 6",
+                  "ar": "الشهر ٣ ← ٦"
+                },
+                "title": {
+                  "en": "Maintenance",
+                  "ar": "المتابعة"
+                },
+                "text": {
+                  "en": "Home Cream every evening to keep evening out the pigment and prevent rebound.",
+                  "ar": "الكريم المنزلي كل مساء لمتابعة توحيد اللون ومنع رجوع التصبغ."
+                }
+              }
+            ]
+          }
+        },
+        "applyCards": [
+          {
+            "type": "spot",
+            "title": {
+              "en": "Localized spots",
+              "ar": "بقع موضعية"
+            },
+            "text": {
+              "en": "PIH, post-pregnancy marks: apply mesotherapy and Home Cream on the spot plus 1 cm beyond its edges. Don't draw from a vial more than twice.",
+              "ar": "التصبغ بعد الالتهاب أو بعد الحمل: طبّق الميزوثيرابي والكريم على البقعة مع ١ سم حولها. لا تسحب من الأمبولة أكثر من مرتين."
+            }
+          },
+          {
+            "type": "face",
+            "title": {
+              "en": "Large surface",
+              "ar": "مساحة واسعة"
+            },
+            "text": {
+              "en": "Wide spots, solar lentigo, multiple spots: apply over the whole face. About 2 mL per session.",
+              "ar": "بقع واسعة، نمش شمسي، بقع متعددة: طبّق على كامل الوجه. حوالي ٢ مل للجلسة."
+            }
+          }
+        ]
       }
     ]
   },
