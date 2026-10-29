@@ -3,7 +3,7 @@
    The page sends SAVE_ALL with every file URL so the whole library is available offline. */
 const SHELL = 'vs-shell-v2', DATA = 'vs-data-v1', FILES = 'vs-files-v1';
 const SCOPE = self.registration.scope;
-const CORE = ['', 'index.html', 'data.json', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png',
+const CORE = ['', 'index.html', 'teamkey.js', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png',
   'derma/', 'derma/team.js', 'products/', 'products/catalog.json', 'assets/index.json'];
 
 self.addEventListener('install', e => {

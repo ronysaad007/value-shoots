@@ -9,6 +9,7 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#1E2538">
+<script src="teamkey.js?v=1"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Readex+Pro:wght@400;500;600;700&display=swap">
 <style>
@@ -1124,7 +1125,7 @@ td.id{color:var(--fg);font-weight:600;font-size:12.5px;white-space:nowrap}
 const __noCap=async()=>null;
 const MODE="public", PUBLIC_URL="https://ronysaad007.github.io/value-shoots/", PUSH_TASK="trig_01C6b7iBuELfEWB5TMW8srAd";
 let pushTimer=null;
-const TEAM_TAB="🌐 Team data", TEAM_CSV="https://docs.google.com/spreadsheets/d/e/2PACX-1vT-yslEg9Y0PHOD7a7aHwcsD8jgKYpx28Mm9RNujZQimQDznW8RiKa1lh45M0l7KcEsnbqTt2z7vzzT/pub?gid=1994752409&single=true&output=csv";
+const TEAM_TAB="🌐 Team data", TEAM_CSV="";
 function pushTeam(){ if(!mcp||!isMgr||!db) return; clearTimeout(pushTimer); pushTimer=setTimeout(async()=>{ try{
   const g=async p=>{ try{ const x=await db.doc(p).get(); return x.exists?x.data():null; }catch(e){ return null; } };
   const sh=await g("sheet/latest"); if(!sh||!sh.json) return;
@@ -1307,22 +1308,6 @@ document.addEventListener("submit",async e=>{ if(e.target.id!=="pwBox") return; 
   if(h===SET_PW_HASH){ setOpen=true; try{ sessionStorage.setItem("vs-set",h); }catch(err){} $("#pwIn").value=""; $("#pwMsg").textContent=""; route(); }
   else { $("#pwMsg").textContent=wt("كلمة السر غلط","Wrong password"); $("#pwMsg").className="msg err"; $("#pwIn").select(); } });
 
-/* ---------- team gate: new devices sign in once; devices that already used the page are let through ---------- */
-(async function(){ if(MODE!=="public") return; const H="e3c0c98ce1a441d41109f200d06b1538696b943611ff45bedbb51486569c954d";
-  const get=k=>{ try{ return localStorage.getItem(k); }catch(e){ return null; } }, set=(k,v)=>{ try{ localStorage.setItem(k,v); }catch(e){} };
-  if(get("vs-team")===H) return;
-  let known=false; try{ for(let i=0;i<localStorage.length;i++){ if((localStorage.key(i)||"").startsWith("vs-")){ known=true; break; } } }catch(e){}
-  if(!known&&navigator.serviceWorker&&navigator.serviceWorker.controller) known=true;
-  if(!known&&window.caches){ try{ known=(await caches.keys()).some(k=>k.startsWith("vs-")); }catch(e){} }
-  if(known){ set("vs-team",H); return; }
-  const g=$("#adminGate"), ar=(get("vs-lang")||"ar")==="ar";
-  $("#agT").textContent="Value Shoots"; $("#agD").textContent=ar?"أهلا 👋 أول مرة بس: اكتب كلمة سر الفريق":"Welcome 👋 First time only: enter the team password"; $("#agGo").textContent=ar?"ادخل":"Enter";
-  const inp=$("#agIn"); inp.removeAttribute("inputmode"); inp.style.letterSpacing="1px"; inp.placeholder=ar?"كلمة السر":"Password";
-  g.hidden=false; document.documentElement.style.overflow="hidden"; setTimeout(()=>inp.focus(),80);
-  $("#agForm").addEventListener("submit",async e=>{ e.preventDefault(); const h=await sha256(inp.value.trim());
-    if(h===H){ set("vs-team",h); g.remove(); document.documentElement.style.overflow=""; }
-    else { $("#agMsg").textContent=ar?"كلمة السر غلط":"Wrong password"; $("#agMsg").className="msg err"; inp.select(); } });
-})();
 /* ---------- admin gate: password asked once per device ---------- */
 (function(){ if(MODE!=="admin") return; let ok=false; try{ ok=localStorage.getItem("vs-admin")===SET_PW_HASH; }catch(e){} if(ok) return;
   const g=$("#adminGate"), ar=(()=>{try{return (localStorage.getItem("vs-lang")||"ar")==="ar";}catch(e){return true;}})();
@@ -3232,7 +3217,7 @@ function offlineInit(){
     try{ const list=await (await fetch(PUBLIC_URL+"products/offline-assets.json",{cache:"no-store"})).json(); list.forEach(p=>urls.push(new URL(p,PUBLIC_URL+"products/").href)); }catch(e){}
     try{ const txt=await (await fetch(ASSETS_API+"?a=catalog")).text(); (txt.match(/https?:\/\/[^"\s\\]+/g)||[]).forEach(u=>{ if(/lh3\.googleusercontent|\.(png|jpe?g|webp|gif|svg|pdf)(\?|$)/i.test(u)) urls.push(u); });
       (txt.match(/"stock\/[^"]+"/g)||[]).forEach(p=>urls.push(new URL(p.slice(1,-1),PUBLIC_URL+"products/").href)); }catch(e){}
-    ["derma/","derma/accounts.json","products/","products/catalog.json","data.json","coverage/","coverage/data.json","coverage/emirates.json"].forEach(p=>urls.push(PUBLIC_URL+p)); urls.push("https://unpkg.com/deck.gl@9.1.14/dist.min.js");
+    ["teamkey.js","derma/","derma/geo.json","products/","products/catalog.json","coverage/","coverage/data.json","coverage/emirates.json"].forEach(p=>urls.push(PUBLIC_URL+p)); if(window.VSK&&VSK.key()) ["a=team","a=acct","a=pf&f=accounts","a=dreq"].forEach(q=>urls.push(VSK.url(q))); urls.push("https://unpkg.com/deck.gl@9.1.14/dist.min.js");
     LS("vs-saved-t",JSON.stringify(now));
     sw.postMessage({type:"SAVE_ALL",urls:[...new Set(urls)],refresh});
   }
@@ -3249,8 +3234,8 @@ let syncTimer=null;
     let langPicked=false; try{ langPicked=!!localStorage.getItem("vs-lang"); }catch(e){}
     try{
       let d=null;
-      if(TEAM_CSV){ try{ const r=await fetch(TEAM_CSV+(TEAM_CSV.includes("?")?"&":"?")+"t="+Date.now(),{cache:"no-store"}); if(r.ok) d=JSON.parse(csvCol(await r.text()).map(x=>x.replace(/^~/,"")).join("")); }catch(e){ d=null; } }
-      if(!d){ const r=await fetch("data.json",{cache:"no-store"}); if(!r.ok) throw new Error(r.status); d=await r.json(); }
+      if(window.VSK){ await VSK.ready(); const r=await fetch(VSK.url("a=team"),{cache:"no-store"}); d=await r.json(); if(!VSK.ok(d)) return; }
+      if(!d||!d.rows) throw new Error("no data");
       if(d.config) CFG=Object.assign(JSON.parse(JSON.stringify(DEF)),d.config);
       if(!langPicked&&CFG.defaultLang) LANG=CFG.defaultLang;
       S=toSessions(d.rows||[]); consentIds=new Set(d.consents||[]); syncedAt=d.syncedAt; setSync("ok");

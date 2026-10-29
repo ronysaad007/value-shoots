@@ -15,7 +15,7 @@ const tx=()=>TX[L]||TX.en, mx=()=>(t().mv||T.en.mv);
 let BY='';try{BY=localStorage.getItem('dby')||''}catch(e){}
 const saveBy=v=>{BY=v;try{localStorage.setItem('dby',v)}catch(e){}};
 const QK='derma-queue',qGet=()=>{try{return JSON.parse(localStorage.getItem(QK)||'[]')}catch(e){return[]}},qSet=a=>{try{localStorage.setItem(QK,JSON.stringify(a))}catch(e){}};
-async function send(d){await fetch(API,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)})}
+async function send(d){await fetch(API,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(window.VSK?VSK.post(d):d)})}
 async function post(d){if(navigator.onLine===false){qSet(qGet().concat([d]));return}try{await send(d)}catch(e){qSet(qGet().concat([d]))}}
 async function flushQ(){const a=qGet();if(!a.length||navigator.onLine===false)return;const left=[];for(const d of a){try{await send(d)}catch(e){left.push(d)}}qSet(left)}
 window.addEventListener('online',flushQ);setTimeout(flushQ,3000);
@@ -99,7 +99,7 @@ function applyMoves(list){
 }
 render();
 (async()=>{try{
-  const r=await fetch(API,{cache:'no-store'});const list=await r.json();if(!Array.isArray(list)||!list.length)return;
+  const list=window.VSK?await VSK.json('a=dreq'):await (await fetch(API,{cache:'no-store'})).json();if(!Array.isArray(list)||!list.length)return;
   const seen=new Set(D.map(d=>(d.n+'|'+C[d.c0].n).toLowerCase()));
   list.filter(i=>i.type==='add').forEach(i=>{const ct=CITY_CODE(i.city)||'d',s=ROLE_CODE(i.role)||'D';
     const c=C.find(k=>k.ct===ct&&k.n===i.to);if(!c||!i.name)return;

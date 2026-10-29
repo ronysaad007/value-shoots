@@ -76,6 +76,7 @@ html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family
 </aside>
 <div class="tip" id="tip"></div>
 <div class="credit">Map shapes © amCharts</div>
+<script src="../teamkey.js?v=1"></script>
 <script src="https://unpkg.com/deck.gl@9.1.14/dist.min.js"></script>
 <script>
 (function(){
@@ -185,10 +186,19 @@ Promise.all([fetch('emirates.json').then(r=>r.json()),fetch('data.json',{cache:'
   deckgl=new deck.DeckGL({container:$('map'),initialViewState:HOME,controller:{touchRotate:true,dragRotate:true},effects:[light],layers:layers(),
     getCursor:({isHovering})=>isHovering?'pointer':'grab',onAfterRender:placeLabels,onClick:i=>{if(!i.object){$('tip').style.display='none'}}});
   render();$('load').style.opacity=0;setTimeout(()=>$('load').remove(),600);
-  fetch('../derma/api.txt').then(r=>r.text()).then(u=>fetch(u.trim()+'?a=acct',{cache:'no-store'})).then(r=>r.json()).then(list=>{
-    if(!Array.isArray(list))return;const by=new Map(DATA.map(r=>[r.ct+'|'+r.n,r]));let ch=false;
-    list.filter(i=>i.type==='account').forEach(i=>{const r=by.get(i.key);if(!r)return;if(!r.c){r.c=1;ch=true}r.p=r.p||{};r.p[i.product]=i.value});
-    if(ch)render()}).catch(()=>{});
+  // Value accounts are private: they come from the team API (password), clinic positions are public
+  const key=r=>r.ct+'|'+r.n;
+  (async()=>{ if(!window.VSK) return;
+    const [acc,geo,list]=await Promise.all([VSK.json('a=pf&f=accounts'),VSK.json('a=pf&f=geo').catch(()=>({})),VSK.json('a=acct').catch(()=>[])]);
+    const by=new Map(DATA.map(r=>[key(r),r]));
+    (acc&&acc.a||[]).forEach(a=>{
+      if(a.k&&a.k.length){ a.k.forEach(k=>{const r=by.get(k);if(r){r.c=1;r.p=a.p||{}}}); return; }
+      const row={n:a.dn,ct:a.ct,h:/HOSPITAL/i.test(a.n||'')?1:0,m:0,c:1,p:a.p||{},new:1}, g=geo[a.ct+'|'+a.dn];
+      if(Array.isArray(g)){ row.x=[g[0],g[1]]; if(g[3]) row.ap=1; }
+      DATA.push(row); by.set(key(row),row); });
+    if(Array.isArray(list)) list.filter(i=>i.type==='account').forEach(i=>{const r=by.get(i.key);if(!r)return;r.c=1;r.p=r.p||{};r.p[i.product]=i.value});
+    render();
+  })().catch(()=>{});
 }).catch(e=>{$('load').textContent='Could not load the map data.'});
 })();
 </script>

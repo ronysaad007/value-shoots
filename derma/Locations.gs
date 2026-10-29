@@ -21,3 +21,9 @@ function findClinicLocations() {
   });
   SpreadsheetApp.getActive().toast(`Found ${done} locations`, '📍 Locations');
 }
+
+// When a location is pasted by hand in column C, mark it as exact
+function onEdit(e) {
+  const r = e && e.range; if (!r || r.getSheet().getName() !== '📍 Clinic locations' || r.getColumn() !== 3 || r.getRow() < 2) return;
+  r.offset(0, 2).setValue(r.getValue() ? '✓ set by hand' : '');
+}

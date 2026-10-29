@@ -1,4 +1,5 @@
-// Derma Finder — team requests (move a person / add a person)
+// Value Shoots team API — Derma Finder requests, accounts, team bookings, Product Hub.
+// Everything except the shared assets and the Product Hub catalogue needs the team password.
 // Paste into the Value Shoots sheet: Extensions > Apps Script. Deploy > New deployment > Web app,
 // Execute as: Me, Who has access: Anyone.
 const TAB = '🩺 Derma requests';
@@ -8,6 +9,7 @@ const safe = v => { v = String(v == null ? '' : v).slice(0, 500); return /^[=+\-
 function doPost(e) {
   const d = JSON.parse((e && e.postData && e.postData.contents) || '{}');
   if (d.action && String(d.action).indexOf('hub_') === 0) return out(hubAction(d));
+  const auth = teamOk(d.k); if (auth !== true) return out({ auth: false, locked: auth === 'locked' });
   if (d.type === 'status' || d.type === 'account') return out(acctPost(d));
   if (!d.name || !d.type) return out({ ok: false });
   const lock = LockService.getScriptLock(); lock.waitLock(10000);
@@ -23,7 +25,12 @@ function doGet(e) {
   if (e && e.parameter && e.parameter.a === 'assets') return out(assets(e.parameter.fresh === '1'));
   if (e && e.parameter && e.parameter.a === 'catalog') return out(hubCatalog());
   if (e && e.parameter && e.parameter.a === 'file') return out(hubFile(e.parameter.id));
-  if (e && e.parameter && e.parameter.a === 'acct') return out(acctGet());
+  const p = (e && e.parameter) || {};
+  const auth = teamOk(p.k); if (auth !== true) return out({ auth: false, locked: auth === 'locked' });
+  if (p.a === 'auth') return out({ ok: true });
+  if (p.a === 'team') return teamData();
+  if (p.a === 'pf') return p.f === 'geo' ? out(clinicGeo()) : privateFile(p.f);
+  if (p.a === 'acct') return out(acctGet());
   const rows = sheet().getDataRange().getValues().slice(1)
     .filter(r => String(r[2]).trim().toLowerCase() === 'approved');
   return out(rows.map(r => ({ at: +new Date(r[0]), type: String(r[1]).toLowerCase(), name: r[3], role: r[4], level: r[5],
@@ -162,4 +169,58 @@ function acctGet() {
   return sh.getDataRange().getValues().slice(1)
     .filter(r => r[1] === 'Status' || String(r[2]).trim().toLowerCase() === 'approved')
     .map(r => ({ at: +new Date(r[0]), type: r[1] === 'Status' ? 'status' : 'account', clinic: r[3], city: r[4], key: r[5], product: r[6], value: r[7], by: r[8] }));
+}
+
+// --- Team password: every team request carries it; 5 wrong tries lock everyone out for 15 minutes ---
+// Default = Value@2026. To change it: Project Settings > Script properties > TEAM_PW = the new password's SHA-256.
+const TEAM_PW_DEFAULT = 'e3c0c98ce1a441d41109f200d06b1538696b943611ff45bedbb51486569c954d';
+function teamOk(k) {
+  const cache = CacheService.getScriptCache(), fails = +(cache.get('team_fails') || 0);
+  if (typeof k !== 'string' || !k) return false;
+  const want = props().getProperty('TEAM_PW') || TEAM_PW_DEFAULT;
+  if (sha(k) === want) return true;
+  if (fails >= 25) return 'locked';
+  cache.put('team_fails', String(fails + 1), 900); return false;
+}
+
+// --- Team bookings: the "🌐 Team data" tab that the admin page fills (A1:A12, ~-prefixed chunks) ---
+function teamData() {
+  const sh = SpreadsheetApp.getActive().getSheetByName('🌐 Team data');
+  if (!sh) return out({ error: 'no team data' });
+  const s = sh.getRange('A1:A12').getValues().map(r => String(r[0] || '').replace(/^~/, '')).join('');
+  return ContentService.createTextOutput(s || '{}').setMimeType(ContentService.MimeType.JSON);
+}
+
+// --- Private files (accounts list) kept in Drive: newest file with that name in the folder wins ---
+const TEAM_FOLDER = '189zewpr8iew8G5_p_aPQZzrdfkKrlBZL';
+const PRIVATE_FILES = { accounts: 'accounts.json' };
+// one-time import from the old public copy, so nothing has to be uploaded by hand
+const PRIVATE_IMPORT = { accounts: 'https://raw.githubusercontent.com/ronysaad007/value-shoots/ff340786cc4e3f4702dec46e8f5d8abc6b944d95/derma/accounts.json' };
+function privateFile(name) {
+  const fname = PRIVATE_FILES[name]; if (!fname) return out({ error: 'Not found' });
+  const folder = DriveApp.getFolderById(TEAM_FOLDER), it = folder.getFilesByName(fname); let best = null;
+  while (it.hasNext()) { const f = it.next(); if (!f.isTrashed() && (!best || f.getLastUpdated() > best.getLastUpdated())) best = f; }
+  if (!best && PRIVATE_IMPORT[name]) {
+    const r = UrlFetchApp.fetch(PRIVATE_IMPORT[name], { muteHttpExceptions: true });
+    if (r.getResponseCode() === 200) best = folder.createFile(fname, r.getContentText('UTF-8'), 'application/json');
+  }
+  if (!best) return out({ error: 'Not found' });
+  return ContentService.createTextOutput(best.getBlob().getDataAsString('UTF-8')).setMimeType(ContentService.MimeType.JSON);
+}
+
+// --- Clinic positions for the accounts that aren't in the register: the "📍 Clinic locations" tab ---
+// C = "lat, lng" or a Google Maps link; E starting with ≈ = Google found only the area.
+function clinicGeo() {
+  const sh = SpreadsheetApp.getActive().getSheetByName('📍 Clinic locations'); if (!sh || sh.getLastRow() < 2) return {};
+  const o = {};
+  sh.getRange(2, 1, sh.getLastRow() - 1, 5).getValues().forEach(r => {
+    const key = String(r[3] || '').trim(), c = String(r[2] || '').trim(); if (!key || !c) return;
+    const m = c.match(/@(-?\d+\.\d+),(-?\d+\.\d+)/) || c.match(/!3d(-?\d+\.\d+)!4d(-?\d+\.\d+)/) || c.match(/[?&](?:q|query|ll)=(-?\d+\.\d+),\s*(-?\d+\.\d+)/) || c.match(/^\s*(-?\d+\.\d+)\s*,\s*(-?\d+\.\d+)\s*$/);
+    if (!m) return;
+    const addr = String(r[4] || ''), approx = /^≈/.test(addr);
+    if (approx && addr.replace(/^≈[^:]*:\s*/, '').split(' - ').length <= 2 && !/^https?:/.test(c)) return; // only the city was found
+    const lat = +m[1], lng = +m[2]; if (!(lat > 22 && lat < 27 && lng > 51 && lng < 57)) return;
+    o[key] = [Math.round(lng * 1e5) / 1e5, Math.round(lat * 1e5) / 1e5, 'sheet', approx ? 1 : 0];
+  });
+  return o;
 }

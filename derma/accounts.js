@@ -85,7 +85,7 @@ function panelHtml(c,msg,kind){
 }
 function redraw(ci,msg,kind){const el=document.querySelector(`[data-acp="${ci}"]`);if(el)el.outerHTML=panelHtml(C[ci],msg,kind)}
 const QK='derma-queue',qAdd=d=>{try{const a=JSON.parse(localStorage.getItem(QK)||'[]');a.push(d);localStorage.setItem(QK,JSON.stringify(a))}catch(e){}};
-async function send(d){if(navigator.onLine===false){qAdd(d);return}try{await fetch(API,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)})}catch(e){qAdd(d)}}
+async function send(d){if(navigator.onLine===false){qAdd(d);return}try{await fetch(API,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(window.VSK?VSK.post(d):d)})}catch(e){qAdd(d)}}
 document.addEventListener('click',e=>{
   const pb=e.target.closest('[data-acst]');
   if(pb){e.preventDefault();const [ci,pr]=pb.dataset.acst.split('|');OPEN=(OPEN&&OPEN.ci===+ci&&OPEN.prod===pr)?null:{ci:+ci,prod:pr};redraw(+ci);return}
@@ -97,7 +97,7 @@ document.addEventListener('click',e=>{
     send({type:'status',key:k,clinic:c.n,city:(T.en.city[c.ct]||c.ct),product:pr,value:v,by:by.trim(),id:'s'+Date.now().toString(36)});
     redraw(c.i,x.saved,'ok');setTimeout(()=>{if(OPEN&&OPEN.ci===c.i&&OPEN.prod===pr){OPEN=null;redraw(c.i)}},1400);}
 },true);
-async function loadStatus(){if(!API)return;try{const r=await fetch(API+'?a=acct',{cache:'no-store'});const list=await r.json();if(!Array.isArray(list))return;
+async function loadStatus(){if(!API)return;try{const list=window.VSK?await VSK.json('a=acct'):await (await fetch(API+'?a=acct',{cache:'no-store'})).json();if(!Array.isArray(list))return;
   list.filter(i=>i.type==='status').sort((a,b)=>a.at-b.at).forEach(i=>{const kk=i.key+'|'+i.product,cur=ST[kk];if(!cur||cur.t<=i.at)ST[kk]={v:i.value,b:i.by,t:i.at}});
   saveST();
   let changed=false;const byK=new Map(C.map(c=>[ckey(c),c]));
@@ -151,6 +151,6 @@ if(fav&&!document.getElementById('f-acct')){
 const _render=render;
 render=function(){ const b=document.getElementById('f-acct'); if(b) b.textContent='✓ '+ax().clients; return _render.apply(this,arguments); };
 
-Promise.all([fetch('accounts.json',{cache:'no-cache'}).then(r=>r.json()),fetch('geo.json',{cache:'no-cache'}).then(r=>r.ok?r.json():{}).catch(()=>({}))])
+Promise.all([window.VSK?VSK.json('a=pf&f=accounts'):fetch('accounts.json',{cache:'no-cache'}).then(r=>r.json()),(window.VSK?VSK.json('a=pf&f=geo'):fetch('geo.json',{cache:'no-cache'}).then(r=>r.ok?r.json():{})).catch(()=>({}))])
   .then(([d,g])=>{load(d);C.forEach(c=>{const p=c.acOnly&&g[ckey(c)];if(p&&Array.isArray(p)&&!p[3]){c.lo=p[0];c.la=p[1]}});render();loadStatus();}).catch(()=>{});
 })();
