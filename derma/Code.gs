@@ -194,10 +194,8 @@ function teamData() {
 // --- Private files (accounts list) kept in Drive: newest file with that name in the folder wins ---
 const TEAM_FOLDER = '189zewpr8iew8G5_p_aPQZzrdfkKrlBZL';
 const PRIVATE_FILES = { accounts: 'accounts.json', geo: 'geo.json' };
-// one-time import from the old public copy, so nothing has to be uploaded by hand
-const PRIVATE_IMPORT = {
-  accounts: 'https://raw.githubusercontent.com/ronysaad007/value-shoots/ff340786cc4e3f4702dec46e8f5d8abc6b944d95/derma/accounts.json',
-  geo: 'https://raw.githubusercontent.com/ronysaad007/value-shoots/ff340786cc4e3f4702dec46e8f5d8abc6b944d95/derma/geo.json' };
+// The files are dropped into the folder by hand (or by Claude); the newest one with the name wins.
+const PRIVATE_IMPORT = {};
 function privateText(name) {
   const fname = PRIVATE_FILES[name]; if (!fname) return null;
   const folder = DriveApp.getFolderById(TEAM_FOLDER), it = folder.getFilesByName(fname); let best = null;
