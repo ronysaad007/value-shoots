@@ -1,4 +1,4 @@
 # Private team data lives in the Google Sheet / Drive, never in this public repo
-data.json
+/data.json
 derma/accounts.json
 derma/geo.json
