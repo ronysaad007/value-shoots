@@ -193,26 +193,31 @@ function teamData() {
 
 // --- Private files (accounts list) kept in Drive: newest file with that name in the folder wins ---
 const TEAM_FOLDER = '189zewpr8iew8G5_p_aPQZzrdfkKrlBZL';
-const PRIVATE_FILES = { accounts: 'accounts.json' };
+const PRIVATE_FILES = { accounts: 'accounts.json', geo: 'geo.json' };
 // one-time import from the old public copy, so nothing has to be uploaded by hand
-const PRIVATE_IMPORT = { accounts: 'https://raw.githubusercontent.com/ronysaad007/value-shoots/ff340786cc4e3f4702dec46e8f5d8abc6b944d95/derma/accounts.json' };
-function privateFile(name) {
-  const fname = PRIVATE_FILES[name]; if (!fname) return out({ error: 'Not found' });
+const PRIVATE_IMPORT = {
+  accounts: 'https://raw.githubusercontent.com/ronysaad007/value-shoots/ff340786cc4e3f4702dec46e8f5d8abc6b944d95/derma/accounts.json',
+  geo: 'https://raw.githubusercontent.com/ronysaad007/value-shoots/ff340786cc4e3f4702dec46e8f5d8abc6b944d95/derma/geo.json' };
+function privateText(name) {
+  const fname = PRIVATE_FILES[name]; if (!fname) return null;
   const folder = DriveApp.getFolderById(TEAM_FOLDER), it = folder.getFilesByName(fname); let best = null;
   while (it.hasNext()) { const f = it.next(); if (!f.isTrashed() && (!best || f.getLastUpdated() > best.getLastUpdated())) best = f; }
   if (!best && PRIVATE_IMPORT[name]) {
     const r = UrlFetchApp.fetch(PRIVATE_IMPORT[name], { muteHttpExceptions: true });
     if (r.getResponseCode() === 200) best = folder.createFile(fname, r.getContentText('UTF-8'), 'application/json');
   }
-  if (!best) return out({ error: 'Not found' });
-  return ContentService.createTextOutput(best.getBlob().getDataAsString('UTF-8')).setMimeType(ContentService.MimeType.JSON);
+  return best ? best.getBlob().getDataAsString('UTF-8') : null;
+}
+function privateFile(name) {
+  const t = privateText(name); if (t == null) return out({ error: 'Not found' });
+  return ContentService.createTextOutput(t).setMimeType(ContentService.MimeType.JSON);
 }
 
-// --- Clinic positions for the accounts that aren't in the register: the "📍 Clinic locations" tab ---
-// C = "lat, lng" or a Google Maps link; E starting with ≈ = Google found only the area.
+// --- Clinic positions for the accounts that aren't in the register: geo.json in the private folder,
+// overridden by the "📍 Clinic locations" tab (C = "lat, lng" or a Google Maps link; E starting with ≈ = area only).
 function clinicGeo() {
-  const sh = SpreadsheetApp.getActive().getSheetByName('📍 Clinic locations'); if (!sh || sh.getLastRow() < 2) return {};
-  const o = {};
+  let o = {}; try { o = JSON.parse(privateText('geo') || '{}'); } catch (err) {}
+  const sh = SpreadsheetApp.getActive().getSheetByName('📍 Clinic locations'); if (!sh || sh.getLastRow() < 2) return o;
   sh.getRange(2, 1, sh.getLastRow() - 1, 5).getValues().forEach(r => {
     const key = String(r[3] || '').trim(), c = String(r[2] || '').trim(); if (!key || !c) return;
     const m = c.match(/@(-?\d+\.\d+),(-?\d+\.\d+)/) || c.match(/!3d(-?\d+\.\d+)!4d(-?\d+\.\d+)/) || c.match(/[?&](?:q|query|ll)=(-?\d+\.\d+),\s*(-?\d+\.\d+)/) || c.match(/^\s*(-?\d+\.\d+)\s*,\s*(-?\d+\.\d+)\s*$/);
