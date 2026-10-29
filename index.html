@@ -1307,6 +1307,22 @@ document.addEventListener("submit",async e=>{ if(e.target.id!=="pwBox") return; 
   if(h===SET_PW_HASH){ setOpen=true; try{ sessionStorage.setItem("vs-set",h); }catch(err){} $("#pwIn").value=""; $("#pwMsg").textContent=""; route(); }
   else { $("#pwMsg").textContent=wt("كلمة السر غلط","Wrong password"); $("#pwMsg").className="msg err"; $("#pwIn").select(); } });
 
+/* ---------- team gate: new devices sign in once; devices that already used the page are let through ---------- */
+(async function(){ if(MODE!=="public") return; const H="e3c0c98ce1a441d41109f200d06b1538696b943611ff45bedbb51486569c954d";
+  const get=k=>{ try{ return localStorage.getItem(k); }catch(e){ return null; } }, set=(k,v)=>{ try{ localStorage.setItem(k,v); }catch(e){} };
+  if(get("vs-team")===H) return;
+  let known=false; try{ for(let i=0;i<localStorage.length;i++){ if((localStorage.key(i)||"").startsWith("vs-")){ known=true; break; } } }catch(e){}
+  if(!known&&navigator.serviceWorker&&navigator.serviceWorker.controller) known=true;
+  if(!known&&window.caches){ try{ known=(await caches.keys()).some(k=>k.startsWith("vs-")); }catch(e){} }
+  if(known){ set("vs-team",H); return; }
+  const g=$("#adminGate"), ar=(get("vs-lang")||"ar")==="ar";
+  $("#agT").textContent="Value Shoots"; $("#agD").textContent=ar?"أهلا 👋 أول مرة بس: اكتب كلمة سر الفريق":"Welcome 👋 First time only: enter the team password"; $("#agGo").textContent=ar?"ادخل":"Enter";
+  const inp=$("#agIn"); inp.removeAttribute("inputmode"); inp.style.letterSpacing="1px"; inp.placeholder=ar?"كلمة السر":"Password";
+  g.hidden=false; document.documentElement.style.overflow="hidden"; setTimeout(()=>inp.focus(),80);
+  $("#agForm").addEventListener("submit",async e=>{ e.preventDefault(); const h=await sha256(inp.value.trim());
+    if(h===H){ set("vs-team",h); g.remove(); document.documentElement.style.overflow=""; }
+    else { $("#agMsg").textContent=ar?"كلمة السر غلط":"Wrong password"; $("#agMsg").className="msg err"; inp.select(); } });
+})();
 /* ---------- admin gate: password asked once per device ---------- */
 (function(){ if(MODE!=="admin") return; let ok=false; try{ ok=localStorage.getItem("vs-admin")===SET_PW_HASH; }catch(e){} if(ok) return;
   const g=$("#adminGate"), ar=(()=>{try{return (localStorage.getItem("vs-lang")||"ar")==="ar";}catch(e){return true;}})();
