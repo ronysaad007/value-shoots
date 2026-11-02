@@ -1208,8 +1208,8 @@ const emName=e=>LANG==="ar"?(EM_AR[e]||e):e;
 
 /* ---------- model ---------- */
 const STATUS={posted:["done","منشور","Posted"],delivered:["prod","تسلّم","Delivered"],captured:["prod","تصوّر","Captured"],scheduled:["up","مجدول","Scheduled"],
-  pending:["wait","معلّق","Pending"],unconfirmed:["wait","غير مؤكد","Unconfirmed"],canceled:["off","ملغى","Canceled"],cancelled:["off","ملغى","Canceled"],suspended:["off","موقوف","Suspended"]};
-const STATUS_OPTS=["Scheduled","Pending","Unconfirmed","Captured","Delivered","Posted","Canceled","Suspended"];
+  pending:["wait","معلّق","Pending"],unconfirmed:["wait","غير مؤكد","Unconfirmed"],"awaiting approval":["wait","⏳ بانتظار الموافقة","⏳ Awaiting approval"],canceled:["off","ملغى","Canceled"],cancelled:["off","ملغى","Canceled"],suspended:["off","موقوف","Suspended"]};
+const STATUS_OPTS=["Scheduled","Awaiting approval","Pending","Unconfirmed","Captured","Delivered","Posted","Canceled","Suspended"];
 const GROUPS=["done","up","wait","prod","off"];
 const GCLASS={done:"c-done",up:"c-up",wait:"c-wait",prod:"c-prod",off:"c-off"};
 const PRODUCTS=[["BioRePeel",/bio\s*re?pee|^bi\./i],["Retinol",/retinol|\bri\b/i],["ARES",/ares/i],["Cytocare 532",/cyto\s*care\s*-?\s*532|\b532\b/i],["Cytocare S Line",/s\s*-?\s*line/i],["Cytocare 715",/\b715\b/i],["Cytocare",/cyto/i],["Revital",/revital/i],["White Code",/white\s*code|\bwc\b/i],["Hair Care",/hair\s*care/i],["Workshop",/workshop/i],["PRP",/prp/i],["Luminescence",/lumin/i]];
@@ -2306,7 +2306,9 @@ function rowFormulas(r,v){
 
 /* ---------- Google Calendar sync (create / update / delete the shoot's event) ---------- */
 const CAL_SRV="Google Calendar"; let CALMAP={}, calMapVer=0, calTools=null; const calSchema={};
-async function calMapLoad(){ if(!db) return; try{ const x=await db.doc("cal/events").get(); CALMAP=x.exists?(x.data().map||{}):{}; }catch(e){} }
+async function calMapLoad(){ if(!db) return; try{ const x=await db.doc("cal/events").get(); CALMAP=x.exists?(x.data().map||{}):{}; }catch(e){}
+  // events made by the email script (📨 Email requests tab): id in D, calendar event in I
+  if(mcp){ try{ const p=await sheetCall("get_values",{range:"'📨 Email requests'!D2:I"}); (p.values||[]).forEach(r=>{ const id=String(r[0]||"").trim(), ev=String(r[5]||"").trim().replace(/@google\.com$/,""); if(id&&ev&&!(CALMAP[id]&&CALMAP[id].id)) CALMAP[id]={id:ev,at:new Date().toISOString()}; }); }catch(e){} } }
 async function calMapSave(){ if(!db) return; try{ await db.doc("cal/events").set({map:CALMAP,updatedAt:new Date().toISOString()}); }catch(e){} }
 async function calHas(tool){ if(!calTools){ try{ const r=await mcp.listTools(CAL_SRV); const sv=(r.servers||[]).find(x=>x.server===CAL_SRV)||(r.servers||[])[0]; calTools=new Set(((sv&&sv.tools)||[]).map(t=>t.name)); }catch(e){ calTools=new Set(); } } return calTools.size?calTools.has(tool):true; }
 async function calProps(tool){ if(tool in calSchema) return calSchema[tool]; let p=null; try{ const d=await mcp.describeTool(CAL_SRV,tool); p=(d&&d.inputSchema&&d.inputSchema.properties)||null; }catch(e){} calSchema[tool]=p; return p; }
