@@ -1,24 +1,24 @@
 // 📨 Shoot requests by email → sheet + calendar, waiting for Dr Alaa / Dr Yasir's approval.
-// The work inbox (rony@value-aesthetic.com) forwards the team's shoot requests and the managers' replies to this Gmail.
-// Every 5 minutes: a new request is added as "Awaiting approval" (grey ⏳ event in the calendar);
-// a clear yes from a manager in the same email thread turns it into "Scheduled"; a clear no cancels it;
-// anything unclear stays waiting and is flagged in the "📨 Email requests" tab for Rony.
-// Forwarded Value mail never stays in the personal inbox: it is marked read, archived under the label "Value requests"
-// and moved to the trash after 30 days.
-// Run setupEmailShoots() once from the editor to start it.
+// The work account can't forward mail outside the company, so a small bridge script inside rony@value-aesthetic.com
+// (MailBridge.gs) reads the team's shoot requests and the managers' replies every 5 minutes and posts them to this
+// web app (doPost → type "mail"). Nothing is forwarded and no Value mail lands in the personal Gmail.
+// A new request is added as "Awaiting approval" (grey ⏳ event in the calendar); a clear yes from a manager in the same
+// thread turns it into "Scheduled"; a clear no cancels it; anything unclear stays waiting and is flagged in "📨 Email requests".
 const ES_TAB = '📨 Email requests';
 const ES_HEAD = ['Received', 'From', 'Subject', 'Shoot ID', 'Clinic', 'Shoot date', 'State', 'Approved by', 'Calendar event', 'Thread', 'Note'];
 const ES_MANAGERS = ['alaa@value-aesthetic.com', 'yasir@value-aesthetic.com'];
 const ES_DOMAIN = 'value-aesthetic.com';
 const ES_WAIT = 'Awaiting approval';
 const ES_MINUTES = 120;
-const ES_LABEL = 'Value requests';
 let today = new Date();
 
+// run once: stops the old personal-Gmail check and prints the key the bridge script needs
 function setupEmailShoots() {
   ScriptApp.getProjectTriggers().filter(t => t.getHandlerFunction() === 'checkShootEmails').forEach(t => ScriptApp.deleteTrigger(t));
-  ScriptApp.newTrigger('checkShootEmails').timeBased().everyMinutes(5).create();
-  esSheet(); checkShootEmails();
+  esSheet();
+  const p = PropertiesService.getScriptProperties();
+  if (!p.getProperty('MAIL_KEY')) p.setProperty('MAIL_KEY', Utilities.getUuid().replace(/-/g, '') + Utilities.getUuid().replace(/-/g, ''));
+  Logger.log('MAIL_KEY=' + p.getProperty('MAIL_KEY'));
 }
 function esSheet() {
   const ss = SpreadsheetApp.getActive(); let sh = ss.getSheetByName(ES_TAB);
@@ -28,8 +28,8 @@ function esSheet() {
 const esAddr = s => { const m = /<([^>]+)>/.exec(s || ''); return String(m ? m[1] : s || '').trim().toLowerCase(); };
 const esName = s => String(s || '').replace(/<[^>]*>/, '').replace(/"/g, '').trim();
 // the reply itself, without the quoted earlier messages
-function esReplyText(msg) {
-  let t = msg.getPlainBody() || '';
+function esReplyText(body) {
+  let t = body || '';
   const cut = t.search(/\n\s*(On .{5,200}wrote:|في .{5,200}كتب:|-{2,}\s*Original Message|From:\s|________________)/i);
   if (cut > 0) t = t.slice(0, cut);
   return t.split('\n').filter(l => !/^\s*>/.test(l)).join('\n').trim();
@@ -48,31 +48,28 @@ function esDecision(text) {
   return yes && !no ? 'yes' : no && !yes ? 'no' : 'unclear';
 }
 
-function checkShootEmails() {
-  const lock = LockService.getScriptLock(); if (!lock.tryLock(20000)) return;
+// called by the bridge: d = {key, msgs:[{id, thread, from, date, subject, body}]} (oldest first)
+function esIngest(d) {
+  const want = PropertiesService.getScriptProperties().getProperty('MAIL_KEY');
+  if (!want || d.key !== want) return { ok: false };
+  const lock = LockService.getScriptLock(); lock.waitLock(20000);
+  const done = [];
   try {
     today = new Date();
-    const log = esSheet(), props = PropertiesService.getScriptProperties();
-    const seen = JSON.parse(props.getProperty('ES_SEEN') || '{}');
-    const label = GmailApp.getUserLabelByName(ES_LABEL) || GmailApp.createLabel(ES_LABEL);
-    const threads = GmailApp.search('from:' + ES_DOMAIN + ' newer_than:21d', 0, 60);
-    threads.forEach(th => {
-      const tid = th.getId();
-      // keep the personal inbox clean: forwarded Value mail goes straight to its own label, read and archived
-      if (th.isInInbox() || th.isUnread()) { th.addLabel(label); th.markRead(); th.moveToArchive(); }
-      th.getMessages().forEach(msg => {
-        const mid = msg.getId(); if (seen[mid]) return; seen[mid] = Date.now();
-        const from = esAddr(msg.getFrom());
-        if (!from.endsWith('@' + ES_DOMAIN)) return;
-        const row = esFindThread(log, tid);
-        if (ES_MANAGERS.indexOf(from) >= 0 && row) { esReply(log, row, msg, from); return; }
-        if (!row) esRequest(log, msg, tid);
-      });
+    const log = esSheet();
+    (d.msgs || []).slice(0, 80).forEach(m => {
+      try {
+        const from = esAddr(m.from);
+        if (from.endsWith('@' + ES_DOMAIN)) {
+          const row = esFindThread(log, String(m.thread));
+          if (ES_MANAGERS.indexOf(from) >= 0 && row) esReply(log, row, m, from);
+          else if (!row) esRequest(log, m, String(m.thread));
+        }
+        done.push(m.id);
+      } catch (err) {}
     });
-    GmailApp.search('label:' + ES_LABEL.replace(/\s+/g, '-') + ' older_than:30d', 0, 50).forEach(th => th.moveToTrash()); // auto-clean after a month
-    const cutoff = Date.now() - 30 * 864e5; Object.keys(seen).forEach(k => { if (seen[k] < cutoff) delete seen[k]; });
-    props.setProperty('ES_SEEN', JSON.stringify(seen));
   } finally { lock.releaseLock(); }
+  return { ok: true, done: done };
 }
 function esFindThread(log, tid) {
   const v = log.getDataRange().getValues();
@@ -82,12 +79,12 @@ function esFindThread(log, tid) {
 
 // a new request: read it like the WhatsApp message on the admin page
 function esRequest(log, msg, tid) {
-  let body = (msg.getPlainBody() || '').slice(0, 6000);
+  let body = String(msg.body || '').slice(0, 6000);
   const sig = body.search(/\n\s*(thanks|thank you|regards|best regards|kind regards|warm regards|شكرا|شكراً|مع التحية|تحياتي)\b/i); if (sig > 0) body = body.slice(0, sig);
   const f = waFields(body);
   if (!f.clinic && !f.date) return; // not a shoot request
   const D = f.date ? waDate(f.date) : null;
-  const base = [msg.getDate(), esName(msg.getFrom()), msg.getSubject(), '', f.clinic || '', D && D.date ? D.date : '', '', '', '', tid, ''];
+  const base = [new Date(msg.date), esName(msg.from), msg.subject, '', f.clinic || '', D && D.date ? D.date : '', '', '', '', tid, ''];
   if (!f.clinic || !D || !D.date) { base[6] = '⚠ Check by hand'; base[10] = 'Could not read the clinic or the date'; log.appendRow(base); return; }
   const ss = SpreadsheetApp.getActive(), sh = ss.getSheetByName('📋 Value Shoots');
   const vals = sh.getRange(1, 1, sh.getLastRow(), 14).getValues();
@@ -99,8 +96,8 @@ function esRequest(log, msg, tid) {
   if (dup) { base[3] = dup[0]; base[4] = clinic; base[6] = 'Already in the sheet'; log.appendRow(base); return; }
   // rep = the sender, matched to the names already used in the sheet
   const reps = [...new Set(vals.slice(1).map(r => String(r[6] || '').trim()).filter(Boolean))];
-  const first = nm(esName(msg.getFrom()).split(/\s+/)[0]);
-  const rep = (f.rep && (reps.find(r => nm(r) === nm(f.rep)) || f.rep)) || reps.find(r => nm(r.split(/\s+/)[0]) === first) || esName(msg.getFrom());
+  const first = nm(esName(msg.from).split(/\s+/)[0]);
+  const rep = (f.rep && (reps.find(r => nm(r) === nm(f.rep)) || f.rep)) || reps.find(r => nm(r.split(/\s+/)[0]) === first) || esName(msg.from);
   const em = esEm(f.em), prod = esProd(f.prod), time = f.time ? waTime(f.time) : '';
   // next VA id
   const nums = vals.slice(-15).map(r => { const m = /^VA\.?(\d+)$/i.exec(String(r[0]).trim()); return m ? +m[1] : 0; });
@@ -130,7 +127,7 @@ function esRequest(log, msg, tid) {
 function esReply(log, row, msg, from) {
   const cur = log.getRange(row, 1, 1, ES_HEAD.length).getValues()[0];
   if (!/Awaiting|Check reply/.test(String(cur[6]))) return;
-  const d = esDecision(esReplyText(msg)), who = from.indexOf('alaa') === 0 ? 'Dr Alaa' : 'Dr Yasir';
+  const d = esDecision(esReplyText(msg.body)), who = from.indexOf('alaa') === 0 ? 'Dr Alaa' : 'Dr Yasir';
   if (d === 'unclear') { log.getRange(row, 7).setValue('❓ Check reply'); log.getRange(row, 11).setValue('Reply from ' + who + ' is not a clear yes or no'); return; }
   const status = d === 'yes' ? 'Scheduled' : 'Canceled';
   const sh = SpreadsheetApp.getActive().getSheetByName('📋 Value Shoots'), ids = sh.getRange(1, 1, sh.getLastRow(), 1).getValues();
