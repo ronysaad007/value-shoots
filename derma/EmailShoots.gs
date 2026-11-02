@@ -3,6 +3,8 @@
 // Every 5 minutes: a new request is added as "Awaiting approval" (grey ⏳ event in the calendar);
 // a clear yes from a manager in the same email thread turns it into "Scheduled"; a clear no cancels it;
 // anything unclear stays waiting and is flagged in the "📨 Email requests" tab for Rony.
+// Forwarded Value mail never stays in the personal inbox: it is marked read, archived under the label "Value requests"
+// and moved to the trash after 30 days.
 // Run setupEmailShoots() once from the editor to start it.
 const ES_TAB = '📨 Email requests';
 const ES_HEAD = ['Received', 'From', 'Subject', 'Shoot ID', 'Clinic', 'Shoot date', 'State', 'Approved by', 'Calendar event', 'Thread', 'Note'];
@@ -10,6 +12,7 @@ const ES_MANAGERS = ['alaa@value-aesthetic.com', 'yasir@value-aesthetic.com'];
 const ES_DOMAIN = 'value-aesthetic.com';
 const ES_WAIT = 'Awaiting approval';
 const ES_MINUTES = 120;
+const ES_LABEL = 'Value requests';
 let today = new Date();
 
 function setupEmailShoots() {
@@ -51,9 +54,12 @@ function checkShootEmails() {
     today = new Date();
     const log = esSheet(), props = PropertiesService.getScriptProperties();
     const seen = JSON.parse(props.getProperty('ES_SEEN') || '{}');
+    const label = GmailApp.getUserLabelByName(ES_LABEL) || GmailApp.createLabel(ES_LABEL);
     const threads = GmailApp.search('from:' + ES_DOMAIN + ' newer_than:21d', 0, 60);
     threads.forEach(th => {
       const tid = th.getId();
+      // keep the personal inbox clean: forwarded Value mail goes straight to its own label, read and archived
+      if (th.isInInbox() || th.isUnread()) { th.addLabel(label); th.markRead(); th.moveToArchive(); }
       th.getMessages().forEach(msg => {
         const mid = msg.getId(); if (seen[mid]) return; seen[mid] = Date.now();
         const from = esAddr(msg.getFrom());
@@ -63,6 +69,7 @@ function checkShootEmails() {
         if (!row) esRequest(log, msg, tid);
       });
     });
+    GmailApp.search('label:' + ES_LABEL.replace(/\s+/g, '-') + ' older_than:30d', 0, 50).forEach(th => th.moveToTrash()); // auto-clean after a month
     const cutoff = Date.now() - 30 * 864e5; Object.keys(seen).forEach(k => { if (seen[k] < cutoff) delete seen[k]; });
     props.setProperty('ES_SEEN', JSON.stringify(seen));
   } finally { lock.releaseLock(); }
