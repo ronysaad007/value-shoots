@@ -81,8 +81,10 @@ function esFindThread(log, tid) {
 function esRequest(log, msg, tid) {
   let body = String(msg.body || '').slice(0, 6000);
   const sig = body.search(/\n\s*(thanks|thank you|regards|best regards|kind regards|warm regards|شكرا|شكراً|مع التحية|تحياتي)\b/i); if (sig > 0) body = body.slice(0, sig);
+  if (/^rony@/i.test(esAddr(msg.from))) return; // Rony's own mail (e.g. forwarded expenses)
+  today = new Date(msg.date); // "Friday 16 October" is read relative to when the email was sent
   const f = waFields(body);
-  if (!f.clinic && !f.date) return; // not a shoot request
+  if (!f.clinic) return; // not a shoot request
   const D = f.date ? waDate(f.date) : null;
   const base = [new Date(msg.date), esName(msg.from), msg.subject, '', f.clinic || '', D && D.date ? D.date : '', '', '', '', tid, ''];
   if (!f.clinic || !D || !D.date) { base[6] = '⚠ Check by hand'; base[10] = 'Could not read the clinic or the date'; log.appendRow(base); return; }
@@ -173,13 +175,13 @@ const WA_KEYS=[
   ["time",["time","الوقت","الساعة","الساعه"]],
   ["model",["model","models","المودل","الموديل","المودل/ز"]]];
 function waFields(txt){
-  txt=String(txt).replace(/[*_~]/g,"").replace(/[‎‏‪-‮]/g,"").replace(/\r/g,"");
+  txt=String(txt).replace(/[*_~]/g,"").replace(/[‎‏‪-‮\u200b-\u200d\u2060-\u2064\ufeff]/g,"").replace(/\r/g,"");
   const alts=[]; WA_KEYS.forEach(([k,ls])=>ls.forEach(l=>alts.push([k,l])));
   alts.sort((a,b)=>b[1].length-a[1].length);
   const re=new RegExp("(^|[\\s\\n•\\-–|،,])("+alts.map(a=>a[1].replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("|")+")\\s*[:：\\-–=]\\s*","gi");
   const hits=[]; let m; while((m=re.exec(txt))){ const lab=m[2].toLowerCase(); const k=(alts.find(a=>a[1].toLowerCase()===lab)||[])[0]; hits.push({k,start:m.index+m[1].length,vs:re.lastIndex}); }
   const out={};
-  hits.forEach((h,i)=>{ const end=i+1<hits.length?hits[i+1].start:txt.length; const v=txt.slice(h.vs,end).replace(/\s+/g," ").replace(/^[\s,،.\-–]+|[\s,،.\-–]+$/g,"").replace(/[\u{1F300}-\u{1FAFF}☀-➿]/gu,"").trim(); if(v&&!out[h.k]) out[h.k]=v; });
+  hits.forEach((h,i)=>{ const end=i+1<hits.length?hits[i+1].start:txt.length; const v=txt.slice(h.vs,end).replace(/\s+/g," ").replace(/^[\s,،.\-–•·▪]+|[\s,،.\-–•·▪]+$/g,"").replace(/[\u{1F300}-\u{1FAFF}☀-➿]/gu,"").trim(); if(v&&!out[h.k]) out[h.k]=v; });
   return out;
 }
 const WD={sunday:0,sun:0,monday:1,mon:1,tuesday:2,tue:2,tues:2,wednesday:3,wed:3,thursday:4,thu:4,thurs:4,friday:5,fri:5,saturday:6,sat:6,"الأحد":0,"الاحد":0,"الإثنين":1,"الاثنين":1,"الثلاثاء":2,"الأربعاء":3,"الاربعاء":3,"الخميس":4,"الجمعة":5,"الجمعه":5,"السبت":6};
@@ -206,5 +208,5 @@ function waTime(s){
   if(!ap&&h>=1&&h<=7) h+=12; // shoots don't run 1–7 am
   return String(h).padStart(2,"0")+":"+String(mi).padStart(2,"0");
 }
-const EM_KEYS=[["Abu Dhabi",/abu\s*dhabi|abudhabi|أبو ?ظبي|ابو ?ظبي/i],["Al Ain",/al\s*ain|alain|العين/i],["Sharjah",/sharjah|الشارقة|الشارقه/i],["Ajman",/ajman|عجمان/i],["Ras Al Khaimah",/ras\s*al\s*khaimah|\brak\b|رأس الخيمة|راس الخيمة|راس الخيمه/i],["Fujairah",/fujair|الفجيرة|الفجيره/i],["Umm Al Quwain",/umm\s*al\s*q|\buaq\b|أم القيوين|ام القيوين/i],["Dubai",/dubai|دبي/i]];
+const EM_KEYS=[["Abu Dhabi",/\bauh\b|abu\s*dhabi|abudhabi|أبو ?ظبي|ابو ?ظبي/i],["Al Ain",/al\s*ain|alain|العين/i],["Sharjah",/\bshj\b|sharjah|الشارقة|الشارقه/i],["Ajman",/ajman|عجمان/i],["Ras Al Khaimah",/ras\s*al\s*khaimah|\brak\b|رأس الخيمة|راس الخيمة|راس الخيمه/i],["Fujairah",/fujair|الفجيرة|الفجيره/i],["Umm Al Quwain",/umm\s*al\s*q|\buaq\b|أم القيوين|ام القيوين/i],["Dubai",/\bdxb\b|dubai|دبي/i]];
 const PROD_CANON=[[/bio\s*-?\s*re\s*-?\s*peel/i,"BioRePeel"],[/cyto\s*care\s*532|cytocare\s*-?\s*532|\b532\b/i,"Cytocare 532"],[/s\s*-?\s*line/i,"Cytocare S Line"],[/retinol/i,"Retinol"],[/\bares\b/i,"ARES"],[/revital/i,"Revital"],[/white\s*code|\bwc\b/i,"White Code"],[/hair\s*care/i,"Hair Care"],[/luminescence/i,"Luminescence"],[/workshop/i,"Workshop"]];
