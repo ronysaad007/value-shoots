@@ -10,6 +10,7 @@ function doPost(e) {
   const d = JSON.parse((e && e.postData && e.postData.contents) || '{}');
   if (d.action && String(d.action).indexOf('hub_') === 0) return out(hubAction(d));
   if (d.type === 'mail') return out(esIngest(d)); // shoot-request emails from the work-account bridge (own key)
+  if (d.type === 'order') return out(orderPost(d)); // public customer order form (Orders.gs)
   const auth = teamOk(d.k); if (auth !== true) return out({ auth: false, locked: auth === 'locked' });
   if (d.type === 'status' || d.type === 'account') return out(acctPost(d));
   if (!d.name || !d.type) return out({ ok: false });
