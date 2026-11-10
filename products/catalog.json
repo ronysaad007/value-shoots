@@ -4287,6 +4287,513 @@
           }
         ]
       }
+    ],
+    "versus": [
+      {
+        "id": "cytocare-532-vs-nctf-135ha",
+        "visible": true,
+        "date": "2026-06",
+        "title": {
+          "en": "CYTOCARE 532 vs NCTF 135HA",
+          "ar": "CYTOCARE 532 مقابل NCTF 135HA"
+        },
+        "subtitle": {
+          "en": "Counteract Fillmed — why CYTOCARE 532 gives more per vial, per session and per dirham.",
+          "ar": "الرد على Fillmed: ليش CYTOCARE 532 بيعطي أكتر بكل فيال وكل جلسة وكل درهم."
+        },
+        "source": {
+          "en": "Revitacare · Counteract Fillmed, June 2026 · internal document, not for external distribution",
+          "ar": "Revitacare · Counteract Fillmed، يونيو 2026 · وثيقة داخلية، ممنوع توزيعها خارجياً"
+        },
+        "ours": {
+          "name": "CYTOCARE 532",
+          "brand": {
+            "en": "Revitacare · France",
+            "ar": "Revitacare · فرنسا"
+          },
+          "product": "cytocare-532",
+          "image": "stock/cytocare-532-owner-vial-hd.webp",
+          "intro": {
+            "en": "Pioneering French laboratory in aesthetic medicine, with over 20 years of expertise in hyaluronic acid–based solutions dedicated to skin quality.",
+            "ar": "مختبر فرنسي رائد بالطب التجميلي، بخبرة أكتر من 20 سنة بحلول الهيالورونيك أسيد لجودة البشرة."
+          }
+        },
+        "theirs": {
+          "name": "NCTF 135HA",
+          "brand": {
+            "en": "Fillmed · France",
+            "ar": "Fillmed · فرنسا"
+          },
+          "image": "stock/compare/nctf-135ha-vial.png",
+          "intro": {
+            "en": "Aesthetic medicine brand with 40 years of expertise in anti-aging medical and cosmeceutical solutions.",
+            "ar": "براند طب تجميلي بخبرة 40 سنة بحلول مكافحة الشيخوخة الطبية والتجميلية."
+          }
+        },
+        "highlights": [
+          {
+            "label": {
+              "en": "Hyaluronic acid",
+              "ar": "تركيز الهيالورونيك أسيد"
+            },
+            "ours": 6.37,
+            "theirs": 5,
+            "unit": "mg/mL",
+            "better": "high",
+            "note": {
+              "en": "Higher HA concentration for enhanced hydration and optimised performance.",
+              "ar": "تركيز هيالورونيك أعلى = ترطيب أقوى وأداء أفضل."
+            }
+          },
+          {
+            "label": {
+              "en": "Key ingredients",
+              "ar": "تركيز المكونات الفعّالة"
+            },
+            "ours": 18.8,
+            "theirs": 9,
+            "unit": "mg/mL",
+            "better": "high",
+            "note": {
+              "en": "More than twice the active concentration per millilitre (CT50 vs NCTF complex).",
+              "ar": "أكتر من ضعف تركيز المكونات الفعّالة بكل مل (CT50 مقابل NCTF)."
+            }
+          },
+          {
+            "label": {
+              "en": "Total volume per box",
+              "ar": "الحجم الكلي بالعلبة"
+            },
+            "ours": 50,
+            "theirs": 15,
+            "unit": "mL",
+            "better": "high",
+            "note": {
+              "en": "10 vials × 5 mL vs 5 vials × 3 mL — over 3× the volume.",
+              "ar": "10 فيالات × 5 مل مقابل 5 × 3 مل: أكتر من 3 أضعاف الحجم."
+            }
+          },
+          {
+            "label": {
+              "en": "Sessions per box",
+              "ar": "عدد الجلسات بالعلبة"
+            },
+            "ours": 10,
+            "theirs": 2.5,
+            "unit": "",
+            "better": "high",
+            "note": {
+              "en": "1 vial per session vs 2 vials per session — one box covers several full protocols; theirs often can’t complete one.",
+              "ar": "فيال وحدة بالجلسة مقابل فيالين: علبتنا بتغطي أكتر من بروتوكول كامل، وعلبتهن غالباً ما بتكفّي بروتوكول واحد."
+            }
+          },
+          {
+            "label": {
+              "en": "Price per mL (French online end-user price)",
+              "ar": "سعر المل (سعر المستهلك أونلاين بفرنسا)"
+            },
+            "ours": 4.66,
+            "theirs": 13.14,
+            "unit": "€",
+            "prefix": true,
+            "better": "low",
+            "note": {
+              "en": "Almost 3× cheaper per mL for the end user.",
+              "ar": "أرخص بحوالي 3 مرات للمل الواحد."
+            }
+          }
+        ],
+        "table": [
+          [
+            {
+              "en": "Packaging",
+              "ar": "التعبئة"
+            },
+            {
+              "en": "10 × 5 mL vials",
+              "ar": "10 فيالات × 5 مل"
+            },
+            {
+              "en": "5 × 3 mL vials · kit with 30G and 32G needles",
+              "ar": "5 فيالات × 3 مل · مع إبر 30G و32G"
+            }
+          ],
+          [
+            {
+              "en": "Total per box",
+              "ar": "الكمية الكلية بالعلبة"
+            },
+            {
+              "en": "50 mL",
+              "ar": "50 مل"
+            },
+            {
+              "en": "15 mL",
+              "ar": "15 مل"
+            }
+          ],
+          [
+            {
+              "en": "HA concentration",
+              "ar": "تركيز الهيالورونيك"
+            },
+            {
+              "en": "6.37 mg/mL",
+              "ar": "6.37 ملغ/مل"
+            },
+            {
+              "en": "5 mg/mL",
+              "ar": "5 ملغ/مل"
+            }
+          ],
+          [
+            {
+              "en": "Key ingredient concentration",
+              "ar": "تركيز المكونات الفعّالة"
+            },
+            {
+              "en": "18.8 mg/mL (CT50)",
+              "ar": "18.8 ملغ/مل (CT50)"
+            },
+            {
+              "en": "9 mg/mL (NCTF)",
+              "ar": "9 ملغ/مل (NCTF)"
+            }
+          ],
+          [
+            {
+              "en": "Indications",
+              "ar": "الاستطبابات"
+            },
+            {
+              "en": "Reduces visible ageing effects on the face linked to age, lifestyle or environment. Improves skin quality (fills fine lines, restores radiance) in advanced skin ageing — superficial and mid-dermis of periorbital and perioral lines, such as vertical lip lines.",
+              "ar": "بيخفف علامات التقدم بالعمر على الوجه المرتبطة بالعمر ونمط الحياة والبيئة. بيحسّن جودة البشرة (بيعبّي الخطوط الدقيقة وبيرجّع النضارة) بالشيخوخة المتقدمة، بالأدمة السطحية والمتوسطة حول العين والفم، متل خطوط الشفة العمودية."
+            },
+            {
+              "en": "Anti-ageing mesotherapy for intense revitalisation and hydration of tired or dull skin, wrinkles and redensification of mature or slack skin. Face (incl. periorbital), neck, décolleté, back of hands, inner arms.",
+              "ar": "ميزوثيرابي لمكافحة الشيخوخة، لتنشيط وترطيب البشرة المتعبة أو الباهتة، والتجاعيد، وشدّ البشرة الناضجة أو المترهلة. الوجه (مع حول العين)، الرقبة، الصدر، ظهر اليدين، وداخل الذراعين."
+            }
+          ],
+          [
+            {
+              "en": "Protocol",
+              "ar": "البروتوكول"
+            },
+            {
+              "en": "3 sessions, max. 3 weeks apart. Optional touch-up 3 months after. Another 3-session protocol + touch-up possible within 12 months, with at least 6 months after the last injection.",
+              "ar": "3 جلسات، الفرق بيناتهن 3 أسابيع كحد أقصى. جلسة تذكيرية بعد 3 أشهر حسب الطبيب. فيه بروتوكول تاني خلال 12 شهر، بشرط 6 أشهر على الأقل بعد آخر حقنة."
+            },
+            {
+              "en": "3 treatments, 3–4 weeks apart. Additional treatments every 3 or 6 months if needed.",
+              "ar": "3 جلسات، كل 3–4 أسابيع. جلسات إضافية كل 3 أو 6 أشهر إذا لزم."
+            }
+          ],
+          [
+            {
+              "en": "Quantity per session",
+              "ar": "الكمية بالجلسة"
+            },
+            {
+              "en": "Max. 1 vial",
+              "ar": "فيال وحدة كحد أقصى"
+            },
+            {
+              "en": "Max. 2 vials",
+              "ar": "فيالين كحد أقصى"
+            }
+          ],
+          [
+            {
+              "en": "Injection depth",
+              "ar": "عمق الحقن"
+            },
+            {
+              "en": "Superficial and mid-dermis",
+              "ar": "الأدمة السطحية والمتوسطة"
+            },
+            {
+              "en": "Epidermis or dermis",
+              "ar": "البشرة أو الأدمة"
+            }
+          ],
+          [
+            {
+              "en": "Needle",
+              "ar": "الإبرة"
+            },
+            {
+              "en": "One 30G needle per injection area",
+              "ar": "إبرة 30G لكل منطقة حقن"
+            },
+            {
+              "en": "30G or 32G needle provided in the kit",
+              "ar": "إبرة 30G أو 32G من الكيت"
+            }
+          ],
+          [
+            {
+              "en": "Price per box / vial (French online, €)",
+              "ar": "سعر العلبة / الفيال (أونلاين بفرنسا، €)"
+            },
+            {
+              "en": "€233.33 per box · €23.30 per vial · €4.66 per mL",
+              "ar": "233.33€ العلبة · 23.30€ الفيال · 4.66€ المل"
+            },
+            {
+              "en": "€197.14 per box · €39.43 per vial · €13.14 per mL",
+              "ar": "197.14€ العلبة · 39.43€ الفيال · 13.14€ المل"
+            }
+          ]
+        ],
+        "ingredients": {
+          "ours": {
+            "name": "CT50 complex",
+            "total": 53,
+            "groups": [
+              [
+                {
+                  "en": "Amino acids",
+                  "ar": "أحماض أمينية"
+                },
+                20
+              ],
+              [
+                {
+                  "en": "Vitamins",
+                  "ar": "فيتامينات"
+                },
+                10
+              ],
+              [
+                {
+                  "en": "Minerals",
+                  "ar": "معادن"
+                },
+                13
+              ],
+              [
+                {
+                  "en": "Nucleic bases",
+                  "ar": "قواعد نووية"
+                },
+                2
+              ],
+              [
+                {
+                  "en": "Energy sources",
+                  "ar": "مصادر طاقة"
+                },
+                2
+              ],
+              [
+                {
+                  "en": "Antioxidant",
+                  "ar": "مضاد أكسدة"
+                },
+                1
+              ],
+              [
+                {
+                  "en": "Others",
+                  "ar": "غيرها"
+                },
+                5
+              ]
+            ]
+          },
+          "theirs": {
+            "name": "NCTF complex",
+            "total": 59,
+            "groups": [
+              [
+                {
+                  "en": "Amino acids",
+                  "ar": "أحماض أمينية"
+                },
+                24
+              ],
+              [
+                {
+                  "en": "Vitamins",
+                  "ar": "فيتامينات"
+                },
+                12
+              ],
+              [
+                {
+                  "en": "Minerals",
+                  "ar": "معادن"
+                },
+                6
+              ],
+              [
+                {
+                  "en": "Nucleic acids",
+                  "ar": "أحماض نووية"
+                },
+                5
+              ],
+              [
+                {
+                  "en": "Coenzymes",
+                  "ar": "مساعدات إنزيمية"
+                },
+                6
+              ],
+              [
+                {
+                  "en": "Others",
+                  "ar": "غيرها"
+                },
+                6
+              ]
+            ]
+          }
+        },
+        "exclusives": [
+          {
+            "name": {
+              "en": "Zinc",
+              "ar": "الزنك"
+            },
+            "text": {
+              "en": "Trace mineral naturally present in human tissue. Antioxidant activity (binds the active centre of antioxidant enzymes to scavenge free radicals) and enzyme cofactor that protects against oxidative damage.",
+              "ar": "معدن نادر موجود طبيعياً بأنسجة الجسم. مضاد أكسدة (بيرتبط بالإنزيمات المضادة للأكسدة لتلتقط الجذور الحرة)، ومساعد إنزيمي بيحمي من الضرر التأكسدي."
+            }
+          },
+          {
+            "name": {
+              "en": "Iron",
+              "ar": "الحديد"
+            },
+            "text": {
+              "en": "Cofactor for proteins and enzymes in energy metabolism, respiration and DNA synthesis — including collagen metabolism via procollagen-proline dioxygenase.",
+              "ar": "مساعد للبروتينات والإنزيمات بتوليد الطاقة والتنفس الخلوي وتصنيع الـ DNA، ومنها استقلاب الكولاجين."
+            }
+          },
+          {
+            "name": {
+              "en": "Lipoic acid",
+              "ar": "حمض الليبويك"
+            },
+            "text": {
+              "en": "Sulfur-containing fatty acid made in the mitochondria. Strong antioxidant that neutralises reactive oxygen species and regenerates other antioxidants such as glutathione and vitamin C.",
+              "ar": "حمض دهني بيتصنّع بالميتوكوندريا. مضاد أكسدة قوي بيعادل الجذور الحرة وبيجدّد مضادات أكسدة تانية متل الغلوتاثيون وفيتامين C."
+            }
+          },
+          {
+            "name": {
+              "en": "Sodium pyruvate",
+              "ar": "بيروفات الصوديوم"
+            },
+            "text": {
+              "en": "Energy source from glycolysis that cells turn into acetyl-CoA. Protects cells from oxidative stress, supports fibroblast activity and may help slow cellular ageing.",
+              "ar": "مصدر طاقة من تحلّل السكر بتحولو الخلايا لـ acetyl-CoA. بيحمي من الإجهاد التأكسدي وبيدعم نشاط الفيبروبلاست وممكن يبطّئ شيخوخة الخلايا."
+            }
+          }
+        ],
+        "clinical": [
+          {
+            "title": {
+              "en": "Study 1 · 64 patients, 31–74 years",
+              "ar": "دراسة 1 · 64 مريض، 31–74 سنة"
+            },
+            "protocol": {
+              "en": "3 injections every 2–3 weeks, periorbital and perioral lines",
+              "ar": "3 حقن كل 2–3 أسابيع، حول العين والفم"
+            },
+            "results": [
+              {
+                "en": "+29.42% fine lines visibility and appearance, 2 weeks after the 3rd injection",
+                "ar": "تحسّن 29.42% بالخطوط الدقيقة، بعد أسبوعين من الحقنة التالتة"
+              },
+              {
+                "en": "+20.4% skin radiance, 2 weeks after the 3rd injection",
+                "ar": "تحسّن 20.4% بنضارة البشرة، بعد أسبوعين من الحقنة التالتة"
+              }
+            ]
+          },
+          {
+            "title": {
+              "en": "Studies 2 & 3 · 22 patients (51–75) and 64 patients (37–60)",
+              "ar": "دراستين 2 و3 · 22 مريض (51–75) و64 مريض (37–60)"
+            },
+            "protocol": {
+              "en": "3 injections every 2–3 weeks, periorbital and perioral lines",
+              "ar": "3 حقن كل 2–3 أسابيع، حول العين والفم"
+            },
+            "results": [
+              {
+                "en": "+16% skin radiance, 5 weeks after the 3rd injection",
+                "ar": "تحسّن 16% بالنضارة، بعد 5 أسابيع من الحقنة التالتة"
+              },
+              {
+                "en": "+17% fine lines visibility, 9 weeks after the 3rd injection",
+                "ar": "تحسّن 17% بالخطوط الدقيقة، بعد 9 أسابيع"
+              },
+              {
+                "en": "+14.1% skin roughness (Sa, profilometry), 9 weeks after",
+                "ar": "تحسّن 14.1% بنعومة البشرة، بعد 9 أسابيع"
+              },
+              {
+                "en": "−15.7% periorbital line depth (fringe projection), 9 weeks after",
+                "ar": "عمق خطوط حول العين نقص 15.7%، بعد 9 أسابيع"
+              },
+              {
+                "en": "+14.7% brightness and complexion, 9 weeks after",
+                "ar": "تحسّن 14.7% بالإشراق ولون البشرة، بعد 9 أسابيع"
+              }
+            ]
+          }
+        ],
+        "theirClaims": {
+          "en": "NCTF 135HA claims (Fillmed studies): +119% glow after 3 sessions; in vitro +256% collagen and +148% fibroblast stimulation; in vivo +54% dermis density and +69% skin tonicity. Know these numbers before the doctor quotes them.",
+          "ar": "ادعاءات NCTF 135HA (دراسات Fillmed): نضارة +119% بعد 3 جلسات؛ مخبرياً +256% كولاجين و+148% فيبروبلاست؛ على البشرة +54% كثافة الأدمة و+69% مرونة. خلّيك عارف هالأرقام قبل ما يحكيها الدكتور."
+        },
+        "takeaways": [
+          {
+            "en": "End-user price per mL is only €4.66 for CYTOCARE 532 vs €13.14 for NCTF 135HA.",
+            "ar": "سعر المل للمستهلك 4.66€ بس لـ CYTOCARE 532 مقابل 13.14€ لـ NCTF 135HA."
+          },
+          {
+            "en": "Higher hyaluronic acid: 6.37 mg/mL vs 5 mg/mL.",
+            "ar": "هيالورونيك أعلى: 6.37 مقابل 5 ملغ/مل."
+          },
+          {
+            "en": "More than twice the key ingredients: 18.8 vs 9 mg/mL.",
+            "ar": "أكتر من ضعف المكونات الفعّالة: 18.8 مقابل 9 ملغ/مل."
+          },
+          {
+            "en": "Zinc, iron, lipoic acid and sodium pyruvate are in CYTOCARE 532 — not in NCTF 135HA.",
+            "ar": "الزنك والحديد وحمض الليبويك وبيروفات الصوديوم موجودين بـ CYTOCARE 532 ومش موجودين بـ NCTF."
+          },
+          {
+            "en": "1 vial per session: one box = 10 sessions vs 2.5 with NCTF.",
+            "ar": "فيال وحدة بالجلسة: العلبة = 10 جلسات مقابل 2.5 مع NCTF."
+          }
+        ],
+        "slides": [
+          "stock/compare/cyto532-vs-nctf-03.webp",
+          "stock/compare/cyto532-vs-nctf-04.webp",
+          "stock/compare/cyto532-vs-nctf-05.webp",
+          "stock/compare/cyto532-vs-nctf-07.webp",
+          "stock/compare/cyto532-vs-nctf-08.webp",
+          "stock/compare/cyto532-vs-nctf-11.webp",
+          "stock/compare/cyto532-vs-nctf-12.webp",
+          "stock/compare/cyto532-vs-nctf-13.webp",
+          "stock/compare/cyto532-vs-nctf-15.webp",
+          "stock/compare/cyto532-vs-nctf-16.webp",
+          "stock/compare/cyto532-vs-nctf-18.webp",
+          "stock/compare/cyto532-vs-nctf-19.webp",
+          "stock/compare/cyto532-vs-nctf-20.webp",
+          "stock/compare/cyto532-vs-nctf-21.webp",
+          "stock/compare/cyto532-vs-nctf-22.webp",
+          "stock/compare/cyto532-vs-nctf-23.webp",
+          "stock/compare/cyto532-vs-nctf-24.webp",
+          "stock/compare/cyto532-vs-nctf-25.webp",
+          "stock/compare/cyto532-vs-nctf-26.webp"
+        ]
+      }
     ]
   },
   "version": 0
