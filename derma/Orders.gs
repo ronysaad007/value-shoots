@@ -4,7 +4,6 @@
 const ORDER_TAB = '🛒 Orders';
 const ORDER_HEAD = ['Order no', 'Received', 'Status', 'Clinic', 'Contact', 'Phone', 'Email', 'Emirate', 'Address',
   'Items', 'Boxes', 'Subtotal (AED)', 'VAT (AED)', 'Total (AED)', 'Notes', 'Order date'];
-const ORDER_NOTIFY = 'rony@value-aesthetic.com';
 const ORDER_PRICES = {
   c532: ['CYTOCARE 532 MD', '10 vials × 5 mL', 1688.2], cs: ['CYTOCARE S LINE MD', '1 syringe × 3 mL', 759.69],
   c715: ['CYTOCARE 715', '5 vials × 5 mL', 2000], c640: ['CYTOCARE 640', '5 vials × 4 mL', 2000],
@@ -61,14 +60,5 @@ function orderPost_(d) {
       lines.map(l => l.boxes ? l.n + ': ' + l.p : l.q + ' × ' + l.n).join('\n'), lines.reduce((a, l) => a + (l.boxes || l.q), 0), sub, vat, tot,
       safe(String(c.notes || '').slice(0, 1000)), s(c.date)]);
   } finally { lock.releaseLock(); }
-  try {
-    const f = n => n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-    MailApp.sendEmail(ORDER_NOTIFY, '🛒 New order ' + no + ' — ' + s(c.clinic) + ' — AED ' + f(tot),
-      [no + ' · ' + s(c.clinic), 'Contact: ' + s(c.person) + ' · ' + s(c.phone) + (c.email ? ' · ' + s(c.email) : ''),
-       'Address: ' + [s(c.addr), s(c.emirate)].filter(String).join(', '), '',
-       lines.map(l => l.boxes ? '• ' + l.n + ' — ' + l.p + ' = AED ' + f(l.t) : '• ' + l.q + ' × ' + l.n + ' (' + l.p + ') = AED ' + f(l.t)).join('\n'), '',
-       'Subtotal AED ' + f(sub) + (vat ? ' · VAT AED ' + f(vat) : '') + ' · TOTAL AED ' + f(tot),
-       c.notes ? '\nNotes: ' + String(c.notes).slice(0, 1000) : ''].join('\n'));
-  } catch (e) {}
   return { ok: true, no: no, sub: sub, vat: vat, tot: tot };
 }
