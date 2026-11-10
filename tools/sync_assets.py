@@ -10,6 +10,8 @@ MAX = 40 * 1024 * 1024          # bigger files: only a light view copy here, dow
 HUGE = 300 * 1024 * 1024
 LIGHT = 4 * 1024 * 1024          # PDFs above this also get a light copy (used for offline + fast viewing)
 BUDGET = 900 * 1024 * 1024      # keep the repo well under GitHub's 1 GB guidance
+MIRROR_ORIGINALS = False         # originals stay on Drive (download/view links go there); only thumbnails + previews are mirrored
+MAKE_LIGHT = False               # no light PDF copies either — keeps the site small so it deploys fast
 SKIP_FOLDER = re.compile(r'product hub uploads', re.I)
 Image.MAX_IMAGE_PIXELS = 200_000_000
 
@@ -42,15 +44,15 @@ def main():
         m = f.get('m', '')
         if not (m.startswith('image/') or m == 'application/pdf'):
             return
-        big = f.get('s', 0) > MAX
+        big = (not MIRROR_ORIGINALS) or f.get('s', 0) > MAX
         if f.get('s', 0) > HUGE or 'photoshop' in m or used + (0 if big else f.get('s', 0)) > BUDGET:
             stats['skipped'] += 1; return
         fid = f['id']; name = safe(f['n'])
         prev = old.get(fid)
         rel = f'f/{fid}/{name}'
-        if prev and prev.get('t') == f.get('t') and prev.get('th') and os.path.exists(os.path.join(OUT, prev['th'])) and (big or prev.get('g') == rel) and not (m == 'application/pdf' and f.get('s', 0) > LIGHT and not prev.get('v') and not prev.get('nv')):
+        if prev and prev.get('t') == f.get('t') and prev.get('th') and os.path.exists(os.path.join(OUT, prev['th'])) and (big or prev.get('g') == rel) and not (MAKE_LIGHT and m == 'application/pdf' and f.get('s', 0) > LIGHT and not prev.get('v') and not prev.get('nv')):
             for k in ('g', 'th', 'pv', 'v', 'nv', 'w', 'h'):
-                if k in prev: f[k] = prev[k]
+                if k in prev and (MIRROR_ORIGINALS or k not in ('g', 'v')): f[k] = prev[k]
             used += 0 if big else f.get('s', 0); keep.add(fid); stats['kept'] += 1; return
         try:
             data, ct = get(f'https://drive.usercontent.google.com/download?id={fid}&export=download&confirm=t')
@@ -66,7 +68,7 @@ def main():
                 with tempfile.TemporaryDirectory() as td:
                     pdf = os.path.join(td, 'a.pdf'); open(pdf, 'wb').write(data)
                     subprocess.run(['pdftoppm', '-f', '1', '-l', '1', '-r', '60', '-png', pdf, os.path.join(td, 'p')], check=True, timeout=120)
-                    if big or len(data) > LIGHT:
+                    if MAKE_LIGHT and (big or len(data) > LIGHT):
                         os.makedirs(os.path.join(OUT, 'f', fid), exist_ok=True)
                         vrel = f'f/{fid}/' + re.sub(r'(?i)\.pdf$', '', name) + ' (light).pdf'
                         subprocess.run(['gs', '-q', '-dNOPAUSE', '-dBATCH', '-dSAFER', '-sDEVICE=pdfwrite', '-dCompatibilityLevel=1.5',
