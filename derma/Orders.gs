@@ -3,7 +3,7 @@
    so a tampered page cannot change what an order costs. Each order gets the next number VO-0001, VO-0002 … */
 const ORDER_TAB = '🛒 Orders';
 const ORDER_HEAD = ['Order no', 'Received', 'Status', 'Clinic', 'Contact', 'Phone', 'Email', 'Emirate', 'Address',
-  'Items', 'Units', 'Subtotal (AED)', 'VAT (AED)', 'Total (AED)', 'Notes', 'Order date'];
+  'Items', 'Boxes', 'Subtotal (AED)', 'VAT (AED)', 'Total (AED)', 'Notes', 'Order date'];
 const ORDER_NOTIFY = 'rony@value-aesthetic.com';
 const ORDER_PRICES = {
   c532: ['CYTOCARE 532 MD', '10 vials × 5 mL', 1688.2], cs: ['CYTOCARE S LINE MD', '1 syringe × 3 mL', 759.69],
@@ -15,8 +15,20 @@ const ORDER_PRICES = {
   lift: ['BIORELIFT CREAM', '30 mL', 350], hydra: ['BIOREHYDRA SERUM', '30 mL', 350],
   ret: ['RETINOL SERUM', '10 vials × 10 mL', 2500]
 };
+// Monthly offers — keep in step with OFFERS in the order page. on:false switches one off.
+// tiers: [buy, free, total AED]; mix: customer splits all boxes between items.
+const ORDER_OFFERS = {
+  o532: { on: true, name: 'CYTOCARE 532', items: ['c532'], tiers: [[3, 1, 5065], [5, 3, 8441], [10, 7, 16882], [20, 17, 33764], [30, 30, 50646]] },
+  ohair: { on: true, name: 'HAIRCARE', items: ['hair'], tiers: [[3, 1, 4588], [5, 3, 7597], [10, 7, 15194], [20, 17, 30388], [30, 30, 45581]] },
+  obrp: { on: true, name: 'BIOREPEEL', items: ['fnd', 'body'], mix: true, tiers: [[4, 0, 7500], [10, 0, 15000], [16, 0, 21000], [20, 0, 25000]] },
+  oret: { on: true, name: 'RETINOL', items: ['ret'], tiers: [[3, 3, 7500], [5, 7, 12500], [6, 14, 15000]] },
+  oares: { on: true, name: 'ARES', items: ['aa', 'ao', 'ak'], mix: true, tiers: [[5, 7, 10000], [8, 14, 16000], [11, 21, 22000]] }
+};
 
 function orderPost(d) {
+  try { return orderPost_(d); } catch (e) { return { ok: false, error: e.message === 'items' ? 'items' : 'error' }; }
+}
+function orderPost_(d) {
   if (d.hp) return { ok: true, no: 'VO-0000' };                       // bot honeypot
   const c = d.c || {}, s = v => safe(String(v == null ? '' : v).trim().slice(0, 300));
   if (!s(c.clinic) || !s(c.person) || !/\d{6,}/.test(String(c.phone || '').replace(/\D/g, ''))) return { ok: false, error: 'details' };
@@ -24,6 +36,14 @@ function orderPost(d) {
   Object.keys(d.q || {}).forEach(id => {
     const p = ORDER_PRICES[id], n = Math.floor(+d.q[id]);
     if (p && n > 0 && n <= 999) lines.push({ n: p[0], p: p[1], u: p[2], q: n, t: Math.round(n * p[2] * 100) / 100 });
+  });
+  (d.offers || []).forEach(x => {
+    const o = ORDER_OFFERS[x && x.id], tr = o && o.on && o.tiers[+x.t]; if (!tr) throw new Error('items');
+    const boxes = tr[0] + tr[1], sp = x.split || {}; let parts;
+    if (o.mix) { parts = o.items.filter(id => +sp[id] > 0).map(id => [id, Math.floor(+sp[id])]);
+      if (parts.reduce((a, p) => a + p[1], 0) !== boxes) throw new Error('items'); }
+    else parts = [[o.items[0], boxes]];
+    lines.push({ n: o.name + ' OFFER ' + (tr[1] ? tr[0] + '+' + tr[1] + ' FREE' : boxes + ' boxes'), p: parts.map(p => p[1] + '× ' + ORDER_PRICES[p[0]][0]).join(' + '), u: tr[2], q: 1, boxes: boxes, t: tr[2] });
   });
   if (!lines.length) return { ok: false, error: 'items' };
   const sub = Math.round(lines.reduce((a, l) => a + l.t, 0) * 100) / 100, vat = d.vat ? Math.round(sub * 5) / 100 : 0, tot = Math.round((sub + vat) * 100) / 100;
@@ -38,7 +58,7 @@ function orderPost(d) {
     const ss = SpreadsheetApp.getActive(); let sh = ss.getSheetByName(ORDER_TAB);
     if (!sh) { sh = ss.insertSheet(ORDER_TAB); sh.appendRow(ORDER_HEAD); sh.setFrozenRows(1); sh.getRange(1, 1, 1, ORDER_HEAD.length).setFontWeight('bold'); }
     sh.appendRow([no, new Date(), 'New', s(c.clinic), s(c.person), s(c.phone), s(c.email), s(c.emirate), s(c.addr),
-      lines.map(l => l.q + ' × ' + l.n).join('\n'), lines.reduce((a, l) => a + l.q, 0), sub, vat, tot,
+      lines.map(l => l.boxes ? l.n + ': ' + l.p : l.q + ' × ' + l.n).join('\n'), lines.reduce((a, l) => a + (l.boxes || l.q), 0), sub, vat, tot,
       safe(String(c.notes || '').slice(0, 1000)), s(c.date)]);
   } finally { lock.releaseLock(); }
   try {
@@ -46,7 +66,7 @@ function orderPost(d) {
     MailApp.sendEmail(ORDER_NOTIFY, '🛒 New order ' + no + ' — ' + s(c.clinic) + ' — AED ' + f(tot),
       [no + ' · ' + s(c.clinic), 'Contact: ' + s(c.person) + ' · ' + s(c.phone) + (c.email ? ' · ' + s(c.email) : ''),
        'Address: ' + [s(c.addr), s(c.emirate)].filter(String).join(', '), '',
-       lines.map(l => '• ' + l.q + ' × ' + l.n + ' (' + l.p + ') = AED ' + f(l.t)).join('\n'), '',
+       lines.map(l => l.boxes ? '• ' + l.n + ' — ' + l.p + ' = AED ' + f(l.t) : '• ' + l.q + ' × ' + l.n + ' (' + l.p + ') = AED ' + f(l.t)).join('\n'), '',
        'Subtotal AED ' + f(sub) + (vat ? ' · VAT AED ' + f(vat) : '') + ' · TOTAL AED ' + f(tot),
        c.notes ? '\nNotes: ' + String(c.notes).slice(0, 1000) : ''].join('\n'));
   } catch (e) {}
